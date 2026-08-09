@@ -225,7 +225,7 @@ export default function Home() {
           {/* ── Couverture tome 1 — fondue directement dans le hero ── */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/illustrations/leo-et-le-voleur-d-ombres/cover.png"
+            src="https://olexgwicxunynysiwugp.supabase.co/storage/v1/object/public/illustrations/leo-et-le-voleur-d-ombres/cover.png"
             alt=""
             aria-hidden="true"
             className="hidden lg:block"
@@ -251,7 +251,7 @@ export default function Home() {
           {/* ── Couverture tome 5 — fondue directement dans le hero ── */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/illustrations/leo-et-le-voleur-de-reves/cover.png"
+            src="https://olexgwicxunynysiwugp.supabase.co/storage/v1/object/public/illustrations/leo-et-le-voleur-de-reves/cover.png"
             alt=""
             aria-hidden="true"
             className="hidden lg:block"

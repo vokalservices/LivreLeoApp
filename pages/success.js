@@ -325,7 +325,7 @@ export default function Success() {
           setBook({
             id: productId,
             title: isCombo ? 'Pack Combo FR + EN — 12 Livres' : 'Pack Intégral — Les 6 Aventures de Léo',
-            imageUrl: '/illustrations/leo-et-le-voleur-d-ombres/cover.png',
+            imageUrl: 'https://olexgwicxunynysiwugp.supabase.co/storage/v1/object/public/illustrations/leo-et-le-voleur-d-ombres/cover.png',
           });
         } else {
           // Tome individuel
