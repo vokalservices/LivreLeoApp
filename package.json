@@ -1,0 +1,32 @@
+{
+  "name": "book-store-next",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "prisma": "prisma"
+  },
+  "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@prisma/client": "^5.22.0",
+    "@supabase/supabase-js": "^2.112.2",
+    "@tailwindcss/postcss": "^4.3.3",
+    "adm-zip": "0.6.0",
+    "archiver": "8.0.0",
+    "autoprefixer": "latest",
+    "axios": "^1.19.0",
+    "bcryptjs": "latest",
+    "jsonwebtoken": "latest",
+    "next": "latest",
+    "nodemailer": "^9.0.3",
+    "postcss": "latest",
+    "prisma": "^5.22.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "recharts": "^3.10.1",
+    "stripe": "^22.4.0",
+    "tailwindcss": "latest"
+  }
+}

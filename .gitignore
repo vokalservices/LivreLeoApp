@@ -1,0 +1,20 @@
+# Ignore tout
+*
+# Sauf les dossiers de code
+!lib/
+!pages/
+!styles/
+!components/
+# Sauf les fichiers de config
+!.gitignore
+!package.json
+!package-lock.json
+!next.config.js
+!tailwind.config.js
+!public/
+# Autoriser les sous-dossiers et fichiers à l'intérieur
+!**/
+!**/*.js
+!**/*.jsx
+!**/*.css
+!**/*.json
