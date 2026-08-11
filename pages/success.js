@@ -2,37 +2,33 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-const SUPABASE_URL = 'https://olexgwicxunynysiwugp.supabase.co/storage/v1/object/public/books';
-
-// Définition des fichiers de pack sur Supabase (avec parties si > 50 MB)
-const PACK_FILES = {
-  'pack-fr': {
-    pdf:   [
-      { label: 'PDF Partie 1/2', url: `${SUPABASE_URL}/packs/pack-fr-pdf-part1.zip` },
-      { label: 'PDF Partie 2/2', url: `${SUPABASE_URL}/packs/pack-fr-pdf-part2.zip` },
-    ],
-    epub:  [{ label: 'EPUB (6 livres)', url: `${SUPABASE_URL}/packs/pack-fr-epub.zip` }],
-    audio: [{ label: 'Audio (6 livres)', url: `${SUPABASE_URL}/packs/pack-fr-audio.zip` }],
-  },
-  'pack-combo': {
-    pdf:   [
-      { label: 'PDF Partie 1/3', url: `${SUPABASE_URL}/packs/pack-combo-pdf-part1.zip` },
-      { label: 'PDF Partie 2/3', url: `${SUPABASE_URL}/packs/pack-combo-pdf-part2.zip` },
-      { label: 'PDF Partie 3/3', url: `${SUPABASE_URL}/packs/pack-combo-pdf-part3.zip` },
-    ],
-    epub:  [
-      { label: 'EPUB Partie 1/2', url: `${SUPABASE_URL}/packs/pack-combo-epub-part1.zip` },
-      { label: 'EPUB Partie 2/2', url: `${SUPABASE_URL}/packs/pack-combo-epub-part2.zip` },
-    ],
-    audio: [{ label: 'Audio (12 livres)', url: `${SUPABASE_URL}/packs/pack-combo-audio.zip` }],
-  },
-};
-
 // ── Boutons de téléchargement pack avec gestion des parties ────────────────
-function PackDownloadButtons({ isCombo }) {
-  const key   = isCombo ? 'pack-combo' : 'pack-fr';
-  const pack  = PACK_FILES[key];
+function PackDownloadButtons({ isCombo, email, productId }) {
   const count = isCombo ? '12' : '6';
+
+  // Générer les URLs via /api/download pour le fallback
+  const enc = encodeURIComponent(email || '');
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
+  const packFiles = {
+    pdf: isCombo
+      ? [
+          { label: 'PDF Partie 1/3', url: `${baseUrl}/api/download?productId=${productId}&format=pdf&email=${enc}&part=1` },
+          { label: 'PDF Partie 2/3', url: `${baseUrl}/api/download?productId=${productId}&format=pdf&email=${enc}&part=2` },
+          { label: 'PDF Partie 3/3', url: `${baseUrl}/api/download?productId=${productId}&format=pdf&email=${enc}&part=3` },
+        ]
+      : [
+          { label: 'PDF Partie 1/2', url: `${baseUrl}/api/download?productId=${productId}&format=pdf&email=${enc}&part=1` },
+          { label: 'PDF Partie 2/2', url: `${baseUrl}/api/download?productId=${productId}&format=pdf&email=${enc}&part=2` },
+        ],
+    epub: isCombo
+      ? [
+          { label: 'EPUB Partie 1/2', url: `${baseUrl}/api/download?productId=${productId}&format=epub&email=${enc}&part=1` },
+          { label: 'EPUB Partie 2/2', url: `${baseUrl}/api/download?productId=${productId}&format=epub&email=${enc}&part=2` },
+        ]
+      : [{ label: 'EPUB (6 livres)', url: `${baseUrl}/api/download?productId=${productId}&format=epub&email=${enc}` }],
+    audio: [{ label: isCombo ? 'Audio (12 livres)' : 'Audio (6 livres)', url: `${baseUrl}/api/download?productId=${productId}&format=audio&email=${enc}` }],
+  };
 
   const btnBase = 'inline-flex items-center justify-center gap-2 font-bold px-5 py-2.5 rounded-2xl shadow-md transition active:scale-95 text-sm';
 
@@ -421,8 +417,8 @@ export default function Success() {
               Cliquez sur <strong>Lire</strong> pour ouvrir le lecteur, ou téléchargez en <strong>PDF</strong> / <strong>EPUB</strong>.
             </p>
 
-            {/* ── Boutons Tout télécharger → Supabase Storage ── */}
-            <PackDownloadButtons isCombo={isCombo} />
+            {/* ── Boutons Tout télécharger → API download avec fallback ── */}
+            <PackDownloadButtons isCombo={isCombo} email={email} productId={productId} />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
               {packBooks.map(product => (

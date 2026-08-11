@@ -15,6 +15,7 @@ export default async function handler(req, res) {
 
   try {
     const isPackOrCombo = productId === 'pack' || productId === 'combo';
+    const { part } = req.query;
 
     // ── Pack / Combo : redirection vers ZIP Supabase ──────────────────────────
     if (isPackOrCombo) {
@@ -22,12 +23,25 @@ export default async function handler(req, res) {
       let zipUrl = null;
 
       if (isCombo) {
-        if (format === 'pdf')   zipUrl = `${SUPABASE_URL}/packs/pack-combo-pdf.zip`;
-        if (format === 'epub')  zipUrl = `${SUPABASE_URL}/packs/pack-combo-epub.zip`;
+        if (format === 'pdf') {
+          if (part === '1') zipUrl = `${SUPABASE_URL}/packs/pack-combo-pdf-part1.zip`;
+          if (part === '2') zipUrl = `${SUPABASE_URL}/packs/pack-combo-pdf-part2.zip`;
+          if (part === '3') zipUrl = `${SUPABASE_URL}/packs/pack-combo-pdf-part3.zip`;
+          if (!part) zipUrl = `${SUPABASE_URL}/packs/pack-combo-pdf.zip`;
+        }
+        if (format === 'epub') {
+          if (part === '1') zipUrl = `${SUPABASE_URL}/packs/pack-combo-epub-part1.zip`;
+          if (part === '2') zipUrl = `${SUPABASE_URL}/packs/pack-combo-epub-part2.zip`;
+          if (!part) zipUrl = `${SUPABASE_URL}/packs/pack-combo-epub.zip`;
+        }
         if (format === 'audio') zipUrl = `${SUPABASE_URL}/packs/pack-combo-audio.zip`;
       } else {
-        if (format === 'pdf')   zipUrl = `${SUPABASE_URL}/packs/pack-fr-pdf.zip`;
-        if (format === 'epub')  zipUrl = `${SUPABASE_URL}/packs/pack-fr-epub.zip`;
+        if (format === 'pdf') {
+          if (part === '1') zipUrl = `${SUPABASE_URL}/packs/pack-fr-pdf-part1.zip`;
+          if (part === '2') zipUrl = `${SUPABASE_URL}/packs/pack-fr-pdf-part2.zip`;
+          if (!part) zipUrl = `${SUPABASE_URL}/packs/pack-fr-pdf.zip`;
+        }
+        if (format === 'epub') zipUrl = `${SUPABASE_URL}/packs/pack-fr-epub.zip`;
         if (format === 'audio') zipUrl = `${SUPABASE_URL}/packs/pack-fr-audio.zip`;
       }
 

@@ -5,7 +5,6 @@
 !pages/
 !styles/
 !components/
-!prisma/
 # Sauf les fichiers de config
 !.gitignore
 !package.json
