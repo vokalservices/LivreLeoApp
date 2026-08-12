@@ -49,9 +49,9 @@ function PackDownloadButtons({ isCombo, email, productId }) {
 
   return (
     <div className="flex flex-col gap-5 mb-8">
-      {renderGroup('📄', 'PDF',   'bg-indigo-600 hover:bg-indigo-700 text-white',   pack.pdf)}
-      {renderGroup('📱', 'EPUB',  'bg-slate-700 hover:bg-slate-800 text-white',     pack.epub)}
-      {renderGroup('🎙️', 'Audio', 'bg-amber-500 hover:bg-amber-600 text-white',    pack.audio)}
+      {renderGroup('📄', 'PDF',   'bg-indigo-600 hover:bg-indigo-700 text-white',   packFiles.pdf)}
+      {renderGroup('📱', 'EPUB',  'bg-slate-700 hover:bg-slate-800 text-white',     packFiles.epub)}
+      {renderGroup('🎙️', 'Audio', 'bg-amber-500 hover:bg-amber-600 text-white',    packFiles.audio)}
     </div>
   );
 }
