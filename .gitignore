@@ -11,6 +11,8 @@
 !package-lock.json
 !next.config.js
 !tailwind.config.js
+!postcss.config.js
+!vercel.json
 !public/
 # Autoriser les sous-dossiers et fichiers à l'intérieur
 !**/
@@ -18,3 +20,5 @@
 !**/*.jsx
 !**/*.css
 !**/*.json
+.vercel
+.env*
