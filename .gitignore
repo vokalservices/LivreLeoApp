@@ -1,11 +1,15 @@
-# Ignore tout
+# Ignore tout par défaut
 *
-# Sauf les dossiers de code
+
+# Sauf les dossiers de code et ressources web
 !lib/
 !pages/
 !styles/
 !components/
-# Sauf les fichiers de config
+!prisma/
+!public/
+
+# Sauf les fichiers de configuration
 !.gitignore
 !package.json
 !package-lock.json
@@ -13,12 +17,25 @@
 !tailwind.config.js
 !postcss.config.js
 !vercel.json
-!public/
+
 # Autoriser les sous-dossiers et fichiers à l'intérieur
 !**/
 !**/*.js
 !**/*.jsx
+!**/*.ts
+!**/*.tsx
 !**/*.css
 !**/*.json
+!**/*.prisma
+!**/*.png
+!**/*.jpg
+!**/*.jpeg
+!**/*.svg
+!**/*.ico
+!**/*.webp
+
+# Toujours ignorer
 .vercel
+.next
 .env*
+node_modules

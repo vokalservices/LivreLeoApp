@@ -25,16 +25,23 @@ export default async function handler(req, res) {
 
   try {
     const where = email ? { email: { contains: email } } : {};
-    const orders = await prisma.order.findMany({
-      where,
-      orderBy: { createdAt: 'desc' },
-      skip,
-      take,
-      include: { product: true },
-    });
-    const totalCount = await prisma.order.count({ where });
-    res.json({ orders, totalCount });
+    const fetchPromise = Promise.all([
+      prisma.order.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take,
+        include: { product: true },
+      }),
+      prisma.order.count({ where }),
+    ]);
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('DB Timeout')), 1200)
+    );
+    const [orders, totalCount] = await Promise.race([fetchPromise, timeoutPromise]);
+    res.json({ orders, totalCount, dbConnected: true });
   } catch (error) {
-    res.status(500).json({ error: error.message || 'Server error' });
+    console.warn('[orders_paginated] DB non disponible (' + error.message + '), fallback liste vide.');
+    res.json({ orders: [], totalCount: 0, dbConnected: false });
   }
 }

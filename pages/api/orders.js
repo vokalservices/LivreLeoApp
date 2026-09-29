@@ -1,6 +1,23 @@
-import prisma from '../../lib/prisma';
 import jwt from 'jsonwebtoken';
 import { sendOrderConfirmation } from '../../lib/mailer';
+
+// Import dynamique de Prisma — silencieux en cas d'échec
+async function getPrismaClient() {
+  try {
+    const mod = await import('../../lib/prisma');
+    return mod.default;
+  } catch {
+    return null;
+  }
+}
+
+// Helper: exécuter une requête Prisma avec timeout
+async function withTimeout(fn, ms = 2000) {
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`DB Timeout (${ms}ms)`)), ms)
+  );
+  return Promise.race([fn(), timeoutPromise]);
+}
 
 const JWT_SECRET = process.env.NEXTAUTH_SECRET || 'change_this_secret';
 
@@ -22,10 +39,15 @@ export default async function handler(req, res) {
     if (!authenticate(req, res)) return;
 
     try {
-      const allOrders = await prisma.order.findMany({
-        include: { product: true },
-        orderBy: { createdAt: 'asc' },
-      });
+      const prisma = await getPrismaClient();
+      if (!prisma) throw new Error('Prisma client unavailable');
+
+      const allOrders = await withTimeout(() =>
+        prisma.order.findMany({
+          include: { product: true },
+          orderBy: { createdAt: 'asc' },
+        })
+      , 2000);
 
       // ── KPIs de base ─────────────────────────────────────────────────────
       const totalSales   = allOrders.length;
@@ -128,9 +150,35 @@ export default async function handler(req, res) {
         hourly,
         recentOrders,
         allOrders: allOrdersSorted,
+        dbConnected: true,
       });
     } catch (error) {
-      res.status(500).json({ error: error.message || 'Erreur serveur' });
+      console.warn('[orders] DB non disponible (' + error.message + '), fallback mode secours.');
+      const now = new Date();
+      const monthlyTrend = [];
+      for (let i = 11; i >= 0; i--) {
+        const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        monthlyTrend.push({ label: d.toLocaleDateString('fr-FR', { month: 'short', year: '2-digit' }), count: 0, revenue: 0 });
+      }
+      const dailyTrend = [];
+      for (let i = 29; i >= 0; i--) {
+        const d = new Date(); d.setDate(d.getDate() - i); d.setHours(0,0,0,0);
+        dailyTrend.push({ label: d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' }), count: 0, revenue: 0 });
+      }
+      return res.status(200).json({
+        totalSales: 0,
+        totalRevenue: 0,
+        avgOrder: 0,
+        bestsellers: [],
+        byLang: { fr: { count: 0, revenue: 0 }, en: { count: 0, revenue: 0 }, other: { count: 0, revenue: 0 } },
+        monthlyTrend,
+        dailyTrend,
+        geoStats: [],
+        hourly: Array.from({ length: 24 }, (_, h) => ({ hour: h, count: 0 })),
+        recentOrders: [],
+        allOrders: [],
+        dbConnected: false,
+      });
     }
 
   } else if (req.method === 'POST') {
@@ -163,6 +211,9 @@ export default async function handler(req, res) {
     }
 
     try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.status(503).json({ error: 'Database unavailable' });
+
       const order = await prisma.order.create({
         data: {
           productId:   Number(productId) || 1,

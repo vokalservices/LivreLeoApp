@@ -1,11 +1,10 @@
-// Sitemap dynamique — généré à partir des produits en base
-import prisma from '../lib/prisma';
+import { getLocalProducts } from '../lib/productsData';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://fuseecarton.com';
 
 function generateSitemap(products) {
   const staticPages = ['', '/pack'];
-  const productPages = products.map(p => `/books/${p.id}`);
+  const productPages = (products || []).map(p => `/books/${p.id}`);
   const allPages = [...staticPages, ...productPages];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -21,7 +20,27 @@ ${allPages.map(path => `  <url>
 export default function Sitemap() { return null; }
 
 export async function getServerSideProps({ res }) {
-  const products = await prisma.product.findMany({ select: { id: true } });
+  let products = [];
+  try {
+    const mod = await import('../lib/prisma');
+    const prisma = mod.default;
+    if (prisma) {
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), 1000)
+      );
+      products = await Promise.race([
+        prisma.product.findMany({ select: { id: true } }),
+        timeoutPromise
+      ]);
+    }
+  } catch (e) {
+    products = [];
+  }
+
+  if (!products || products.length === 0) {
+    products = getLocalProducts().map(p => ({ id: p.id }));
+  }
+
   const sitemap = generateSitemap(products);
 
   res.setHeader('Content-Type', 'application/xml');
@@ -31,3 +50,4 @@ export async function getServerSideProps({ res }) {
 
   return { props: {} };
 }
+

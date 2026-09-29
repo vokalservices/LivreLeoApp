@@ -117,8 +117,8 @@ export default function BookDetail() {
 
         // Extraction des pages pour le lecteur
         if (found.metadata) {
-          const parsed = JSON.parse(found.metadata);
-          if (parsed.pages) {
+          const parsed = typeof found.metadata === 'string' ? JSON.parse(found.metadata) : found.metadata;
+          if (parsed && parsed.pages) {
             setPages(parsed.pages);
           }
         }

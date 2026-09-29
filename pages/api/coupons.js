@@ -1,6 +1,24 @@
-import prisma from '../../lib/prisma';
 import jwt from 'jsonwebtoken';
 import { validateCoupon } from '../../lib/coupon-validator';
+
+// Import dynamique de Prisma — silencieux en cas d'échec
+async function getPrismaClient() {
+  try {
+    const mod = await import('../../lib/prisma');
+    return mod.default;
+  } catch {
+    return null;
+  }
+}
+
+// Helper: exécuter une requête Prisma avec timeout
+async function withTimeout(fn, ms = 2000) {
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`DB Timeout (${ms}ms)`)), ms)
+  );
+  return Promise.race([fn(), timeoutPromise]);
+}
+
 
 const JWT_SECRET = process.env.NEXTAUTH_SECRET || 'change_this_secret';
 
@@ -46,8 +64,15 @@ export default async function handler(req, res) {
   // ── GET admin : liste tous les coupons ───────────────────────────────────
   if (req.method === 'GET') {
     if (!authenticate(req, res)) return;
-    const coupons = await prisma.coupon.findMany({ orderBy: { createdAt: 'desc' } });
-    return res.json(coupons);
+    try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.json([]);
+      const coupons = await withTimeout(() => prisma.coupon.findMany({ orderBy: { createdAt: 'desc' } }));
+      return res.json(coupons);
+    } catch (err) {
+      console.warn('[coupons] DB non disponible:', err.message);
+      return res.json([]);
+    }
   }
 
   // ── POST admin : créer un coupon ─────────────────────────────────────────
@@ -61,6 +86,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'type doit être "percent" ou "fixed".' });
     }
     try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.status(503).json({ error: 'Base de données non disponible.' });
       const coupon = await prisma.coupon.create({
         data: {
           code: code.toUpperCase().trim(),
@@ -85,6 +112,8 @@ export default async function handler(req, res) {
     const { id, ...data } = req.body;
     if (!id) return res.status(400).json({ error: 'id requis.' });
     try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.status(503).json({ error: 'Base de données non disponible.' });
       const updated = await prisma.coupon.update({
         where: { id: Number(id) },
         data: {
@@ -110,6 +139,8 @@ export default async function handler(req, res) {
     const { id } = req.body;
     if (!id) return res.status(400).json({ error: 'id requis.' });
     try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.status(503).json({ error: 'Base de données non disponible.' });
       await prisma.coupon.delete({ where: { id: Number(id) } });
       return res.json({ ok: true });
     } catch (err) {

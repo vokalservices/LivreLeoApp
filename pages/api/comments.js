@@ -1,5 +1,21 @@
-import prisma from '../../lib/prisma';
 import jwt from 'jsonwebtoken';
+
+// Import dynamique de Prisma — silencieux en cas d'échec
+async function getPrismaClient() {
+  try {
+    const mod = await import('../../lib/prisma');
+    return mod.default;
+  } catch {
+    return null;
+  }
+}
+
+async function withTimeout(fn, ms = 2000) {
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`DB Timeout (${ms}ms)`)), ms)
+  );
+  return Promise.race([fn(), timeoutPromise]);
+}
 
 const JWT_SECRET = process.env.NEXTAUTH_SECRET || 'change_this_secret';
 
@@ -25,6 +41,8 @@ export default async function handler(req, res) {
     }
     const ratingNum = Math.min(5, Math.max(1, Number(rating) || 5));
     try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.status(503).json({ error: 'Base de données non disponible.' });
       const comment = await prisma.comment.create({
         data: {
           productId: Number(productId),
@@ -50,13 +68,18 @@ export default async function handler(req, res) {
     if (admin === '1') {
       if (!authenticate(req, res)) return;
       try {
-        const comments = await prisma.comment.findMany({
+        const fetchPromise = prisma.comment.findMany({
           orderBy: { createdAt: 'desc' },
           include: { product: { select: { id: true, title: true } } },
         });
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('DB Timeout')), 1200)
+        );
+        const comments = await Promise.race([fetchPromise, timeoutPromise]);
         return res.json(comments);
       } catch (err) {
-        return res.status(500).json({ error: err.message });
+        console.warn('[comments] DB non disponible (' + err.message + '), fallback liste vide.');
+        return res.json([]);
       }
     }
 
@@ -65,14 +88,19 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'productId requis.' });
     }
     try {
-      const comments = await prisma.comment.findMany({
+      const fetchPromise = prisma.comment.findMany({
         where: { productId: Number(productId), status: 'approved' },
         orderBy: { createdAt: 'desc' },
         select: { id: true, author: true, body: true, rating: true, createdAt: true },
       });
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('DB Timeout')), 1200)
+      );
+      const comments = await Promise.race([fetchPromise, timeoutPromise]);
       return res.json(comments);
     } catch (err) {
-      return res.status(500).json({ error: err.message });
+      console.warn('[comments] DB non disponible (' + err.message + '), fallback liste vide.');
+      return res.json([]);
     }
   }
 
@@ -84,6 +112,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'id et status valide requis.' });
     }
     try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.status(503).json({ error: 'Base de données non disponible.' });
       const updated = await prisma.comment.update({
         where: { id: Number(id) },
         data: { status },
@@ -100,6 +130,8 @@ export default async function handler(req, res) {
     const { id } = req.body;
     if (!id) return res.status(400).json({ error: 'id requis.' });
     try {
+      const prisma = await getPrismaClient();
+      if (!prisma) return res.status(503).json({ error: 'Base de données non disponible.' });
       await prisma.comment.delete({ where: { id: Number(id) } });
       return res.json({ ok: true });
     } catch (err) {
