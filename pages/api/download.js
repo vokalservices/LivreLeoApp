@@ -1,10 +1,9 @@
 import prisma from '../../lib/prisma';
 import { getLocalProducts } from '../../lib/productsData';
 
-const DOWNLOADS_BASE = '/downloads';
-const SUPABASE_URL = process.env.SUPABASE_URL 
+const SUPABASE_STORAGE_BOOKS = process.env.SUPABASE_URL 
   ? `${process.env.SUPABASE_URL.replace(/\/$/, '')}/storage/v1/object/public/books` 
-  : 'https://olexgwicxunynysiwugp.supabase.co/storage/v1/object/public/books';
+  : 'https://wreswtwnlrwcbmzyioky.supabase.co/storage/v1/object/public/books';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -21,32 +20,32 @@ export default async function handler(req, res) {
     const isPackOrCombo = productId === 'pack' || productId === 'combo';
     const { part } = req.query;
 
-    // ── Pack / Combo : redirection vers ZIP local ─────────────────────────────
+    // ── Pack / Combo : redirection vers ZIP Supabase Storage ─────────────────────────────
     if (isPackOrCombo) {
       const isCombo = productId === 'combo';
       let zipUrl = null;
 
       if (isCombo) {
         if (format === 'pdf') {
-          if (part === '1') zipUrl = `${DOWNLOADS_BASE}/pack-combo-pdf-part1.zip`;
-          if (part === '2') zipUrl = `${DOWNLOADS_BASE}/pack-combo-pdf-part2.zip`;
-          if (part === '3') zipUrl = `${DOWNLOADS_BASE}/pack-combo-pdf-part3.zip`;
-          if (!part) zipUrl = `${DOWNLOADS_BASE}/pack-combo-pdf-part1.zip`;
+          if (part === '1') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-pdf-part1.zip`;
+          if (part === '2') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-pdf-part2.zip`;
+          if (part === '3') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-pdf-part3.zip`;
+          if (!part) zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-pdf-part1.zip`;
         }
         if (format === 'epub') {
-          if (part === '1') zipUrl = `${DOWNLOADS_BASE}/pack-combo-epub-part1.zip`;
-          if (part === '2') zipUrl = `${DOWNLOADS_BASE}/pack-combo-epub-part2.zip`;
-          if (!part) zipUrl = `${DOWNLOADS_BASE}/pack-combo-epub-part1.zip`;
+          if (part === '1') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-epub-part1.zip`;
+          if (part === '2') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-epub-part2.zip`;
+          if (!part) zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-epub-part1.zip`;
         }
-        if (format === 'audio') zipUrl = `${DOWNLOADS_BASE}/pack-combo-epub-part1.zip`;
+        if (format === 'audio') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-audio.zip`;
       } else {
         if (format === 'pdf') {
-          if (part === '1') zipUrl = `${DOWNLOADS_BASE}/pack-fr-pdf-part1.zip`;
-          if (part === '2') zipUrl = `${DOWNLOADS_BASE}/pack-fr-pdf-part2.zip`;
-          if (!part) zipUrl = `${DOWNLOADS_BASE}/pack-fr-pdf-part1.zip`;
+          if (part === '1') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-fr-pdf-part1.zip`;
+          if (part === '2') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-fr-pdf-part2.zip`;
+          if (!part) zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-fr-pdf-part1.zip`;
         }
-        if (format === 'epub') zipUrl = `${DOWNLOADS_BASE}/pack-combo-epub-part1.zip`;
-        if (format === 'audio') zipUrl = `${DOWNLOADS_BASE}/audio-fr-leo-et-le-voleur-d-ombres.zip`;
+        if (format === 'epub') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-combo-epub-part1.zip`;
+        if (format === 'audio') zipUrl = `${SUPABASE_STORAGE_BOOKS}/packs/pack-fr-audio.zip`;
       }
 
       if (!zipUrl) return res.status(400).json({ error: `Format ${format} non supporté.` });
@@ -83,7 +82,7 @@ export default async function handler(req, res) {
 
     const meta = JSON.parse(product.metadata || '{}');
 
-    // ── Audio : ZIP local ─────────────────────────────────────────────────────
+    // ── Audio : ZIP Supabase ──────────────────────────────────────────────────
     if (format === 'audio') {
       const imageUrl = product.imageUrl || '';
       const isEn = product.lang === 'en';
@@ -93,7 +92,7 @@ export default async function handler(req, res) {
       if (!slug) return res.status(404).json({ error: 'Audio introuvable.' });
 
       const prefix = isEn ? 'en' : 'fr';
-      const zipUrl = `${DOWNLOADS_BASE}/audio-${prefix}-${slug}.zip`;
+      const zipUrl = `${SUPABASE_STORAGE_BOOKS}/audio/audio-${prefix}-${slug}.zip`;
       return res.redirect(302, zipUrl);
     }
 
@@ -112,8 +111,8 @@ export default async function handler(req, res) {
       if (!slug) return res.status(404).json({ error: `Fichier ${format} introuvable.` });
 
       const langFolder = isEn ? 'en' : 'fr';
-      if (format === 'pdf')  fileUrl = `${SUPABASE_URL}/${langFolder}/${slug}/${slug}.pdf`;
-      if (format === 'epub') fileUrl = `${SUPABASE_URL}/${langFolder}/${slug}/${slug}.epub`;
+      if (format === 'pdf')  fileUrl = `${SUPABASE_STORAGE_BOOKS}/${langFolder}/${slug}/${slug}.pdf`;
+      if (format === 'epub') fileUrl = `${SUPABASE_STORAGE_BOOKS}/${langFolder}/${slug}/${slug}.epub`;
     }
 
     if (!fileUrl) return res.status(404).json({ error: `Format ${format} non disponible.` });
