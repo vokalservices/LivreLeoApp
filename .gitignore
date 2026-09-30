@@ -33,6 +33,7 @@
 !**/*.svg
 !**/*.ico
 !**/*.webp
+!**/*.mp4
 
 # Toujours ignorer
 .vercel
