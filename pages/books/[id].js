@@ -511,8 +511,8 @@ export default function BookDetail() {
               className="flex items-center gap-3 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 rounded-2xl p-3.5 mb-5 transition group">
               <span className="text-xl">🎁</span>
               <div className="flex-1 min-w-0">
-                <div className="text-xs font-bold text-indigo-700">Pack 6 livres à −50 %</div>
-                <div className="text-xs text-indigo-500 truncate">Obtenez toute la collection pour {eur(14.99)}</div>
+                <div className="text-xs font-bold text-indigo-700">Pack 6 livres à −45 %</div>
+                <div className="text-xs text-indigo-500 truncate">Obtenez toute la collection pour {eur(16.49)}</div>
               </div>
               <svg className="w-4 h-4 text-indigo-400 group-hover:text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />

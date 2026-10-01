@@ -7,8 +7,8 @@ import { t, eur } from '../lib/translations';
 
 // ── Constantes de prix (EUR) ────────────────────────────────────────────────
 const UNIT_PRICE   = 4.99;
-const PACK_PRICE   = 14.99;   // FR ou EN seul
-const COMBO_PRICE  = 22.99;   // FR + EN
+const PACK_PRICE   = 16.49;   // FR ou EN seul
+const COMBO_PRICE  = 30.99;   // FR + EN
 const NORMAL_PACK  = +(UNIT_PRICE * 6).toFixed(2);       // 29.94
 const NORMAL_COMBO = +(UNIT_PRICE * 12).toFixed(2);      // 59.88
 const TOTAL_BOOKS  = 6;
@@ -67,7 +67,7 @@ function PricingGrid({ lang }) {
           <div className="text-[10px] text-indigo-300 font-bold uppercase tracking-wider">{tr.price_fr_label}</div>
           <div className="text-xl font-extrabold text-white">{eur(PACK_PRICE)}</div>
           <div className="text-[10px] text-indigo-300 line-through">{eur(NORMAL_PACK)}</div>
-          <div className="text-[10px] text-emerald-400 font-bold">−50 %</div>
+          <div className="text-[10px] text-emerald-400 font-bold">−45 %</div>
         </div>
 
         {/* Pack EN */}
@@ -75,7 +75,7 @@ function PricingGrid({ lang }) {
           <div className="text-[10px] text-indigo-300 font-bold uppercase tracking-wider">{tr.price_en_label}</div>
           <div className="text-xl font-extrabold text-white">{eur(PACK_PRICE)}</div>
           <div className="text-[10px] text-indigo-300 line-through">{eur(NORMAL_PACK)}</div>
-          <div className="text-[10px] text-emerald-400 font-bold">−50 %</div>
+          <div className="text-[10px] text-emerald-400 font-bold">−45 %</div>
         </div>
 
         {/* Combo FR+EN */}

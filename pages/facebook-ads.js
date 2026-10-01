@@ -958,7 +958,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Garantie 30 jours Satisfait ou Remboursé',
                       ]}
                       cta="🎁 Obtenir le Pack 6 Tomes FR (16.49€)"
-                      ctaLink="/"
+                      ctaLink="/pack"
                     />
 
                     <PricingCard
@@ -976,7 +976,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Accès illimité à vie',
                       ]}
                       cta="Découvrir le Combo 12 Livres"
-                      ctaLink="/"
+                      ctaLink="/pack?combo=1"
                     />
                   </>
                 )}
@@ -997,7 +997,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Téléchargement immédiat',
                       ]}
                       cta="Pack FR Seul — 16.49€"
-                      ctaLink="/"
+                      ctaLink="/pack"
                     />
 
                     <PricingCard
@@ -1018,7 +1018,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Accès à vie sur tous vos appareils',
                       ]}
                       cta="🌍 Obtenir les 12 Livres (30.99€)"
-                      ctaLink="/"
+                      ctaLink="/pack?combo=1"
                     />
 
                     <PricingCard
@@ -1035,7 +1035,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Instant download',
                       ]}
                       cta="English Pack — 16.49€"
-                      ctaLink="/"
+                      ctaLink="/pack"
                     />
                   </>
                 )}
@@ -1073,7 +1073,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Lifetime access, all devices',
                       ]}
                       cta="🎁 Get the 6-Book Pack (16.49€)"
-                      ctaLink="/"
+                      ctaLink="/pack"
                     />
 
                     <PricingCard
@@ -1090,7 +1090,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Instant access',
                       ]}
                       cta="Get 12 Books Combo"
-                      ctaLink="/"
+                      ctaLink="/pack?combo=1"
                     />
                   </>
                 )}

@@ -6,8 +6,8 @@ import { t, eur } from '../lib/translations';
 import PayPalButton from '../components/PayPalButton';
 
 const UNIT_PRICE   = 4.99;
-const PACK_PRICE   = 14.99;
-const COMBO_PRICE  = 22.99;
+const PACK_PRICE   = 16.49;
+const COMBO_PRICE  = 30.99;
 const NORMAL_PACK  = +(4.99 * 6).toFixed(2);   // 29.94
 const NORMAL_COMBO = +(4.99 * 12).toFixed(2);  // 59.88
 
@@ -141,8 +141,8 @@ export default function Pack() {
                 ? 'bg-violet-400/20 border border-violet-300/40 text-violet-200'
                 : 'bg-yellow-400/20 border border-yellow-300/40 text-yellow-200'}`}>
               ✦ {lang === 'fr'
-                ? (isCombo ? 'Offre Bilingue · Économisez 48 %' : 'Offre Exclusive · Économisez 50 %')
-                : (isCombo ? 'Bilingual Offer · Save 48 %'       : 'Exclusive Offer · Save 50 %')}
+                ? (isCombo ? 'Offre Bilingue · Économisez 48 %' : 'Offre Exclusive · Économisez 45 %')
+                : (isCombo ? 'Bilingual Offer · Save 48 %'       : 'Exclusive Offer · Save 45 %')}
             </div>
 
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
