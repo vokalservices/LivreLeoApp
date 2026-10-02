@@ -33,7 +33,7 @@ async function getAccessToken() {
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { book, isCombo, isPack } = req.body;
+  const { book, isCombo, isPack, paymentMethod = 'paypal' } = req.body;
   if (book?.price === undefined || book?.price === null || !book?.title) {
     return res.status(400).json({ error: 'Missing book info' });
   }
@@ -82,7 +82,7 @@ export default async function handler(req, res) {
           paypal: {
             experience_context: {
               brand_name:          'Fusée Carton',
-              landing_page:        'NO_PREFERENCE',
+              landing_page:        paymentMethod === 'card' ? 'GUEST_CHECKOUT' : 'NO_PREFERENCE',
               user_action:         'PAY_NOW',
               return_url:          returnUrl,
               cancel_url:          cancelUrl,
@@ -106,8 +106,13 @@ export default async function handler(req, res) {
     }
 
     const order      = await orderRes.json();
-    const approveUrl = order.links?.find(l => l.rel === 'payer-action')?.href
-                    || order.links?.find(l => l.rel === 'approve')?.href;
+    let approveUrl = order.links?.find(l => l.rel === 'payer-action')?.href
+                  || order.links?.find(l => l.rel === 'approve')?.href;
+
+    if (approveUrl && paymentMethod === 'card') {
+      const sep = approveUrl.includes('?') ? '&' : '?';
+      approveUrl = `${approveUrl}${sep}fundingSource=card`;
+    }
 
     res.status(200).json({ orderId: order.id, approveUrl });
   } catch (err) {

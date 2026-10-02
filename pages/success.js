@@ -348,6 +348,18 @@ export default function Success() {
           });
           if (r.ok) setSuccess(true);
           else { setSuccess(true); } // afficher quand même
+
+          // Déclencher l'événement standard Purchase pour le Pixel Meta
+          if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+            window.fbq('track', 'Purchase', {
+              value: Number(amount) || 16.49,
+              currency: 'EUR',
+              content_name: isSpecialPack(productId)
+                ? (isCombo ? 'Pack Combo FR+EN 12 Livres' : 'Pack 6 Livres')
+                : 'Livre Léo',
+              content_type: 'product',
+            });
+          }
         }
       } catch (err) {
         console.error(err);
