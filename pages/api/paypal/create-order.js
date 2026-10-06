@@ -7,7 +7,17 @@ const PAYPAL_API = (process.env.PAYPAL_ENV === 'production' || process.env.PAYPA
   ? 'https://api-m.paypal.com'
   : 'https://api-m.sandbox.paypal.com';
 
+// Cache mémoire du token d'accès PayPal (valable 9h)
+let cachedToken = null;
+let tokenExpiresAt = 0;
+
 async function getAccessToken() {
+  const now = Date.now();
+  // Réutiliser le token en cache s'il est encore valide au moins 2 minutes
+  if (cachedToken && tokenExpiresAt > now + 120000) {
+    return cachedToken;
+  }
+
   const clientId     = process.env.PAYPAL_CLIENT_ID;
   const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
   const credentials  = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
@@ -27,10 +37,22 @@ async function getAccessToken() {
   }
 
   const data = await res.json();
-  return data.access_token;
+  cachedToken = data.access_token;
+  tokenExpiresAt = now + ((data.expires_in || 3600) * 1000);
+  return cachedToken;
 }
 
 export default async function handler(req, res) {
+  // Support warmup GET pour préchauffer le token PayPal en tâche de fond dès l'affichage de la page
+  if (req.method === 'GET') {
+    try {
+      await getAccessToken();
+      return res.status(200).json({ ok: true, warmed: true });
+    } catch (e) {
+      return res.status(500).json({ ok: false, error: e.message });
+    }
+  }
+
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const { book, isCombo, isPack, paymentMethod = 'paypal' } = req.body;
@@ -46,17 +68,21 @@ export default async function handler(req, res) {
   const amountEur = Number(book.price).toFixed(2);
 
   const origin = req.headers.origin || `http://${req.headers.host}`;
+  const referer = req.headers.referer || '';
+  const isFbAds = referer.includes('facebook-ads');
 
   // PayPal ajoute automatiquement ?token=XXX&PayerID=XXX à l'URL de retour
   const returnUrl = isCombo
     ? `${origin}/success?productId=combo&amount=${book.price}&provider=paypal`
     : `${origin}/success?productId=${book.id}&amount=${book.price}&provider=paypal`;
 
-  const cancelUrl = isCombo
-    ? `${origin}/pack?combo=1`
-    : isPack
-      ? `${origin}/pack`
-      : `${origin}/books/${book.id}`;
+  const cancelUrl = isFbAds
+    ? `${origin}/facebook-ads#pricing`
+    : (isCombo
+      ? `${origin}/pack?combo=1`
+      : isPack
+        ? `${origin}/pack`
+        : `${origin}/books/${book.id}`);
 
   try {
     const accessToken = await getAccessToken();

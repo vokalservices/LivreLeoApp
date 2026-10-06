@@ -34,6 +34,7 @@
 !**/*.ico
 !**/*.webp
 !**/*.mp4
+!**/*.mp3
 
 # Toujours ignorer
 .vercel

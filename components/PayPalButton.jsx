@@ -4,7 +4,7 @@
  * - Option 1 : Payer par Carte Bancaire (Visa, Mastercard, CB) direct sans compte via PayPal Guest Checkout
  * - Option 2 : Payer avec son compte PayPal
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function PayPalButton({
   book,
@@ -14,13 +14,29 @@ export default function PayPalButton({
   className = '',
 }) {
   const [loadingMethod, setLoadingMethod] = useState(null); // 'card' | 'paypal' | null
+  const [loadingStep, setLoadingStep] = useState(''); // text message
   const [error, setError] = useState('');
 
   const isEn = lang === 'en';
 
+  // Préchauffer le token PayPal en tâche de fond dès le chargement du composant
+  useEffect(() => {
+    try {
+      fetch('/api/paypal/create-order').catch(() => {});
+    } catch {}
+  }, []);
+
   async function handlePayment(method) {
+    if (loadingMethod) return;
     setLoadingMethod(method);
+    setLoadingStep(isEn ? 'Securing checkout…' : 'Connexion sécurisée…');
     setError('');
+
+    // Timer d'information pour rassurer le parent si le réseau est lent
+    const slowTimer = setTimeout(() => {
+      setLoadingStep(isEn ? 'Connecting to payment gateway…' : 'Connexion à la passerelle…');
+    }, 1500);
+
     try {
       const res = await fetch('/api/paypal/create-order', {
         method: 'POST',
@@ -33,16 +49,21 @@ export default function PayPalButton({
         }),
       });
 
+      clearTimeout(slowTimer);
+
       const data = await res.json();
       if (data.approveUrl) {
+        setLoadingStep(isEn ? 'Redirecting to payment…' : 'Redirection en cours…');
+        // Ne PAS réinitialiser loadingMethod afin d'éviter le double-clic pendant la redirection
         window.location.href = data.approveUrl;
       } else {
+        setLoadingMethod(null);
         setError(data.error || (isEn ? 'Payment initialization error' : 'Erreur lors de l’initialisation'));
       }
     } catch {
-      setError(isEn ? 'Connection error' : 'Erreur de connexion, veuillez réessayer');
-    } finally {
+      clearTimeout(slowTimer);
       setLoadingMethod(null);
+      setError(isEn ? 'Connection error' : 'Erreur de connexion, veuillez réessayer');
     }
   }
 
@@ -55,13 +76,13 @@ export default function PayPalButton({
         type="button"
         onClick={() => handlePayment('card')}
         disabled={isBusy}
-        className="group relative inline-flex items-center justify-between gap-3 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 hover:from-slate-800 hover:to-slate-700 active:scale-[0.98] disabled:opacity-60 text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 border border-slate-700/60"
+        className="group relative inline-flex items-center justify-between gap-3 bg-gradient-to-r from-[#2d2444] via-[#3d3159] to-[#2d2444] hover:from-[#3d3159] hover:to-[#4d3e70] active:scale-[0.98] disabled:opacity-75 text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-[#6b588e]/40"
       >
         <div className="flex items-center gap-3">
           {loadingMethod === 'card' ? (
             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin shrink-0" />
           ) : (
-            <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-white/10 text-emerald-400 shrink-0">
+            <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-white/10 text-emerald-300 shrink-0">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
               </svg>
@@ -70,10 +91,10 @@ export default function PayPalButton({
           <div className="text-left">
             <span className="block text-sm sm:text-base font-extrabold leading-tight tracking-wide">
               {loadingMethod === 'card'
-                ? (isEn ? 'Securing checkout…' : 'Redirection sécurisée…')
+                ? loadingStep
                 : (isEn ? 'Pay with Credit Card' : 'Payer par Carte Bancaire')}
             </span>
-            <span className="block text-[11px] text-slate-300/80 font-normal">
+            <span className="block text-[11px] text-purple-200/80 font-normal">
               {isEn ? 'Visa, Mastercard, CB · No account needed' : 'CB, Visa, Mastercard · Sans compte requis'}
             </span>
           </div>
@@ -122,7 +143,7 @@ export default function PayPalButton({
         )}
         <span className="text-sm sm:text-base">
           {loadingMethod === 'paypal'
-            ? (isEn ? 'Redirecting…' : 'Redirection PayPal…')
+            ? loadingStep
             : (isEn ? 'Pay with PayPal' : 'Payer avec PayPal')}
         </span>
       </button>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import PayPalButton from '../components/PayPalButton';
 
 // ============================================================
-// COMPOSANT : Compte à rebours animé (urgence psychologique)
+// COMPOSANT : Compte à rebours (style doux)
 // ============================================================
 function CountdownTimer({ hours = 11, minutes = 47, seconds = 33 }) {
   const [time, setTime] = useState({ h: hours, m: minutes, s: seconds });
@@ -29,22 +30,32 @@ function CountdownTimer({ hours = 11, minutes = 47, seconds = 33 }) {
   const pad = (n) => String(n).padStart(2, '0');
 
   return (
-    <div className="flex items-center gap-1.5 sm:gap-2 justify-center">
+    <div className="flex items-center gap-1.5 justify-center">
       {[
-        { val: time.h, label: 'Heures' },
-        { val: time.m, label: 'Min' },
-        { val: time.s, label: 'Sec' },
+        { val: time.h, label: 'h' },
+        { val: time.m, label: 'min' },
+        { val: time.s, label: 'sec' },
       ].map((unit, i) => (
         <React.Fragment key={i}>
-          <div className="flex flex-col items-center">
-            <span className="text-xl sm:text-2xl md:text-3xl font-black text-amber-400 tabular-nums drop-shadow-md">
+          <div className="flex items-center gap-0.5">
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'rgba(255,255,255,0.25)',
+              borderRadius: '8px',
+              padding: '2px 7px',
+              fontWeight: 800,
+              fontSize: '15px',
+              color: '#4a3560',
+              fontVariantNumeric: 'tabular-nums',
+              minWidth: '32px',
+            }}>
               {pad(unit.val)}
             </span>
-            <span className="text-[8px] sm:text-[9px] uppercase tracking-wider text-amber-200/80 font-bold">
-              {unit.label}
-            </span>
+            <span style={{ fontSize: '10px', color: '#6b5e80', fontWeight: 700 }}>{unit.label}</span>
           </div>
-          {i < 2 && <span className="text-lg sm:text-xl text-amber-400/80 font-black animate-pulse">:</span>}
+          {i < 2 && <span style={{ color: '#8b7ea0', fontWeight: 800, fontSize: '14px' }}>:</span>}
         </React.Fragment>
       ))}
     </div>
@@ -52,7 +63,7 @@ function CountdownTimer({ hours = 11, minutes = 47, seconds = 33 }) {
 }
 
 // ============================================================
-// COMPOSANT : Lecteur Audio Interactif Studio (Conversion Booster)
+// COMPOSANT : Lecteur Audio (Adapté style chaleureux)
 // ============================================================
 function InteractiveAudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -136,7 +147,15 @@ function InteractiveAudioPlayer() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-indigo-950/70 to-slate-950 border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-indigo-950/40 relative overflow-hidden">
+    <div style={{
+      background: 'linear-gradient(135deg, #f3eef8 0%, #e8e0f0 50%, #f0eaf6 100%)',
+      border: '1px solid #d8c8e8',
+      borderRadius: '24px',
+      padding: '24px 28px',
+      boxShadow: '0 8px 32px rgba(120,90,160,0.08)',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
       <audio
         ref={audioRef}
         src={tracks[activeTrack].src}
@@ -144,76 +163,145 @@ function InteractiveAudioPlayer() {
         onEnded={() => setIsPlaying(false)}
       />
 
-      <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Decoration */}
+      <div style={{
+        position: 'absolute',
+        top: '-30px',
+        right: '-30px',
+        width: '120px',
+        height: '120px',
+        background: 'radial-gradient(circle, rgba(167,139,199,0.15) 0%, transparent 70%)',
+        borderRadius: '50%',
+        pointerEvents: 'none',
+      }} />
 
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-        {/* Colonne gauche : infos du titre & contrôle */}
-        <div className="flex items-center gap-5 w-full md:w-auto">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative', zIndex: 1 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
           <button
             onClick={togglePlay}
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-amber-400 via-amber-500 to-orange-500 text-slate-950 flex items-center justify-center text-2xl sm:text-3xl font-black shadow-xl shadow-amber-500/30 hover:scale-105 active:scale-95 transition-all flex-shrink-0"
+            style={{
+              width: '56px',
+              height: '56px',
+              borderRadius: '16px',
+              background: 'linear-gradient(135deg, #7c5caa 0%, #9b7cc8 100%)',
+              color: '#fff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '22px',
+              fontWeight: 900,
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0 4px 14px rgba(124,92,170,0.3)',
+              transition: 'transform 0.15s',
+              flexShrink: 0,
+            }}
             aria-label={isPlaying ? 'Pause' : 'Lecture'}
           >
             {isPlaying ? '⏸' : '▶'}
           </button>
 
-          <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-400/15 text-amber-300 border border-amber-400/30">
-              <span className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-emerald-400 animate-ping' : 'bg-amber-400'}`} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '2px 10px',
+              borderRadius: '20px',
+              fontSize: '10px',
+              fontWeight: 800,
+              background: 'rgba(124,92,170,0.12)',
+              color: '#7c5caa',
+              border: '1px solid rgba(124,92,170,0.2)',
+            }}>
+              <span style={{
+                width: '6px',
+                height: '6px',
+                borderRadius: '50%',
+                background: isPlaying ? '#60c090' : '#a088c0',
+              }} />
               {tracks[activeTrack].lang} • QUALITÉ STUDIO
             </div>
-            <h4 className="text-base sm:text-lg font-black text-white leading-tight">
+            <h4 style={{ margin: '4px 0 0', fontSize: '15px', fontWeight: 800, color: '#2d2444' }}>
               {tracks[activeTrack].title}
             </h4>
-            <p className="text-xs text-slate-400">{tracks[activeTrack].sub}</p>
+            <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#8b7ea0' }}>{tracks[activeTrack].sub}</p>
           </div>
         </div>
 
-        {/* Colonne droite : Sélecteur d'extraits */}
-        <div className="flex flex-wrap gap-2 w-full md:w-auto justify-start md:justify-end">
+        {/* Track selection */}
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           {tracks.map((t, i) => (
             <button
               key={i}
               onClick={() => selectTrack(i)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                activeTrack === i
-                  ? 'bg-amber-400 text-slate-950 shadow-md shadow-amber-500/20'
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700/80 border border-slate-700/50'
-              }`}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '12px',
+                fontSize: '12px',
+                fontWeight: 700,
+                border: activeTrack === i ? '2px solid #7c5caa' : '1px solid #ccc0d8',
+                background: activeTrack === i ? '#7c5caa' : '#fff',
+                color: activeTrack === i ? '#fff' : '#5a4878',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+              }}
             >
               {t.lang} Tome {i + 1}
             </button>
           ))}
         </div>
-      </div>
 
-      {/* Barre de progression & Waveform animée */}
-      <div className="mt-6 pt-4 border-t border-slate-800/80 relative z-10">
-        <div
-          onClick={handleSeek}
-          className="w-full h-3 bg-slate-800/80 rounded-full overflow-hidden cursor-pointer relative group"
-        >
+        {/* Progress bar */}
+        <div style={{ paddingTop: '12px', borderTop: '1px solid rgba(140,120,170,0.15)' }}>
           <div
-            className="h-full bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500 rounded-full transition-all duration-150"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-
-        <div className="flex justify-between items-center text-[11px] text-slate-400 font-mono mt-2">
-          <span>{currentTime}</span>
-          <div className="flex items-center gap-1">
-            {[6, 12, 18, 10, 16, 22, 14, 20, 8, 18, 14, 10].map((h, i) => (
-              <span
-                key={i}
-                className={`w-1 rounded-full ${isPlaying ? 'bg-amber-400 animate-pulse' : 'bg-slate-700'}`}
-                style={{
-                  height: `${h}px`,
-                  animationDelay: `${i * 80}ms`,
-                }}
-              />
-            ))}
+            onClick={handleSeek}
+            style={{
+              width: '100%',
+              height: '8px',
+              background: '#ddd0e8',
+              borderRadius: '10px',
+              overflow: 'hidden',
+              cursor: 'pointer',
+            }}
+          >
+            <div
+              style={{
+                height: '100%',
+                background: 'linear-gradient(90deg, #7c5caa 0%, #a88dd0 100%)',
+                borderRadius: '10px',
+                transition: 'width 0.15s',
+                width: `${progress}%`,
+              }}
+            />
           </div>
-          <span>{duration !== '0:00' ? duration : tracks[activeTrack].durationApprox}</span>
+
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            fontSize: '11px',
+            color: '#8b7ea0',
+            fontFamily: 'monospace',
+            marginTop: '6px',
+          }}>
+            <span>{currentTime}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+              {[6, 12, 18, 10, 16, 22, 14, 20, 8, 18, 14, 10].map((h, i) => (
+                <span
+                  key={i}
+                  style={{
+                    width: '3px',
+                    borderRadius: '2px',
+                    height: `${h}px`,
+                    background: isPlaying ? '#7c5caa' : '#c8b8d8',
+                    transition: 'background 0.3s',
+                  }}
+                />
+              ))}
+            </div>
+            <span>{duration !== '0:00' ? duration : tracks[activeTrack].durationApprox}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -221,106 +309,146 @@ function InteractiveAudioPlayer() {
 }
 
 // ============================================================
-// COMPOSANT : Étoiles et avis
+// COMPOSANT : Étoiles
 // ============================================================
 function AnimatedStars({ rating = 5, count = 250 }) {
   return (
-    <div className="flex items-center gap-1.5">
-      <div className="flex gap-0.5 text-amber-400 text-base">
+    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+      <div style={{ display: 'flex', gap: '2px', color: '#e8a838', fontSize: '16px' }}>
         {'★'.repeat(rating)}
       </div>
-      <span className="text-xs font-bold text-amber-300">{rating}.0/5</span>
-      <span className="text-[11px] text-slate-400">({count}+ avis vérifiés)</span>
+      <span style={{ fontSize: '12px', fontWeight: 700, color: '#c48820' }}>{rating}.0/5</span>
+      <span style={{ fontSize: '11px', color: '#8b7ea0' }}>({count}+ avis vérifiés)</span>
     </div>
   );
 }
 
 // ============================================================
-// COMPOSANT : Carte d'Offre (Pricing)
+// COMPOSANT : Carte d'Offre (Pricing) avec PayPal intégré
 // ============================================================
-function PricingCard({ featured, title, badge, originalPrice, salePrice, discount, features, cta, ctaLink, icon }) {
+function PricingCard({ featured, title, badge, originalPrice, salePrice, discount, features, icon, bookId, isPack, isCombo }) {
   return (
     <div
-      className={`relative rounded-3xl border p-6 sm:p-8 flex flex-col transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl ${
-        featured
-          ? 'bg-gradient-to-b from-amber-950/30 via-slate-900 to-indigo-950/40 border-amber-400/60 shadow-xl shadow-amber-500/10 ring-1 ring-amber-400/30'
-          : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
-      }`}
+      style={{
+        position: 'relative',
+        borderRadius: '24px',
+        border: featured ? '2px solid #9b7cc8' : '1px solid #e0d4ee',
+        padding: '28px 24px',
+        display: 'flex',
+        flexDirection: 'column',
+        transition: 'all 0.3s',
+        background: featured
+          ? 'linear-gradient(180deg, #f5eeff 0%, #ffffff 60%, #f8f3ff 100%)'
+          : '#ffffff',
+        boxShadow: featured
+          ? '0 12px 40px rgba(124,92,170,0.12), 0 0 0 1px rgba(155,124,200,0.2)'
+          : '0 4px 16px rgba(0,0,0,0.04)',
+      }}
     >
       {featured && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-950 text-[11px] font-black rounded-full shadow-lg shadow-amber-500/30 uppercase tracking-wider whitespace-nowrap">
-          ⚡ Choix N°1 des Parents — {discount}
+        <div style={{
+          position: 'absolute',
+          top: '-14px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          padding: '5px 16px',
+          background: 'linear-gradient(90deg, #7c5caa 0%, #9b7cc8 100%)',
+          color: '#fff',
+          fontSize: '11px',
+          fontWeight: 900,
+          borderRadius: '20px',
+          boxShadow: '0 4px 12px rgba(124,92,170,0.3)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px',
+          whiteSpace: 'nowrap',
+        }}>
+          ✨ Choix N°1 des Parents — {discount}
         </div>
       )}
 
-      <div className="text-center space-y-2 mb-6 pt-1">
-        <span className="text-4xl">{icon}</span>
-        <h3 className="text-xl sm:text-2xl font-black text-white">{title}</h3>
+      <div style={{ textAlign: 'center', marginBottom: '16px', paddingTop: featured ? '8px' : '0' }}>
+        <span style={{ fontSize: '36px' }}>{icon}</span>
+        <h3 style={{ fontSize: '20px', fontWeight: 900, color: '#2d2444', margin: '8px 0 4px' }}>{title}</h3>
         {badge && (
-          <span className={`inline-block px-3 py-1 rounded-full text-[11px] font-bold ${
-            featured ? 'bg-amber-400/20 text-amber-300 border border-amber-400/40' : 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/40'
-          }`}>
+          <span style={{
+            display: 'inline-block',
+            padding: '4px 12px',
+            borderRadius: '20px',
+            fontSize: '11px',
+            fontWeight: 700,
+            background: featured ? 'rgba(124,92,170,0.1)' : 'rgba(100,140,200,0.1)',
+            color: featured ? '#7c5caa' : '#5a80b0',
+            border: featured ? '1px solid rgba(124,92,170,0.25)' : '1px solid rgba(100,140,200,0.25)',
+          }}>
             {badge}
           </span>
         )}
       </div>
 
-      <div className="text-center mb-6">
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         {originalPrice && (
-          <span className="text-base text-slate-500 line-through font-medium mr-2">{originalPrice}€</span>
+          <span style={{ fontSize: '16px', color: '#a098b0', textDecoration: 'line-through', marginRight: '8px' }}>
+            {originalPrice}€
+          </span>
         )}
-        <span className={`text-4xl sm:text-5xl font-black ${featured ? 'text-amber-400' : 'text-white'}`}>
+        <span style={{
+          fontSize: '42px',
+          fontWeight: 900,
+          color: featured ? '#7c5caa' : '#2d2444',
+        }}>
           {salePrice}€
         </span>
-        <p className="text-xs text-slate-400 mt-1">Accès à vie • Téléchargement immédiat par email</p>
+        <p style={{ fontSize: '12px', color: '#8b7ea0', marginTop: '4px' }}>
+          Accès à vie • Téléchargement immédiat par email
+        </p>
       </div>
 
-      <ul className="space-y-3 mb-8 flex-grow">
+      <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', flex: 1 }}>
         {features.map((f, i) => (
-          <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
-            <span className="text-emerald-400 font-bold mt-0.5">✓</span>
+          <li key={i} style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '10px',
+            fontSize: '13px',
+            color: '#3d3458',
+            marginBottom: '10px',
+            lineHeight: 1.5,
+          }}>
+            <span style={{ color: '#60c090', fontWeight: 700, marginTop: '2px', flexShrink: 0 }}>✓</span>
             <span>{f}</span>
           </li>
         ))}
       </ul>
 
-      <Link
-        href={ctaLink || '/'}
-        className={`block text-center py-4 px-6 rounded-2xl font-black text-sm transition-all transform active:scale-95 shadow-lg ${
-          featured
-            ? 'bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 shadow-amber-500/30'
-            : 'bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white shadow-indigo-600/30'
-        }`}
-      >
-        {cta}
-      </Link>
+      {/* Direct Payment — plus de redirection lente */}
+      {(isPack || isCombo) ? (
+        <PayPalButton
+          book={{ id: isCombo ? 'combo' : 'pack', title: title, price: parseFloat(salePrice) }}
+          isPack={!!isPack}
+          isCombo={!!isCombo}
+          className="w-full"
+        />
+      ) : (
+        <PayPalButton
+          book={{ id: bookId || 1, title: title, price: parseFloat(salePrice) }}
+          className="w-full"
+        />
+      )}
     </div>
   );
 }
 
 // ============================================================
-// PAGE PRINCIPALE : Landing Page Bestseller & Hub Campagnes
+// PAGE PRINCIPALE : Landing Page Parents (couleurs douces)
 // ============================================================
 export default function FacebookAdsPage() {
-  const [currentMode, setCurrentMode] = useState('landing'); // 'landing' | 'swipefile'
+  const [currentMode, setCurrentMode] = useState('landing');
   const [activeOffer, setActiveOffer] = useState('fr');
   const [selectedAngle, setSelectedAngle] = useState(0);
   const [selectedScript, setSelectedScript] = useState(0);
   const [copiedId, setCopiedId] = useState(null);
   const [showFloatingCta, setShowFloatingCta] = useState(false);
-  const [liveViewers, setLiveViewers] = useState(247);
   const [recentBuyer, setRecentBuyer] = useState(null);
-
-  // Fluctuations spectateurs en direct
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLiveViewers((prev) => {
-        const delta = Math.floor(Math.random() * 9) - 4;
-        return Math.max(190, Math.min(340, prev + delta));
-      });
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
 
   // CTA flottant après défilement
   useEffect(() => {
@@ -582,13 +710,32 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
   const currentAngleData = marketingAngles[selectedAngle];
   const currentScriptData = videoScripts[selectedScript];
 
+  // ============================================================
+  // STYLES PRINCIPAUX — palette douce parent-friendly
+  // ============================================================
+  const pageBg = '#faf7f5';
+  const sectionAltBg = '#f3eef8';
+  const textPrimary = '#2d2444';
+  const textSecondary = '#5a4878';
+  const textMuted = '#8b7ea0';
+  const accentPurple = '#7c5caa';
+  const accentSoft = '#9b7cc8';
+  const accentWarm = '#e8a838';
+  const successGreen = '#60c090';
+
   return (
-    <div className="min-h-screen bg-[#070A14] text-slate-100 font-sans selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden">
+    <div style={{
+      minHeight: '100vh',
+      background: pageBg,
+      color: textPrimary,
+      fontFamily: "'Plus Jakarta Sans', 'Segoe UI', sans-serif",
+      overflowX: 'hidden',
+    }}>
       <Head>
-        <title>Pack Campagnes Meta Ads Bestseller — Les Aventures de Léo</title>
+        <title>Les Aventures de Léo — Coffret 6 Tomes pour des soirées sereines</title>
         <meta
           name="description"
-          content="Hub stratégique et Landing Page Haute Performance pour les campagnes publicitaires Facebook et Instagram de la saga Les Aventures de Léo."
+          content="Offrez à votre enfant des soirées apaisées avec Les Aventures de Léo : 6 livres audio et ebooks illustrés. Pack à -45% avec téléchargement immédiat."
         />
         <meta property="og:title" content="Offre Spéciale — Les Aventures de Léo (Pack 6 Tomes)" />
         <meta property="og:image" content="/ads/fb_ad_screen_vs_leo.png" />
@@ -603,150 +750,268 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
       {/* ================================================== */}
       {/* BARRE DE SWITCH : MODE CLIENT vs MODE ANNONCEUR */}
       {/* ================================================== */}
-      <div className="sticky top-0 z-50 bg-[#0A0E1F]/95 backdrop-blur-xl border-b border-amber-500/20 py-2.5 px-4 shadow-xl">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs font-bold text-white tracking-wide">
-              CAMPAGNES META ADS 2026 • BESTSELLER SUITE
+      <div style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        background: 'rgba(255,255,255,0.92)',
+        backdropFilter: 'blur(16px)',
+        borderBottom: '1px solid #e8ddf0',
+        padding: '10px 16px',
+        boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '18px' }}>🌙</span>
+            <span style={{ fontSize: '13px', fontWeight: 800, color: textPrimary, letterSpacing: '0.3px' }}>
+              Les Aventures de Léo
             </span>
           </div>
 
           {/* Toggle Button Mode */}
-          <div className="flex items-center bg-slate-900/90 border border-slate-700/80 rounded-2xl p-1 gap-1">
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            background: '#f3eef8',
+            border: '1px solid #e0d4ee',
+            borderRadius: '14px',
+            padding: '3px',
+            gap: '3px',
+          }}>
             <button
               onClick={() => setCurrentMode('landing')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
-                currentMode === 'landing'
-                  ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-md shadow-amber-500/30'
-                  : 'text-slate-400 hover:text-white'
-              }`}
+              style={{
+                padding: '7px 14px',
+                borderRadius: '11px',
+                fontSize: '12px',
+                fontWeight: 800,
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                background: currentMode === 'landing' ? accentPurple : 'transparent',
+                color: currentMode === 'landing' ? '#fff' : textMuted,
+              }}
             >
-              🚀 Landing Page (Vue Client)
+              🌟 Boutique
             </button>
             <button
               onClick={() => setCurrentMode('swipefile')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
-                currentMode === 'swipefile'
-                  ? 'bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-md shadow-indigo-500/30'
-                  : 'text-slate-400 hover:text-white'
-              }`}
+              style={{
+                padding: '7px 14px',
+                borderRadius: '11px',
+                fontSize: '12px',
+                fontWeight: 800,
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                background: currentMode === 'swipefile' ? accentPurple : 'transparent',
+                color: currentMode === 'swipefile' ? '#fff' : textMuted,
+              }}
             >
-              🎯 Kit Annonceur & Swipe File
+              🎯 Kit Annonceur
             </button>
           </div>
 
-          <div className="hidden md:flex items-center gap-3 text-xs text-slate-400">
-            <span className="text-amber-400 font-bold">16.49€ (-45%)</span>
-            <span>•</span>
-            <span>{liveViewers} visiteurs chauds</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: textMuted }}>
+            <span style={{ color: accentPurple, fontWeight: 800 }}>16.49€ (-45%)</span>
           </div>
         </div>
       </div>
 
       {/* ================================================== */}
-      {/* VUE 1 : LANDING PAGE CLIENT HAUTE CONVERSION */}
+      {/* VUE 1 : LANDING PAGE CLIENT */}
       {/* ================================================== */}
       {currentMode === 'landing' && (
         <main>
-          {/* Top Urgency Trust Banner */}
-          <div className="bg-gradient-to-r from-amber-500 via-amber-400 to-orange-500 text-slate-950 text-center py-2 px-4 text-xs font-black tracking-wide">
-            <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-              <span>⚡ OFFRE SPÉCIALE FACEBOOK : -45% EXPIRANT DANS :</span>
+          {/* Top Banner - doux */}
+          <div style={{
+            background: 'linear-gradient(90deg, #e8ddf0 0%, #f0e8f6 50%, #f5eeff 100%)',
+            textAlign: 'center',
+            padding: '10px 16px',
+            fontSize: '12px',
+            fontWeight: 800,
+            color: textSecondary,
+          }}>
+            <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+              <span>✨ Offre spéciale : -45% sur le coffret 6 Tomes · Expire dans :</span>
               <CountdownTimer hours={11} minutes={47} seconds={33} />
-              <span className="hidden sm:inline">|</span>
-              <span className="text-slate-900 font-extrabold">Livraison par E-mail Instantanée (0€ Frais)</span>
+              <span style={{ color: accentPurple, fontWeight: 900 }}>• Livraison par e-mail (0€)</span>
             </div>
           </div>
 
           {/* HERO SECTION */}
-          <section className="relative pt-12 pb-16 md:py-20 px-4 overflow-hidden">
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
+          <section style={{
+            position: 'relative',
+            padding: '60px 20px 70px',
+            overflow: 'hidden',
+            background: 'linear-gradient(180deg, #faf7f5 0%, #f5eeff 50%, #e8e0f0 100%)',
+          }}>
+            {/* Soft blob decoration */}
+            <div style={{
+              position: 'absolute',
+              top: '10%',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '600px',
+              height: '300px',
+              background: 'radial-gradient(ellipse, rgba(167,139,199,0.12) 0%, transparent 70%)',
+              pointerEvents: 'none',
+            }} />
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              {/* Colonne Gauche : Pitch Copywriting */}
-              <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30">
-                  <span className="text-xs font-black text-amber-300 uppercase tracking-wider">
-                    ⭐ LE RITUEL DU COUCHER PRÉFÉRÉ DE +10 000 FAMILLES
+            <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr', gap: '40px', alignItems: 'center' }}
+              className="lg-grid-hero"
+            >
+              {/* Pitch */}
+              <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '5px 14px',
+                  borderRadius: '20px',
+                  background: 'rgba(124,92,170,0.08)',
+                  border: '1px solid rgba(124,92,170,0.15)',
+                  marginBottom: '20px',
+                }}>
+                  <span style={{ fontSize: '12px', fontWeight: 800, color: accentPurple, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                    ⭐ Adopté par +10 000 familles pour le rituel du soir
                   </span>
                 </div>
 
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
-                  Dites adieu aux crises d'écran le soir.{' '}
-                  <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-orange-400 bg-clip-text text-transparent">
-                    Endormez votre enfant en 12 minutes
-                  </span>{' '}
-                  avec Léo.
+                <h1 style={{
+                  fontSize: 'clamp(28px, 5vw, 48px)',
+                  fontWeight: 900,
+                  color: textPrimary,
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.5px',
+                  marginBottom: '20px',
+                }}>
+                  Des soirées apaisées grâce aux contes de Léo.{' '}
+                  <span style={{
+                    background: 'linear-gradient(90deg, #7c5caa 0%, #a88dd0 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}>
+                    Endormissement en 12 minutes.
+                  </span>
                 </h1>
 
-                <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  Offrez-lui les <strong className="text-white">6 Tomes Complets</strong> de la saga féerique :{' '}
-                  <strong className="text-amber-300">6 Livres Audio MP3 immersifs</strong> enregistrés en studio d'acteur +{' '}
-                  <strong className="text-amber-300">6 Ebooks EPUB HD</strong> magnifiquement illustrés.
+                <p style={{
+                  fontSize: 'clamp(15px, 2.5vw, 18px)',
+                  color: textSecondary,
+                  lineHeight: 1.7,
+                  maxWidth: '650px',
+                  margin: '0 auto 24px',
+                }}>
+                  Offrez-lui les <strong style={{ color: textPrimary }}>6 Tomes Complets</strong> de la saga féerique :{' '}
+                  <strong style={{ color: accentPurple }}>6 Livres Audio MP3</strong> enregistrés en studio +{' '}
+                  <strong style={{ color: accentPurple }}>6 Ebooks illustrés HD</strong>.
                 </p>
 
                 {/* 3 USPs */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                  <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-left">
-                    <span className="text-2xl">🌙</span>
-                    <p className="text-xs font-black text-white mt-1">0% Écran Passif</p>
-                    <p className="text-[11px] text-slate-400">Écoute calme dans le noir</p>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-left">
-                    <span className="text-2xl">🎧</span>
-                    <p className="text-xs font-black text-white mt-1">Voix Studio Douce</p>
-                    <p className="text-[11px] text-slate-400">Comédiens professionnels</p>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-left">
-                    <span className="text-2xl">⚡</span>
-                    <p className="text-xs font-black text-white mt-1">Accès Instantané</p>
-                    <p className="text-[11px] text-slate-400">Reçu par e-mail en 10 sec</p>
-                  </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px', marginBottom: '24px' }}>
+                  {[
+                    { icon: '🌙', title: '0% Écran Passif', sub: 'Écoute calme dans le noir' },
+                    { icon: '🎧', title: 'Voix Studio Douce', sub: 'Comédiens professionnels' },
+                    { icon: '💌', title: 'Accès Instantané', sub: 'Reçu par e-mail en 10 sec' },
+                  ].map((usp, i) => (
+                    <div key={i} style={{
+                      padding: '14px',
+                      borderRadius: '16px',
+                      background: '#fff',
+                      border: '1px solid #e8ddf0',
+                      textAlign: 'left',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    }}>
+                      <span style={{ fontSize: '22px' }}>{usp.icon}</span>
+                      <p style={{ fontSize: '13px', fontWeight: 800, color: textPrimary, marginTop: '6px' }}>{usp.title}</p>
+                      <p style={{ fontSize: '11px', color: textMuted }}>{usp.sub}</p>
+                    </div>
+                  ))}
                 </div>
 
-                {/* CTA & Rating */}
-                <div className="flex flex-col sm:flex-row items-center gap-4 pt-3 justify-center lg:justify-start">
+                {/* CTA + Rating */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
                   <a
                     href="#pricing"
-                    className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-black bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-950 shadow-xl shadow-amber-500/30 hover:scale-105 active:scale-95 transition-all text-center"
+                    style={{
+                      display: 'inline-block',
+                      padding: '16px 32px',
+                      borderRadius: '16px',
+                      fontSize: '16px',
+                      fontWeight: 900,
+                      background: 'linear-gradient(135deg, #7c5caa 0%, #9b7cc8 100%)',
+                      color: '#fff',
+                      textDecoration: 'none',
+                      boxShadow: '0 6px 24px rgba(124,92,170,0.3)',
+                      transition: 'transform 0.15s, box-shadow 0.15s',
+                    }}
                   >
-                    🎁 Télécharger le Pack 6 Tomes (-45%)
+                    🌟 Découvrir le Coffret 6 Tomes (-45%)
                   </a>
                   <AnimatedStars rating={5} count={250} />
                 </div>
               </div>
+            </div>
 
-              {/* Colonne Droite : Visuel Split Screen ou Pack 3D */}
-              <div className="lg:col-span-5 relative flex justify-center">
-                <div className="relative group max-w-md w-full">
-                  <img
-                    src="/ads/fb_ad_screen_vs_leo.png"
-                    alt="Comparatif Routine Écran vs Livres de Léo"
-                    className="w-full rounded-3xl shadow-2xl border border-slate-800 group-hover:border-amber-400/40 transition-all duration-300"
-                  />
-                  <div className="absolute -bottom-4 -right-4 px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-black text-xs rounded-2xl shadow-xl flex items-center gap-1.5">
-                    <span>✓</span> 100% Satisfait ou Remboursé
-                  </div>
-                </div>
+            {/* Visual sous le hero */}
+            <div style={{ maxWidth: '500px', margin: '40px auto 0', position: 'relative' }}>
+              <img
+                src="/ads/fb_ad_screen_vs_leo.png"
+                alt="Routine apaisée avec les Livres de Léo"
+                style={{
+                  width: '100%',
+                  borderRadius: '24px',
+                  boxShadow: '0 16px 48px rgba(100,70,150,0.12)',
+                  border: '1px solid #e0d4ee',
+                }}
+              />
+              <div style={{
+                position: 'absolute',
+                bottom: '-12px',
+                right: '-12px',
+                padding: '8px 16px',
+                background: 'linear-gradient(135deg, #60c090 0%, #40a870 100%)',
+                color: '#fff',
+                fontWeight: 900,
+                fontSize: '12px',
+                borderRadius: '14px',
+                boxShadow: '0 4px 12px rgba(96,192,144,0.3)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+              }}>
+                <span>✓</span> Satisfait ou Remboursé 30j
               </div>
             </div>
           </section>
 
           {/* ================================================== */}
-          {/* NOUVEAUTÉ : LECTEUR AUDIO INTERACTIF EN DIRECT */}
+          {/* LECTEUR AUDIO */}
           {/* ================================================== */}
-          <section className="py-12 bg-slate-950/60 border-y border-slate-800/80 px-4">
-            <div className="max-w-4xl mx-auto space-y-6">
-              <div className="text-center space-y-2">
-                <span className="inline-block px-3 py-1 rounded-full text-[11px] font-black bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 uppercase tracking-wider">
-                  🎧 ÉCOUTEZ UN EXTRAIT MAINTENANT
+          <section style={{ padding: '60px 20px', background: sectionAltBg }}>
+            <div style={{ maxWidth: '700px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '4px 14px',
+                  borderRadius: '20px',
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  background: 'rgba(124,92,170,0.1)',
+                  color: accentPurple,
+                  border: '1px solid rgba(124,92,170,0.2)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  marginBottom: '12px',
+                }}>
+                  🎧 Écoutez un extrait
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-black text-white">
-                  Découvrez la voix magique qui apaise les enfants
+                <h2 style={{ fontSize: 'clamp(22px, 4vw, 30px)', fontWeight: 900, color: textPrimary }}>
+                  Découvrez la voix qui apaise les enfants
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
-                  Cliquez sur lecture pour écouter un échantillon studio des contes de Léo. Aucune musique stridente, juste un récit chaleureux et captivant.
+                <p style={{ fontSize: '13px', color: textMuted, maxWidth: '500px', margin: '8px auto 0' }}>
+                  Cliquez sur lecture pour écouter un échantillon studio. Un récit chaleureux et captivant.
                 </p>
               </div>
 
@@ -755,77 +1020,112 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
           </section>
 
           {/* ================================================== */}
-          {/* TABLEAU COMPARATIF : AVANT / APRÈS (Prouvé Scientifiquement) */}
+          {/* TABLEAU COMPARATIF : AVANT / APRÈS */}
           {/* ================================================== */}
-          <section className="py-16 px-4">
-            <div className="max-w-5xl mx-auto space-y-10">
-              <div className="text-center space-y-2">
-                <h2 className="text-2xl sm:text-4xl font-black text-white">
-                  Pourquoi Léo remplace définitivement les écrans
+          <section style={{ padding: '70px 20px', background: pageBg }}>
+            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+                <h2 style={{ fontSize: 'clamp(22px, 4vw, 34px)', fontWeight: 900, color: textPrimary }}>
+                  Pourquoi Léo change les soirées en famille
                 </h2>
-                <p className="text-sm text-slate-400">Le tableau qui convainc 9 parents sur 10</p>
+                <p style={{ fontSize: '14px', color: textMuted }}>Le comparatif qui parle aux parents</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Boîte Négative */}
-                <div className="p-6 sm:p-8 rounded-3xl bg-red-950/20 border border-red-500/30 space-y-5">
-                  <div className="flex items-center gap-3">
-                    <span className="w-10 h-10 rounded-2xl bg-red-500/20 text-red-400 flex items-center justify-center text-xl font-bold">
-                      ✕
-                    </span>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+                {/* Avant */}
+                <div style={{
+                  padding: '28px',
+                  borderRadius: '24px',
+                  background: 'linear-gradient(180deg, #fff5f5 0%, #fff 100%)',
+                  border: '1px solid #f0d0d0',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
+                    <span style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '12px',
+                      background: '#ffe8e8',
+                      color: '#cc6060',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '18px',
+                      fontWeight: 700,
+                    }}>✕</span>
                     <div>
-                      <h3 className="text-lg font-black text-red-300">La Routine Écrans & Tablettes</h3>
-                      <p className="text-xs text-red-200/60">YouTube, dessins animés, jeux mobiles</p>
+                      <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#aa4444' }}>La routine écrans</h3>
+                      <p style={{ fontSize: '11px', color: '#cc8888' }}>YouTube, dessins animés, jeux</p>
                     </div>
                   </div>
-                  <ul className="space-y-3.5 text-xs sm:text-sm text-red-100/90">
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-red-400 font-bold">✕</span>
-                      <span>Crises systématiques et pleurs quand on éteint l'écran.</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-red-400 font-bold">✕</span>
-                      <span>Lumière bleue qui bloque la sécrétion naturelle de mélatonine.</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-red-400 font-bold">✕</span>
-                      <span>Enfant surexcité : temps d'endormissement supérieur à 45 minutes.</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-red-400 font-bold">✕</span>
-                      <span>Passivité cérébrale et risques accrus de cauchemars nocturnes.</span>
-                    </li>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {[
+                      "Crises et pleurs quand on éteint l'écran.",
+                      'Lumière bleue qui perturbe le sommeil.',
+                      'Endormissement qui traîne pendant 45 minutes.',
+                      'Passivité cérébrale et risques de cauchemars.',
+                    ].map((t, i) => (
+                      <li key={i} style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '10px',
+                        marginBottom: '12px',
+                        fontSize: '13px',
+                        color: '#774444',
+                        lineHeight: 1.5,
+                      }}>
+                        <span style={{ color: '#cc6060', fontWeight: 700, flexShrink: 0 }}>✕</span>
+                        <span>{t}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
-                {/* Boîte Positive */}
-                <div className="p-6 sm:p-8 rounded-3xl bg-emerald-950/20 border border-emerald-500/40 space-y-5 shadow-xl shadow-emerald-950/20">
-                  <div className="flex items-center gap-3">
-                    <span className="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold">
-                      ✓
-                    </span>
+                {/* Après */}
+                <div style={{
+                  padding: '28px',
+                  borderRadius: '24px',
+                  background: 'linear-gradient(180deg, #f0faf5 0%, #fff 100%)',
+                  border: '1px solid #c0e8d0',
+                  boxShadow: '0 4px 20px rgba(96,192,144,0.08)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
+                    <span style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '12px',
+                      background: '#e0f8e8',
+                      color: '#50a878',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '18px',
+                      fontWeight: 700,
+                    }}>✓</span>
                     <div>
-                      <h3 className="text-lg font-black text-emerald-300">Avec Les Contes de Léo</h3>
-                      <p className="text-xs text-emerald-200/60">Livres Audio MP3 & Ebooks illustrés</p>
+                      <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#388860' }}>Avec Les Contes de Léo</h3>
+                      <p style={{ fontSize: '11px', color: '#80b898' }}>Livres Audio & Ebooks illustrés</p>
                     </div>
                   </div>
-                  <ul className="space-y-3.5 text-xs sm:text-sm text-emerald-100">
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-emerald-400 font-bold">✓</span>
-                      <span>L'enfant réclame lui-même le rituel du soir dès 20h.</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-emerald-400 font-bold">✓</span>
-                      <span>0% Écran avec le livre audio : il écoute dans la pénombre.</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-emerald-400 font-bold">✓</span>
-                      <span>Endormissement serein et rapide en 10 à 12 minutes chrono.</span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-emerald-400 font-bold">✓</span>
-                      <span>Développe le vocabulaire, le courage et l'imagination fertile.</span>
-                    </li>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {[
+                      "L'enfant réclame lui-même le rituel dès 20h.",
+                      '0% Écran : il écoute dans la pénombre.',
+                      'Endormissement serein en 10 à 12 minutes.',
+                      'Développe vocabulaire, courage et imagination.',
+                    ].map((t, i) => (
+                      <li key={i} style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '10px',
+                        marginBottom: '12px',
+                        fontSize: '13px',
+                        color: '#2d5540',
+                        lineHeight: 1.5,
+                      }}>
+                        <span style={{ color: successGreen, fontWeight: 700, flexShrink: 0 }}>✓</span>
+                        <span>{t}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -833,23 +1133,27 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
           </section>
 
           {/* ================================================== */}
-          {/* APERÇU DES 6 TOMES & VISUELS */}
+          {/* APERÇU DES 6 TOMES */}
           {/* ================================================== */}
-          <section className="py-16 bg-slate-950/40 px-4">
-            <div className="max-w-6xl mx-auto space-y-10">
-              <div className="text-center space-y-2">
-                <span className="text-xs font-black text-amber-400 uppercase tracking-widest">
-                  📚 LA SAGA COMPLÈTE
+          <section style={{ padding: '70px 20px', background: sectionAltBg }}>
+            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+                <span style={{ fontSize: '12px', fontWeight: 900, color: accentPurple, textTransform: 'uppercase', letterSpacing: '2px' }}>
+                  📚 La saga complète
                 </span>
-                <h2 className="text-2xl sm:text-4xl font-black text-white">
+                <h2 style={{ fontSize: 'clamp(22px, 4vw, 34px)', fontWeight: 900, color: textPrimary, marginTop: '8px' }}>
                   6 Aventures, 6 Leçons de Vie Inoubliables
                 </h2>
-                <p className="text-sm text-slate-400 max-w-xl mx-auto">
-                  Chaque histoire aborde avec poésie une étape essentielle de l'enfance : la peur du noir, les cauchemars, la gestion des émotions et le partage.
+                <p style={{ fontSize: '14px', color: textMuted, maxWidth: '550px', margin: '8px auto 0' }}>
+                  Chaque histoire aborde avec poésie une étape essentielle de l'enfance.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+                gap: '16px',
+              }}>
                 {[
                   { title: "Le Voleur d'Ombres", num: 1, theme: "Vaincre la peur du noir", slug: "leo-et-le-voleur-d-ombres" },
                   { title: "Le Voleur de Rêves", num: 2, theme: "Adieu les cauchemars", slug: "leo-et-le-voleur-de-reves" },
@@ -860,20 +1164,52 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                 ].map((b, i) => (
                   <div
                     key={i}
-                    className="group bg-slate-900/60 border border-slate-800 rounded-2xl p-3 flex flex-col items-center text-center hover:border-amber-400/40 hover:-translate-y-1 transition-all"
+                    style={{
+                      background: '#fff',
+                      border: '1px solid #e0d4ee',
+                      borderRadius: '16px',
+                      padding: '12px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      textAlign: 'center',
+                      transition: 'all 0.2s',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    }}
                   >
-                    <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden mb-3">
+                    <div style={{
+                      position: 'relative',
+                      aspectRatio: '3/4',
+                      width: '100%',
+                      borderRadius: '12px',
+                      overflow: 'hidden',
+                      marginBottom: '10px',
+                    }}>
                       <img
                         src={`/illustrations/${b.slug}/cover.png`}
                         alt={b.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-all"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
-                      <span className="absolute top-2 right-2 w-6 h-6 rounded-full bg-amber-400 text-slate-950 text-[10px] font-black flex items-center justify-center">
+                      <span style={{
+                        position: 'absolute',
+                        top: '8px',
+                        right: '8px',
+                        width: '22px',
+                        height: '22px',
+                        borderRadius: '50%',
+                        background: accentPurple,
+                        color: '#fff',
+                        fontSize: '10px',
+                        fontWeight: 900,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
                         {b.num}
                       </span>
                     </div>
-                    <p className="text-xs font-bold text-white line-clamp-1">{b.title}</p>
-                    <p className="text-[10px] text-amber-300/80 mt-0.5">{b.theme}</p>
+                    <p style={{ fontSize: '12px', fontWeight: 800, color: textPrimary }}>{b.title}</p>
+                    <p style={{ fontSize: '10px', color: accentSoft, marginTop: '2px' }}>{b.theme}</p>
                   </div>
                 ))}
               </div>
@@ -881,37 +1217,67 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
           </section>
 
           {/* ================================================== */}
-          {/* SECTION OFFRES & VALUE STACK (Conversion Directe) */}
+          {/* SECTION OFFRES — CHECKOUT DIRECT INTÉGRÉ */}
           {/* ================================================== */}
-          <section id="pricing" className="py-16 md:py-24 px-4 relative">
-            <div className="max-w-6xl mx-auto space-y-10">
-              <div className="text-center space-y-3">
-                <span className="inline-block px-4 py-1.5 rounded-full text-xs font-black bg-amber-400/15 text-amber-300 border border-amber-400/30 uppercase tracking-widest">
-                  🎁 OFFRES SPÉCIALES LIMITÉES
+          <section id="pricing" style={{
+            padding: '80px 20px',
+            background: 'linear-gradient(180deg, #faf7f5 0%, #f5eeff 50%, #faf7f5 100%)',
+            position: 'relative',
+          }}>
+            <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '5px 16px',
+                  borderRadius: '20px',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  background: 'rgba(124,92,170,0.1)',
+                  color: accentPurple,
+                  border: '1px solid rgba(124,92,170,0.2)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  marginBottom: '12px',
+                }}>
+                  🌟 Offres spéciales
                 </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white">
+                <h2 style={{ fontSize: 'clamp(26px, 5vw, 42px)', fontWeight: 900, color: textPrimary }}>
                   Choisissez Votre Coffret
                 </h2>
-                <p className="text-sm text-slate-400 max-w-xl mx-auto">
-                  Chaque pack comprend le téléchargement immédiat des Ebooks EPUB HD et des Livres Audio MP3 studio.
+                <p style={{ fontSize: '14px', color: textMuted, maxWidth: '500px', margin: '8px auto 0' }}>
+                  Paiement sécurisé par Carte Bancaire ou PayPal. Téléchargement immédiat par e-mail.
                 </p>
 
                 {/* Tabs */}
-                <div className="flex justify-center pt-4">
-                  <div className="flex bg-slate-900 p-1.5 rounded-2xl border border-slate-800 gap-1">
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                  <div style={{
+                    display: 'flex',
+                    background: '#fff',
+                    padding: '5px',
+                    borderRadius: '14px',
+                    border: '1px solid #e0d4ee',
+                    gap: '4px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                  }}>
                     {[
                       { key: 'fr', label: '🇫🇷 Pack FR (6 Tomes)' },
-                      { key: 'combo', label: '🌍 Combo Bilingue (12 Livres)' },
+                      { key: 'combo', label: '🌍 Combo Bilingue (12)' },
                       { key: 'en', label: '🇬🇧 Pack EN (6 Books)' },
                     ].map((tab) => (
                       <button
                         key={tab.key}
                         onClick={() => setActiveOffer(tab.key)}
-                        className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all ${
-                          activeOffer === tab.key
-                            ? 'bg-amber-400 text-slate-950 shadow-md shadow-amber-500/20'
-                            : 'text-slate-400 hover:text-white'
-                        }`}
+                        style={{
+                          padding: '8px 16px',
+                          borderRadius: '10px',
+                          fontSize: '12px',
+                          fontWeight: 800,
+                          border: 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                          background: activeOffer === tab.key ? accentPurple : 'transparent',
+                          color: activeOffer === tab.key ? '#fff' : textMuted,
+                        }}
                       >
                         {tab.label}
                       </button>
@@ -921,7 +1287,12 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
               </div>
 
               {/* Grille Tarifs */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '24px',
+                alignItems: 'stretch',
+              }}>
                 {activeOffer === 'fr' && (
                   <>
                     <PricingCard
@@ -936,29 +1307,27 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Idéal pour tester ce soir',
                         'Téléchargement immédiat par email',
                       ]}
-                      cta="Commencer par le Tome 1"
-                      ctaLink="/books/1"
+                      bookId={1}
                     />
 
                     <PricingCard
                       featured
                       title="Coffret 6 Tomes FR"
                       icon="🎁"
-                      badge="Best-Seller Mondial (-45%)"
+                      badge="Best-Seller (-45%)"
                       originalPrice="29.94"
                       salePrice="16.49"
                       discount="-45%"
                       features={[
                         'Les 6 Ebooks EPUB HD illustrés',
-                        'Les 6 Livres Audio MP3 studio complets',
+                        'Les 6 Livres Audio MP3 studio',
                         'La saga intégrale en français',
-                        'Soit seulement 2,75€ par histoire complète',
+                        'Soit seulement 2,75€ par histoire',
                         'Accès illimité à vie sans abonnement',
-                        'Compatible iPad, iPhone, Android, Kindle, Kobo',
+                        'Compatible iPad, iPhone, Android, Kindle',
                         'Garantie 30 jours Satisfait ou Remboursé',
                       ]}
-                      cta="🎁 Obtenir le Pack 6 Tomes FR (16.49€)"
-                      ctaLink="/pack"
+                      isPack
                     />
 
                     <PricingCard
@@ -972,11 +1341,10 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         '6 Tomes FR + 6 Livres Anglais EN',
                         '12 Ebooks EPUB HD',
                         '12 Livres Audio MP3',
-                        'Parfait pour initier à l’anglais dès 4 ans',
+                        "Parfait pour initier à l'anglais dès 4 ans",
                         'Accès illimité à vie',
                       ]}
-                      cta="Découvrir le Combo 12 Livres"
-                      ctaLink="/pack?combo=1"
+                      isCombo
                     />
                   </>
                 )}
@@ -996,8 +1364,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'La saga complète en français',
                         'Téléchargement immédiat',
                       ]}
-                      cta="Pack FR Seul — 16.49€"
-                      ctaLink="/pack"
+                      isPack
                     />
 
                     <PricingCard
@@ -1017,8 +1384,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Économisez 28,89€ sur le lot complet',
                         'Accès à vie sur tous vos appareils',
                       ]}
-                      cta="🌍 Obtenir les 12 Livres (30.99€)"
-                      ctaLink="/pack?combo=1"
+                      isCombo
                     />
 
                     <PricingCard
@@ -1034,8 +1400,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Full saga in British English',
                         'Instant download',
                       ]}
-                      cta="English Pack — 16.49€"
-                      ctaLink="/pack"
+                      isPack
                     />
                   </>
                 )}
@@ -1053,8 +1418,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Studio MP3 Audiobook',
                         'Instant download',
                       ]}
-                      cta="Get Book 1 EN"
-                      ctaLink="/books/11"
+                      bookId={11}
                     />
 
                     <PricingCard
@@ -1072,8 +1436,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Save 13.45€ today',
                         'Lifetime access, all devices',
                       ]}
-                      cta="🎁 Get the 6-Book Pack (16.49€)"
-                      ctaLink="/pack"
+                      isPack
                     />
 
                     <PricingCard
@@ -1089,24 +1452,23 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                         'Best value bundle',
                         'Instant access',
                       ]}
-                      cta="Get 12 Books Combo"
-                      ctaLink="/pack?combo=1"
+                      isCombo
                     />
                   </>
                 )}
               </div>
 
-              {/* Réassurance & Paiements */}
-              <div className="text-center pt-6 space-y-2">
-                <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <span className="text-emerald-400">🔒</span> Paiement Sécurisé SSL (Stripe, PayPal, CB)
+              {/* Réassurance */}
+              <div style={{ textAlign: 'center', paddingTop: '28px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '20px', fontSize: '12px', color: textMuted }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ color: successGreen }}>🔒</span> Paiement Sécurisé SSL (Carte, PayPal)
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="text-amber-400">⚡</span> Livraison Immédiate par E-mail
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ color: accentPurple }}>💌</span> Livraison Immédiate par E-mail
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="text-indigo-400">🛡️</span> Garantie 30 Jours Satisfait ou Remboursé
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ color: '#6090c0' }}>🛡️</span> Garantie 30 Jours Satisfait ou Remboursé
                   </span>
                 </div>
               </div>
@@ -1114,15 +1476,15 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
           </section>
 
           {/* ================================================== */}
-          {/* FAQ DEROULEMENT */}
+          {/* FAQ */}
           {/* ================================================== */}
-          <section className="py-16 bg-slate-950/40 border-t border-slate-800/80 px-4">
-            <div className="max-w-3xl mx-auto space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-black text-white text-center">
+          <section style={{ padding: '70px 20px', background: sectionAltBg }}>
+            <div style={{ maxWidth: '650px', margin: '0 auto' }}>
+              <h2 style={{ fontSize: 'clamp(22px, 4vw, 30px)', fontWeight: 900, color: textPrimary, textAlign: 'center', marginBottom: '28px' }}>
                 Questions Fréquentes des Parents
               </h2>
 
-              <div className="space-y-3">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {[
                   {
                     q: 'Comment et quand vais-je recevoir les livres ?',
@@ -1130,11 +1492,11 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                   },
                   {
                     q: 'Sur quels appareils les livres sont-ils compatibles ?',
-                    a: 'Sur 100% de vos appareils. Vous pouvez écouter les fichiers MP3 sur smartphone (iPhone, Android), tablette, ordinateur ou les diffuser sur enceinte connectée. Les fichiers EPUB s’ouvrent sur l’application Livres d’Apple, Kindle, Kobo ou toute liseuse.',
+                    a: "Sur 100% de vos appareils. Vous pouvez écouter les fichiers MP3 sur smartphone (iPhone, Android), tablette, ordinateur ou les diffuser sur enceinte connectée. Les fichiers EPUB s'ouvrent sur l'application Livres d'Apple, Kindle, Kobo ou toute liseuse.",
                   },
                   {
-                    q: 'Comment fonctionne la garantie 30 jours Satisfait ou Remboursé ?',
-                    a: 'C’est très simple : testez les histoires avec votre enfant ce soir. Si pour une raison quelconque vous ou votre enfant n’êtes pas totalement émerveillés, envoyez-nous un simple e-mail et nous vous remboursons intégralement.',
+                    q: 'Comment fonctionne la garantie 30 jours ?',
+                    a: "C'est très simple : testez les histoires avec votre enfant ce soir. Si pour une raison quelconque vous n'êtes pas totalement satisfait, envoyez-nous un simple e-mail et nous vous remboursons intégralement.",
                   },
                   {
                     q: 'À quel âge ces contes conviennent-ils le mieux ?',
@@ -1143,13 +1505,35 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                 ].map((item, idx) => (
                   <details
                     key={idx}
-                    className="group bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden transition-all"
+                    style={{
+                      background: '#fff',
+                      border: '1px solid #e0d4ee',
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                    }}
                   >
-                    <summary className="px-5 py-4 cursor-pointer font-bold text-sm text-white flex items-center justify-between hover:bg-slate-800/40">
+                    <summary style={{
+                      padding: '16px 20px',
+                      cursor: 'pointer',
+                      fontWeight: 700,
+                      fontSize: '14px',
+                      color: textPrimary,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      listStyle: 'none',
+                    }}>
                       {item.q}
-                      <span className="text-amber-400 group-open:rotate-45 transition-transform text-xl ml-2">+</span>
+                      <span style={{ color: accentPurple, fontSize: '20px', marginLeft: '8px', fontWeight: 300 }}>+</span>
                     </summary>
-                    <div className="px-5 pb-4 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/50 pt-3">
+                    <div style={{
+                      padding: '0 20px 16px',
+                      fontSize: '13px',
+                      color: textSecondary,
+                      lineHeight: 1.7,
+                      borderTop: '1px solid #f0e8f6',
+                      paddingTop: '12px',
+                    }}>
                       {item.a}
                     </div>
                   </details>
@@ -1164,203 +1548,272 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
       {/* VUE 2 : HUB ANNONCEUR & MEDIA KIT PRO (SWIPE FILE) */}
       {/* ================================================== */}
       {currentMode === 'swipefile' && (
-        <div className="max-w-7xl mx-auto px-4 py-10 space-y-12">
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
           {/* Header Annonceur */}
-          <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-slate-950 border border-indigo-500/30 rounded-3xl p-6 sm:p-8 space-y-3">
-            <span className="px-3 py-1 rounded-full text-xs font-black bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
-              🛠️ SUITE STRATÉGIQUE META ADS MANAGER
+          <div style={{
+            background: 'linear-gradient(135deg, #2d2444 0%, #3d3060 50%, #2d2444 100%)',
+            border: '1px solid rgba(124,92,170,0.3)',
+            borderRadius: '24px',
+            padding: '28px 32px',
+            marginBottom: '36px',
+          }}>
+            <span style={{
+              padding: '4px 12px',
+              borderRadius: '20px',
+              fontSize: '11px',
+              fontWeight: 800,
+              background: 'rgba(124,92,170,0.25)',
+              color: '#c0a8e0',
+              border: '1px solid rgba(124,92,170,0.3)',
+            }}>
+              🛠️ SUITE STRATÉGIQUE META ADS
             </span>
-            <h1 className="text-2xl sm:text-4xl font-black text-white">
+            <h1 style={{ fontSize: 'clamp(22px, 4vw, 34px)', fontWeight: 900, color: '#fff', marginTop: '12px' }}>
               Kit Campagnes Meta Ads Bestseller
             </h1>
-            <p className="text-sm text-slate-300 max-w-3xl leading-relaxed">
-              Ce kit complet contient 5 angles publicitaires éprouvés, des scripts vidéo UGC 9:16 prêts pour TikTok/Reels,
-              les simulations de Feed en direct et les boutons de copie instantanée pour vos campagnes Advantage+ et CBO.
+            <p style={{ fontSize: '14px', color: '#b0a0c8', maxWidth: '700px', lineHeight: 1.7, marginTop: '8px' }}>
+              Ce kit complet contient 5 angles publicitaires éprouvés, des scripts vidéo UGC 9:16 prêts pour TikTok/Reels, les simulations Feed et les boutons de copie instantanée.
             </p>
           </div>
 
           {/* SÉLECTEUR D'ANGLES MARKETING */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <h3 className="text-lg font-black text-white flex items-center gap-2">
-                <span>🎯</span> Choisissez un Angle Marketing Éprouvé
+          <div style={{ marginBottom: '32px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
+              <h3 style={{ fontSize: '17px', fontWeight: 900, color: textPrimary }}>
+                🎯 Choisissez un Angle Marketing Éprouvé
               </h3>
-              <span className="text-xs text-amber-400 font-bold">5 Angles Disponibles</span>
+              <span style={{ fontSize: '12px', color: accentPurple, fontWeight: 700 }}>5 Angles Disponibles</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
               {marketingAngles.map((angle, idx) => (
                 <button
                   key={angle.id}
                   onClick={() => setSelectedAngle(idx)}
-                  className={`p-4 rounded-2xl border text-left flex flex-col justify-between transition-all ${
-                    selectedAngle === idx
-                      ? 'bg-amber-400/10 border-amber-400 text-white shadow-lg shadow-amber-500/10'
-                      : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700'
-                  }`}
+                  style={{
+                    padding: '14px',
+                    borderRadius: '16px',
+                    border: selectedAngle === idx ? `2px solid ${accentPurple}` : '1px solid #e0d4ee',
+                    textAlign: 'left',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    background: selectedAngle === idx ? 'rgba(124,92,170,0.06)' : '#fff',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                  }}
                 >
                   <div>
-                    <span className="text-[10px] font-black uppercase text-amber-300 block mb-1">
+                    <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', color: accentPurple, display: 'block', marginBottom: '4px' }}>
                       {angle.tag}
                     </span>
-                    <p className="text-xs font-bold text-white line-clamp-2">{angle.name}</p>
+                    <p style={{ fontSize: '12px', fontWeight: 700, color: textPrimary }}>{angle.name}</p>
                   </div>
-                  <span className="text-[10px] text-slate-500 mt-2">Cliquez pour inspecter →</span>
+                  <span style={{ fontSize: '10px', color: textMuted, marginTop: '8px' }}>Cliquez pour inspecter →</span>
                 </button>
               ))}
             </div>
           </div>
 
           {/* SIMULATEUR D'ANNONCE EN DIRECT + COPYWRITING */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Colonne Gauche : Aperçu Réaliste de l'Annonce Meta Feed */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className="flex items-center justify-between">
-                <h4 className="text-sm font-bold text-slate-300">Simulateur Mobile Facebook / Instagram Feed</h4>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '32px' }}
+            className="lg-grid-swipe"
+          >
+            {/* Aperçu Annonce */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <h4 style={{ fontSize: '14px', fontWeight: 700, color: textSecondary }}>Simulateur Feed Facebook</h4>
                 <a
                   href={currentAngleData.creativeImage}
                   download
-                  className="text-xs font-bold text-amber-400 hover:underline flex items-center gap-1"
+                  style={{ fontSize: '12px', fontWeight: 700, color: accentPurple, textDecoration: 'none' }}
                 >
-                  <span>⬇</span> Télécharger le Visuel HD
+                  ⬇ Télécharger le Visuel HD
                 </a>
               </div>
 
-              {/* Cadre Mockup Facebook Feed */}
-              <div className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
-                {/* Header Page FB */}
-                <div className="p-4 flex items-center justify-between border-b border-slate-800/80">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-indigo-600 flex items-center justify-center text-slate-950 font-black text-xs">
+              <div style={{
+                background: '#fff',
+                border: '1px solid #e0d4ee',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.06)',
+              }}>
+                <div style={{ padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #f0e8f6' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      background: `linear-gradient(135deg, ${accentPurple} 0%, #6090c0 100%)`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      fontWeight: 900,
+                      fontSize: '11px',
+                    }}>
                       LÉO
                     </div>
                     <div>
-                      <div className="flex items-center gap-1.5">
-                        <p className="text-xs font-black text-white">Les Aventures de Léo</p>
-                        <span className="w-3 h-3 rounded-full bg-blue-500 text-white flex items-center justify-center text-[8px]">
-                          ✓
-                        </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <p style={{ fontSize: '13px', fontWeight: 800, color: textPrimary }}>Les Aventures de Léo</p>
+                        <span style={{
+                          width: '14px', height: '14px', borderRadius: '50%',
+                          background: '#4090d0', color: '#fff',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          fontSize: '8px',
+                        }}>✓</span>
                       </div>
-                      <p className="text-[10px] text-slate-400 flex items-center gap-1">
-                        Sponsorisé • <span>🌍</span>
-                      </p>
+                      <p style={{ fontSize: '10px', color: textMuted }}>Sponsorisé • 🌍</p>
                     </div>
                   </div>
-                  <span className="text-slate-500 text-sm">•••</span>
+                  <span style={{ color: textMuted, fontSize: '14px' }}>•••</span>
                 </div>
 
-                {/* Primary Text */}
-                <div className="p-4 text-xs text-slate-200 leading-relaxed whitespace-pre-line max-h-48 overflow-y-auto scrollbar-thin">
+                <div style={{
+                  padding: '16px',
+                  fontSize: '12px',
+                  color: textSecondary,
+                  lineHeight: 1.7,
+                  whiteSpace: 'pre-line',
+                  maxHeight: '200px',
+                  overflowY: 'auto',
+                }}>
                   {currentAngleData.primaryText}
                 </div>
 
-                {/* Image Créative */}
-                <div className="relative aspect-square w-full bg-slate-950">
+                <div style={{ position: 'relative', aspectRatio: '1/1', width: '100%', background: '#f8f4fc' }}>
                   <img
                     src={currentAngleData.creativeImage}
                     alt="Creative Meta Ad"
-                    className="w-full h-full object-cover"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
 
-                {/* Bottom Ad Bar */}
-                <div className="p-4 bg-slate-950/90 border-t border-slate-800/80 flex items-center justify-between gap-4">
-                  <div className="space-y-0.5">
-                    <p className="text-[10px] text-slate-400 uppercase tracking-wider">LIVRE-LEO.VERCEL.APP</p>
-                    <p className="text-xs font-black text-white line-clamp-1">{currentAngleData.headline}</p>
-                    <p className="text-[10px] text-slate-400 line-clamp-1">{currentAngleData.description}</p>
+                <div style={{
+                  padding: '16px',
+                  background: '#faf7f5',
+                  borderTop: '1px solid #f0e8f6',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '16px',
+                }}>
+                  <div>
+                    <p style={{ fontSize: '10px', color: textMuted, textTransform: 'uppercase', letterSpacing: '1px' }}>LIVRE-LEO.VERCEL.APP</p>
+                    <p style={{ fontSize: '13px', fontWeight: 800, color: textPrimary }}>{currentAngleData.headline}</p>
+                    <p style={{ fontSize: '10px', color: textMuted }}>{currentAngleData.description}</p>
                   </div>
-                  <button className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-black flex-shrink-0">
+                  <button style={{
+                    padding: '8px 16px',
+                    background: '#f0e8f6',
+                    border: '1px solid #e0d4ee',
+                    color: textPrimary,
+                    borderRadius: '12px',
+                    fontSize: '12px',
+                    fontWeight: 800,
+                    flexShrink: 0,
+                    cursor: 'pointer',
+                  }}>
                     {currentAngleData.cta}
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Colonne Droite : Textes Prêts à Copier & Paramètres */}
-            <div className="lg:col-span-6 space-y-5">
-              <h4 className="text-sm font-bold text-slate-300">Textes et Paramètres Publicitaires (Prêts à coller)</h4>
+            {/* Textes Prêts à Copier */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <h4 style={{ fontSize: '14px', fontWeight: 700, color: textSecondary }}>Textes Publicitaires (Prêts à coller)</h4>
 
-              {/* Primary Text */}
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-amber-300 uppercase">Texte Principal (Primary Text)</span>
-                  <button
-                    onClick={() => copyToClipboard(currentAngleData.primaryText, 'primary')}
-                    className="px-3 py-1 rounded-lg bg-amber-400/20 text-amber-300 text-[11px] font-bold hover:bg-amber-400/30"
-                  >
-                    {copiedId === 'primary' ? '✓ Copié !' : '📋 Copier le texte'}
-                  </button>
+              {[
+                { label: 'Texte Principal (Primary Text)', id: 'primary', content: currentAngleData.primaryText, isLong: true },
+                { label: 'Titre (Headline)', id: 'headline', content: currentAngleData.headline },
+                { label: 'Description', id: 'desc', content: currentAngleData.description },
+              ].map(({ label, id, content, isLong }) => (
+                <div key={id} style={{
+                  background: '#fff',
+                  border: '1px solid #e0d4ee',
+                  borderRadius: '16px',
+                  padding: '16px',
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <span style={{ fontSize: '11px', fontWeight: 800, color: accentPurple, textTransform: 'uppercase' }}>{label}</span>
+                    <button
+                      onClick={() => copyToClipboard(content, id)}
+                      style={{
+                        padding: '4px 12px',
+                        borderRadius: '8px',
+                        background: 'rgba(124,92,170,0.1)',
+                        color: accentPurple,
+                        fontSize: '11px',
+                        fontWeight: 700,
+                        border: 'none',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {copiedId === id ? '✓ Copié !' : '📋 Copier'}
+                    </button>
+                  </div>
+                  <div style={{
+                    fontSize: '12px',
+                    color: textSecondary,
+                    background: '#faf7f5',
+                    padding: '12px',
+                    borderRadius: '10px',
+                    fontFamily: 'monospace',
+                    whiteSpace: 'pre-line',
+                    maxHeight: isLong ? '120px' : 'none',
+                    overflowY: isLong ? 'auto' : 'visible',
+                  }}>
+                    {content}
+                  </div>
                 </div>
-                <div className="text-xs text-slate-300 bg-slate-950/60 p-3 rounded-xl max-h-36 overflow-y-auto whitespace-pre-line font-mono text-[11px]">
-                  {currentAngleData.primaryText}
-                </div>
-              </div>
+              ))}
 
-              {/* Headline */}
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-amber-300 uppercase">Titre (Headline)</span>
-                  <button
-                    onClick={() => copyToClipboard(currentAngleData.headline, 'headline')}
-                    className="px-3 py-1 rounded-lg bg-amber-400/20 text-amber-300 text-[11px] font-bold hover:bg-amber-400/30"
-                  >
-                    {copiedId === 'headline' ? '✓ Copié !' : '📋 Copier'}
-                  </button>
-                </div>
-                <p className="text-xs text-white font-mono bg-slate-950/60 p-2.5 rounded-xl">
-                  {currentAngleData.headline}
-                </p>
-              </div>
-
-              {/* Description */}
-              <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-amber-300 uppercase">Description</span>
-                  <button
-                    onClick={() => copyToClipboard(currentAngleData.description, 'desc')}
-                    className="px-3 py-1 rounded-lg bg-amber-400/20 text-amber-300 text-[11px] font-bold hover:bg-amber-400/30"
-                  >
-                    {copiedId === 'desc' ? '✓ Copié !' : '📋 Copier'}
-                  </button>
-                </div>
-                <p className="text-xs text-white font-mono bg-slate-950/60 p-2.5 rounded-xl">
-                  {currentAngleData.description}
-                </p>
-              </div>
-
-              {/* Ciblage Recommandé */}
-              <div className="bg-indigo-950/30 border border-indigo-500/30 rounded-2xl p-4 space-y-1.5">
-                <span className="text-xs font-bold text-indigo-300 uppercase">Ciblage Meta Recommandé</span>
-                <p className="text-xs text-slate-300 leading-relaxed">{currentAngleData.targetAudience}</p>
+              {/* Ciblage */}
+              <div style={{
+                background: '#f5eeff',
+                border: '1px solid #e0d4ee',
+                borderRadius: '16px',
+                padding: '16px',
+              }}>
+                <span style={{ fontSize: '11px', fontWeight: 800, color: accentPurple, textTransform: 'uppercase' }}>Ciblage Meta Recommandé</span>
+                <p style={{ fontSize: '12px', color: textSecondary, lineHeight: 1.7, marginTop: '6px' }}>{currentAngleData.targetAudience}</p>
               </div>
             </div>
           </div>
 
           {/* ================================================== */}
-          {/* SCRIPTS VIDÉOS UGC 9:16 (TikTok & Reels) */}
+          {/* SCRIPTS VIDÉOS UGC 9:16 */}
           {/* ================================================== */}
-          <div className="space-y-6 pt-6 border-t border-slate-800">
-            <div className="flex items-center justify-between flex-wrap gap-3">
+          <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid #e0d4ee' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
               <div>
-                <span className="text-xs font-black text-amber-400 uppercase tracking-wider">
-                  🎬 SCRIPTS TOURNAGE UGC 9:16
+                <span style={{ fontSize: '12px', fontWeight: 900, color: accentPurple, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  🎬 Scripts UGC 9:16
                 </span>
-                <h3 className="text-xl sm:text-2xl font-black text-white">
-                  3 Scripts Vidéo pour Instagram Reels & TikTok
+                <h3 style={{ fontSize: '20px', fontWeight: 900, color: textPrimary, marginTop: '4px' }}>
+                  3 Scripts Vidéo pour Reels & TikTok
                 </h3>
               </div>
 
-              <div className="flex gap-2">
+              <div style={{ display: 'flex', gap: '8px' }}>
                 {videoScripts.map((s, idx) => (
                   <button
                     key={idx}
                     onClick={() => setSelectedScript(idx)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                      selectedScript === idx
-                        ? 'bg-indigo-600 text-white'
-                        : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
-                    }`}
+                    style={{
+                      padding: '7px 14px',
+                      borderRadius: '10px',
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      border: selectedScript === idx ? `2px solid ${accentPurple}` : '1px solid #e0d4ee',
+                      background: selectedScript === idx ? accentPurple : '#fff',
+                      color: selectedScript === idx ? '#fff' : textMuted,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                    }}
                   >
                     Script {idx + 1}
                   </button>
@@ -1368,12 +1821,16 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
               </div>
             </div>
 
-            {/* Script Viewer */}
-            <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div style={{
+              background: '#fff',
+              border: '1px solid #e0d4ee',
+              borderRadius: '24px',
+              padding: '28px',
+            }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px', borderBottom: '1px solid #f0e8f6', paddingBottom: '16px', marginBottom: '20px' }}>
                 <div>
-                  <h4 className="text-lg font-black text-white">{currentScriptData.title}</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <h4 style={{ fontSize: '16px', fontWeight: 900, color: textPrimary }}>{currentScriptData.title}</h4>
+                  <p style={{ fontSize: '12px', color: textMuted, marginTop: '4px' }}>
                     Durée : {currentScriptData.duration} • {currentScriptData.format}
                   </p>
                 </div>
@@ -1384,30 +1841,44 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
                       'script'
                     )
                   }
-                  className="px-4 py-2 rounded-xl bg-amber-400 text-slate-950 font-black text-xs hover:bg-amber-300"
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: '12px',
+                    background: accentPurple,
+                    color: '#fff',
+                    fontWeight: 800,
+                    fontSize: '12px',
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
                 >
-                  {copiedId === 'script' ? '✓ Script Copié !' : '📋 Copier le Script Intégral'}
+                  {copiedId === 'script' ? '✓ Script Copié !' : '📋 Copier le Script'}
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
                 {currentScriptData.scenes.map((sc, i) => (
-                  <div key={i} className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80 space-y-2">
-                    <div className="flex justify-between items-center text-xs font-mono text-amber-400 font-bold">
+                  <div key={i} style={{
+                    padding: '16px',
+                    borderRadius: '16px',
+                    background: '#faf7f5',
+                    border: '1px solid #f0e8f6',
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', fontFamily: 'monospace', color: accentPurple, fontWeight: 700, marginBottom: '10px' }}>
                       <span>Scène {i + 1}</span>
                       <span>{sc.time}</span>
                     </div>
-                    <div>
-                      <p className="text-[11px] text-slate-400 font-bold uppercase">Visuel / Action :</p>
-                      <p className="text-xs text-slate-200 mt-0.5">{sc.action}</p>
+                    <div style={{ marginBottom: '8px' }}>
+                      <p style={{ fontSize: '10px', color: textMuted, fontWeight: 700, textTransform: 'uppercase' }}>Visuel / Action :</p>
+                      <p style={{ fontSize: '12px', color: textSecondary, marginTop: '2px' }}>{sc.action}</p>
+                    </div>
+                    <div style={{ marginBottom: '8px' }}>
+                      <p style={{ fontSize: '10px', color: '#6090c0', fontWeight: 700, textTransform: 'uppercase' }}>Texte incrusté :</p>
+                      <p style={{ fontSize: '12px', fontWeight: 800, color: '#4070a0', marginTop: '2px', whiteSpace: 'pre-line' }}>{sc.textOverlay}</p>
                     </div>
                     <div>
-                      <p className="text-[11px] text-indigo-400 font-bold uppercase">Texte incrusté à l'écran :</p>
-                      <p className="text-xs font-black text-indigo-200 mt-0.5 whitespace-pre-line">{sc.textOverlay}</p>
-                    </div>
-                    <div>
-                      <p className="text-[11px] text-amber-400 font-bold uppercase">Voix Off / Paroles :</p>
-                      <p className="text-xs italic text-slate-300 mt-0.5">{sc.voice}</p>
+                      <p style={{ fontSize: '10px', color: accentPurple, fontWeight: 700, textTransform: 'uppercase' }}>Voix Off :</p>
+                      <p style={{ fontSize: '12px', fontStyle: 'italic', color: textSecondary, marginTop: '2px' }}>{sc.voice}</p>
                     </div>
                   </div>
                 ))}
@@ -1420,41 +1891,71 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
       {/* ================================================== */}
       {/* FOOTER */}
       {/* ================================================== */}
-      <footer className="border-t border-slate-800 bg-[#050710] py-8 text-center text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 space-y-2">
-          <p>Les Aventures de Léo © 2026 — Suite Campagnes Meta Ads Bestseller</p>
-          <div className="flex justify-center gap-4">
-            <Link href="/" className="hover:text-white">Accueil Boutique</Link>
+      <footer style={{
+        borderTop: '1px solid #e0d4ee',
+        background: '#f5eeff',
+        padding: '32px 20px',
+        textAlign: 'center',
+        fontSize: '12px',
+        color: textMuted,
+      }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <p>Les Aventures de Léo © 2026 — Contes féeriques pour des soirées sereines</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '8px' }}>
+            <Link href="/" style={{ color: textMuted, textDecoration: 'none' }}>Accueil</Link>
             <span>•</span>
-            <Link href="/pack" className="hover:text-white">Packs & Offres</Link>
+            <Link href="/pack" style={{ color: textMuted, textDecoration: 'none' }}>Packs & Offres</Link>
             <span>•</span>
-            <Link href="/admin/login" className="hover:text-white">Admin</Link>
+            <Link href="/admin/login" style={{ color: textMuted, textDecoration: 'none' }}>Admin</Link>
           </div>
         </div>
       </footer>
 
       {/* ================================================== */}
-      {/* CTA FLOTTANT STICKY MOBILE */}
+      {/* CTA FLOTTANT STICKY */}
       {/* ================================================== */}
       {currentMode === 'landing' && (
         <div
-          className={`fixed bottom-0 left-0 right-0 z-40 transition-all duration-500 ${
-            showFloatingCta ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
-          }`}
+          style={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            zIndex: 40,
+            transition: 'all 0.5s',
+            transform: showFloatingCta ? 'translateY(0)' : 'translateY(100%)',
+            opacity: showFloatingCta ? 1 : 0,
+          }}
         >
-          <div className="bg-slate-950/98 backdrop-blur-xl border-t border-amber-400/30 p-3 shadow-2xl">
-            <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
+          <div style={{
+            background: 'rgba(255,255,255,0.96)',
+            backdropFilter: 'blur(16px)',
+            borderTop: '1px solid #e0d4ee',
+            padding: '12px 16px',
+            boxShadow: '0 -4px 24px rgba(0,0,0,0.06)',
+          }}>
+            <div style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
               <div>
-                <p className="text-xs sm:text-sm font-black text-white">
-                  Pack 6 Tomes FR — <span className="text-amber-400">16,49€</span> (-45%)
+                <p style={{ fontSize: '14px', fontWeight: 900, color: textPrimary }}>
+                  Pack 6 Tomes — <span style={{ color: accentPurple }}>16,49€</span> (-45%)
                 </p>
-                <p className="text-[10px] text-slate-400">6 Livres Audio + 6 Ebooks HD</p>
+                <p style={{ fontSize: '11px', color: textMuted }}>6 Livres Audio + 6 Ebooks HD</p>
               </div>
               <a
                 href="#pricing"
-                className="px-5 py-2.5 rounded-xl text-xs font-black bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 shadow-lg shadow-amber-500/30"
+                style={{
+                  padding: '10px 20px',
+                  borderRadius: '12px',
+                  fontSize: '13px',
+                  fontWeight: 900,
+                  background: `linear-gradient(135deg, ${accentPurple} 0%, ${accentSoft} 100%)`,
+                  color: '#fff',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 14px rgba(124,92,170,0.3)',
+                  whiteSpace: 'nowrap',
+                }}
               >
-                Obtenir l'Offre →
+                Commander →
               </a>
             </div>
           </div>
@@ -1465,27 +1966,75 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
       {/* SOCIAL PROOF POP-UP */}
       {/* ================================================== */}
       <div
-        className={`fixed bottom-16 left-4 z-40 transition-all duration-500 ${
-          recentBuyer ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
-        }`}
+        style={{
+          position: 'fixed',
+          bottom: showFloatingCta ? '72px' : '16px',
+          left: '16px',
+          zIndex: 40,
+          transition: 'all 0.5s',
+          transform: recentBuyer ? 'translateX(0)' : 'translateX(calc(-100% - 20px))',
+          opacity: recentBuyer ? 1 : 0,
+        }}
       >
         {recentBuyer && (
-          <div className="bg-slate-900/95 border border-slate-700/80 rounded-2xl p-3 shadow-2xl max-w-xs flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-xs flex-shrink-0">
+          <div style={{
+            background: 'rgba(255,255,255,0.96)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid #e0d4ee',
+            borderRadius: '16px',
+            padding: '12px 16px',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
+            maxWidth: '300px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+          }}>
+            <div style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              background: successGreen,
+              color: '#fff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 700,
+              fontSize: '12px',
+              flexShrink: 0,
+            }}>
               ✓
             </div>
             <div>
-              <p className="text-xs font-bold text-white">
+              <p style={{ fontSize: '12px', fontWeight: 700, color: textPrimary }}>
                 {recentBuyer.name} ({recentBuyer.city})
               </p>
-              <p className="text-[10px] text-slate-400">
-                a commandé <span className="text-amber-300 font-bold">{recentBuyer.pack}</span>
+              <p style={{ fontSize: '10px', color: textMuted }}>
+                a commandé <span style={{ color: accentPurple, fontWeight: 700 }}>{recentBuyer.pack}</span>
               </p>
-              <p className="text-[9px] text-slate-500">{recentBuyer.time}</p>
+              <p style={{ fontSize: '9px', color: '#b0a0c0' }}>{recentBuyer.time}</p>
             </div>
           </div>
         )}
       </div>
+
+      {/* CSS responsive overrides */}
+      <style jsx global>{`
+        @media (min-width: 1024px) {
+          .lg-grid-hero {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .lg-grid-swipe {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        details > summary::-webkit-details-marker {
+          display: none;
+        }
+        details > summary::marker {
+          display: none;
+          content: '';
+        }
+      `}</style>
     </div>
   );
 }
