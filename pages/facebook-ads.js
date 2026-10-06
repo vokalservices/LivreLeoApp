@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import PayPalButton from '../components/PayPalButton';
 
 // ============================================================
@@ -442,6 +443,8 @@ function PricingCard({ featured, title, badge, originalPrice, salePrice, discoun
 // PAGE PRINCIPALE : Landing Page Parents (couleurs douces)
 // ============================================================
 export default function FacebookAdsPage() {
+  const router = useRouter();
+  const isProMode = router.query.kit === 'pro';
   const [currentMode, setCurrentMode] = useState('landing');
   const [activeOffer, setActiveOffer] = useState('fr');
   const [selectedAngle, setSelectedAngle] = useState(0);
@@ -748,7 +751,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
       </Head>
 
       {/* ================================================== */}
-      {/* BARRE DE SWITCH : MODE CLIENT vs MODE ANNONCEUR */}
+      {/* BARRE DE NAVIGATION ÉPURÉE PARENTS (SANS MODE ANNONCEUR) */}
       {/* ================================================== */}
       <div style={{
         position: 'sticky',
@@ -760,61 +763,79 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
         padding: '10px 16px',
         boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
             <span style={{ fontSize: '18px' }}>🌙</span>
-            <span style={{ fontSize: '13px', fontWeight: 800, color: textPrimary, letterSpacing: '0.3px' }}>
+            <span style={{ fontSize: '14px', fontWeight: 800, color: textPrimary, letterSpacing: '0.3px' }}>
               Les Aventures de Léo
             </span>
-          </div>
+          </Link>
 
-          {/* Toggle Button Mode */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            background: '#f3eef8',
-            border: '1px solid #e0d4ee',
-            borderRadius: '14px',
-            padding: '3px',
-            gap: '3px',
-          }}>
-            <button
-              onClick={() => setCurrentMode('landing')}
-              style={{
-                padding: '7px 14px',
-                borderRadius: '11px',
-                fontSize: '12px',
+          {/* Mode Pro réservé à l'administrateur via ?kit=pro */}
+          {isProMode ? (
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              background: '#f3eef8',
+              border: '1px solid #e0d4ee',
+              borderRadius: '14px',
+              padding: '3px',
+              gap: '3px',
+            }}>
+              <button
+                onClick={() => setCurrentMode('landing')}
+                style={{
+                  padding: '7px 14px',
+                  borderRadius: '11px',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  background: currentMode === 'landing' ? accentPurple : 'transparent',
+                  color: currentMode === 'landing' ? '#fff' : textMuted,
+                }}
+              >
+                🌟 Boutique
+              </button>
+              <button
+                onClick={() => setCurrentMode('swipefile')}
+                style={{
+                  padding: '7px 14px',
+                  borderRadius: '11px',
+                  fontSize: '12px',
+                  fontWeight: 800,
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  background: currentMode === 'swipefile' ? accentPurple : 'transparent',
+                  color: currentMode === 'swipefile' ? '#fff' : textMuted,
+                }}
+              >
+                🛠️ Mode Pro (Admin)
+              </button>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <a href="#offres" style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 18px',
+                borderRadius: '14px',
+                fontSize: '13px',
                 fontWeight: 800,
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-                background: currentMode === 'landing' ? accentPurple : 'transparent',
-                color: currentMode === 'landing' ? '#fff' : textMuted,
-              }}
-            >
-              🌟 Boutique
-            </button>
-            <button
-              onClick={() => setCurrentMode('swipefile')}
-              style={{
-                padding: '7px 14px',
-                borderRadius: '11px',
-                fontSize: '12px',
-                fontWeight: 800,
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-                background: currentMode === 'swipefile' ? accentPurple : 'transparent',
-                color: currentMode === 'swipefile' ? '#fff' : textMuted,
-              }}
-            >
-              🎯 Kit Annonceur
-            </button>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: textMuted }}>
-            <span style={{ color: accentPurple, fontWeight: 800 }}>16.49€ (-45%)</span>
-          </div>
+                background: 'linear-gradient(135deg, #7c5caa 0%, #9b7cc8 100%)',
+                color: '#fff',
+                textDecoration: 'none',
+                boxShadow: '0 2px 8px rgba(124,92,170,0.25)',
+                transition: 'transform 0.15s ease',
+              }}>
+                <span>Pack 6 Tomes · 16,49 €</span>
+                <span style={{ background: 'rgba(255,255,255,0.25)', padding: '2px 7px', borderRadius: '8px', fontSize: '11px', fontWeight: 900 }}>−45 %</span>
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
