@@ -49,9 +49,9 @@ function PackDownloadButtons({ isCombo, email, productId }) {
 
   return (
     <div className="flex flex-col gap-5 mb-8">
-      {renderGroup('📄', 'PDF',   'bg-indigo-600 hover:bg-indigo-700 text-white',   packFiles.pdf)}
+      {renderGroup('📄', 'PDF',   'bg-[#7C5CAA] hover:bg-[#6D4E9B] text-white',   packFiles.pdf)}
       {renderGroup('📱', 'EPUB',  'bg-slate-700 hover:bg-slate-800 text-white',     packFiles.epub)}
-      {renderGroup('🎙️', 'Audio', 'bg-amber-500 hover:bg-amber-600 text-white',    packFiles.audio)}
+      {renderGroup('🎙️', 'Audio', 'bg-[#E8A838] hover:bg-[#D97706] text-white',    packFiles.audio)}
     </div>
   );
 }
@@ -218,8 +218,8 @@ function BookCard({ product, email, onRead }) {
         <img src={product.imageUrl} alt={product.title} className="w-14 h-20 object-cover rounded-lg shadow border shrink-0" />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5 mb-1">
-            {volume && <span className="text-[10px] font-black bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded-full">T{volume}</span>}
-            <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ${lang === 'EN' ? 'bg-violet-100 text-violet-700' : 'bg-blue-100 text-blue-700'}`}>{lang}</span>
+            {volume && <span className="text-[10px] font-black bg-[#F5EEFF] text-[#7C5CAA] px-1.5 py-0.5 rounded-full border border-[#E0D4EE]">T{volume}</span>}
+            <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ${lang === 'EN' ? 'bg-[#F5EEFF] text-[#7C5CAA] border border-[#E0D4EE]' : 'bg-[#FAF7F5] text-[#5A4878] border border-[#E0D4EE]'}`}>{lang}</span>
           </div>
           <h3 className="font-extrabold text-slate-800 text-sm leading-tight">{product.title}</h3>
           <p className="text-xs text-gray-400 mt-0.5">{pages.length} pages · {product.author || 'Théo Arven'}</p>
@@ -420,8 +420,8 @@ export default function Success() {
         ) : isPackOrCombo ? (
           /* ── Vue Pack / Combo ── */
           <>
-            <div className={`inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 mx-auto flex justify-center
-              ${isCombo ? 'bg-violet-100 text-violet-700' : 'bg-indigo-100 text-indigo-700'}`}>
+            <div className={`inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 mx-auto flex justify-center border
+              ${isCombo ? 'bg-[#F5EEFF] text-[#7C5CAA] border-[#E0D4EE]' : 'bg-[#FAF7F5] text-[#5A4878] border-[#E0D4EE]'}`}>
               {isCombo ? '🌍 Pack Combo FR + EN — 12 livres' : '📚 Pack Intégral — 6 livres'}
             </div>
 
@@ -493,13 +493,13 @@ export default function Success() {
 
             {/* Upsell pack */}
             {!isPackOrCombo && (
-              <div className="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 text-left max-w-xl mx-auto">
+              <div className="bg-[#F5EEFF] border border-[#E0D4EE] rounded-2xl p-5 text-left max-w-xl mx-auto shadow-sm">
                 <div className="flex items-start gap-3">
                   <div className="text-2xl shrink-0">🎁</div>
                   <div>
-                    <p className="font-extrabold text-indigo-900 text-sm mb-1">Vous avez adoré ? Obtenez les 6 à −50 %</p>
-                    <p className="text-indigo-600 text-xs mb-3">Le Pack Intégral inclut les 6 aventures en PDF & EPUB pour seulement <strong>14,99 €</strong>.</p>
-                    <Link href="/pack" className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-2 rounded-xl text-xs transition active:scale-95">
+                    <p className="font-extrabold text-[#2D2444] text-sm mb-1">Vous avez adoré ? Obtenez les 6 tomes à −45 %</p>
+                    <p className="text-[#6B5E80] text-xs mb-3">Le Pack Intégral inclut les 6 aventures en PDF & EPUB pour seulement <strong>16,49 €</strong>.</p>
+                    <Link href="/pack" className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] hover:from-[#6D4E9B] hover:to-[#8C6DBA] text-white font-bold px-5 py-2 rounded-xl text-xs transition active:scale-95 shadow-sm">
                       Voir le Pack Complet →
                     </Link>
                   </div>

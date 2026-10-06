@@ -229,7 +229,7 @@ export default function BookDetail() {
         <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8">
           <div className="bg-white p-8 rounded-2xl shadow border max-w-md w-full text-center">
             <p className="text-red-500 font-bold text-lg mb-4">Mince ! {error || "Ce livre n'existe pas."}</p>
-            <Link href="/" className="bg-blue-600 text-white font-bold py-2 px-6 rounded-xl">
+            <Link href="/" className="bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] hover:from-[#6D4E9B] hover:to-[#8C6DBA] text-white font-bold py-2 px-6 rounded-xl shadow-md transition">
               Retour à l'accueil
             </Link>
           </div>
@@ -250,10 +250,10 @@ export default function BookDetail() {
       description={book.description}
       ogImage={book.imageUrl?.startsWith('http') ? book.imageUrl : `${process.env.NEXT_PUBLIC_BASE_URL || ''}${book.imageUrl}`}
     >
-      <div className="min-h-screen bg-gray-50/50 pb-24">
+      <div className="min-h-screen bg-[#FAF7F5] pb-24">
       {/* Barre de retour */}
       <div className="max-w-6xl mx-auto px-6 py-6">
-        <Link href="/" className="inline-flex items-center text-gray-500 hover:text-blue-600 font-medium transition-colors">
+        <Link href="/" className="inline-flex items-center text-[#6B5E80] hover:text-[#7C5CAA] font-bold text-sm transition-colors">
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
@@ -263,16 +263,16 @@ export default function BookDetail() {
 
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Colonne Gauche : Visuel ou Lecteur e-book */}
-        <div className="lg:col-span-7 bg-white rounded-3xl border border-gray-200 p-8 shadow-sm">
+        <div className="lg:col-span-7 bg-white rounded-3xl border border-[#E0D4EE] p-8 shadow-sm">
           {!isReading ? (
             <div className="flex flex-col items-center">
-              <div className="relative group bg-gray-50 rounded-2xl p-8 flex items-center justify-center w-full max-w-sm mb-6 border border-gray-100 shadow-inner">
+              <div className="relative group bg-gradient-to-b from-[#FAF7F5] to-[#F5EEFF] rounded-2xl p-8 flex items-center justify-center w-full max-w-sm mb-6 border border-[#E0D4EE] shadow-inner">
                 <img
-                  className="w-56 h-80 object-cover rounded-md shadow-2xl transition-transform duration-500 hover:scale-105 border border-gray-200"
+                  className="w-56 h-80 object-cover rounded-md shadow-2xl transition-transform duration-500 hover:scale-105 border border-[#E0D4EE]"
                   src={book.imageUrl}
                   alt={book.title}
                 />
-                <div className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                <div className="absolute top-4 left-4 bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
                   Tome {series.volume || 1}
                 </div>
               </div>
@@ -280,7 +280,7 @@ export default function BookDetail() {
               {pages.length > 0 && (
                 <button
                   onClick={() => setIsReading(true)}
-                  className="w-full max-w-sm bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-md hover:shadow-lg transition flex items-center justify-center space-x-2 text-md"
+                  className="w-full max-w-sm bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] hover:from-[#6D4E9B] hover:to-[#8C6DBA] text-white font-bold py-3.5 px-6 rounded-2xl shadow-md hover:shadow-lg transition flex items-center justify-center space-x-2 text-md"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -338,8 +338,8 @@ export default function BookDetail() {
                           onClick={toggleAudio}
                           className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full text-xs font-bold transition shadow-sm active:scale-95 ${
                             isPlaying
-                              ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                              : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
+                              ? 'bg-rose-100 text-rose-700 hover:bg-rose-200'
+                              : 'bg-[#F5EEFF] text-[#7C5CAA] hover:bg-[#EDE3FA] border border-[#E0D4EE]'
                           }`}
                         >
                           {isPlaying ? (
@@ -368,7 +368,7 @@ export default function BookDetail() {
                           return (
                             <p
                               key={pIdx}
-                              className={isInteraction ? "text-indigo-900 bg-indigo-50/90 border border-indigo-100 p-2.5 rounded-xl text-xs sm:text-sm font-sans font-semibold mt-2 shadow-xs" : ""}
+                              className={isInteraction ? "text-[#2D2444] bg-[#F5EEFF] border border-[#E0D4EE] p-2.5 rounded-xl text-xs sm:text-sm font-sans font-semibold mt-2 shadow-xs" : ""}
                             >
                               {paragraph}
                             </p>
@@ -397,7 +397,7 @@ export default function BookDetail() {
                     {currentPage < maxFreePages - 1 ? (
                       <button
                         onClick={() => setCurrentPage(prev => prev + 1)}
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-xl transition animate-pulse"
+                        className="bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] hover:from-[#6D4E9B] hover:to-[#8C6DBA] text-white font-bold px-4 py-2 rounded-xl transition shadow-md"
                       >
                         Suivant
                       </button>
@@ -412,8 +412,8 @@ export default function BookDetail() {
                           </svg>
                           <span>Suivant</span>
                         </button>
-                        <div className="absolute right-0 bottom-full mb-3 w-56 p-3 bg-indigo-900 text-white text-xs rounded-xl shadow-lg border border-indigo-700/60 z-20 text-center font-medium leading-normal pointer-events-none">
-                          <div className="absolute top-full right-6 w-3 h-3 bg-indigo-900 rotate-45 transform -translate-y-1.5" />
+                        <div className="absolute right-0 bottom-full mb-3 w-56 p-3 bg-[#2D2444] text-white text-xs rounded-xl shadow-lg border border-[#7C5CAA]/40 z-20 text-center font-medium leading-normal pointer-events-none">
+                          <div className="absolute top-full right-6 w-3 h-3 bg-[#2D2444] rotate-45 transform -translate-y-1.5" />
                           Achetez le livre pour accéder aux {pages.length - maxFreePages} pages restantes de l'histoire et à ses coloriages !
                         </div>
                       </div>
@@ -428,35 +428,35 @@ export default function BookDetail() {
         {/* Colonne Droite : Achat, Métadonnées et Synopsis */}
         <div className="lg:col-span-5 space-y-8">
           {/* Section Synopsis et Titres */}
-          <div className="bg-white rounded-3xl border border-gray-200 p-8 shadow-sm">
-            <div className="flex items-center space-x-2 text-sm font-semibold text-blue-600 mb-2">
+          <div className="bg-white rounded-3xl border border-[#E0D4EE] p-8 shadow-sm">
+            <div className="flex items-center space-x-2 text-sm font-semibold text-[#7C5CAA] mb-2">
               <span>{book.author}</span>
               <span>•</span>
-              <span className="text-orange-700 bg-orange-50 px-2.5 py-0.5 rounded-full text-xs">Ages {book.ageGroup}</span>
+              <span className="text-[#B45309] bg-[#E8A838]/15 border border-[#E8A838]/30 px-2.5 py-0.5 rounded-full text-xs font-bold">Ages {book.ageGroup}</span>
             </div>
 
-            <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
+            <h1 className="text-3xl font-extrabold text-[#2D2444] tracking-tight mb-4 leading-tight">
               {book.title}
             </h1>
 
             {series && series.name && (
-              <p className="text-gray-500 text-sm font-semibold mb-6 flex items-center">
-                <svg className="w-5 h-5 mr-1.5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+              <p className="text-[#6B5E80] text-sm font-semibold mb-6 flex items-center">
+                <svg className="w-5 h-5 mr-1.5 text-[#E8A838]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
                 {series.name} (Tome {series.volume} sur {series.total_volumes})
               </p>
             )}
 
-            <h3 className="font-bold text-gray-800 mb-2 text-md">Synopsis</h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6 font-light">
+            <h3 className="font-bold text-[#2D2444] mb-2 text-md">Synopsis</h3>
+            <p className="text-[#6B5E80] text-sm leading-relaxed mb-6 font-normal">
               {book.description}
             </p>
 
             {keywords.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-[#E0D4EE]/60">
                 {keywords.map((kw, i) => (
-                  <span key={i} className="text-xs bg-gray-50 text-gray-500 px-3 py-1.5 rounded-lg border">
+                  <span key={i} className="text-xs bg-[#FAF7F5] text-[#6B5E80] px-3 py-1.5 rounded-lg border border-[#E0D4EE]">
                     #{kw}
                   </span>
                 ))}
@@ -465,17 +465,17 @@ export default function BookDetail() {
           </div>
 
           {/* Section Achat & Paiement */}
-          <div className="bg-white rounded-3xl border border-gray-200 p-8 shadow-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="bg-white rounded-3xl border border-[#E0D4EE] p-8 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#7C5CAA]/10 rounded-full blur-2xl pointer-events-none" />
 
             {/* Prix avec réduction éventuelle */}
             <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
-              <span className="text-gray-500 font-semibold text-sm">Prix de l'e-book</span>
+              <span className="text-[#6B5E80] font-semibold text-sm">Prix de l'e-book</span>
               <div className="flex items-center gap-2">
                 {discountAmount > 0 && (
-                  <span className="text-lg text-gray-400 line-through font-semibold">{eur(book.price)}</span>
+                  <span className="text-lg text-[#8B7EA0] line-through font-semibold">{eur(book.price)}</span>
                 )}
-                <span className={`text-3xl font-extrabold ${discountAmount > 0 ? 'text-green-600' : 'text-indigo-900'}`}>
+                <span className={`text-3xl font-extrabold ${discountAmount > 0 ? 'text-emerald-600' : 'text-[#2D2444]'}`}>
                   {finalPrice === 0 ? 'Gratuit' : eur(finalPrice)}
                 </span>
               </div>
@@ -488,33 +488,33 @@ export default function BookDetail() {
                 value={couponCode}
                 onChange={e => { setCouponCode(e.target.value); setCouponError(''); setCouponSuccess(''); }}
                 placeholder="Code promo"
-                className="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium uppercase tracking-wider"
+                className="flex-1 border border-[#E0D4EE] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7C5CAA]/40 font-medium uppercase tracking-wider text-[#2D2444]"
                 maxLength={32}
               />
               <button
                 type="submit"
                 disabled={paymentLoading || !couponCode.trim()}
-                className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition active:scale-95"
+                className="bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] hover:from-[#6D4E9B] hover:to-[#8C6DBA] disabled:opacity-40 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition active:scale-95 shadow-sm"
               >
                 {paymentLoading ? '…' : 'Appliquer'}
               </button>
             </form>
             {couponSuccess && (
-              <p className="text-xs text-green-700 font-semibold bg-green-50 px-3 py-2 rounded-lg mb-3 border border-green-100">{couponSuccess}</p>
+              <p className="text-xs text-emerald-700 font-semibold bg-emerald-50 px-3 py-2 rounded-lg mb-3 border border-emerald-100">{couponSuccess}</p>
             )}
             {couponError && (
-              <p className="text-xs text-red-600 font-medium bg-red-50 px-3 py-2 rounded-lg mb-3 border border-red-100">{couponError}</p>
+              <p className="text-xs text-rose-600 font-medium bg-rose-50 px-3 py-2 rounded-lg mb-3 border border-rose-100">{couponError}</p>
             )}
 
             {/* Suggestion pack */}
             <a href="/pack"
-              className="flex items-center gap-3 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 rounded-2xl p-3.5 mb-5 transition group">
+              className="flex items-center gap-3 bg-[#F5EEFF] hover:bg-[#EDE3FA] border border-[#E0D4EE] rounded-2xl p-3.5 mb-5 transition group">
               <span className="text-xl">🎁</span>
               <div className="flex-1 min-w-0">
-                <div className="text-xs font-bold text-indigo-700">Pack 6 livres à −45 %</div>
-                <div className="text-xs text-indigo-500 truncate">Obtenez toute la collection pour {eur(16.49)}</div>
+                <div className="text-xs font-bold text-[#7C5CAA]">Pack 6 livres à −45 %</div>
+                <div className="text-xs text-[#6B5E80] truncate">Obtenez toute la collection pour {eur(16.49)}</div>
               </div>
-              <svg className="w-4 h-4 text-indigo-400 group-hover:text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-[#7C5CAA] group-hover:translate-x-0.5 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
               </svg>
             </a>
@@ -549,7 +549,7 @@ export default function BookDetail() {
                   <button
                     onClick={processFreeCheckout}
                     disabled={paymentLoading}
-                    className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white font-bold py-3.5 rounded-2xl text-sm shadow-md transition active:scale-95 flex items-center justify-center gap-2"
+                    className="w-full bg-[#60C090] hover:bg-[#52ad80] disabled:opacity-50 text-white font-extrabold py-3.5 rounded-2xl text-sm shadow-md transition active:scale-95 flex items-center justify-center gap-2"
                   >
                     {paymentLoading ? (
                       <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Traitement...</>
@@ -724,7 +724,7 @@ export default function BookDetail() {
               <button
                 type="submit"
                 disabled={commentSubmitting}
-                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl text-sm transition active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] hover:from-[#6D4E9B] hover:to-[#8C6DBA] text-white font-bold py-3 px-8 rounded-xl text-sm transition active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2 shadow-sm"
               >
                 {commentSubmitting ? (
                   <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Envoi...</>

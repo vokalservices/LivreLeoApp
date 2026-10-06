@@ -118,28 +118,23 @@ export default function Pack() {
     ? [...BOOKS_FR.map(b => ({ ...b, lang: 'FR' })), ...BOOKS_EN.map(b => ({ ...b, lang: 'EN' }))]
     : (lang === 'fr' ? BOOKS_FR : BOOKS_EN);
 
-  const accentColor = isCombo ? 'violet' : 'yellow';
+  const accentColor = isCombo ? 'violet' : 'amber';
 
-  const priceColor = isCombo ? 'text-violet-300' : 'text-yellow-300';
-  const heroBg     = isCombo
-    ? 'bg-gradient-to-br from-violet-700 via-indigo-800 to-slate-900'
-    : 'bg-gradient-to-br from-indigo-700 via-indigo-900 to-slate-900';
+  const priceColor = 'text-amber-300';
+  const heroBg     = 'bg-gradient-to-b from-[#2D2444] via-[#382C54] to-[#251D38]';
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white pb-24">
+      <div className="min-h-screen bg-[#FAF7F5] pb-24">
 
         {/* ── Hero ── */}
-        <div className={`relative ${heroBg} text-white overflow-hidden py-16 px-6 mb-12`}>
-          <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className={`relative ${heroBg} text-white overflow-hidden py-16 px-6 mb-12 border-b border-[#E0D4EE]/20 shadow-lg`}>
+          <div className="absolute -top-20 -right-20 w-80 h-80 bg-[#7C5CAA]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-[#E8A838]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-4xl mx-auto relative z-10 text-center">
             {/* Badge */}
-            <div className={`inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-5
-              ${isCombo
-                ? 'bg-violet-400/20 border border-violet-300/40 text-violet-200'
-                : 'bg-yellow-400/20 border border-yellow-300/40 text-yellow-200'}`}>
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 bg-white/10 border border-white/20 text-purple-200">
               ✦ {lang === 'fr'
                 ? (isCombo ? 'Offre Bilingue · Économisez 48 %' : 'Offre Exclusive · Économisez 45 %')
                 : (isCombo ? 'Bilingual Offer · Save 48 %'       : 'Exclusive Offer · Save 45 %')}
@@ -147,12 +142,12 @@ export default function Pack() {
 
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
               {isCombo
-                ? (lang === 'fr' ? <>Pack Combo<br /><span className={`text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-indigo-200`}>FR + EN — 12 Livres</span></> : <>Combo Pack<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-indigo-200">FR + EN — 12 Books</span></>)
-                : (lang === 'fr' ? <>Pack Intégral<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-200">Les 6 Aventures de Léo</span></> : <>Complete Pack<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-200">{"Leo's 6 Adventures"}</span></>)
+                ? (lang === 'fr' ? <>Pack Combo<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-200">FR + EN — 12 Livres</span></> : <>Combo Pack<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-200">FR + EN — 12 Books</span></>)
+                : (lang === 'fr' ? <>Pack Intégral<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-200">Les 6 Aventures de Léo</span></> : <>Complete Pack<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-300 to-yellow-200">{"Leo's 6 Adventures"}</span></>)
               }
             </h1>
 
-            <p className="text-indigo-200 text-lg max-w-2xl mx-auto mb-8">
+            <p className="text-purple-100/90 text-base md:text-lg max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
               {isCombo
                 ? (lang === 'fr'
                     ? "L'intégrale en français ET en anglais — 12 e-books illustrés, formats EPUB & PDF, idéal pour les familles bilingues."
@@ -164,24 +159,24 @@ export default function Pack() {
             </p>
 
             {/* Prix */}
-            <div className="inline-flex flex-col items-center bg-white/10 backdrop-blur border border-white/20 rounded-2xl px-8 py-5 mb-6">
-              <div className="text-sm text-indigo-300 font-bold mb-1">
+            <div className="inline-flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl px-8 py-5 mb-6 shadow-md">
+              <div className="text-xs text-purple-200 uppercase tracking-widest font-bold mb-1">
                 {lang === 'fr' ? 'Prix du pack complet' : 'Full pack price'}
               </div>
               <div className="flex items-baseline gap-4">
                 {discountAmount > 0 && (
-                  <span className="text-indigo-300 line-through text-xl font-semibold">{eur(basePrice)}</span>
+                  <span className="text-purple-200 line-through text-xl font-semibold">{eur(basePrice)}</span>
                 )}
-                <span className={`text-4xl font-black ${isFree ? 'text-green-300' : priceColor}`}>
+                <span className={`text-4xl font-black ${isFree ? 'text-emerald-300' : 'text-amber-300'}`}>
                   {isFree ? (lang === 'fr' ? 'Gratuit' : 'Free') : eur(price)}
                 </span>
                 <div className="text-right">
-                  <div className="text-indigo-300 line-through text-lg font-semibold">{eur(normalPrice)}</div>
-                  <div className={`text-xs font-black ${priceColor}`}>−{pct} %</div>
+                  <div className="text-purple-200/80 line-through text-lg font-semibold">{eur(normalPrice)}</div>
+                  <div className="text-xs font-black text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-400/30">−{pct} %</div>
                 </div>
               </div>
               {!isFree && (
-                <div className="text-xs text-indigo-400 mt-1">
+                <div className="text-xs text-purple-200/90 mt-1">
                   {lang === 'fr'
                     ? `Soit ${eur(Math.round(price / bookCount))} / livre · Économie de ${eur(savings)}`
                     : `${eur(Math.round(price / bookCount))} / book · Save ${eur(savings)}`}
@@ -197,22 +192,22 @@ export default function Pack() {
                   value={couponCode}
                   onChange={e => { setCouponCode(e.target.value); setCouponError(''); setCouponSuccess(''); }}
                   placeholder={lang === 'fr' ? 'Code promo' : 'Promo code'}
-                  className="flex-1 bg-white/15 border border-white/30 text-white placeholder-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/40 font-medium uppercase tracking-wider"
+                  className="flex-1 bg-white/15 border border-white/25 text-white placeholder-purple-200/60 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/40 font-medium uppercase tracking-wider"
                   maxLength={32}
                 />
                 <button
                   type="submit"
                   disabled={couponLoading || !couponCode.trim()}
-                  className="bg-white/20 hover:bg-white/30 disabled:opacity-40 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition active:scale-95 border border-white/30"
+                  className="bg-white/20 hover:bg-white/30 disabled:opacity-40 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition active:scale-95 border border-white/25"
                 >
                   {couponLoading ? '…' : (lang === 'fr' ? 'Appliquer' : 'Apply')}
                 </button>
               </form>
               {couponSuccess && (
-                <p className="text-xs text-green-300 font-semibold mt-2 text-center">{couponSuccess}</p>
+                <p className="text-xs text-emerald-300 font-semibold mt-2 text-center">{couponSuccess}</p>
               )}
               {couponError && (
-                <p className="text-xs text-red-300 font-medium mt-2 text-center">{couponError}</p>
+                <p className="text-xs text-rose-300 font-medium mt-2 text-center">{couponError}</p>
               )}
             </div>
 
@@ -221,25 +216,25 @@ export default function Pack() {
               {isFree ? (
                 <div className="w-full max-w-sm space-y-3">
                   <div>
-                    <label className="text-xs font-bold text-indigo-200 uppercase tracking-wider block mb-1.5">
-                      Email <span className="text-red-300">*</span>
-                      <span className="ml-1 font-normal text-indigo-300 normal-case">(pour recevoir vos fichiers)</span>
+                    <label className="text-xs font-bold text-purple-200 uppercase tracking-wider block mb-1.5">
+                      Email <span className="text-rose-300">*</span>
+                      <span className="ml-1 font-normal text-purple-200/80 normal-case">(pour recevoir vos fichiers)</span>
                     </label>
                     <input
                       type="email"
                       value={freeEmail}
                       onChange={e => { setFreeEmail(e.target.value); setFreeEmailError(''); }}
                       placeholder="votre@email.com"
-                      className="w-full bg-white/15 border border-white/30 text-white placeholder-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/40 font-medium"
+                      className="w-full bg-white/15 border border-white/30 text-white placeholder-purple-200/60 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/40 font-medium"
                     />
                     {freeEmailError && (
-                      <p className="text-xs text-red-300 font-medium mt-1">{freeEmailError}</p>
+                      <p className="text-xs text-rose-300 font-medium mt-1">{freeEmailError}</p>
                     )}
                   </div>
                   <button
                     onClick={processFreeCheckout}
                     disabled={freeLoading}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 disabled:opacity-50 text-white font-extrabold px-10 py-4 rounded-2xl shadow-lg transition active:scale-95 text-base"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#60C090] hover:bg-[#52ad80] disabled:opacity-50 text-white font-extrabold px-10 py-4 rounded-2xl shadow-lg transition active:scale-95 text-base"
                   >
                     {freeLoading
                       ? <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />{lang === 'fr' ? 'Traitement…' : 'Processing…'}</>
@@ -255,10 +250,10 @@ export default function Pack() {
                 />
               )}
             </div>
-            <p className="text-xs text-indigo-400 mt-3">
+            <p className="text-xs text-purple-200/80 mt-3">
               {lang === 'fr'
-                ? 'Carte bancaire · PayPal · Cartes prépayées virtuelles · Paiement sécurisé'
-                : 'Credit card · PayPal · Virtual prepaid cards · Secure payment'}
+                ? 'Carte bancaire · PayPal · Accès immédiat · Paiement sécurisé SSL'
+                : 'Credit card · PayPal · Instant access · Secure SSL payment'}
             </p>
           </div>
         </div>
@@ -268,15 +263,15 @@ export default function Pack() {
           {/* Toggle pack/combo */}
           <div className="flex justify-center gap-3 mb-10">
             <a href="/pack"
-              className={`px-5 py-2 rounded-xl text-sm font-bold transition border ${!isCombo
-                ? 'bg-indigo-600 text-white border-indigo-600 shadow-md'
-                : 'bg-white text-gray-500 border-gray-200 hover:border-indigo-300'}`}>
+              className={`px-6 py-2.5 rounded-2xl text-sm font-bold transition border ${!isCombo
+                ? 'bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] text-white border-[#7C5CAA] shadow-md shadow-[#7C5CAA]/25'
+                : 'bg-white text-[#5A4878] border-[#E0D4EE] hover:bg-[#F5EEFF]'}`}>
               {lang === 'fr' ? `📖 Pack FR · ${eur(PACK_PRICE)}` : `📖 EN Pack · ${eur(PACK_PRICE)}`}
             </a>
             <a href="/pack?combo=1"
-              className={`px-5 py-2 rounded-xl text-sm font-bold transition border ${isCombo
-                ? 'bg-violet-600 text-white border-violet-600 shadow-md'
-                : 'bg-white text-gray-500 border-gray-200 hover:border-violet-300'}`}>
+              className={`px-6 py-2.5 rounded-2xl text-sm font-bold transition border ${isCombo
+                ? 'bg-gradient-to-r from-[#7C5CAA] to-[#9B7CC8] text-white border-[#7C5CAA] shadow-md shadow-[#7C5CAA]/25'
+                : 'bg-white text-[#5A4878] border-[#E0D4EE] hover:bg-[#F5EEFF]'}`}>
               🌍 {lang === 'fr' ? `Combo FR+EN · ${eur(COMBO_PRICE)}` : `FR+EN Combo · ${eur(COMBO_PRICE)}`}
             </a>
           </div>
@@ -298,16 +293,16 @@ export default function Pack() {
               { icon: '🎁', label: lang === 'fr' ? 'Édition Collector'      : 'Collector Edition',     sub: lang === 'fr' ? 'Tome 6 avec bonus'           : 'Volume 6 with bonus' },
               { icon: '⚡', label: lang === 'fr' ? 'Accès immédiat'         : 'Instant access',        sub: lang === 'fr' ? 'Après paiement'             : 'After payment' },
             ]).map(f => (
-              <div key={f.label} className="bg-white border border-gray-100 rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition">
+              <div key={f.label} className="bg-white border border-[#E0D4EE] rounded-2xl p-4 text-center shadow-sm hover:border-[#9B7CC8] hover:shadow-md transition">
                 <div className="text-3xl mb-2">{f.icon}</div>
-                <div className="text-sm font-bold text-gray-800">{f.label}</div>
-                <div className="text-xs text-gray-400 mt-0.5">{f.sub}</div>
+                <div className="text-sm font-bold text-[#2D2444]">{f.label}</div>
+                <div className="text-xs text-[#8B7EA0] mt-0.5">{f.sub}</div>
               </div>
             ))}
           </div>
 
           {/* Liste des tomes */}
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-6 text-center">
+          <h2 className="text-2xl font-extrabold text-[#2D2444] mb-6 text-center">
             {isCombo
               ? (lang === 'fr' ? 'Les 12 tomes inclus dans le combo' : 'All 12 volumes included in the combo')
               : (lang === 'fr' ? 'Les 6 tomes inclus dans le pack'   : 'All 6 volumes included in the pack')}
@@ -315,47 +310,44 @@ export default function Pack() {
 
           <div className="space-y-3 mb-12">
             {books.map((b, i) => (
-              <div key={i} className="flex items-center gap-4 bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:border-indigo-200 transition">
-                <div className={`w-10 h-10 rounded-xl text-white font-black text-lg flex items-center justify-center shrink-0 shadow-md
-                  ${b.lang === 'EN' ? 'bg-violet-600 shadow-violet-200' : 'bg-indigo-600 shadow-indigo-200'}`}>
+              <div key={i} className="flex items-center gap-4 bg-white border border-[#E0D4EE] rounded-2xl p-4 shadow-sm hover:border-[#9B7CC8] transition">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#7C5CAA] to-[#9B7CC8] text-white font-black text-lg flex items-center justify-center shrink-0 shadow-md shadow-[#7C5CAA]/25">
                   {b.tome}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-gray-900 text-sm">{b.title}</span>
+                    <span className="font-bold text-[#2D2444] text-sm">{b.title}</span>
                     {isCombo && (
-                      <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-full
-                        ${b.lang === 'EN' ? 'bg-violet-100 text-violet-700' : 'bg-indigo-100 text-indigo-700'}`}>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#F5EEFF] text-[#7C5CAA] border border-[#E0D4EE]">
                         {b.lang}
                       </span>
                     )}
                   </div>
-                  <div className="text-xs text-gray-400 truncate">{b.desc}</div>
+                  <div className="text-xs text-[#8B7EA0] truncate">{b.desc}</div>
                 </div>
-                <div className="text-xs font-bold text-gray-300 shrink-0 line-through">{eur(UNIT_PRICE)}</div>
+                <div className="text-xs font-bold text-[#8B7EA0] shrink-0 line-through">{eur(UNIT_PRICE)}</div>
               </div>
             ))}
           </div>
 
           {/* Récap + CTA bas */}
-          <div className={`rounded-3xl p-8 text-white text-center shadow-2xl
-            ${isCombo ? 'bg-gradient-to-br from-violet-700 via-indigo-800 to-slate-900' : 'bg-gradient-to-br from-indigo-600 to-indigo-800'}`}>
-            <p className="text-indigo-200 text-sm mb-2">
+          <div className="rounded-3xl p-8 text-center shadow-xl border border-[#E0D4EE] bg-gradient-to-b from-[#FAF5FF] via-white to-[#F8F2FF]">
+            <p className="text-[#6B5E80] text-sm mb-2">
               {lang === 'fr' ? 'Total si achat séparé' : 'Total if bought separately'}
             </p>
-            <p className="text-2xl font-black line-through text-indigo-300 mb-1">{eur(normalPrice)}</p>
-            <p className="text-indigo-200 text-sm mb-1">
+            <p className="text-2xl font-black line-through text-[#8B7EA0] mb-1">{eur(normalPrice)}</p>
+            <p className="text-[#6B5E80] text-sm mb-1">
               {lang === 'fr' ? 'Prix du Pack' : 'Pack Price'}
             </p>
-            <p className={`text-4xl font-black mb-2 ${isFree ? 'text-green-300' : priceColor}`}>
+            <p className="text-4xl font-black mb-2 text-[#7C5CAA]">
               {isFree ? (lang === 'fr' ? 'Gratuit' : 'Free') : eur(price)}
             </p>
             {discountAmount > 0 && (
-              <p className="text-xs text-green-300 font-bold mb-3">
+              <p className="text-xs text-emerald-600 font-bold mb-3">
                 {couponSuccess}
               </p>
             )}
-            <p className="text-sm text-indigo-200 mb-6">
+            <p className="text-sm text-[#5A4878] mb-6">
               {lang === 'fr'
                 ? `Vous économisez ${eur(savings)} — soit ${pct}% de réduction`
                 : `You save ${eur(savings)} — ${pct}% off`}
@@ -366,26 +358,26 @@ export default function Pack() {
                 <div className="w-full max-w-sm space-y-3">
                   {!freeEmail && (
                     <div>
-                      <label className="text-xs font-bold text-indigo-200 uppercase tracking-wider block mb-1.5">
-                        Email <span className="text-red-300">*</span>
-                        <span className="ml-1 font-normal text-indigo-300 normal-case">(pour recevoir vos fichiers)</span>
+                      <label className="text-xs font-bold text-[#2D2444] uppercase tracking-wider block mb-1.5">
+                        Email <span className="text-rose-500">*</span>
+                        <span className="ml-1 font-normal text-[#8B7EA0] normal-case">(pour recevoir vos fichiers)</span>
                       </label>
                       <input
                         type="email"
                         value={freeEmail}
                         onChange={e => { setFreeEmail(e.target.value); setFreeEmailError(''); }}
                         placeholder="votre@email.com"
-                        className="w-full bg-white/15 border border-white/30 text-white placeholder-indigo-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-white/40 font-medium"
+                        className="w-full bg-white border border-[#E0D4EE] text-[#2D2444] placeholder-[#8B7EA0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7C5CAA]/40 font-medium"
                       />
                       {freeEmailError && (
-                        <p className="text-xs text-red-300 font-medium mt-1">{freeEmailError}</p>
+                        <p className="text-xs text-rose-500 font-medium mt-1">{freeEmailError}</p>
                       )}
                     </div>
                   )}
                   <button
                     onClick={processFreeCheckout}
                     disabled={freeLoading}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 disabled:opacity-50 text-white font-extrabold px-10 py-4 rounded-2xl shadow-lg transition active:scale-95 text-base"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#60C090] hover:bg-[#52ad80] disabled:opacity-50 text-white font-extrabold px-10 py-4 rounded-2xl shadow-lg transition active:scale-95 text-base"
                   >
                     {freeLoading
                       ? <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />{lang === 'fr' ? 'Traitement…' : 'Processing…'}</>
@@ -401,7 +393,7 @@ export default function Pack() {
                 />
               )}
             </div>
-            <p className="text-xs text-indigo-400 mt-3">
+            <p className="text-xs text-[#8B7EA0] mt-3">
               {lang === 'fr' ? 'Paiement sécurisé · Accès instantané' : 'Secure payment · Instant access'}
             </p>
           </div>
