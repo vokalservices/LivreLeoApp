@@ -298,6 +298,28 @@ export default function Success() {
           }
         }
 
+        // ── Vérification SasPay (Carte Bancaire) ─────────────────────────
+        if (provider === 'saspay') {
+          const currentSessionId = router.query.sessionId
+            || router.query.session_id
+            || router.query.id
+            || (typeof window !== 'undefined' ? localStorage.getItem('saspay_session_id') : null);
+
+          if (currentSessionId) {
+            try {
+              const r = await fetch(`/api/saspay/verify-session?sessionId=${encodeURIComponent(currentSessionId)}`);
+              const d = await r.json();
+              if (!d.paid) {
+                console.warn('[SasPay] Statut de session non confirmé payé:', d.status);
+                setLoading(false);
+                return;
+              }
+            } catch (e) {
+              console.warn('[SasPay] Erreur vérification session:', e.message);
+            }
+          }
+        }
+
         // ── Chargement des produits ─────────────────────────────────────
         const productsRes = await fetch('/api/products');
         const allProducts = productsRes.ok ? await productsRes.json() : [];

@@ -50,27 +50,54 @@ export default function PayPalButton({
     }, 1500);
 
     try {
-      const res = await fetch('/api/paypal/create-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          book,
-          isPack,
-          isCombo,
-          paymentMethod: method, // 'card' ou 'paypal'
-        }),
-      });
+      if (method === 'card') {
+        // ── PAIEMENT CARTE BANCAIRE VIA SASPAY ──
+        const res = await fetch('/api/saspay/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            book,
+            isPack,
+            isCombo,
+          }),
+        });
 
-      clearTimeout(slowTimer);
+        clearTimeout(slowTimer);
+        const data = await res.json();
 
-      const data = await res.json();
-      if (data.approveUrl) {
-        setLoadingStep(isEn ? 'Redirecting to payment…' : 'Redirection en cours…');
-        // Ne PAS réinitialiser loadingMethod afin d'éviter le double-clic pendant la redirection
-        window.location.href = data.approveUrl;
+        if (data.checkoutUrl) {
+          if (typeof window !== 'undefined' && data.sessionId) {
+            localStorage.setItem('saspay_session_id', data.sessionId);
+          }
+          setLoadingStep(isEn ? 'Redirecting to payment…' : 'Redirection vers SasPay…');
+          window.location.href = data.checkoutUrl;
+        } else {
+          setLoadingMethod(null);
+          setError(data.error || (isEn ? 'Payment initialization error' : 'Erreur lors de l’initialisation de la carte bancaire'));
+        }
       } else {
-        setLoadingMethod(null);
-        setError(data.error || (isEn ? 'Payment initialization error' : 'Erreur lors de l’initialisation'));
+        // ── PAIEMENT VIA PAYPAL ──
+        const res = await fetch('/api/paypal/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            book,
+            isPack,
+            isCombo,
+            paymentMethod: 'paypal',
+          }),
+        });
+
+        clearTimeout(slowTimer);
+        const data = await res.json();
+
+        if (data.approveUrl) {
+          setLoadingStep(isEn ? 'Redirecting to payment…' : 'Redirection vers PayPal…');
+          window.location.href = data.approveUrl;
+        } else {
+          setLoadingMethod(null);
+          setError(data.error || (isEn ? 'Payment initialization error' : 'Erreur lors de l’initialisation'));
+        }
       }
     } catch {
       clearTimeout(slowTimer);
@@ -83,7 +110,7 @@ export default function PayPalButton({
 
   return (
     <div className={`flex flex-col items-stretch gap-2.5 max-w-md mx-auto w-full ${className}`}>
-      {/* ── BOUTON 1 : CARTE BANCAIRE (Option préférée en France) ── */}
+      {/* ── BOUTON 1 : CARTE BANCAIRE (SasPay) ── */}
       <button
         type="button"
         onClick={() => handlePayment('card')}
@@ -107,7 +134,7 @@ export default function PayPalButton({
                 : (isEn ? 'Pay with Credit Card' : 'Payer par Carte Bancaire')}
             </span>
             <span className="block text-[11px] text-purple-200/80 font-normal">
-              {isEn ? 'Visa, Mastercard, CB · No account needed' : 'CB, Visa, Mastercard · Sans compte requis'}
+              {isEn ? 'Visa, Mastercard, CB · Secured by SasPay' : 'CB, Visa, Mastercard · Sécurisé par SasPay'}
             </span>
           </div>
         </div>
@@ -174,10 +201,11 @@ export default function PayPalButton({
         </svg>
         <span>
           {isEn
-            ? 'SSL 256-bit encrypted · Powered by PayPal · Instant access'
-            : 'Paiement SSL 256 bits · Sécurisé par PayPal · Accès immédiat'}
+            ? 'SSL 256-bit encrypted · Secured Card & PayPal · Instant access'
+            : 'Paiement SSL 256 bits · Carte & PayPal sécurisés · Accès immédiat'}
         </span>
       </div>
     </div>
   );
 }
+
