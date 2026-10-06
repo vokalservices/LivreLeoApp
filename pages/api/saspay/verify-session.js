@@ -46,17 +46,18 @@ export default async function handler(req, res) {
       });
     }
 
-    const data = await response.json();
+    const raw = await response.json();
+    const session = raw?.data || raw || {};
     // Exemples de statut retournés : status: "PAID", transaction_status: "SUCCESS"
-    const isPaid = data.status === 'PAID' || data.transaction_status === 'SUCCESS';
+    const isPaid = session.status === 'PAID' || session.transaction_status === 'SUCCESS';
 
     return res.status(200).json({
       success: true,
       paid: isPaid,
-      status: data.status,
-      transactionId: data.transaction_id || null,
-      transactionStatus: data.transaction_status || null,
-      transactionReference: data.transaction_reference || null,
+      status: session.status,
+      transactionId: session.transaction_id || null,
+      transactionStatus: session.transaction_status || null,
+      transactionReference: session.transaction_reference || null,
     });
   } catch (error) {
     console.error('[SasPay] Exception verify-session:', error);

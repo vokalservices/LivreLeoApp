@@ -81,34 +81,43 @@ export default async function handler(req, res) {
       body: JSON.stringify(payload),
     });
 
-    const data = await response.json().catch(() => null);
+    const raw = await response.json().catch(() => null);
 
     if (!response.ok) {
-      console.error('[SasPay] Erreur création checkout session:', response.status, data);
-      const errorMessage = data?.error?.message
-        || data?.message
-        || (data && typeof data === 'object' ? JSON.stringify(data) : 'Erreur de paiement SasPay');
+      console.error('[SasPay] Erreur création checkout session:', response.status, raw);
+      const errorMessage = raw?.error?.message
+        || raw?.message
+        || (raw && typeof raw === 'object' ? JSON.stringify(raw) : 'Erreur de paiement SasPay');
       return res.status(response.status).json({
         error: `Erreur SasPay (${response.status}) : ${errorMessage}`,
-        details: data,
+        details: raw,
       });
     }
 
-    if (!data?.checkout_url) {
-      console.error('[SasPay] checkout_url manquant dans la réponse:', data);
-      return res.status(502).json({ error: 'URL de paiement non reçue de SasPay.' });
+    // SasPay enveloppe ses réponses réussies dans { success: true, data: { ... } }
+    const session = raw?.data || raw || {};
+    const checkoutUrl = session?.checkout_url || raw?.checkout_url || session?.url || raw?.url;
+    const sessionId = session?.id || raw?.id;
+    const slug = session?.slug || raw?.slug;
+
+    if (!checkoutUrl) {
+      console.error('[SasPay] checkout_url manquant dans la réponse:', raw);
+      return res.status(502).json({
+        error: 'URL de paiement non reçue de SasPay.',
+        details: raw,
+      });
     }
 
     // Définir un cookie de session pour identifier la session lors du retour sur /success
-    if (data.id) {
-      res.setHeader('Set-Cookie', `saspay_last_session=${data.id}; Path=/; Max-Age=7200; SameSite=Lax`);
+    if (sessionId) {
+      res.setHeader('Set-Cookie', `saspay_last_session=${sessionId}; Path=/; Max-Age=7200; SameSite=Lax`);
     }
 
     return res.status(200).json({
       success: true,
-      sessionId: data.id,
-      checkoutUrl: data.checkout_url,
-      slug: data.slug,
+      sessionId,
+      checkoutUrl,
+      slug,
     });
   } catch (error) {
     console.error('[SasPay] Exception create-checkout:', error);
