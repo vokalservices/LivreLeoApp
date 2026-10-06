@@ -32,6 +32,18 @@ export default function PayPalButton({
     setLoadingStep(isEn ? 'Securing checkout…' : 'Connexion sécurisée…');
     setError('');
 
+    // Déclencher l'événement standard InitiateCheckout pour le Pixel Meta
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      window.fbq('track', 'InitiateCheckout', {
+        content_name: book?.title || (isCombo ? 'Pack Combo 12 Livres' : isPack ? 'Pack 6 Tomes' : 'Livre Léo'),
+        content_ids: [String(book?.id || (isCombo ? 'combo' : isPack ? 'pack' : 'single'))],
+        content_type: 'product',
+        value: Number(book?.price || (isCombo ? 30.99 : 16.49)),
+        currency: 'EUR',
+        num_items: isCombo ? 12 : isPack ? 6 : 1,
+      });
+    }
+
     // Timer d'information pour rassurer le parent si le réseau est lent
     const slowTimer = setTimeout(() => {
       setLoadingStep(isEn ? 'Connecting to payment gateway…' : 'Connexion à la passerelle…');

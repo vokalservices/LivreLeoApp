@@ -460,6 +460,20 @@ export default function FacebookAdsPage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Déclencher l'événement standard ViewContent pour le Pixel Meta
+  useEffect(() => {
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      window.fbq('track', 'ViewContent', {
+        content_name: 'Pack 6 Tomes - Les Aventures de Léo',
+        content_category: 'Contes Audio & Ebooks Enfants',
+        content_ids: ['pack-6-tomes'],
+        content_type: 'product',
+        value: 16.49,
+        currency: 'EUR',
+      });
+    }
+  }, []);
+
   // Pop-up d'achat récent (preuve sociale)
   useEffect(() => {
     const buyers = [
@@ -860,149 +874,323 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
             </div>
           </div>
 
-          {/* HERO SECTION */}
+          {/* HERO SECTION REDESIGN */}
           <section style={{
             position: 'relative',
-            padding: '60px 20px 70px',
+            padding: '50px 20px 65px',
             overflow: 'hidden',
-            background: 'linear-gradient(180deg, #faf7f5 0%, #f5eeff 50%, #e8e0f0 100%)',
+            background: 'linear-gradient(180deg, #FAF7F5 0%, #F5EEFF 60%, #EFE7F8 100%)',
           }}>
-            {/* Soft blob decoration */}
+            {/* Glowing background orbs */}
             <div style={{
               position: 'absolute',
-              top: '10%',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '600px',
-              height: '300px',
-              background: 'radial-gradient(ellipse, rgba(167,139,199,0.12) 0%, transparent 70%)',
+              top: '-40px',
+              right: '-40px',
+              width: '420px',
+              height: '420px',
+              background: 'radial-gradient(circle, rgba(124,92,170,0.14) 0%, transparent 70%)',
+              borderRadius: '50%',
+              pointerEvents: 'none',
+            }} />
+            <div style={{
+              position: 'absolute',
+              bottom: '0',
+              left: '-40px',
+              width: '380px',
+              height: '380px',
+              background: 'radial-gradient(circle, rgba(232,168,56,0.12) 0%, transparent 70%)',
+              borderRadius: '50%',
               pointerEvents: 'none',
             }} />
 
-            <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr', gap: '40px', alignItems: 'center' }}
-              className="lg-grid-hero"
-            >
-              {/* Pitch */}
-              <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{
+              maxWidth: '1200px',
+              margin: '0 auto',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '44px',
+              alignItems: 'center',
+              position: 'relative',
+              zIndex: 1,
+            }}>
+              {/* COLONNE GAUCHE : Pitch émotionnel, Réassurance & Offre */}
+              <div>
+                {/* Badge d'en-tête */}
                 <div style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '5px 14px',
+                  padding: '6px 14px',
                   borderRadius: '20px',
-                  background: 'rgba(124,92,170,0.08)',
-                  border: '1px solid rgba(124,92,170,0.15)',
-                  marginBottom: '20px',
+                  background: 'rgba(124,92,170,0.1)',
+                  border: '1px solid rgba(124,92,170,0.2)',
+                  marginBottom: '16px',
                 }}>
-                  <span style={{ fontSize: '12px', fontWeight: 800, color: accentPurple, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    ⭐ Adopté par +10 000 familles pour le rituel du soir
+                  <span style={{ fontSize: '12px', fontWeight: 800, color: accentPurple }}>
+                    🌙 Rituel du Soir sans Écran · 4 à 8 ans
                   </span>
                 </div>
 
                 <h1 style={{
-                  fontSize: 'clamp(28px, 5vw, 48px)',
+                  fontSize: 'clamp(28px, 4.2vw, 44px)',
                   fontWeight: 900,
                   color: textPrimary,
                   lineHeight: 1.15,
                   letterSpacing: '-0.5px',
-                  marginBottom: '20px',
+                  marginBottom: '18px',
                 }}>
-                  Des soirées apaisées grâce aux contes de Léo.{' '}
+                  Finies les crises d'écrans à 20h.{' '}
                   <span style={{
+                    display: 'block',
                     background: 'linear-gradient(90deg, #7c5caa 0%, #a88dd0 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}>
-                    Endormissement en 12 minutes.
+                    Endormissement doux en 12 min.
                   </span>
                 </h1>
 
                 <p style={{
-                  fontSize: 'clamp(15px, 2.5vw, 18px)',
+                  fontSize: 'clamp(14px, 1.8vw, 16px)',
                   color: textSecondary,
-                  lineHeight: 1.7,
-                  maxWidth: '650px',
-                  margin: '0 auto 24px',
+                  lineHeight: 1.65,
+                  marginBottom: '22px',
                 }}>
-                  Offrez-lui les <strong style={{ color: textPrimary }}>6 Tomes Complets</strong> de la saga féerique :{' '}
-                  <strong style={{ color: accentPurple }}>6 Livres Audio MP3</strong> enregistrés en studio +{' '}
-                  <strong style={{ color: accentPurple }}>6 Ebooks illustrés HD</strong>.
+                  Offrez à votre enfant la saga complète des <strong>6 contes féeriques de Léo l’inventeur</strong> :{' '}
+                  <strong style={{ color: accentPurple }}>6 Livres Audio MP3</strong> contés par des comédiens studio +{' '}
+                  <strong style={{ color: accentPurple }}>6 Ebooks illustrés</strong> en aquarelle.
                 </p>
 
-                {/* 3 USPs */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px', marginBottom: '24px' }}>
+                {/* 3 USPs douces */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+                  gap: '10px',
+                  marginBottom: '24px',
+                }}>
                   {[
-                    { icon: '🌙', title: '0% Écran Passif', sub: 'Écoute calme dans le noir' },
-                    { icon: '🎧', title: 'Voix Studio Douce', sub: 'Comédiens professionnels' },
-                    { icon: '💌', title: 'Accès Instantané', sub: 'Reçu par e-mail en 10 sec' },
+                    { icon: '🌙', title: '0% Écran Passif', sub: 'Écoute calme au lit' },
+                    { icon: '🎧', title: 'Voix Studio Douce', sub: 'Comédiens bienveillants' },
+                    { icon: '⚡', title: 'Accès Immédiat', sub: 'Reçu par email en 10 sec' },
                   ].map((usp, i) => (
                     <div key={i} style={{
-                      padding: '14px',
+                      padding: '12px 14px',
                       borderRadius: '16px',
                       background: '#fff',
                       border: '1px solid #e8ddf0',
-                      textAlign: 'left',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                      boxShadow: '0 2px 8px rgba(124,92,170,0.04)',
                     }}>
-                      <span style={{ fontSize: '22px' }}>{usp.icon}</span>
-                      <p style={{ fontSize: '13px', fontWeight: 800, color: textPrimary, marginTop: '6px' }}>{usp.title}</p>
+                      <span style={{ fontSize: '20px' }}>{usp.icon}</span>
+                      <p style={{ fontSize: '12px', fontWeight: 800, color: textPrimary, marginTop: '4px' }}>{usp.title}</p>
                       <p style={{ fontSize: '11px', color: textMuted }}>{usp.sub}</p>
                     </div>
                   ))}
                 </div>
 
-                {/* CTA + Rating */}
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+                {/* Bloc Prix & Bouton Action */}
+                <div style={{
+                  background: '#fff',
+                  border: '1.5px solid #d8c8e8',
+                  borderRadius: '20px',
+                  padding: '18px 20px',
+                  boxShadow: '0 8px 24px rgba(124,92,170,0.08)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '14px' }}>
+                    <div>
+                      <div style={{ fontSize: '11px', fontWeight: 800, color: textMuted, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Offre Spéciale Coffret 6 Tomes
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginTop: '2px' }}>
+                        <span style={{ fontSize: '32px', fontWeight: 900, color: accentPurple }}>16,49 €</span>
+                        <span style={{ fontSize: '18px', color: textMuted, textDecoration: 'line-through', fontWeight: 600 }}>29,94 €</span>
+                        <span style={{
+                          fontSize: '11px',
+                          fontWeight: 900,
+                          background: 'rgba(96,192,144,0.15)',
+                          color: '#28885a',
+                          padding: '3px 8px',
+                          borderRadius: '8px',
+                          border: '1px solid rgba(96,192,144,0.3)',
+                        }}>
+                          -45 % Économie 13,45 €
+                        </span>
+                      </div>
+                      <div style={{ fontSize: '11px', color: textMuted, marginTop: '2px' }}>
+                        Soit seulement 2,75 € par livre & audio · Accès à vie sans abonnement
+                      </div>
+                    </div>
+                  </div>
+
                   <a
                     href="#pricing"
                     style={{
-                      display: 'inline-block',
-                      padding: '16px 32px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      width: '100%',
+                      padding: '15px 24px',
                       borderRadius: '16px',
-                      fontSize: '16px',
+                      fontSize: '15px',
                       fontWeight: 900,
                       background: 'linear-gradient(135deg, #7c5caa 0%, #9b7cc8 100%)',
                       color: '#fff',
                       textDecoration: 'none',
-                      boxShadow: '0 6px 24px rgba(124,92,170,0.3)',
+                      boxShadow: '0 6px 20px rgba(124,92,170,0.35)',
                       transition: 'transform 0.15s, box-shadow 0.15s',
                     }}
                   >
-                    🌟 Découvrir le Coffret 6 Tomes (-45%)
+                    <span>🌟 Obtenir le Coffret 6 Tomes (-45%)</span>
+                    <span>→</span>
                   </a>
-                  <AnimatedStars rating={5} count={250} />
+
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginTop: '12px', fontSize: '11px', color: textMuted }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ color: '#f59e0b' }}>★★★★★</span>
+                      <strong style={{ color: textPrimary }}>4.9/5</strong>
+                      <span>(+10 000 parents)</span>
+                    </div>
+                    <div>
+                      <span style={{ color: successGreen, fontWeight: 800 }}>✓</span> Garantie 30j satisfait ou remboursé
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Visual sous le hero */}
-            <div style={{ maxWidth: '500px', margin: '40px auto 0', position: 'relative' }}>
-              <img
-                src="/ads/fb_ad_screen_vs_leo.png"
-                alt="Routine apaisée avec les Livres de Léo"
-                style={{
+              {/* COLONNE DROITE : Composition Visuelle Magique du Coffret */}
+              <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{
+                  position: 'relative',
                   width: '100%',
-                  borderRadius: '24px',
-                  boxShadow: '0 16px 48px rgba(100,70,150,0.12)',
+                  maxWidth: '440px',
+                  background: '#fff',
                   border: '1px solid #e0d4ee',
-                }}
-              />
-              <div style={{
-                position: 'absolute',
-                bottom: '-12px',
-                right: '-12px',
-                padding: '8px 16px',
-                background: 'linear-gradient(135deg, #60c090 0%, #40a870 100%)',
-                color: '#fff',
-                fontWeight: 900,
-                fontSize: '12px',
-                borderRadius: '14px',
-                boxShadow: '0 4px 12px rgba(96,192,144,0.3)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-              }}>
-                <span>✓</span> Satisfait ou Remboursé 30j
+                  borderRadius: '28px',
+                  padding: '24px 20px 20px',
+                  boxShadow: '0 20px 48px rgba(124,92,170,0.12)',
+                }}>
+                  {/* Badge supérieur */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                    <span style={{
+                      padding: '4px 12px',
+                      borderRadius: '12px',
+                      fontSize: '11px',
+                      fontWeight: 800,
+                      background: 'linear-gradient(135deg, #7c5caa 0%, #9b7cc8 100%)',
+                      color: '#fff',
+                    }}>
+                      🎁 Coffret Complet 6 Tomes
+                    </span>
+                    <span style={{
+                      padding: '4px 10px',
+                      borderRadius: '12px',
+                      fontSize: '11px',
+                      fontWeight: 900,
+                      background: '#fef3c7',
+                      color: '#b45309',
+                      border: '1px solid #fde68a',
+                    }}>
+                      -45 % OFFRE LIMITÉE
+                    </span>
+                  </div>
+
+                  {/* Grande Couverture Tome 1 avec effet de livre */}
+                  <div style={{
+                    position: 'relative',
+                    aspectRatio: '1/1',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    boxShadow: '0 12px 32px rgba(45,36,68,0.2)',
+                    marginBottom: '14px',
+                    border: '1px solid #e8ddf0',
+                  }}>
+                    <img
+                      src="/illustrations/leo-et-le-voleur-d-ombres/cover.png"
+                      alt="Les Aventures de Léo - Coffret 6 Tomes"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '0',
+                      left: '0',
+                      right: '0',
+                      background: 'linear-gradient(to top, rgba(45,36,68,0.85) 0%, transparent 100%)',
+                      padding: '20px 16px 12px',
+                      color: '#fff',
+                    }}>
+                      <p style={{ fontSize: '11px', color: '#fde68a', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                        Tome 1 à 6 Inclus
+                      </p>
+                      <p style={{ fontSize: '15px', fontWeight: 900, lineHeight: 1.2 }}>
+                        Léo et la Fusée en Carton
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 6 Miniatures des tomes */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '6px', marginBottom: '14px' }}>
+                    {[
+                      { slug: 'leo-et-le-voleur-d-ombres', title: 'Tome 1' },
+                      { slug: 'leo-et-le-voleur-d-etoiles', title: 'Tome 2' },
+                      { slug: 'leo-et-le-voleur-de-couleurs', title: 'Tome 3' },
+                      { slug: 'leo-et-le-voleur-de-reves', title: 'Tome 4' },
+                      { slug: 'leo-et-le-voleur-de-nuages', title: 'Tome 5' },
+                      { slug: 'leo-et-le-voleur-de-temps', title: 'Tome 6' },
+                    ].map((b, idx) => (
+                      <div key={idx} style={{
+                        borderRadius: '8px',
+                        overflow: 'hidden',
+                        border: '1px solid #e0d4ee',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.06)',
+                      }}>
+                        <img
+                          src={`/illustrations/${b.slug}/cover.png`}
+                          alt={b.title}
+                          style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', display: 'block' }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Encadré d'écoute rapide */}
+                  <a
+                    href="#demo-audio"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      background: '#f5eeff',
+                      border: '1px solid #d8c8e8',
+                      borderRadius: '14px',
+                      padding: '10px 14px',
+                      textDecoration: 'none',
+                      color: accentPurple,
+                      transition: 'background 0.2s',
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontSize: '18px' }}>🎧</span>
+                      <div>
+                        <div style={{ fontSize: '12px', fontWeight: 800, color: textPrimary }}>
+                          Extrait audio disponible
+                        </div>
+                        <div style={{ fontSize: '10px', color: textMuted }}>
+                          Écoutez 1 minute de narration studio
+                        </div>
+                      </div>
+                    </div>
+                    <span style={{
+                      padding: '4px 10px',
+                      borderRadius: '10px',
+                      background: accentPurple,
+                      color: '#fff',
+                      fontSize: '11px',
+                      fontWeight: 800,
+                    }}>
+                      Écouter ▶
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -1010,7 +1198,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
           {/* ================================================== */}
           {/* LECTEUR AUDIO */}
           {/* ================================================== */}
-          <section style={{ padding: '60px 20px', background: sectionAltBg }}>
+          <section id="demo-audio" style={{ padding: '60px 20px', background: sectionAltBg }}>
             <div style={{ maxWidth: '700px', margin: '0 auto' }}>
               <div style={{ textAlign: 'center', marginBottom: '24px' }}>
                 <span style={{
@@ -1240,6 +1428,7 @@ Accompagnez les rêves de votre enfant ce soir avec le coffret complet en promot
           {/* ================================================== */}
           {/* SECTION OFFRES — CHECKOUT DIRECT INTÉGRÉ */}
           {/* ================================================== */}
+          <div id="offres" />
           <section id="pricing" style={{
             padding: '80px 20px',
             background: 'linear-gradient(180deg, #faf7f5 0%, #f5eeff 50%, #faf7f5 100%)',
