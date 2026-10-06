@@ -10,7 +10,6 @@
     "prisma": "prisma"
   },
   "dependencies": {
-    "@paypal/checkout-server-sdk": "^1.0.3",
     "@prisma/client": "^5.22.0",
     "@supabase/supabase-js": "^2.112.2",
     "@tailwindcss/postcss": "^4.3.3",
