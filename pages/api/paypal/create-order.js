@@ -55,7 +55,7 @@ export default async function handler(req, res) {
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { book, isCombo, isPack, paymentMethod = 'paypal' } = req.body;
+  const { book, isCombo, isPack, paymentMethod = 'paypal', email } = req.body;
   if (book?.price === undefined || book?.price === null || !book?.title) {
     return res.status(400).json({ error: 'Missing book info' });
   }
@@ -87,6 +87,36 @@ export default async function handler(req, res) {
   try {
     const accessToken = await getAccessToken();
 
+    const orderPayload = {
+      intent: 'CAPTURE',
+      purchase_units: [{
+        amount: {
+          currency_code: 'EUR',
+          value: amountEur,
+        },
+        description: book.title,
+        custom_id: String(book.id || 'pack'),
+      }],
+      payment_source: {
+        paypal: {
+          experience_context: {
+            brand_name:          'Fusée Carton',
+            landing_page:        paymentMethod === 'card' ? 'BILLING' : 'NO_PREFERENCE',
+            user_action:         'PAY_NOW',
+            return_url:          returnUrl,
+            cancel_url:          cancelUrl,
+            shipping_preference: 'NO_SHIPPING',
+          },
+        },
+      },
+    };
+
+    if (email && email.includes('@')) {
+      orderPayload.payer = {
+        email_address: email.trim(),
+      };
+    }
+
     const orderRes = await fetch(`${PAYPAL_API}/v2/checkout/orders`, {
       method: 'POST',
       headers: {
@@ -94,29 +124,7 @@ export default async function handler(req, res) {
         'Content-Type':  'application/json',
         'PayPal-Request-Id': `fusee-carton-${Date.now()}`,
       },
-      body: JSON.stringify({
-        intent: 'CAPTURE',
-        purchase_units: [{
-          amount: {
-            currency_code: 'EUR',
-            value: amountEur,
-          },
-          description: book.title,
-          custom_id: String(book.id || 'pack'),
-        }],
-        payment_source: {
-          paypal: {
-            experience_context: {
-              brand_name:          'Fusée Carton',
-              landing_page:        paymentMethod === 'card' ? 'GUEST_CHECKOUT' : 'NO_PREFERENCE',
-              user_action:         'PAY_NOW',
-              return_url:          returnUrl,
-              cancel_url:          cancelUrl,
-              shipping_preference: 'NO_SHIPPING',
-            },
-          },
-        },
-      }),
+      body: JSON.stringify(orderPayload),
     });
 
     if (!orderRes.ok) {
