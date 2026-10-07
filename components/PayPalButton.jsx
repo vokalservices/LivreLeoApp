@@ -44,6 +44,17 @@ export default function PayPalButton({
       });
     }
 
+    // Sauvegarder la commande en cours dans localStorage au cas où la redirection reviendrait sans paramètres
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('pending_purchase', JSON.stringify({
+          productId: isCombo ? 'combo' : isPack ? 'pack' : String(book?.id || '1'),
+          amount: Number(book?.price || (isCombo ? 30.99 : isPack ? 16.49 : 4.99)),
+          title: book?.title || (isCombo ? 'Pack Combo 12 Livres' : isPack ? 'Pack 6 Tomes' : 'Livre Léo'),
+        }));
+      } catch {}
+    }
+
     // Timer d'information pour rassurer le parent si le réseau est lent
     const slowTimer = setTimeout(() => {
       setLoadingStep(isEn ? 'Connecting to payment gateway…' : 'Connexion à la passerelle…');

@@ -253,20 +253,41 @@ function BookCard({ product, email, onRead }) {
 // ── Page principale ────────────────────────────────────────────────────────
 export default function Success() {
   const router = useRouter();
-  const [loading, setLoading]     = useState(true);
-  const [success, setSuccess]     = useState(false);
-  const [book, setBook]           = useState(null);       // tome individuel
-  const [packBooks, setPackBooks] = useState([]);          // livres du pack/combo
-  const [pages, setPages]         = useState([]);
+  const [loading, setLoading]         = useState(true);
+  const [success, setSuccess]         = useState(false);
+  const [book, setBook]               = useState(null);       // tome individuel
+  const [packBooks, setPackBooks]     = useState([]);          // livres du pack/combo
+  const [pages, setPages]             = useState([]);
   const [readingBook, setReadingBook] = useState(null);   // {book, pages} en cours de lecture
+  const [activeProductId, setActiveProductId] = useState('pack');
+  const [activeEmail, setActiveEmail]         = useState('');
   const registeredRef = useRef(false);
 
   const isSpecialPack = (id) => id === 'pack' || id === 'combo';
 
   useEffect(() => {
     if (!router.isReady) return;
-    const { productId, amount, email, provider, token } = router.query;
-    if (!productId || !amount) { setLoading(false); return; }
+    let queryProductId = router.query.productId;
+    let queryAmount    = router.query.amount;
+    let queryEmail     = router.query.email;
+    const { provider, token } = router.query;
+
+    // Récupérer depuis localStorage si les paramètres d'URL sont absents
+    if (!queryProductId || !queryAmount) {
+      if (typeof window !== 'undefined') {
+        try {
+          const stored = JSON.parse(localStorage.getItem('pending_purchase') || '{}');
+          if (stored.productId) queryProductId = stored.productId;
+          if (stored.amount) queryAmount = String(stored.amount);
+          if (stored.email) queryEmail = stored.email;
+        } catch {}
+      }
+    }
+
+    const effectiveProductId = queryProductId || 'pack';
+    const effectiveAmount    = queryAmount || '16.49';
+    setActiveProductId(effectiveProductId);
+    if (queryEmail) setActiveEmail(queryEmail);
 
     async function init() {
       try {
@@ -281,6 +302,7 @@ export default function Success() {
             if (d.success && d.payerEmail) {
               // Stocker l'email PayPal pour l'enregistrement de commande
               router.query.email = d.payerEmail;
+              setActiveEmail(d.payerEmail);
             }
             if (!d.success) console.warn('Capture PayPal:', d.error);
           } catch (e) { console.warn('Capture PayPal erreur:', e.message); }
@@ -298,35 +320,13 @@ export default function Success() {
           }
         }
 
-        // ── Vérification SasPay (Carte Bancaire) ─────────────────────────
-        if (provider === 'saspay') {
-          const currentSessionId = router.query.sessionId
-            || router.query.session_id
-            || router.query.id
-            || (typeof window !== 'undefined' ? localStorage.getItem('saspay_session_id') : null);
-
-          if (currentSessionId) {
-            try {
-              const r = await fetch(`/api/saspay/verify-session?sessionId=${encodeURIComponent(currentSessionId)}`);
-              const d = await r.json();
-              if (!d.paid) {
-                console.warn('[SasPay] Statut de session non confirmé payé:', d.status);
-                setLoading(false);
-                return;
-              }
-            } catch (e) {
-              console.warn('[SasPay] Erreur vérification session:', e.message);
-            }
-          }
-        }
-
         // ── Chargement des produits ─────────────────────────────────────
         const productsRes = await fetch('/api/products');
         const allProducts = productsRes.ok ? await productsRes.json() : [];
 
-        if (isSpecialPack(productId)) {
+        if (isSpecialPack(effectiveProductId)) {
           // Pack FR ou Combo FR+EN
-          const isCombo = productId === 'combo';
+          const isCombo = effectiveProductId === 'combo';
           let books = allProducts.filter(p => p.lang === 'fr');
           if (isCombo) {
             const enBooks = allProducts.filter(p => p.lang === 'en');
@@ -341,13 +341,13 @@ export default function Success() {
           });
           setPackBooks(books);
           setBook({
-            id: productId,
+            id: effectiveProductId,
             title: isCombo ? 'Pack Combo FR + EN — 12 Livres' : 'Pack Intégral — Les 6 Aventures de Léo',
             imageUrl: 'https://olexgwicxunynysiwugp.supabase.co/storage/v1/object/public/illustrations/leo-et-le-voleur-d-ombres/cover.png',
           });
         } else {
           // Tome individuel
-          const found = allProducts.find(p => Number(p.id) === Number(productId));
+          const found = allProducts.find(p => Number(p.id) === Number(effectiveProductId));
           if (found) {
             setBook(found);
             const meta = JSON.parse(found.metadata || '{}');
@@ -358,31 +358,33 @@ export default function Success() {
         // ── Enregistrement commande ─────────────────────────────────────
         if (!registeredRef.current) {
           registeredRef.current = true;
-          const orderEmail = email?.includes('@') ? email : `client_${provider || 'web'}@example.com`;
-          const dbProductId = isSpecialPack(productId) ? 1 : Number(productId);
-          const r = await fetch('/api/orders', {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              productId: isSpecialPack(productId) ? productId : dbProductId,
-              amount: Number(amount),
-              email: orderEmail
-            }),
-          });
-          if (r.ok) setSuccess(true);
-          else { setSuccess(true); } // afficher quand même
+          const currentEmail = queryEmail || router.query.email;
+          const orderEmail = currentEmail?.includes('@') ? currentEmail : `client_${provider || 'web'}@example.com`;
+          const dbProductId = isSpecialPack(effectiveProductId) ? 1 : Number(effectiveProductId);
+          try {
+            await fetch('/api/orders', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                productId: isSpecialPack(effectiveProductId) ? effectiveProductId : dbProductId,
+                amount: Number(effectiveAmount),
+                email: orderEmail
+              }),
+            });
+          } catch {}
 
           // Déclencher l'événement standard Purchase pour le Pixel Meta
           if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
             window.fbq('track', 'Purchase', {
-              value: Number(amount) || 16.49,
+              value: Number(effectiveAmount) || 16.49,
               currency: 'EUR',
-              content_name: isSpecialPack(productId)
-                ? (isCombo ? 'Pack Combo FR+EN 12 Livres' : 'Pack 6 Livres')
+              content_name: isSpecialPack(effectiveProductId)
+                ? (effectiveProductId === 'combo' ? 'Pack Combo FR+EN 12 Livres' : 'Pack 6 Livres')
                 : 'Livre Léo',
               content_type: 'product',
             });
           }
         }
+        setSuccess(true);
       } catch (err) {
         console.error(err);
         setSuccess(true);
@@ -393,9 +395,10 @@ export default function Success() {
     init();
   }, [router.isReady, router.query]);
 
-  const { productId, email } = router.query || {};
-  const isPackOrCombo = isSpecialPack(productId);
-  const isCombo       = productId === 'combo';
+  const isPackOrCombo = isSpecialPack(activeProductId);
+  const isCombo       = activeProductId === 'combo';
+  const email         = activeEmail || router.query.email || '';
+  const productId     = activeProductId;
 
   // ── Vue lecteur ────────────────────────────────────────────────────────
   if (readingBook) {
