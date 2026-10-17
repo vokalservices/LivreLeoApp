@@ -72,3 +72,9 @@ scratch/upload_books_and_zips.js
 scratch/upload_fr_pdfs.js
 scratch/upload_illustrations_to_supabase.js
 scripts/upload-en-files-to-supabase.js
+
+# Assets livres lourds (générés) — servis depuis Supabase, jamais dans git
+public/illustrations/
+public/illustrations_3d/
+projects_3d/
+output_prompts_3d/
