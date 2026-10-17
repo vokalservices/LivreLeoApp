@@ -1,0 +1,55 @@
+{
+  "version": "2.0",
+  "meta": {
+    "title": "Titre du Livre",
+    "subtitle": "Sous-titre optionnel",
+    "author": "Nom de l'auteur",
+    "publisher": "Nom de l'édition",
+    "language": "fr",
+    "date": "2026-07-15",
+    "identifier": "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
+    "description": "Description optimisée pour KDP...",
+    "age_group": "3-5",
+    "series": {
+      "name": "Nom de la série",
+      "volume": 1,
+      "total_volumes": 3
+    },
+    "keywords": [
+      "mot-clé 1", "mot-clé 2", "mot-clé 3", "mot-clé 4", "mot-clé 5", "mot-clé 6", "mot-clé 7"
+    ],
+    "bisac_categories": ["JUV000000", "JUV001000"],
+    "viewport_width": 1024,
+    "viewport_height": 1366,
+    "cover_image": "illustrations/cover.png",
+    "style": {
+      "illustration_style": "watercolor",
+      "color_palette": ["#FF8C42", "#FFD700", "#4CAF50", "#87CEEB"],
+      "font_family": "Comic Sans MS",
+      "background_color": "#FFFDF7"
+    }
+  },
+  "characters": [
+    {
+      "name": "Nom du Héros",
+      "species": "Espèce",
+      "age": 4,
+      "description": "Description physique",
+      "clothing": "Vêtements",
+      "accessories": "Accessoires",
+      "personality": "Traits de caractère"
+    }
+  ],
+  "pages": [
+    {
+      "page_number": 1,
+      "title": "Couverture",
+      "text": "",
+      "illustration_prompt": "[MASTER PROMPT] Description de la couverture [/MASTER PROMPT] --ar 3:4 --style raw",
+      "illustration_file": "cover.png",
+      "image": "illustrations/cover.png",
+      "alt_text": "Texte alternatif",
+      "layout": "full-bleed-image"
+    }
+  ]
+}

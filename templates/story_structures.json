@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Le Voyage du Héros",
+    "target_age": "5-10 ans",
+    "pages": 32,
+    "description": "Classique, transformation"
+  },
+  {
+    "name": "La Boucle de Répétition",
+    "target_age": "2-6 ans",
+    "pages": 24,
+    "description": "Répétition comique"
+  },
+  {
+    "name": "L'Accumulation Progressive",
+    "target_age": "2-5 ans",
+    "pages": 20,
+    "description": "Chaîne mémorable"
+  },
+  {
+    "name": "Le Problème-Solution",
+    "target_age": "3-7 ans",
+    "pages": 28,
+    "description": "Pragmatique"
+  },
+  {
+    "name": "La Journée Extraordinaire",
+    "target_age": "3-6 ans",
+    "pages": 24,
+    "description": "Chronologique"
+  },
+  {
+    "name": "Le 'Et Si...?'",
+    "target_age": "4-8 ans",
+    "pages": 28,
+    "description": "Imagination"
+  },
+  {
+    "name": "La Quête d'Identité",
+    "target_age": "4-9 ans",
+    "pages": 32,
+    "description": "Acceptation de soi"
+  },
+  {
+    "name": "L'Amitié Improbable",
+    "target_age": "3-8 ans",
+    "pages": 32,
+    "description": "Tolérance"
+  },
+  {
+    "name": "Le Renversement de Situation",
+    "target_age": "5-10 ans",
+    "pages": 28,
+    "description": "Surprise"
+  },
+  {
+    "name": "La Lettre / Le Message",
+    "target_age": "5-9 ans",
+    "pages": 28,
+    "description": "Mystère"
+  }
+]

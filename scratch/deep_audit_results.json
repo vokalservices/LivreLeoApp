@@ -1,0 +1,3101 @@
+{
+  "Leo_and_the_Shadow_Thief": {
+    "expected_volume": 1,
+    "metadata": {
+      "title": "Leo and the Shadow Thief",
+      "author": "Theo Arven",
+      "publisher": "KDP Publishing",
+      "language": "en",
+      "date": "2026-08-02",
+      "identifier": "urn:uuid:leo-tome1-en",
+      "description": "Leo is a six-and-a-half-year-old boy with a brilliant mind and a big problem: he hates his shadow! It follows him everywhere and never says thank you. But one morning, his shadow completely disappears! Vanished, stolen by a mysterious Shadow Thief lurking in outer space. Without hesitation, Leo climbs into his Cardboard-Rocket-3000 and blasts off toward the stars to get it back. A heartwarming story of adventure, empathy, and friendship for children ages 4 to 8.",
+      "age_group": "4-8",
+      "series": {
+        "name": "Leo's Adventures",
+        "volume": 1,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "shadow",
+        "space",
+        "rocket",
+        "imagination",
+        "children book",
+        "inventor",
+        "friendship"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_defined": [
+      {
+        "name": "Leo",
+        "species": "Human",
+        "age": 6,
+        "description": "A small chubby 6-year-old boy with fair skin, rosy cheeks, short tousled chestnut brown hair with one rebel lock, big round black eyes.",
+        "clothing": "A long white lab coat down to his knees, round thick black-framed glasses, bright yellow t-shirt, navy blue short shorts, bare legs, red lace-up sneakers.",
+        "accessories": "A colander helmet (only in space) and a brass magnifying glass.",
+        "personality": "Genius inventor, sometimes grumpy, but very brave and generous."
+      },
+      {
+        "name": "Shadow Thief (Nocturne)",
+        "species": "Shadow Creature",
+        "description": "A tiny, round, pitch-black shadow creature with glowing white expressive eyes.",
+        "personality": "Lonely, sensitive, loves warm night-lights."
+      }
+    ],
+    "pages_count_fr": 24,
+    "pages_count_en": 24,
+    "page_details": [
+      {
+        "page": 1,
+        "fr_title": "Couverture",
+        "en_title": "Cover",
+        "fr_text_len": 0,
+        "en_text_len": 0,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 2,
+        "fr_title": "Le Secret",
+        "en_title": "The Secret",
+        "fr_text_len": 147,
+        "en_text_len": 149,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 3,
+        "fr_title": "La Disparition",
+        "en_title": "The Vanishing",
+        "fr_text_len": 137,
+        "en_text_len": 138,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 4,
+        "fr_title": "L'Enquête",
+        "en_title": "The Investigation",
+        "fr_text_len": 135,
+        "en_text_len": 135,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 5,
+        "fr_title": "La Poudre Magique",
+        "en_title": "The Glowing Dust",
+        "fr_text_len": 112,
+        "en_text_len": 108,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 6,
+        "fr_title": "La Piste",
+        "en_title": "The Trail",
+        "fr_text_len": 140,
+        "en_text_len": 123,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 7,
+        "fr_title": "Le Laboratoire Secret",
+        "en_title": "The Secret Laboratory",
+        "fr_text_len": 129,
+        "en_text_len": 122,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 8,
+        "fr_title": "La Construction",
+        "en_title": "Building the Ship",
+        "fr_text_len": 114,
+        "en_text_len": 111,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 9,
+        "fr_title": "La Fusée-Carton-3000",
+        "en_title": "The Cardboard-Rocket-3000",
+        "fr_text_len": 115,
+        "en_text_len": 113,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 10,
+        "fr_title": "Le Décompte",
+        "en_title": "The Countdown",
+        "fr_text_len": 106,
+        "en_text_len": 111,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 11,
+        "fr_title": "Le Décollage",
+        "en_title": "Blast Off!",
+        "fr_text_len": 118,
+        "en_text_len": 110,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 12,
+        "fr_title": "Dans l'Espace",
+        "en_title": "Floating in Space",
+        "fr_text_len": 114,
+        "en_text_len": 118,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 13,
+        "fr_title": "Atterrissage",
+        "en_title": "Planet Plush",
+        "fr_text_len": 122,
+        "en_text_len": 106,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 14,
+        "fr_title": "La Planète Étrange",
+        "en_title": "Landing",
+        "fr_text_len": 124,
+        "en_text_len": 111,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 15,
+        "fr_title": "L'Espionnage",
+        "en_title": "Looking for Clues",
+        "fr_text_len": 132,
+        "en_text_len": 123,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 16,
+        "fr_title": "Le Voleur Démasqué",
+        "en_title": "The Shadow Thief",
+        "fr_text_len": 148,
+        "en_text_len": 144,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 17,
+        "fr_title": "La Tristesse",
+        "en_title": "A Lonely Friend",
+        "fr_text_len": 139,
+        "en_text_len": 152,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 18,
+        "fr_title": "L'Idée de Génie",
+        "en_title": "A Bright Idea",
+        "fr_text_len": 156,
+        "en_text_len": 117,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 19,
+        "fr_title": "Le Bricolage",
+        "en_title": "The Night-Light",
+        "fr_text_len": 137,
+        "en_text_len": 108,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 20,
+        "fr_title": "L'Ombre de Compagnie",
+        "en_title": "A Warm Gift",
+        "fr_text_len": 130,
+        "en_text_len": 115,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 21,
+        "fr_title": "La Joie",
+        "en_title": "Dancing with Light",
+        "fr_text_len": 142,
+        "en_text_len": 119,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 22,
+        "fr_title": "Le Retour",
+        "en_title": "Reunited",
+        "fr_text_len": 127,
+        "en_text_len": 122,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 23,
+        "fr_title": "Le Voyage Retour",
+        "en_title": "Heading Home",
+        "fr_text_len": 140,
+        "en_text_len": 137,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 24,
+        "fr_title": "La Paix",
+        "en_title": "Sweet Dreams",
+        "fr_text_len": 146,
+        "en_text_len": 146,
+        "has_text": true,
+        "prompt_matches_fr": true
+      }
+    ],
+    "prompt_french_words": [
+      {
+        "page": 1,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 2,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 3,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 4,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 5,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 6,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 7,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 8,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 9,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 10,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 11,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 12,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 13,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 14,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 15,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 16,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 17,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 18,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 19,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 20,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 21,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 22,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 23,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 24,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      }
+    ],
+    "text_french_words": [],
+    "missing_illustrations": [],
+    "missing_audio": [
+      "page_01.mp3",
+      "page_02.mp3",
+      "page_03.mp3",
+      "page_04.mp3",
+      "page_05.mp3",
+      "page_06.mp3",
+      "page_07.mp3",
+      "page_08.mp3",
+      "page_09.mp3",
+      "page_10.mp3",
+      "page_11.mp3",
+      "page_12.mp3",
+      "page_13.mp3",
+      "page_14.mp3",
+      "page_15.mp3",
+      "page_16.mp3",
+      "page_17.mp3",
+      "page_18.mp3",
+      "page_19.mp3",
+      "page_20.mp3",
+      "page_21.mp3",
+      "page_22.mp3",
+      "page_23.mp3",
+      "page_24.mp3"
+    ],
+    "audio_count": 23,
+    "output_files": [
+      "assets\\cover_thumbnail.jpg",
+      "audio\\page_002.mp3",
+      "audio\\page_003.mp3",
+      "audio\\page_004.mp3",
+      "audio\\page_005.mp3",
+      "audio\\page_006.mp3",
+      "audio\\page_007.mp3",
+      "audio\\page_008.mp3",
+      "audio\\page_009.mp3",
+      "audio\\page_010.mp3",
+      "audio\\page_011.mp3",
+      "audio\\page_012.mp3",
+      "audio\\page_013.mp3",
+      "audio\\page_014.mp3",
+      "audio\\page_015.mp3",
+      "audio\\page_016.mp3",
+      "audio\\page_017.mp3",
+      "audio\\page_018.mp3",
+      "audio\\page_019.mp3",
+      "audio\\page_020.mp3",
+      "audio\\page_021.mp3",
+      "audio\\page_022.mp3",
+      "audio\\page_023.mp3",
+      "audio\\page_024.mp3",
+      "canva\\canva_bulk_import.csv",
+      "ebook\\Leo_and_the_Shadow_Thief.epub",
+      "manuscript\\Leo_and_the_Shadow_Thief.docx",
+      "marketing\\book_description.txt",
+      "marketing\\keywords.txt",
+      "marketing\\metadata.json",
+      "print\\cover_front.pdf",
+      "print\\cover_full_wrap.pdf",
+      "print\\interior.pdf"
+    ]
+  },
+  "Leo_and_the_Star_Thief": {
+    "expected_volume": 2,
+    "metadata": {
+      "title": "Leo and the Star Thief",
+      "author": "Theo Arven",
+      "publisher": "KDP Publishing",
+      "language": "en",
+      "date": "2026-08-02",
+      "identifier": "urn:uuid:leo-tome2-en",
+      "description": "One cold winter night, Leo looks out his window and notices something terrible: the stars are disappearing one by one! The night sky has turned pitch black. Leo upgrades his Cardboard Rocket into the Mk II and flies off to a frozen ice planet, where he meets a giant, shivering light-blue Yeti who took the stars just to stay warm...",
+      "age_group": "4-8",
+      "series": {
+        "name": "Leo's Adventures",
+        "volume": 2,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "stars",
+        "yeti",
+        "space adventure",
+        "winter",
+        "solar heater",
+        "astronomy",
+        "children book",
+        "kindness"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_defined": [
+      {
+        "name": "Leo",
+        "species": "Human",
+        "age": 6,
+        "description": "Small chubby boy in white lab coat, yellow t-shirt, navy shorts, red sneakers, round black glasses."
+      },
+      {
+        "name": "The Blue Yeti (Star Thief)",
+        "species": "Friendly Ice Creature",
+        "description": "A giant, fluffy, light-blue Yeti wearing a knitted red winter beanie hat.",
+        "personality": "Gentle, shivering, loves warm sunbeams."
+      }
+    ],
+    "pages_count_fr": 24,
+    "pages_count_en": 24,
+    "page_details": [
+      {
+        "page": 1,
+        "fr_title": "Couverture",
+        "en_title": "Cover",
+        "fr_text_len": 51,
+        "en_text_len": 51,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 2,
+        "fr_title": "Le Ciel Vide",
+        "en_title": "The Empty Sky",
+        "fr_text_len": 99,
+        "en_text_len": 89,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 3,
+        "fr_title": "Plus d'Étoiles",
+        "en_title": "No More Stars",
+        "fr_text_len": 96,
+        "en_text_len": 105,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 4,
+        "fr_title": "Le Télescope",
+        "en_title": "The Telescope",
+        "fr_text_len": 76,
+        "en_text_len": 75,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 5,
+        "fr_title": "Le Filet Cosmique",
+        "en_title": "The Cosmic Net",
+        "fr_text_len": 85,
+        "en_text_len": 90,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 6,
+        "fr_title": "Mission Sauvetage",
+        "en_title": "Rescue Mission",
+        "fr_text_len": 78,
+        "en_text_len": 65,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 7,
+        "fr_title": "Améliorations",
+        "en_title": "Upgrades",
+        "fr_text_len": 91,
+        "en_text_len": 86,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 8,
+        "fr_title": "La Fusée MkII",
+        "en_title": "The Rocket Mk II",
+        "fr_text_len": 67,
+        "en_text_len": 62,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 9,
+        "fr_title": "Décollage",
+        "en_title": "Blast Off!",
+        "fr_text_len": 36,
+        "en_text_len": 35,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 10,
+        "fr_title": "Dans la Nuit Noire",
+        "en_title": "Into the Pitch Black",
+        "fr_text_len": 83,
+        "en_text_len": 77,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 11,
+        "fr_title": "Cristaux de Glace",
+        "en_title": "Ice Crystals",
+        "fr_text_len": 81,
+        "en_text_len": 70,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 12,
+        "fr_title": "La Planète de Glace",
+        "en_title": "The Ice Planet",
+        "fr_text_len": 91,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 13,
+        "fr_title": "Exploration",
+        "en_title": "Exploration",
+        "fr_text_len": 95,
+        "en_text_len": 82,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 14,
+        "fr_title": "Grandes Traces",
+        "en_title": "Giant Footprints",
+        "fr_text_len": 79,
+        "en_text_len": 77,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 15,
+        "fr_title": "La Grotte",
+        "en_title": "The Ice Cave",
+        "fr_text_len": 92,
+        "en_text_len": 90,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 16,
+        "fr_title": "Le Voleur Démasqué",
+        "en_title": "Unmasking the Thief",
+        "fr_text_len": 89,
+        "en_text_len": 66,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 17,
+        "fr_title": "Un Monstre Frileux",
+        "en_title": "A Shivering Yeti",
+        "fr_text_len": 117,
+        "en_text_len": 120,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 18,
+        "fr_title": "Compassion",
+        "en_title": "Empathy",
+        "fr_text_len": 99,
+        "en_text_len": 75,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 19,
+        "fr_title": "Au Travail !",
+        "en_title": "Time to Work!",
+        "fr_text_len": 89,
+        "en_text_len": 70,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 20,
+        "fr_title": "Le Radiateur Solaire",
+        "en_title": "The Solar Heater",
+        "fr_text_len": 107,
+        "en_text_len": 98,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 21,
+        "fr_title": "Le Cadeau",
+        "en_title": "A Warm Gift",
+        "fr_text_len": 93,
+        "en_text_len": 97,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 22,
+        "fr_title": "Le Sourire du Yéti",
+        "en_title": "The Yeti's Smile",
+        "fr_text_len": 98,
+        "en_text_len": 80,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 23,
+        "fr_title": "Les Étoiles Libérées",
+        "en_title": "Stars Set Free",
+        "fr_text_len": 123,
+        "en_text_len": 109,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 24,
+        "fr_title": "Nuit Paisible",
+        "en_title": "Peaceful Night",
+        "fr_text_len": 117,
+        "en_text_len": 107,
+        "has_text": true,
+        "prompt_matches_fr": true
+      }
+    ],
+    "prompt_french_words": [
+      {
+        "page": 1,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 2,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 3,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 4,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 5,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 6,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 7,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 8,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 9,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 10,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 11,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 12,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 13,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 14,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 15,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 16,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 17,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 18,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 19,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 20,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 21,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 22,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 23,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 24,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      }
+    ],
+    "text_french_words": [],
+    "missing_illustrations": [],
+    "missing_audio": [
+      "page_01.mp3",
+      "page_02.mp3",
+      "page_03.mp3",
+      "page_04.mp3",
+      "page_05.mp3",
+      "page_06.mp3",
+      "page_07.mp3",
+      "page_08.mp3",
+      "page_09.mp3",
+      "page_10.mp3",
+      "page_11.mp3",
+      "page_12.mp3",
+      "page_13.mp3",
+      "page_14.mp3",
+      "page_15.mp3",
+      "page_16.mp3",
+      "page_17.mp3",
+      "page_18.mp3",
+      "page_19.mp3",
+      "page_20.mp3",
+      "page_21.mp3",
+      "page_22.mp3",
+      "page_23.mp3",
+      "page_24.mp3"
+    ],
+    "audio_count": 24,
+    "output_files": [
+      "assets\\cover_thumbnail.jpg",
+      "audio\\page_001.mp3",
+      "audio\\page_002.mp3",
+      "audio\\page_003.mp3",
+      "audio\\page_004.mp3",
+      "audio\\page_005.mp3",
+      "audio\\page_006.mp3",
+      "audio\\page_007.mp3",
+      "audio\\page_008.mp3",
+      "audio\\page_009.mp3",
+      "audio\\page_010.mp3",
+      "audio\\page_011.mp3",
+      "audio\\page_012.mp3",
+      "audio\\page_013.mp3",
+      "audio\\page_014.mp3",
+      "audio\\page_015.mp3",
+      "audio\\page_016.mp3",
+      "audio\\page_017.mp3",
+      "audio\\page_018.mp3",
+      "audio\\page_019.mp3",
+      "audio\\page_020.mp3",
+      "audio\\page_021.mp3",
+      "audio\\page_022.mp3",
+      "audio\\page_023.mp3",
+      "audio\\page_024.mp3",
+      "canva\\canva_bulk_import.csv",
+      "ebook\\Leo_and_the_Star_Thief.epub",
+      "manuscript\\Leo_and_the_Star_Thief.docx",
+      "marketing\\book_description.txt",
+      "marketing\\keywords.txt",
+      "marketing\\metadata.json",
+      "print\\cover_front.pdf",
+      "print\\cover_full_wrap.pdf",
+      "print\\interior.pdf"
+    ]
+  },
+  "Leo_and_the_Color_Thief": {
+    "expected_volume": 3,
+    "metadata": {
+      "title": "Leo and the Color Thief",
+      "author": "Theo Arven",
+      "publisher": "KDP Publishing",
+      "language": "en",
+      "date": "2026-08-02",
+      "identifier": "urn:uuid:leo-tome3-en",
+      "description": "Leo wakes up to find his bedroom and the entire world turned completely black and white! With his colorful Color-O-Meter radar, Leo blasts off in his rocket to a dull, foggy planet where he meets a gentle gray dragon who accidentally drained all colors out of sadness...",
+      "age_group": "4-8",
+      "series": {
+        "name": "Leo's Adventures",
+        "volume": 3,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "colors",
+        "dragon",
+        "prism",
+        "rainbow",
+        "art",
+        "stem for kids",
+        "emotions",
+        "children book"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_defined": [
+      {
+        "name": "Leo",
+        "species": "Human",
+        "age": 6,
+        "description": "Small chubby boy in white lab coat, yellow t-shirt, navy shorts, red sneakers, round black glasses."
+      },
+      {
+        "name": "The Color Dragon (Chroma)",
+        "species": "Magical Dragon",
+        "description": "A cute small dragon with iridescent scales that change color when happy.",
+        "personality": "Sensitive, artistic, loves vibrant rainbows."
+      }
+    ],
+    "pages_count_fr": 24,
+    "pages_count_en": 24,
+    "page_details": [
+      {
+        "page": 1,
+        "fr_title": "Couverture",
+        "en_title": "Cover",
+        "fr_text_len": 53,
+        "en_text_len": 52,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 2,
+        "fr_title": "Le Réveil Gris",
+        "en_title": "The Gray Morning",
+        "fr_text_len": 80,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 3,
+        "fr_title": "Plus de Couleurs",
+        "en_title": "Colorless World",
+        "fr_text_len": 88,
+        "en_text_len": 87,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 4,
+        "fr_title": "Le Color-O-Mètre",
+        "en_title": "The Color-O-Meter",
+        "fr_text_len": 101,
+        "en_text_len": 85,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 5,
+        "fr_title": "Le Signal",
+        "en_title": "The Signal",
+        "fr_text_len": 65,
+        "en_text_len": 82,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 6,
+        "fr_title": "Au Laboratoire",
+        "en_title": "To the Lab!",
+        "fr_text_len": 69,
+        "en_text_len": 62,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 7,
+        "fr_title": "La Fusée",
+        "en_title": "The Cardboard Rocket",
+        "fr_text_len": 90,
+        "en_text_len": 97,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 8,
+        "fr_title": "Décollage !",
+        "en_title": "Blast Off!",
+        "fr_text_len": 36,
+        "en_text_len": 35,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 9,
+        "fr_title": "Dans l'Espace",
+        "en_title": "Through Gray Space",
+        "fr_text_len": 78,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 10,
+        "fr_title": "La Planète Grise",
+        "en_title": "The Gray Planet",
+        "fr_text_len": 85,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 11,
+        "fr_title": "Atterrissage",
+        "en_title": "Landing",
+        "fr_text_len": 68,
+        "en_text_len": 61,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 12,
+        "fr_title": "Exploration",
+        "en_title": "Exploration",
+        "fr_text_len": 77,
+        "en_text_len": 74,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 13,
+        "fr_title": "Le Cratère",
+        "en_title": "The Crater",
+        "fr_text_len": 62,
+        "en_text_len": 51,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 14,
+        "fr_title": "Une Découverte",
+        "en_title": "A Lonely Figure",
+        "fr_text_len": 53,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 15,
+        "fr_title": "Le Voleur de Couleurs",
+        "en_title": "The Dragon's Secret",
+        "fr_text_len": 95,
+        "en_text_len": 75,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 16,
+        "fr_title": "Un Monde Trop Triste",
+        "en_title": "Understanding",
+        "fr_text_len": 125,
+        "en_text_len": 93,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 17,
+        "fr_title": "Rencontre",
+        "en_title": "The Prism Invention",
+        "fr_text_len": 76,
+        "en_text_len": 74,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 18,
+        "fr_title": "Un Nouvel Ami",
+        "en_title": "Rainbow Maker",
+        "fr_text_len": 73,
+        "en_text_len": 91,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 19,
+        "fr_title": "L'Idée Géniale",
+        "en_title": "A Splash of Color",
+        "fr_text_len": 87,
+        "en_text_len": 80,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 20,
+        "fr_title": "Le Prisme Arc-en-Ciel",
+        "en_title": "Color Restored",
+        "fr_text_len": 77,
+        "en_text_len": 101,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 21,
+        "fr_title": "Lumière !",
+        "en_title": "Returning Home",
+        "fr_text_len": 50,
+        "en_text_len": 82,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 22,
+        "fr_title": "Explosion de Couleurs",
+        "en_title": "Goodbye Friend",
+        "fr_text_len": 86,
+        "en_text_len": 69,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 23,
+        "fr_title": "Retour à la Normale",
+        "en_title": "Colorful Space",
+        "fr_text_len": 125,
+        "en_text_len": 88,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 24,
+        "fr_title": "Un Monde Éclatant",
+        "en_title": "A Colorful Tomorrow",
+        "fr_text_len": 88,
+        "en_text_len": 83,
+        "has_text": true,
+        "prompt_matches_fr": true
+      }
+    ],
+    "prompt_french_words": [
+      {
+        "page": 1,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 2,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 3,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 4,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 5,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 6,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 7,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 8,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 9,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 10,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 11,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 12,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 13,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 14,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 15,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 16,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 17,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 18,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 19,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 20,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 21,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 22,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 23,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 24,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      }
+    ],
+    "text_french_words": [],
+    "missing_illustrations": [],
+    "missing_audio": [
+      "page_01.mp3",
+      "page_02.mp3",
+      "page_03.mp3",
+      "page_04.mp3",
+      "page_05.mp3",
+      "page_06.mp3",
+      "page_07.mp3",
+      "page_08.mp3",
+      "page_09.mp3",
+      "page_10.mp3",
+      "page_11.mp3",
+      "page_12.mp3",
+      "page_13.mp3",
+      "page_14.mp3",
+      "page_15.mp3",
+      "page_16.mp3",
+      "page_17.mp3",
+      "page_18.mp3",
+      "page_19.mp3",
+      "page_20.mp3",
+      "page_21.mp3",
+      "page_22.mp3",
+      "page_23.mp3",
+      "page_24.mp3"
+    ],
+    "audio_count": 24,
+    "output_files": [
+      "assets\\cover_thumbnail.jpg",
+      "audio\\page_001.mp3",
+      "audio\\page_002.mp3",
+      "audio\\page_003.mp3",
+      "audio\\page_004.mp3",
+      "audio\\page_005.mp3",
+      "audio\\page_006.mp3",
+      "audio\\page_007.mp3",
+      "audio\\page_008.mp3",
+      "audio\\page_009.mp3",
+      "audio\\page_010.mp3",
+      "audio\\page_011.mp3",
+      "audio\\page_012.mp3",
+      "audio\\page_013.mp3",
+      "audio\\page_014.mp3",
+      "audio\\page_015.mp3",
+      "audio\\page_016.mp3",
+      "audio\\page_017.mp3",
+      "audio\\page_018.mp3",
+      "audio\\page_019.mp3",
+      "audio\\page_020.mp3",
+      "audio\\page_021.mp3",
+      "audio\\page_022.mp3",
+      "audio\\page_023.mp3",
+      "audio\\page_024.mp3",
+      "canva\\canva_bulk_import.csv",
+      "ebook\\Leo_and_the_Color_Thief.epub",
+      "manuscript\\Leo_and_the_Color_Thief.docx",
+      "marketing\\book_description.txt",
+      "marketing\\keywords.txt",
+      "marketing\\metadata.json",
+      "print\\cover_front.pdf",
+      "print\\cover_full_wrap.pdf",
+      "print\\interior.pdf"
+    ]
+  },
+  "Leo_and_the_Cloud_Thief": {
+    "expected_volume": 4,
+    "metadata": {
+      "title": "Leo and the Cloud Thief",
+      "author": "Theo Arven",
+      "publisher": "KDP Publishing",
+      "language": "en",
+      "date": "2026-08-02",
+      "identifier": "urn:uuid:leo-tome4-en",
+      "description": "When the sky dries up and not a single cloud or drop of rain is left on Earth, Leo sets off on an airy adventure to the Cloud Kingdom. There, he meets a playful Cloud Thief who accidentally locked up all the clouds...",
+      "age_group": "4-8",
+      "series": {
+        "name": "Leo's Adventures",
+        "volume": 4,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "clouds",
+        "rain",
+        "weather",
+        "sky bird",
+        "nature",
+        "eco trampoline",
+        "water cycle",
+        "children book"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_defined": [
+      {
+        "name": "Leo",
+        "species": "Human",
+        "age": 6,
+        "description": "Small chubby boy in white lab coat, yellow t-shirt, navy shorts, red sneakers, round black glasses."
+      },
+      {
+        "name": "The Cloud Bird (Nimbus)",
+        "species": "Sky Creature",
+        "description": "A giant fluffy white cloud-like bird with soft feathered wings and a gentle beak.",
+        "personality": "Sleepy, cozy, loves soft mattresses."
+      }
+    ],
+    "pages_count_fr": 24,
+    "pages_count_en": 24,
+    "page_details": [
+      {
+        "page": 1,
+        "fr_title": "Couverture",
+        "en_title": "Cover",
+        "fr_text_len": 54,
+        "en_text_len": 47,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 2,
+        "fr_title": "Quelle Chaleur !",
+        "en_title": "Dry Fields",
+        "fr_text_len": 95,
+        "en_text_len": 94,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 3,
+        "fr_title": "Un Ciel Trop Bleu",
+        "en_title": "The Empty Sky",
+        "fr_text_len": 127,
+        "en_text_len": 70,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 4,
+        "fr_title": "La Station Météo",
+        "en_title": "The Cloud Detector",
+        "fr_text_len": 91,
+        "en_text_len": 71,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 5,
+        "fr_title": "Dans la Stratosphère",
+        "en_title": "Up in the Clouds",
+        "fr_text_len": 118,
+        "en_text_len": 86,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 6,
+        "fr_title": "Au Laboratoire",
+        "en_title": "Rocket Upgrade",
+        "fr_text_len": 79,
+        "en_text_len": 74,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 7,
+        "fr_title": "Les Hélices",
+        "en_title": "Into the Stratosphere",
+        "fr_text_len": 110,
+        "en_text_len": 71,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 8,
+        "fr_title": "La Fusée-Hélico",
+        "en_title": "Higher and Higher",
+        "fr_text_len": 66,
+        "en_text_len": 73,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 9,
+        "fr_title": "Décollage !",
+        "en_title": "The Sky Castle",
+        "fr_text_len": 60,
+        "en_text_len": 87,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 10,
+        "fr_title": "Toujours Plus Haut",
+        "en_title": "Soft Landing",
+        "fr_text_len": 56,
+        "en_text_len": 63,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 11,
+        "fr_title": "L'Île Flottante",
+        "en_title": "The Cloud Kingdom",
+        "fr_text_len": 96,
+        "en_text_len": 66,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 12,
+        "fr_title": "Atterrissage Douillet",
+        "en_title": "Laughter in the Mist",
+        "fr_text_len": 56,
+        "en_text_len": 70,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 13,
+        "fr_title": "Exploration",
+        "en_title": "The Cloud Thief",
+        "fr_text_len": 77,
+        "en_text_len": 99,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 14,
+        "fr_title": "La Montagne Blanche",
+        "en_title": "No Rain for Earth",
+        "fr_text_len": 64,
+        "en_text_len": 96,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 15,
+        "fr_title": "Le Voleur de Nuages",
+        "en_title": "The Sky Elf's Request",
+        "fr_text_len": 107,
+        "en_text_len": 82,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 16,
+        "fr_title": "Un Nid Inconfortable",
+        "en_title": "Leo's Invention",
+        "fr_text_len": 120,
+        "en_text_len": 172,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 17,
+        "fr_title": "Juste un Gros Dormeur",
+        "en_title": "The Trampoline Maker",
+        "fr_text_len": 106,
+        "en_text_len": 78,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 18,
+        "fr_title": "Approche Douce",
+        "en_title": "Bouncing Fun",
+        "fr_text_len": 72,
+        "en_text_len": 69,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 19,
+        "fr_title": "L'Idée Géniale",
+        "en_title": "Releasing the Clouds",
+        "fr_text_len": 74,
+        "en_text_len": 83,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 20,
+        "fr_title": "La Machine à Coussins",
+        "en_title": "Raindrops of Joy",
+        "fr_text_len": 68,
+        "en_text_len": 85,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 21,
+        "fr_title": "Avalanche de Douceur",
+        "en_title": "Green Gardens",
+        "fr_text_len": 108,
+        "en_text_len": 83,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 22,
+        "fr_title": "Bonne Nuit",
+        "en_title": "A Sky Friendship",
+        "fr_text_len": 95,
+        "en_text_len": 64,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 23,
+        "fr_title": "Les Nuages Libérés",
+        "en_title": "Flying Back Home",
+        "fr_text_len": 122,
+        "en_text_len": 70,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 24,
+        "fr_title": "Un Ciel Apaisé",
+        "en_title": "Peaceful Rain",
+        "fr_text_len": 127,
+        "en_text_len": 94,
+        "has_text": true,
+        "prompt_matches_fr": true
+      }
+    ],
+    "prompt_french_words": [
+      {
+        "page": 1,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 2,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 3,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 4,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 5,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 6,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 7,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 8,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 9,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 10,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 11,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 12,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 13,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 14,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 15,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 16,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 17,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 18,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 19,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 20,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 21,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 22,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 23,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 24,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      }
+    ],
+    "text_french_words": [],
+    "missing_illustrations": [],
+    "missing_audio": [
+      "page_01.mp3",
+      "page_02.mp3",
+      "page_03.mp3",
+      "page_04.mp3",
+      "page_05.mp3",
+      "page_06.mp3",
+      "page_07.mp3",
+      "page_08.mp3",
+      "page_09.mp3",
+      "page_10.mp3",
+      "page_11.mp3",
+      "page_12.mp3",
+      "page_13.mp3",
+      "page_14.mp3",
+      "page_15.mp3",
+      "page_16.mp3",
+      "page_17.mp3",
+      "page_18.mp3",
+      "page_19.mp3",
+      "page_20.mp3",
+      "page_21.mp3",
+      "page_22.mp3",
+      "page_23.mp3",
+      "page_24.mp3"
+    ],
+    "audio_count": 24,
+    "output_files": [
+      "assets\\cover_thumbnail.jpg",
+      "audio\\page_001.mp3",
+      "audio\\page_002.mp3",
+      "audio\\page_003.mp3",
+      "audio\\page_004.mp3",
+      "audio\\page_005.mp3",
+      "audio\\page_006.mp3",
+      "audio\\page_007.mp3",
+      "audio\\page_008.mp3",
+      "audio\\page_009.mp3",
+      "audio\\page_010.mp3",
+      "audio\\page_011.mp3",
+      "audio\\page_012.mp3",
+      "audio\\page_013.mp3",
+      "audio\\page_014.mp3",
+      "audio\\page_015.mp3",
+      "audio\\page_016.mp3",
+      "audio\\page_017.mp3",
+      "audio\\page_018.mp3",
+      "audio\\page_019.mp3",
+      "audio\\page_020.mp3",
+      "audio\\page_021.mp3",
+      "audio\\page_022.mp3",
+      "audio\\page_023.mp3",
+      "audio\\page_024.mp3",
+      "canva\\canva_bulk_import.csv",
+      "ebook\\Leo_and_the_Cloud_Thief.epub",
+      "manuscript\\Leo_and_the_Cloud_Thief.docx",
+      "marketing\\book_description.txt",
+      "marketing\\keywords.txt",
+      "marketing\\metadata.json",
+      "print\\cover_front.pdf",
+      "print\\cover_full_wrap.pdf",
+      "print\\interior.pdf"
+    ]
+  },
+  "Leo_and_the_Dream_Thief": {
+    "expected_volume": 5,
+    "metadata": {
+      "title": "Leo and the Dream Thief",
+      "author": "Theo Arven",
+      "publisher": "KDP Publishing",
+      "language": "en",
+      "date": "2026-08-02",
+      "identifier": "urn:uuid:leo-tome5-en",
+      "description": "Children all over the world are waking up from bad dreams or forgetting their sweet dreams! Leo builds a Dream-o-Scope and travels to the Nebula of Whispers to free the stolen dreams from a sleepy Sandman...",
+      "age_group": "4-8",
+      "series": {
+        "name": "Leo's Adventures",
+        "volume": 5,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "dreams",
+        "bedtime story",
+        "sandman",
+        "lullaby",
+        "stardust",
+        "sleep",
+        "children book",
+        "nighttime"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_defined": [
+      {
+        "name": "Leo",
+        "species": "Human",
+        "age": 6,
+        "description": "Small chubby boy in white lab coat, yellow t-shirt, navy shorts, red sneakers, round black glasses."
+      },
+      {
+        "name": "The Dream Weaver / Sandman (Morpheus)",
+        "species": "Celestial Guardian",
+        "description": "A tiny, cute floating starry spirit in a nightcap holding a glowing lantern.",
+        "personality": "Sleepy, peaceful, loves warm lullabies."
+      }
+    ],
+    "pages_count_fr": 24,
+    "pages_count_en": 24,
+    "page_details": [
+      {
+        "page": 1,
+        "fr_title": "Couverture",
+        "en_title": "Cover",
+        "fr_text_len": 42,
+        "en_text_len": 55,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 2,
+        "fr_title": "Le Ciel Sans Songes",
+        "en_title": "Restless Nights",
+        "fr_text_len": 137,
+        "en_text_len": 96,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 3,
+        "fr_title": "Les Bulles de Rêve",
+        "en_title": "The Dream-o-Scope",
+        "fr_text_len": 138,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 4,
+        "fr_title": "Le Rassemblement des Héros",
+        "en_title": "A Midnight Signal",
+        "fr_text_len": 144,
+        "en_text_len": 90,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 5,
+        "fr_title": "La Fusée-Carton 5000",
+        "en_title": "Preparing the Rocket",
+        "fr_text_len": 148,
+        "en_text_len": 87,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 6,
+        "fr_title": "Prêts pour l'Envol",
+        "en_title": "Space Voyage",
+        "fr_text_len": 114,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 7,
+        "fr_title": "Le Grand Décollage",
+        "en_title": "Nebula of Whispers",
+        "fr_text_len": 115,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 8,
+        "fr_title": "La Nébuleuse des Jouets",
+        "en_title": "The Pillow Planet",
+        "fr_text_len": 126,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 9,
+        "fr_title": "La Citadelle de Verre",
+        "en_title": "A Soft Landing",
+        "fr_text_len": 111,
+        "en_text_len": 70,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 10,
+        "fr_title": "Une Entrée Discrète",
+        "en_title": "Exploring Pillow Hill",
+        "fr_text_len": 127,
+        "en_text_len": 79,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 11,
+        "fr_title": "Le Palais des Songes",
+        "en_title": "The Sleepy Thief",
+        "fr_text_len": 145,
+        "en_text_len": 97,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 12,
+        "fr_title": "Le Voleur de Rêves",
+        "en_title": "Stolen Bubbles",
+        "fr_text_len": 119,
+        "en_text_len": 76,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 13,
+        "fr_title": "L'Écoute et la Douceur",
+        "en_title": "The Sandman's Trouble",
+        "fr_text_len": 144,
+        "en_text_len": 78,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 14,
+        "fr_title": "La Boîte à Musique Cosmique",
+        "en_title": "Leo's Solution",
+        "fr_text_len": 128,
+        "en_text_len": 71,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 15,
+        "fr_title": "Un Moment de Partage",
+        "en_title": "The Music Box",
+        "fr_text_len": 138,
+        "en_text_len": 77,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 16,
+        "fr_title": "Le Premier Sourire",
+        "en_title": "Sweet Slumber",
+        "fr_text_len": 142,
+        "en_text_len": 72,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 17,
+        "fr_title": "L'Ouverture du Dôme",
+        "en_title": "Opening the Jars",
+        "fr_text_len": 127,
+        "en_text_len": 79,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 18,
+        "fr_title": "La Pluie de Rêves",
+        "en_title": "Floating Dreams",
+        "fr_text_len": 121,
+        "en_text_len": 91,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 19,
+        "fr_title": "Les Songes de la Terre",
+        "en_title": "A Blanket of Light",
+        "fr_text_len": 140,
+        "en_text_len": 85,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 20,
+        "fr_title": "Le Nouveau Gardien",
+        "en_title": "Journey Back",
+        "fr_text_len": 151,
+        "en_text_len": 63,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 21,
+        "fr_title": "Le Vol du Retour",
+        "en_title": "Returning Home",
+        "fr_text_len": 129,
+        "en_text_len": 62,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 22,
+        "fr_title": "L'Atterrissage Doux",
+        "en_title": "Safe in Bed",
+        "fr_text_len": 123,
+        "en_text_len": 54,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 23,
+        "fr_title": "La Grande Réunion",
+        "en_title": "Sweetest Dreams",
+        "fr_text_len": 159,
+        "en_text_len": 90,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 24,
+        "fr_title": "Fais de Beaux Rêves, Léo",
+        "en_title": "Goodnight Leo",
+        "fr_text_len": 139,
+        "en_text_len": 78,
+        "has_text": true,
+        "prompt_matches_fr": true
+      }
+    ],
+    "prompt_french_words": [
+      {
+        "page": 1,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 2,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 3,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 4,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 5,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 6,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 7,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 8,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 9,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 10,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 11,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 12,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 13,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 14,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 15,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 16,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 17,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 18,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 19,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 20,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 21,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 22,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 23,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 24,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      }
+    ],
+    "text_french_words": [],
+    "missing_illustrations": [],
+    "missing_audio": [
+      "page_01.mp3",
+      "page_02.mp3",
+      "page_03.mp3",
+      "page_04.mp3",
+      "page_05.mp3",
+      "page_06.mp3",
+      "page_07.mp3",
+      "page_08.mp3",
+      "page_09.mp3",
+      "page_10.mp3",
+      "page_11.mp3",
+      "page_12.mp3",
+      "page_13.mp3",
+      "page_14.mp3",
+      "page_15.mp3",
+      "page_16.mp3",
+      "page_17.mp3",
+      "page_18.mp3",
+      "page_19.mp3",
+      "page_20.mp3",
+      "page_21.mp3",
+      "page_22.mp3",
+      "page_23.mp3",
+      "page_24.mp3"
+    ],
+    "audio_count": 24,
+    "output_files": [
+      "assets\\cover_thumbnail.jpg",
+      "audio\\page_001.mp3",
+      "audio\\page_002.mp3",
+      "audio\\page_003.mp3",
+      "audio\\page_004.mp3",
+      "audio\\page_005.mp3",
+      "audio\\page_006.mp3",
+      "audio\\page_007.mp3",
+      "audio\\page_008.mp3",
+      "audio\\page_009.mp3",
+      "audio\\page_010.mp3",
+      "audio\\page_011.mp3",
+      "audio\\page_012.mp3",
+      "audio\\page_013.mp3",
+      "audio\\page_014.mp3",
+      "audio\\page_015.mp3",
+      "audio\\page_016.mp3",
+      "audio\\page_017.mp3",
+      "audio\\page_018.mp3",
+      "audio\\page_019.mp3",
+      "audio\\page_020.mp3",
+      "audio\\page_021.mp3",
+      "audio\\page_022.mp3",
+      "audio\\page_023.mp3",
+      "audio\\page_024.mp3",
+      "canva\\canva_bulk_import.csv",
+      "ebook\\Leo_and_the_Dream_Thief.epub",
+      "manuscript\\Leo_and_the_Dream_Thief.docx",
+      "marketing\\book_description.txt",
+      "marketing\\keywords.txt",
+      "marketing\\metadata.json",
+      "print\\cover_front.pdf",
+      "print\\cover_full_wrap.pdf",
+      "print\\interior.pdf"
+    ]
+  },
+  "Leo_and_the_Time_Thief": {
+    "expected_volume": 6,
+    "metadata": {
+      "title": "Leo and the Time Thief",
+      "author": "Theo Arven",
+      "publisher": "KDP Publishing",
+      "language": "en",
+      "date": "2026-08-02",
+      "identifier": "urn:uuid:leo-tome6-en",
+      "description": "Tick-Tock, the clockwork owl, has frozen Time! Clocks are spinning backward and bedtime comes too fast. For this Ultimate Bonus Collector Edition, the entire Super-Team is reunited: Leo, Barnaby the Shadow, the Blue Yeti, the Color Dragon, the Cloud Bird, and the Dream Weaver. Contains 4 bonus activity pages, a giant search-and-find game, and an official Master Inventor Diploma!",
+      "age_group": "4-8",
+      "series": {
+        "name": "Leo's Adventures",
+        "volume": 6,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "time",
+        "clocks",
+        "friendship",
+        "crossover",
+        "search and find",
+        "children activity book",
+        "inventor",
+        "rocket",
+        "diploma",
+        "interactive book"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_defined": [
+      {
+        "name": "Leo",
+        "species": "Human",
+        "age": 6,
+        "description": "Small chubby boy in white lab coat, yellow t-shirt, navy shorts, red sneakers, round black glasses."
+      },
+      {
+        "name": "Tick-Tock the Clockwork Owl",
+        "species": "Mechanical Owl",
+        "description": "A cute small clockwork owl with turquoise feathers, golden brass gear wings, and big expressive eyes.",
+        "personality": "Timid, precise, loves steady harmonious ticking."
+      }
+    ],
+    "pages_count_fr": 24,
+    "pages_count_en": 24,
+    "page_details": [
+      {
+        "page": 1,
+        "fr_title": "Couverture",
+        "en_title": "Cover",
+        "fr_text_len": 58,
+        "en_text_len": 57,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 2,
+        "fr_title": "Le Matin à l'Envers",
+        "en_title": "The Backwards Morning",
+        "fr_text_len": 216,
+        "en_text_len": 213,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 3,
+        "fr_title": "La Grande Horloge Folle",
+        "en_title": "The Crazy Clock Tower",
+        "fr_text_len": 228,
+        "en_text_len": 212,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 4,
+        "fr_title": "Le Chrono-Radar",
+        "en_title": "The Chrono-Radar",
+        "fr_text_len": 237,
+        "en_text_len": 217,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 5,
+        "fr_title": "L'Appel de la Super-Équipe",
+        "en_title": "Call of the Super-Team",
+        "fr_text_len": 242,
+        "en_text_len": 227,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 6,
+        "fr_title": "La Fusée-Chrono 6000",
+        "en_title": "The Chrono-Rocket 6000",
+        "fr_text_len": 211,
+        "en_text_len": 190,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 7,
+        "fr_title": "Le Décollage Temporel",
+        "en_title": "Temporal Blast Off!",
+        "fr_text_len": 164,
+        "en_text_len": 153,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 8,
+        "fr_title": "La Rivière des Seconds",
+        "en_title": "The River of Seconds",
+        "fr_text_len": 189,
+        "en_text_len": 200,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 9,
+        "fr_title": "La Forêt des Coucous",
+        "en_title": "The Cuckoo Forest",
+        "fr_text_len": 204,
+        "en_text_len": 171,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 10,
+        "fr_title": "Le Temple du Cristal",
+        "en_title": "The Crystal Temple",
+        "fr_text_len": 191,
+        "en_text_len": 181,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 11,
+        "fr_title": "Tic-Tac le Hibou d'Horlogerie",
+        "en_title": "Tick-Tock the Clockwork Owl",
+        "fr_text_len": 172,
+        "en_text_len": 180,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 12,
+        "fr_title": "Les Larmes de Tic-Tac",
+        "en_title": "Tick-Tock's Teardrops",
+        "fr_text_len": 193,
+        "en_text_len": 160,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 13,
+        "fr_title": "Le Secret du Cœur d'Enfant",
+        "en_title": "The Secret of a Child's Heart",
+        "fr_text_len": 227,
+        "en_text_len": 209,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 14,
+        "fr_title": "La Boîte à Souvenirs Éternels",
+        "en_title": "The Eternal Memory Box",
+        "fr_text_len": 200,
+        "en_text_len": 175,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 15,
+        "fr_title": "Le Quartz Rétabli",
+        "en_title": "The Quartz Restored",
+        "fr_text_len": 193,
+        "en_text_len": 191,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 16,
+        "fr_title": "La Fête des Engrenages",
+        "en_title": "The Gear Party",
+        "fr_text_len": 185,
+        "en_text_len": 171,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 17,
+        "fr_title": "Le Cadeau de Tic-Tac",
+        "en_title": "Tick-Tock's Gift",
+        "fr_text_len": 206,
+        "en_text_len": 183,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 18,
+        "fr_title": "Le Vol du Retour",
+        "en_title": "The Return Flight",
+        "fr_text_len": 178,
+        "en_text_len": 171,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 19,
+        "fr_title": "Retour à la Maison",
+        "en_title": "Back Home",
+        "fr_text_len": 182,
+        "en_text_len": 186,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 20,
+        "fr_title": "La Promesse des Héros",
+        "en_title": "The Heroes' Promise",
+        "fr_text_len": 183,
+        "en_text_len": 170,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 21,
+        "fr_title": "Bonus 1 : Le Grand Cherche & Trouve",
+        "en_title": "Bonus 1: The Great Search & Find",
+        "fr_text_len": 373,
+        "en_text_len": 400,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 22,
+        "fr_title": "Bonus 2 : Le Labyrinthe du Temps",
+        "en_title": "Bonus 2: The Time Maze",
+        "fr_text_len": 120,
+        "en_text_len": 111,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 23,
+        "fr_title": "Bonus 3 : Le Code Secret de Léo",
+        "en_title": "Bonus 3: Leo's Secret Code",
+        "fr_text_len": 253,
+        "en_text_len": 252,
+        "has_text": true,
+        "prompt_matches_fr": true
+      },
+      {
+        "page": 24,
+        "fr_title": "Bonus 4 : Diplôme Officiel de Super Inventeur",
+        "en_title": "Bonus 4: Official Master Inventor Diploma",
+        "fr_text_len": 246,
+        "en_text_len": 218,
+        "has_text": true,
+        "prompt_matches_fr": true
+      }
+    ],
+    "prompt_french_words": [
+      {
+        "page": 1,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 2,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 3,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 4,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 5,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 6,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 7,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 8,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 9,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 10,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 11,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 12,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 13,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 14,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 15,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 16,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 17,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 18,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 19,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 20,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 21,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 22,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 23,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      },
+      {
+        "page": 24,
+        "words": [
+          "la"
+        ],
+        "prompt_snippet": "[MASTER PROMPT] Storybook illustration for children ages 4-8, watercolor and col"
+      }
+    ],
+    "text_french_words": [],
+    "missing_illustrations": [],
+    "missing_audio": [
+      "page_01.mp3",
+      "page_02.mp3",
+      "page_03.mp3",
+      "page_04.mp3",
+      "page_05.mp3",
+      "page_06.mp3",
+      "page_07.mp3",
+      "page_08.mp3",
+      "page_09.mp3",
+      "page_10.mp3",
+      "page_11.mp3",
+      "page_12.mp3",
+      "page_13.mp3",
+      "page_14.mp3",
+      "page_15.mp3",
+      "page_16.mp3",
+      "page_17.mp3",
+      "page_18.mp3",
+      "page_19.mp3",
+      "page_20.mp3",
+      "page_21.mp3",
+      "page_22.mp3",
+      "page_23.mp3",
+      "page_24.mp3"
+    ],
+    "audio_count": 24,
+    "output_files": [
+      "assets\\cover_thumbnail.jpg",
+      "audio\\page_001.mp3",
+      "audio\\page_002.mp3",
+      "audio\\page_003.mp3",
+      "audio\\page_004.mp3",
+      "audio\\page_005.mp3",
+      "audio\\page_006.mp3",
+      "audio\\page_007.mp3",
+      "audio\\page_008.mp3",
+      "audio\\page_009.mp3",
+      "audio\\page_010.mp3",
+      "audio\\page_011.mp3",
+      "audio\\page_012.mp3",
+      "audio\\page_013.mp3",
+      "audio\\page_014.mp3",
+      "audio\\page_015.mp3",
+      "audio\\page_016.mp3",
+      "audio\\page_017.mp3",
+      "audio\\page_018.mp3",
+      "audio\\page_019.mp3",
+      "audio\\page_020.mp3",
+      "audio\\page_021.mp3",
+      "audio\\page_022.mp3",
+      "audio\\page_023.mp3",
+      "audio\\page_024.mp3",
+      "canva\\canva_bulk_import.csv",
+      "ebook\\Leo_and_the_Time_Thief.epub",
+      "manuscript\\Leo_and_the_Time_Thief.docx",
+      "marketing\\book_description.txt",
+      "marketing\\keywords.txt",
+      "marketing\\metadata.json",
+      "print\\cover_front.pdf",
+      "print\\cover_full_wrap.pdf",
+      "print\\interior.pdf"
+    ]
+  }
+}

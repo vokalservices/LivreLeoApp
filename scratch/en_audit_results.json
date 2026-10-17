@@ -1,0 +1,112 @@
+{
+  "Leo_and_the_Shadow_Thief": {
+    "volume": 1,
+    "fr_name": "Leo_et_le_Voleur_d_Ombres",
+    "en_name": "Leo_and_the_Shadow_Thief",
+    "exists": true,
+    "meta_issues": [],
+    "page_issues": [],
+    "file_issues": [],
+    "deliverables": {
+      "epub": false,
+      "pdf_interior": false,
+      "pdf_cover": false,
+      "word": false,
+      "audio": true
+    },
+    "characters": [
+      "Leo"
+    ]
+  },
+  "Leo_and_the_Star_Thief": {
+    "volume": 2,
+    "fr_name": "Leo_et_le_Voleur_d_Etoiles",
+    "en_name": "Leo_and_the_Star_Thief",
+    "exists": true,
+    "meta_issues": [],
+    "page_issues": [],
+    "file_issues": [],
+    "deliverables": {
+      "epub": false,
+      "pdf_interior": false,
+      "pdf_cover": false,
+      "word": false,
+      "audio": true
+    },
+    "characters": []
+  },
+  "Leo_and_the_Color_Thief": {
+    "volume": 3,
+    "fr_name": "Leo_et_le_Voleur_de_Couleurs",
+    "en_name": "Leo_and_the_Color_Thief",
+    "exists": true,
+    "meta_issues": [],
+    "page_issues": [],
+    "file_issues": [],
+    "deliverables": {
+      "epub": false,
+      "pdf_interior": false,
+      "pdf_cover": false,
+      "word": false,
+      "audio": true
+    },
+    "characters": []
+  },
+  "Leo_and_the_Time_Thief": {
+    "volume": 4,
+    "fr_name": "Leo_et_le_Voleur_de_Temps",
+    "en_name": "Leo_and_the_Time_Thief",
+    "exists": true,
+    "meta_issues": [
+      "Series volume mismatch: expected 4, got 6"
+    ],
+    "page_issues": [],
+    "file_issues": [],
+    "deliverables": {
+      "epub": false,
+      "pdf_interior": false,
+      "pdf_cover": false,
+      "word": false,
+      "audio": true
+    },
+    "characters": []
+  },
+  "Leo_and_the_Cloud_Thief": {
+    "volume": 5,
+    "fr_name": "Leo_et_le_Voleur_de_Nuages",
+    "en_name": "Leo_and_the_Cloud_Thief",
+    "exists": true,
+    "meta_issues": [
+      "Series volume mismatch: expected 5, got 4"
+    ],
+    "page_issues": [],
+    "file_issues": [],
+    "deliverables": {
+      "epub": false,
+      "pdf_interior": false,
+      "pdf_cover": false,
+      "word": false,
+      "audio": true
+    },
+    "characters": []
+  },
+  "Leo_and_the_Dream_Thief": {
+    "volume": 6,
+    "fr_name": "Leo_et_le_Voleur_de_Reves",
+    "en_name": "Leo_and_the_Dream_Thief",
+    "exists": true,
+    "meta_issues": [
+      "Series volume mismatch: expected 6, got 5"
+    ],
+    "page_issues": [],
+    "file_issues": [],
+    "deliverables": {
+      "epub": false,
+      "pdf_interior": false,
+      "pdf_cover": false,
+      "word": false,
+      "audio": true
+    },
+    "characters": []
+  }
+}

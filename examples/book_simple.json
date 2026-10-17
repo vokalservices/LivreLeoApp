@@ -1,0 +1,263 @@
+{
+  "version": "2.0",
+  "meta": {
+    "title": "Le Petit Nuage Timide",
+    "subtitle": "",
+    "author": "Marie Martin",
+    "publisher": "",
+    "language": "fr",
+    "date": "2026-07-12",
+    "identifier": "urn:uuid:660e8400-e29b-41d4-a716-446655440001",
+    "description": "Une histoire douce sur un petit nuage qui a peur de pleuvoir. Parfait pour les tout-petits de 2 à 4 ans.",
+    "age_group": "0-2",
+    "keywords": [
+      "livre bébé",
+      "histoire courte",
+      "nuage",
+      "pluie",
+      "courage"
+    ],
+    "bisac_categories": [
+      "JUV000000"
+    ],
+    "viewport_width": 800,
+    "viewport_height": 600,
+    "style": {
+      "illustration_style": "cartoon",
+      "color_palette": ["#87CEEB", "#FFFFFF", "#FFD700", "#FFB6C1", "#98FB98"],
+      "font_family": "Arial Rounded MT Bold",
+      "background_color": "#E6F7FF",
+      "text_color": "#2E2E2E"
+    }
+  },
+  "characters": [
+    {
+      "name": "Nuage",
+      "species": "cloud",
+      "age": 2,
+      "gender": "neutral",
+      "description": "Petit nuage blanc et duveteux avec des yeux bleus et un sourire timide",
+      "appearance": {
+        "color": "#FFFFFF",
+        "eye_color": "#87CEEB",
+        "size": "small and fluffy",
+        "shape": "round and cute"
+      },
+      "personality": {
+        "traits": ["timid", "gentle", "sweet"],
+        "likes": ["floating", "sunshine", "rainbows"],
+        "dislikes": ["thunder", "strong wind"],
+        "catchphrases": [
+          "Oh... peut-être plus tard...",
+          "Je ne suis pas sûr..."
+        ]
+      }
+    },
+    {
+      "name": "Soleil",
+      "species": "sun",
+      "age": "ancient",
+      "gender": "male",
+      "description": "Soleil brillant et chaleureux avec des rayons dorés",
+      "appearance": {
+        "color": "#FFD700",
+        "eye_color": "#FF8C00",
+        "rays": "long and warm",
+        "size": "large"
+      },
+      "personality": {
+        "traits": ["warm", "encouraging", "wise"],
+        "likes": ["shining", "helping others", "summer"],
+        "dislikes": ["being covered", "rainy days"],
+        "catchphrases": [
+          "Allez, tu peux le faire !",
+          "Brille comme moi !"
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "story_structure": "simple",
+    "narrative_style": "third_person",
+    "tense": "present",
+    "reading_time": "5 minutes",
+    "difficulty_level": "very_easy"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "title": "Couverture",
+      "text": "",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 A beautiful children's book cover, cartoon style, soft pastel colors, a cute little white fluffy cloud with blue eyes and a shy smile, main title 'Le Petit Nuage Timide' at top, author name 'Marie Martin' at bottom, sky background with a few other clouds, warm and gentle atmosphere[/MASTER PROMPT] --no text in image, watermark, ugly, scary, dark",
+      "illustration_file": "cover.png",
+      "image": "illustrations/cover.png",
+      "alt_text": "Couverture : un petit nuage blanc mignon avec des yeux bleus dans un ciel clair",
+      "layout": "full-bleed-image",
+      "is_cover": true
+    },
+    {
+      "page_number": 2,
+      "title": "Page de titre",
+      "text": "<b>Le Petit Nuage Timide</b>",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 Simple title page, cartoon style, soft colors, the title 'Le Petit Nuage Timide' in large playful letters, small cloud decorations around[/MASTER PROMPT] --no characters, dark, ugly, blurry",
+      "illustration_file": "page_001.png",
+      "image": "illustrations/page_001.png",
+      "alt_text": "Page de titre avec le titre du livre en grandes lettres jouettes",
+      "layout": "spot-illustration"
+    },
+    {
+      "page_number": 3,
+      "title": "Le Petit Nuage",
+      "text": "Il était une fois un <b>petit nuage</b> qui s'appelait Nuage.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 A cute little white fluffy cloud with blue eyes and a shy smile, floating in a light blue sky, a few wispy clouds in the background, soft and gentle lighting, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_002.png",
+      "image": "illustrations/page_002.png",
+      "alt_text": "Un petit nuage blanc mignon avec des yeux bleus et un sourire timide flotte dans un ciel bleu clair",
+      "layout": "full-bleed-image",
+      "character_focus": "Nuage"
+    },
+    {
+      "page_number": 4,
+      "title": "La Peur de Nuage",
+      "text": "Nuage <b>adorait</b> flotter dans le ciel...<br/>mais il avait <i>peur de pleuvoir</i>.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 The little white fluffy cloud with blue eyes looking down at the ground below, worried expression, a few raindrops starting to form but not falling yet, light blue sky background, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_003.png",
+      "image": "illustrations/page_003.png",
+      "alt_text": "Le petit nuage regarde vers le sol avec une expression inquiète, quelques gouttes de pluie commencent à se former",
+      "layout": "full-bleed-image",
+      "character_focus": "Nuage",
+      "emotion": "worried"
+    },
+    {
+      "page_number": 5,
+      "title": "Le Conseil du Soleil",
+      "text": "Un jour, <b>Soleil</b> lui demanda :<br/>\"Pourquoi tu n'oses pas pleuvoir, Nuage ?\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 The little white fluffy cloud and the bright sun with golden rays talking to each other, the sun has a warm and encouraging expression, the cloud looks shy, light blue sky background, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_004.png",
+      "image": "illustrations/page_004.png",
+      "alt_text": "Le petit nuage et le soleil brillant avec des rayons dorés se parlent, le soleil a l'air chaleureux et encourageant",
+      "layout": "full-bleed-image",
+      "characters": ["Nuage", "Soleil"],
+      "emotion": "shy"
+    },
+    {
+      "page_number": 6,
+      "title": "La Réponse de Nuage",
+      "text": "\"J'ai peur...<br/>Peur que les enfants <b>n'aiment pas</b> la pluie...<br/>Peur de faire du bruit...<br/>Peur de <i>ne pas être parfait</i>...\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 The little white fluffy cloud looking sad, a few sad raindrops floating around but not falling, expressing fear and sadness, light blue sky background, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_005.png",
+      "image": "illustrations/page_005.png",
+      "alt_text": "Le petit nuage a l'air triste, quelques gouttes de pluie tristes flottent autour de lui, exprimant la peur et la tristesse",
+      "layout": "spot-illustration",
+      "character_focus": "Nuage",
+      "emotion": "sad"
+    },
+    {
+      "page_number": 7,
+      "title": "Les Paroles du Soleil",
+      "text": "Soleil sourit et dit :<br/>\"Mais la pluie, c'est <b>magique</b> !<br/>Sans la pluie, il n'y aurait <i>ni fleurs, ni arc-en-ciel</i> !\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 The bright sun with golden rays smiling warmly at the little cloud, a beautiful rainbow forming in the background, flowers blooming on the ground below, warm and happy atmosphere, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_006.png",
+      "image": "illustrations/page_006.png",
+      "alt_text": "Le soleil brillant sourit chaleureusement au petit nuage, un bel arc-en-ciel se forme en arrière-plan, des fleurs s'épanouissent au sol",
+      "layout": "full-bleed-image",
+      "characters": ["Nuage", "Soleil"],
+      "emotion": "hopeful"
+    },
+    {
+      "page_number": 8,
+      "title": "La Décision",
+      "text": "Nuage <i>réfléchit</i>...<br/>Et il <b>prena une grande inspiration</b>.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 The little white fluffy cloud with determined expression, taking a deep breath, starting to change color slightly (getting ready to rain), light blue sky background, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_007.png",
+      "image": "illustrations/page_007.png",
+      "alt_text": "Le petit nuage a une expression déterminée, prend une grande inspiration, commence à changer légèrement de couleur",
+      "layout": "full-bleed-image",
+      "character_focus": "Nuage",
+      "emotion": "determined"
+    },
+    {
+      "page_number": 9,
+      "title": "La Première Pluie",
+      "text": "Et...<br/><b>Plic ! Ploc !</b><br/>Les premières gouttes <i>tombèrent</i> !",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 The little cloud now releasing gentle raindrops, happy and relieved expression, raindrops falling towards the ground, flowers starting to bloom, warm and gentle rain, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_008.png",
+      "image": "illustrations/page_008.png",
+      "alt_text": "Le petit nuage libère des gouttes de pluie douces, expression heureuse et soulagée, les gouttes tombent vers le sol, des fleurs commencent à s'épanouir",
+      "layout": "full-bleed-image",
+      "character_focus": "Nuage",
+      "emotion": "relieved",
+      "weather": "gentle rain"
+    },
+    {
+      "page_number": 10,
+      "title": "La Joie des Enfants",
+      "text": "En bas, les enfants <b>crièrent de joie</b> !<br/>\"Oh, la pluie ! Viens jouer !\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 Children playing happily in the gentle rain, jumping in puddles, holding umbrellas, smiling faces, the little cloud in the sky looking down with joy, rainbow starting to form, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, detailed faces",
+      "illustration_file": "page_009.png",
+      "image": "illustrations/page_009.png",
+      "alt_text": "Des enfants jouent joyeusement sous la pluie douce, sautent dans les flaques, tiennent des parapluies, le petit nuage dans le ciel regarde vers le bas avec joie",
+      "layout": "full-bleed-image",
+      "emotion": "joyful",
+      "action": "playing"
+    },
+    {
+      "page_number": 11,
+      "title": "L'Arc-en-Ciel",
+      "text": "Et soudain...<br/><b>un magnifique arc-en-ciel</b> apparut dans le ciel !",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 A beautiful bright rainbow spanning across the sky, the little cloud now light and happy floating near the rainbow, children still playing below, warm sunlight breaking through, magical and joyful atmosphere, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark",
+      "illustration_file": "page_010.png",
+      "image": "illustrations/page_010.png",
+      "alt_text": "Un bel arc-en-ciel brillant s'étend dans le ciel, le petit nuage léger et heureux flotte près de l'arc-en-ciel, les enfants jouent encore en dessous",
+      "layout": "full-bleed-image",
+      "emotion": "magical"
+    },
+    {
+      "page_number": 12,
+      "title": "La Fierté de Nuage",
+      "text": "Nuage <b>sourit</b> de toutes ses gouttes.<br/>\"C'était <i>si simple</i>... et si <b>merveilleux</b> !\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 The little cloud now happy and proud, with a big smile, raindrops still falling gently, rainbow in the background, the sun peeking through with a proud expression, warm and happy atmosphere, cartoon style[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_011.png",
+      "image": "illustrations/page_011.png",
+      "alt_text": "Le petit nuage est maintenant heureux et fier, avec un grand sourire, les gouttes de pluie tombent encore doucement, un arc-en-ciel en arrière-plan",
+      "layout": "full-bleed-image",
+      "characters": ["Nuage", "Soleil"],
+      "emotion": "proud"
+    },
+    {
+      "page_number": 13,
+      "title": "La Morale",
+      "text": "Et toi, petit nuage ?<br/>As-tu déjà eu <b>peur de faire quelque chose</b>...<br/>pour découvrir ensuite que c'était <i>formidable</i> ?",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 --chaos 20 A beautiful closing illustration, cartoon style, soft colors, the little cloud and the sun together in the sky, a rainbow, happy flowers, expressing the message that trying new things can be wonderful, gentle and inspiring atmosphere[/MASTER PROMPT] --no text, watermark, ugly, scary, dark, other characters",
+      "illustration_file": "page_012.png",
+      "image": "illustrations/page_012.png",
+      "alt_text": "Illustration de clôture : le petit nuage et le soleil ensemble dans le ciel avec un arc-en-ciel, des fleurs heureuses",
+      "layout": "full-bleed-image"
+    },
+    {
+      "page_number": 14,
+      "title": "Fin",
+      "text": "FIN",
+      "illustration_prompt": "[MASTER PROMPT]--ar 4:3 --style raw --stylize 1000 Simple end page, cartoon style, soft colors, the word 'FIN' in decorative letters, small cloud and sun decorations[/MASTER PROMPT] --no text in image, watermark, ugly, dark, other characters",
+      "illustration_file": "page_013.png",
+      "image": "illustrations/page_013.png",
+      "alt_text": "Page de fin avec le mot FIN en lettres décoratives",
+      "layout": "spot-illustration"
+    }
+  ],
+  "marketing": {
+    "elevator_pitch": "Une histoire douce et apaisante sur un petit nuage qui découvre la joie de pleuvoir. Parfait pour le coucher.",
+    "unique_selling_points": [
+      "Histoire simple et apaisante",
+      "Idéal pour les tout-petits de 2 à 4 ans",
+      "Message positif sur le courage",
+      "Parfait pour la lecture du soir"
+    ],
+    "target_audience": {
+      "primary": "Enfants de 2 à 4 ans",
+      "secondary": "Parents",
+      "read_aloud": true,
+      "independent_reading": false
+    }
+  }
+}

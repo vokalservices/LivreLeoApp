@@ -1,0 +1,386 @@
+{
+  "Leo_et_le_Voleur_d_Ombres": {
+    "folder": "Leo_et_le_Voleur_d_Ombres",
+    "expected_volume": 1,
+    "exists": true,
+    "schema_valid": true,
+    "schema_error": null,
+    "metadata": {
+      "title": "Léo et le Voleur d'Ombres",
+      "author": "Théo Arven",
+      "publisher": "Éditions KDP",
+      "language": "fr",
+      "date": "2026-07-29",
+      "identifier": "urn:uuid:leo-tome1",
+      "description": "Léo est un petit inventeur pas comme les autres : dans son atelier bourré de gadgets extraordinaires, il fabrique des fusées avec des boîtes de carton et des rêves plein la tête. Mais un matin, catastrophe — son ombre a disparu ! Envolée, dérobée par un mystérieux Voleur d'Ombres qui rôde dans l'espace. Sans hésiter, Léo grimpe dans sa Fusée-Carton-3000 et s'élance vers les étoiles pour la récupérer. Une aventure pleine de rebondissements, d'amitié et d'ingéniosité pour les petits explorateurs de 4 à 8 ans.",
+      "age_group": "4-8",
+      "series": {
+        "name": "Les Aventures de Léo",
+        "volume": 1,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "ombre",
+        "espace",
+        "fusée",
+        "imagination",
+        "livre enfant",
+        "inventeur",
+        "amitié"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_count": 2,
+    "page_count": 24,
+    "missing_images": [],
+    "empty_pages": [],
+    "deliverables": {
+      "epub": true,
+      "pdf_interior": true,
+      "pdf_cover": true,
+      "docx": true,
+      "audio": true
+    },
+    "audio_count": 24,
+    "interactive_elements_count": 0
+  },
+  "Leo_et_le_Voleur_d_Etoiles": {
+    "folder": "Leo_et_le_Voleur_d_Etoiles",
+    "expected_volume": 2,
+    "exists": true,
+    "schema_valid": true,
+    "schema_error": null,
+    "metadata": {
+      "title": "Léo et le Voleur d'Étoiles",
+      "author": "Théo Arven",
+      "publisher": "Éditions KDP",
+      "language": "fr",
+      "date": "2026-07-29",
+      "identifier": "urn:uuid:leo-tome2",
+      "description": "La nuit dernière, quelque chose d'étrange s'est passé : les étoiles dorées de la Galaxie des Douceurs disparaissent une à une ! Le ciel se fait de plus en plus sombre, et les enfants du cosmos n'arrivent plus à s'endormir sans leurs étoiles de nuit. Léo embarque avec son amie l'Ombre Barnabé dans une odyssée lumineuse à travers la galaxie pour démasquer le voleur et rallumer les étoiles. Un conte poétique sur la lumière, l'amitié et le courage, pour les 4 à 8 ans.",
+      "age_group": "4-8",
+      "series": {
+        "name": "Les Aventures de Léo",
+        "volume": 2,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "étoiles",
+        "yéti",
+        "espace",
+        "nuit",
+        "astronomie",
+        "chauffage solaire",
+        "livre enfant",
+        "amitié"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_count": 2,
+    "page_count": 24,
+    "missing_images": [],
+    "empty_pages": [],
+    "deliverables": {
+      "epub": true,
+      "pdf_interior": true,
+      "pdf_cover": true,
+      "docx": true,
+      "audio": true
+    },
+    "audio_count": 24,
+    "interactive_elements_count": 0
+  },
+  "Leo_et_le_Voleur_de_Couleurs": {
+    "folder": "Leo_et_le_Voleur_de_Couleurs",
+    "expected_volume": 3,
+    "exists": true,
+    "schema_valid": true,
+    "schema_error": null,
+    "metadata": {
+      "title": "Léo et le Voleur de Couleurs",
+      "author": "Théo Arven",
+      "publisher": "Éditions KDP",
+      "language": "fr",
+      "date": "2026-07-29",
+      "identifier": "urn:uuid:leo-tome3",
+      "description": "Imaginez un monde où le rouge des pommes, le bleu du ciel et le vert des forêts s'effacent peu à peu… C'est ce qui arrive quand le Voleur de Couleurs frappe ! Léo et son extraordinaire ami le Yéti bleu traversent des paysages décolorés et des royaumes enchantés pour retrouver les couleurs volées et les rendre au monde. Une célébration joyeuse de la diversité, de l'imagination et de l'amitié, richement illustrée en aquarelles, pour les 4 à 8 ans.",
+      "age_group": "4-8",
+      "series": {
+        "name": "Les Aventures de Léo",
+        "volume": 3,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "couleurs",
+        "dragon",
+        "prisme",
+        "arc-en-ciel",
+        "art",
+        "imagination",
+        "livre enfant",
+        "émotions"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_count": 2,
+    "page_count": 24,
+    "missing_images": [],
+    "empty_pages": [],
+    "deliverables": {
+      "epub": true,
+      "pdf_interior": true,
+      "pdf_cover": true,
+      "docx": true,
+      "audio": true
+    },
+    "audio_count": 24,
+    "interactive_elements_count": 0
+  },
+  "Leo_et_le_Voleur_de_Nuages": {
+    "folder": "Leo_et_le_Voleur_de_Nuages",
+    "expected_volume": 4,
+    "exists": true,
+    "schema_valid": true,
+    "schema_error": null,
+    "metadata": {
+      "title": "Léo et le Voleur de Nuages",
+      "author": "Théo Arven",
+      "publisher": "Éditions KDP",
+      "language": "fr",
+      "date": "2026-07-29",
+      "identifier": "urn:uuid:leo-tome4",
+      "description": "Un matin, Léo lève les yeux vers le ciel et le trouve désespérément vide : plus un seul nuage à l'horizon ! Toute la pluie, toute la neige, toutes les formes rigolotes ont disparu. Accompagné d'un grand oiseau rose aux ailes de plumes arc-en-ciel, Léo s'envole au-dessus des montagnes et des océans pour retrouver les nuages captifs et rendre leur ciel aux enfants de la Terre. Une aventure aérienne pleine de douceur et de merveilles, pour les 4 à 8 ans.",
+      "age_group": "4-8",
+      "series": {
+        "name": "Les Aventures de Léo",
+        "volume": 4,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "nuages",
+        "pluie",
+        "météo",
+        "oiseau",
+        "nature",
+        "trampoline écologique",
+        "cycle de l'eau",
+        "livre enfant"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_count": 2,
+    "page_count": 24,
+    "missing_images": [],
+    "empty_pages": [],
+    "deliverables": {
+      "epub": true,
+      "pdf_interior": true,
+      "pdf_cover": true,
+      "docx": true,
+      "audio": true
+    },
+    "audio_count": 24,
+    "interactive_elements_count": 0
+  },
+  "Leo_et_le_Voleur_de_Reves": {
+    "folder": "Leo_et_le_Voleur_de_Reves",
+    "expected_volume": 5,
+    "exists": true,
+    "schema_valid": true,
+    "schema_error": null,
+    "metadata": {
+      "title": "Léo et le Voleur de Rêves",
+      "author": "Théo Arven",
+      "publisher": "Éditions KDP",
+      "language": "fr",
+      "date": "2026-07-29",
+      "identifier": "urn:uuid:leo-voleur-reves-tome5",
+      "description": "Les enfants du monde entier se réveillent le matin avec un sentiment étrange : leurs rêves ont été volés pendant la nuit ! Une mystérieuse Créature de Verre a tout capturé et les retient prisonniers au sommet de sa Citadelle. Pour cette grande aventure finale, Léo rassemble toute son équipe — l'Ombre Barnabé, le Yéti bleu et le Dragon doré — pour libérer les rêves et les rendre à leurs propriétaires. Une ode à l'imaginaire, à l'amitié et au courage, pour les 4 à 8 ans.",
+      "age_group": "4-8",
+      "series": {
+        "name": "Les Aventures de Léo",
+        "volume": 5,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "rêves",
+        "marchand de sable",
+        "berceuse",
+        "poussière d'étoiles",
+        "sommeil",
+        "conte du soir",
+        "livre enfant"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_count": 2,
+    "page_count": 24,
+    "missing_images": [],
+    "empty_pages": [],
+    "deliverables": {
+      "epub": true,
+      "pdf_interior": true,
+      "pdf_cover": true,
+      "docx": true,
+      "audio": true
+    },
+    "audio_count": 24,
+    "interactive_elements_count": 0
+  },
+  "Leo_et_le_Voleur_de_Temps": {
+    "folder": "Leo_et_le_Voleur_de_Temps",
+    "expected_volume": 6,
+    "exists": true,
+    "schema_valid": true,
+    "schema_error": null,
+    "metadata": {
+      "title": "Léo et le Voleur de Temps",
+      "author": "Théo Arven",
+      "publisher": "Éditions KDP",
+      "language": "fr",
+      "date": "2026-07-30",
+      "identifier": "urn:uuid:leo-voleur-temps-tome6-bonus",
+      "description": "Tic-Tac, le hibou d'horlogerie, a figé le Temps ! Plus rien ne bouge : les oiseaux restent suspendus en plein vol, les rivières ne coulent plus, et Léo lui-même risque de rester figé pour toujours. Pour cette Édition Collector Bonus Ultime, toute la Super-Équipe est réunie : Léo, Barnabé l'Ombre, le Yéti bleu, le Dragon doré et la Créature des Rêves. En plus de l'aventure, ce tome contient 4 pages bonus d'activités, un cherche-et-trouve géant et le Diplôme d'Inventeur à découper et à encadrer ! Pour les 4 à 8 ans.",
+      "age_group": "4-8",
+      "series": {
+        "name": "Les Aventures de Léo",
+        "volume": 6,
+        "total_volumes": 6
+      },
+      "keywords": [
+        "temps",
+        "horloge",
+        "amitié",
+        "crossover",
+        "cherche et trouve",
+        "jeux enfant",
+        "inventeur",
+        "fusée",
+        "diplôme",
+        "livre interactif"
+      ],
+      "bisac_categories": [
+        "JUV014000",
+        "JUV039050"
+      ],
+      "viewport_width": 1024,
+      "viewport_height": 1366,
+      "cover_image": "illustrations/cover.png",
+      "style": {
+        "illustration_style": "Storybook illustration for children ages 4-8, watercolor and colored pencil on textured paper, naïve warm style à la Jon Klassen and Oliver Jeffers",
+        "color_palette": [
+          "#FFD54F",
+          "#1A237E",
+          "#FFFFFF",
+          "#E8442E",
+          "#000000"
+        ],
+        "font_family": "Comic Sans MS",
+        "background_color": "#FDFBF7"
+      }
+    },
+    "characters_count": 2,
+    "page_count": 24,
+    "missing_images": [],
+    "empty_pages": [],
+    "deliverables": {
+      "epub": true,
+      "pdf_interior": true,
+      "pdf_cover": true,
+      "docx": true,
+      "audio": true
+    },
+    "audio_count": 24,
+    "interactive_elements_count": 11
+  }
+}

@@ -1,0 +1,74 @@
+# Ignore tout par défaut
+*
+
+# Sauf les dossiers de code et ressources web
+!lib/
+!pages/
+!styles/
+!components/
+!prisma/
+!public/
+
+# Sauf les fichiers de configuration
+!.gitignore
+!.env.example
+!package.json
+!package-lock.json
+!next.config.js
+!tailwind.config.js
+!postcss.config.js
+!vercel.json
+!GEMINI.md
+
+# Autoriser les sous-dossiers et fichiers à l'intérieur
+!**/
+!**/*.js
+!**/*.jsx
+!**/*.ts
+!**/*.tsx
+!**/*.css
+!**/*.json
+!**/*.prisma
+!**/*.png
+!**/*.jpg
+!**/*.jpeg
+!**/*.svg
+!**/*.ico
+!**/*.webp
+
+# Toujours ignorer
+.vercel
+.next/
+.next/**
+.venv/
+.venv/**
+node_modules/
+node_modules/**
+.env*
+public/downloads/
+public/downloads/**
+projects/
+projects/**
+Projet_EN/
+Projet_EN/**
+push_temp/
+push_temp/**
+*.epub
+*.mp3
+*.log
+
+# Scripts de debug contenant des credentials — NE JAMAIS COMMITTER
+scratch/upload_all_env_vars.js
+scratch/test_db_connect.js
+scratch/update_supabase_vars_on_vercel.js
+
+# Scripts contenant des credentials Supabase/DB — NE JAMAIS COMMITTER
+scratch/inspect_fedapay.js
+scratch/manage_buckets.js
+scratch/test_pooler.js
+scratch/test_storage.js
+scratch/upload_audio_to_supabase.js
+scratch/upload_books_and_zips.js
+scratch/upload_fr_pdfs.js
+scratch/upload_illustrations_to_supabase.js
+scripts/upload-en-files-to-supabase.js

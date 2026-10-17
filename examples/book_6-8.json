@@ -1,0 +1,218 @@
+{
+  "version": "2.0",
+  "meta": {
+    "title": "Le Mystere du Manor Hante",
+    "subtitle": "Tome 1 : La Cle d'Argent",
+    "author": "Sophie Laurent",
+    "publisher": "Editions Mystere",
+    "language": "fr",
+    "date": "2026-07-12",
+    "identifier": "urn:uuid:770e8400-e29b-41d4-a716-446655440002",
+    "description": "Emma, Lucas et leur chien Sherlock decouvrent un vieux manoir abandonne dans leur nouveau quartier. Lorsqu'ils y penetrent, ils trouvent une cle d'argent mysterieuse qui semble ouvrir une porte vers un autre monde. Une aventure palpitante pleine de misteres, d'enigmes a resoudre et d'amitie.",
+    "age_group": "6-8",
+    "keywords": [
+      "livre enfant 7 ans",
+      "aventure mystere",
+      "manoir hante",
+      "enigmes a resoudre"
+    ],
+    "bisac_categories": ["JUV000000", "JUV001000", "JUV028000"],
+    "series": {
+      "name": "Les Enquetes d'Emma et Lucas",
+      "volume": 1,
+      "total_volumes": 4
+    },
+    "viewport_width": 1280,
+    "viewport_height": 1920,
+    "style": {
+      "illustration_style": "digital_painting",
+      "color_palette": ["#2C3E50", "#3498DB", "#E74C3C", "#F1C40F", "#95A5A6", "#ECF0F1"],
+      "font_family": "Open Dyslexic"
+    }
+  },
+  "characters": [
+    {
+      "name": "Emma",
+      "species": "human",
+      "age": 8,
+      "gender": "female",
+      "description": "Fille intelligente avec des cheveux bruns en tresse et des lunettes rondes",
+      "appearance": {
+        "skin_color": "#F5D7C8",
+        "hair_color": "#5D4037",
+        "eye_color": "#8D6E63"
+      },
+      "clothing": {
+        "shirt": {"color": "#E74C3C", "type": "hoodie"},
+        "pants": {"color": "#2980B9", "type": "jeans"}
+      },
+      "personality": {
+        "traits": ["intelligente", "courageuse", "logique"],
+        "likes": ["lire", "resoudre des enigmes"],
+        "catchphrases": ["J'ai une idee !"]
+      }
+    },
+    {
+      "name": "Lucas",
+      "species": "human",
+      "age": 7,
+      "gender": "male",
+      "description": "Garcon energique toujours pret a aider avec ses outils",
+      "appearance": {
+        "skin_color": "#E8D5B5",
+        "hair_color": "#95A5A6",
+        "eye_color": "#3498DB"
+      },
+      "clothing": {
+        "shirt": {"color": "#3498DB", "type": "t-shirt"},
+        "pants": {"color": "#2C3E50", "type": "shorts"}
+      },
+      "personality": {
+        "traits": ["energique", "bricoleur", "loyal"],
+        "likes": ["construire", "les defis"],
+        "catchphrases": ["Je peux reparer ca !"]
+      }
+    },
+    {
+      "name": "Sherlock",
+      "species": "dog",
+      "breed": "Beagle",
+      "age": 4,
+      "gender": "male",
+      "description": "Chien detective avec un nez incroyable",
+      "appearance": {
+        "fur_color": "#F5F5F5",
+        "eye_color": "#5D4037"
+      },
+      "personality": {
+        "traits": ["intelligent", "curieux", "loyal"],
+        "likes": ["renifler", "trouver des indices"]
+      }
+    }
+  ],
+  "settings": {
+    "story_structure": "enquete",
+    "narrative_style": "third_person",
+    "tense": "past",
+    "reading_time": "20-30 minutes",
+    "difficulty_level": "medium"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "title": "Couverture",
+      "text": "",
+      "illustration_prompt": "Mysterious children's book cover, digital painting, old haunted mansion with full moon, Emma and Lucas with Sherlock the beagle, Emma holding silver key, dark blues and purples with golden accents, title at top, author at bottom",
+      "illustration_file": "cover.png",
+      "image": "illustrations/cover.png",
+      "alt_text": "Couverture : Emma, Lucas et Sherlock devant un manoir mysterieux",
+      "layout": "full-bleed-image",
+      "is_cover": true
+    },
+    {
+      "page_number": 2,
+      "title": "Page de titre",
+      "text": "Le Mystere du Manor Hante - Tome 1 : La Cle d'Argent - Les Enquetes d'Emma et Lucas - Sophie Laurent",
+      "illustration_prompt": "Simple title page, digital painting, dark blue background, elegant title text, silver accents",
+      "illustration_file": "page_001.png",
+      "image": "illustrations/page_001.png",
+      "alt_text": "Page de titre",
+      "layout": "spot-illustration"
+    },
+    {
+      "page_number": 3,
+      "title": "Le Nouveau Quartier",
+      "text": "Emma et Lucas venaient demenager dans une nouvelle maison. C'est alors qu'Emma le vit : un vieux manoir abandonne, cache derriere de grands arbres.",
+      "illustration_prompt": "Emma and Lucas looking out of bedroom window, old mansion visible in distance, afternoon lighting, digital painting",
+      "illustration_file": "page_002.png",
+      "image": "illustrations/page_002.png",
+      "alt_text": "Emma et Lucas regardent par la fenetre",
+      "layout": "full-bleed-image",
+      "characters": ["Emma", "Lucas"]
+    },
+    {
+      "page_number": 4,
+      "title": "La Decouverte",
+      "text": "Derriere une vieille cloture en fer rouillee se dressait le Manor Blackwood. Un frisson parcourut le dos d'Emma.",
+      "illustration_prompt": "Old Blackwood Manor, large stone building, broken windows, ivy on walls, rusted iron fence, overgrown garden, late afternoon lighting, digital painting",
+      "illustration_file": "page_003.png",
+      "image": "illustrations/page_003.png",
+      "alt_text": "Le Manor Blackwood",
+      "layout": "full-bleed-image"
+    },
+    {
+      "page_number": 5,
+      "title": "La Premiere Exploration",
+      "text": "Avec Sherlock qui reniflait excite, Emma et Lucas s'approcherent du manoir. Lucas sort sa lampe torche.",
+      "illustration_prompt": "Emma, Lucas and Sherlock at rusted iron gate of Blackwood Manor, gate slightly open, morning sunlight, digital painting",
+      "illustration_file": "page_004.png",
+      "image": "illustrations/page_004.png",
+      "alt_text": "Emma, Lucas et Sherlock devant le portail",
+      "layout": "full-bleed-image",
+      "characters": ["Emma", "Lucas", "Sherlock"]
+    },
+    {
+      "page_number": 6,
+      "title": "Le Jardin Secret",
+      "text": "Un jardin sauvage s'etendait devant eux : des roses fanees, des statues cassees, et un chemin de pierre couvert de mousse.",
+      "illustration_prompt": "Overgrown secret garden, wild roses, broken stone statues, moss-covered path, Emma and Lucas walking, Sherlock sniffing, dappled sunlight, digital painting",
+      "illustration_file": "page_005.png",
+      "image": "illustrations/page_005.png",
+      "alt_text": "Jardin secret envahi par la vegetation",
+      "layout": "full-bleed-image",
+      "characters": ["Emma", "Lucas", "Sherlock"]
+    },
+    {
+      "page_number": 7,
+      "title": "La Porte Derobee",
+      "text": "Sherlock les conduisit jusqu'a une petite porte derobee dans le mur du manoir. Emma essaya la poignee. La porte s'ouvrit !",
+      "illustration_prompt": "Emma, Lucas and Sherlock at hidden side door, door slightly ajar, ivy around, Emma's hand on doorknob, Lucas shining flashlight inside, digital painting",
+      "illustration_file": "page_006.png",
+      "image": "illustrations/page_006.png",
+      "alt_text": "La porte derobee du manoir",
+      "layout": "full-bleed-image",
+      "characters": ["Emma", "Lucas", "Sherlock"]
+    },
+    {
+      "page_number": 8,
+      "title": "L'Interieur Mysterieux",
+      "text": "Un grand hall avec un escalier en colimacon, des portraits anciens aux murs, et de la poussiere qui dansait dans les rayons de lumiere.",
+      "illustration_prompt": "Interior of Blackwood Manor, grand entrance hall with spiral staircase, old portraits on walls, dust particles in sunlight, Emma and Lucas in awe, digital painting",
+      "illustration_file": "page_007.png",
+      "image": "illustrations/page_007.png",
+      "alt_text": "Interieur du manoir avec escalier en colimacon",
+      "layout": "full-bleed-image",
+      "characters": ["Emma", "Lucas", "Sherlock"]
+    },
+    {
+      "page_number": 9,
+      "title": "La Cle d'Argent",
+      "text": "A cote d'une vieille table en bois se trouvait une cle en argent, comme posee la expres. Elle etait froide au toucher, et gravee de symboles etranges.",
+      "illustration_prompt": "Emma and Lucas in manor hall, Emma pointing at floor, Lucas picking up large ornate silver key, key shining, digital painting",
+      "illustration_file": "page_008.png",
+      "image": "illustrations/page_008.png",
+      "alt_text": "Emma et Lucas trouvent la cle d'argent",
+      "layout": "full-bleed-image",
+      "characters": ["Emma", "Lucas", "Sherlock"],
+      "focus_object": "silver key"
+    },
+    {
+      "page_number": 10,
+      "title": "Fin",
+      "text": "FIN",
+      "illustration_prompt": "Simple end page, digital painting, dark blue background, word FIN in elegant letters, gears and stars decoration",
+      "illustration_file": "page_009.png",
+      "image": "illustrations/page_009.png",
+      "alt_text": "Fin",
+      "layout": "spot-illustration"
+    }
+  ],
+  "marketing": {
+    "elevator_pitch": "Trois amis decouvrent une machine a voyager dans le temps dans un manoir abandonne. Une aventure palpitante sur l'amitie et les misteres du passe.",
+    "target_audience": {
+      "primary": "Enfants de 6 a 8 ans",
+      "read_aloud": true,
+      "independent_reading": true
+    }
+  }
+}

@@ -1,0 +1,136 @@
+<svg width="1640" height="856" viewBox="0 0 1640 856" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient de fond -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1628"/>
+      <stop offset="25%" style="stop-color:#1a2a4a"/>
+      <stop offset="50%" style="stop-color:#2d3a6a"/>
+      <stop offset="75%" style="stop-color:#4a3a7a"/>
+      <stop offset="100%" style="stop-color:#6a4a8a"/>
+    </linearGradient>
+
+    <!-- Glow doré -->
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow lune -->
+    <filter id="moonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Gradient étoiles -->
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- Gradient lune -->
+    <radialGradient id="moonGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#fffce8"/>
+      <stop offset="40%" style="stop-color:#f5e6a3"/>
+      <stop offset="100%" style="stop-color:#d4c47a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="1640" height="856" fill="url(#skyGradient)"/>
+
+  <!-- Étoiles dispersées -->
+  <g fill="url(#starGlow)">
+    <!-- Petites étoiles -->
+    <circle cx="50" cy="80" r="2" opacity="0.8"/>
+    <circle cx="150" cy="120" r="1.5" opacity="0.6"/>
+    <circle cx="250" cy="60" r="2" opacity="0.7"/>
+    <circle cx="380" cy="150" r="1.5" opacity="0.5"/>
+    <circle cx="520" cy="90" r="2" opacity="0.8"/>
+    <circle cx="680" cy="130" r="1.5" opacity="0.6"/>
+    <circle cx="820" cy="70" r="2" opacity="0.7"/>
+    <circle cx="950" cy="110" r="1.5" opacity="0.5"/>
+    <circle cx="1100" cy="80" r="2" opacity="0.8"/>
+    <circle cx="1200" cy="140" r="1.5" opacity="0.6"/>
+    <circle cx="1350" cy="95" r="2" opacity="0.7"/>
+    <circle cx="1480" cy="125" r="1.5" opacity="0.5"/>
+    <circle cx="1580" cy="85" r="2" opacity="0.8"/>
+
+    <!-- Étoiles milieu -->
+    <circle cx="100" cy="280" r="1.5" opacity="0.6"/>
+    <circle cx="200" cy="320" r="2" opacity="0.7"/>
+    <circle cx="320" cy="250" r="1.5" opacity="0.5"/>
+    <circle cx="450" cy="290" r="2" opacity="0.8"/>
+    <circle cx="580" cy="270" r="1.5" opacity="0.6"/>
+    <circle cx="720" cy="310" r="2" opacity="0.7"/>
+    <circle cx="860" cy="260" r="1.5" opacity="0.5"/>
+    <circle cx="1000" cy="300" r="2" opacity="0.8"/>
+    <circle cx="1150" cy="280" r="1.5" opacity="0.6"/>
+    <circle cx="1280" cy="250" r="2" opacity="0.7"/>
+    <circle cx="1420" cy="290" r="1.5" opacity="0.5"/>
+    <circle cx="1550" cy="270" r="2" opacity="0.8"/>
+
+    <!-- Étoiles bas -->
+    <circle cx="80" cy="450" r="1.5" opacity="0.6"/>
+    <circle cx="180" cy="480" r="2" opacity="0.7"/>
+    <circle cx="300" cy="420" r="1.5" opacity="0.5"/>
+    <circle cx="430" cy="460" r="2" opacity="0.8"/>
+    <circle cx="1280" cy="450" r="1.5" opacity="0.6"/>
+    <circle cx="1380" cy="480" r="2" opacity="0.7"/>
+    <circle cx="1500" cy="420" r="1.5" opacity="0.5"/>
+    <circle cx="1600" cy="460" r="2" opacity="0.8"/>
+  </g>
+
+  <!-- Nuages flous -->
+  <ellipse cx="250" cy="200" rx="150" ry="40" fill="rgba(255,255,255,0.05)" filter="url(#moonGlow)"/>
+  <ellipse cx="1400" cy="350" rx="120" ry="30" fill="rgba(255,255,255,0.05)" filter="url(#moonGlow)"/>
+  <ellipse cx="350" cy="650" rx="100" ry="25" fill="rgba(255,255,255,0.05)" filter="url(#moonGlow)"/>
+
+  <!-- Lune -->
+  <circle cx="1420" cy="170" r="90" fill="url(#moonGrad)" filter="url(#moonGlow)"/>
+  <!-- Cratères lune -->
+  <circle cx="1390" cy="140" r="15" fill="rgba(200,180,100,0.2)"/>
+  <circle cx="1450" cy="180" r="10" fill="rgba(200,180,100,0.2)"/>
+  <circle cx="1410" cy="210" r="12" fill="rgba(200,180,100,0.2)"/>
+
+  <!-- Étoiles filantes -->
+  <g opacity="0.8">
+    <line x1="350" y1="100" x2="500" y2="200" stroke="url(#starGlow)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="1100" y1="150" x2="1250" y2="250" stroke="url(#starGlow)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Titre principal -->
+  <text x="820" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="110" font-weight="bold" fill="#ffd700" filter="url(#goldGlow)">
+    Léo
+  </text>
+
+  <text x="820" y="440" text-anchor="middle" font-family="Georgia, serif" font-size="64" font-weight="bold" fill="#ffd700" filter="url(#goldGlow)">
+    et le Voleur d'Étoiles
+  </text>
+
+  <!-- Sous-titre -->
+  <text x="820" y="520" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-style="italic" fill="#e8d5ff" filter="url(#goldGlow)">
+    ✨ Une collection magique pour les petits rêveurs ✨
+  </text>
+
+  <!-- Icônes décoratives -->
+  <text x="620" y="620" text-anchor="middle" font-size="50">📚</text>
+  <text x="820" y="650" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-style="italic" fill="#c4b0ff">
+    Des histoires qui illuminent les nuits
+  </text>
+  <text x="1020" y="620" text-anchor="middle" font-size="50">🌙</text>
+
+  <!-- Étoiles décoratives autour du titre -->
+  <text x="520" y="300" font-size="45" fill="#ffd700" filter="url(#goldGlow)">✦</text>
+  <text x="1120" y="300" font-size="45" fill="#ffd700" filter="url(#goldGlow)">✧</text>
+  <text x="480" y="500" font-size="40" fill="#ffd700" filter="url(#goldGlow)">★</text>
+  <text x="1160" y="500" font-size="40" fill="#ffd700" filter="url(#goldGlow)">✦</text>
+
+  <!-- Dégradé en bas -->
+  <rect x="0" y="796" width="1640" height="60" fill="rgba(100,80,150,0.2)"/>
+</svg>

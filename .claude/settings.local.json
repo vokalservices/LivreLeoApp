@@ -1,0 +1,21 @@
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "sk-sp-H.LRIDY.2Rqn.MEUCID89FBmj7KAnejAIQz5Z4HW-CCjA5YhoQxMnc7rFXcCSAiEAt11AoJbK9gyMVl9AMgxjqdE4sQnEH7mMqL4eZWN4zLY",
+    "ANTHROPIC_BASE_URL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
+    "ANTHROPIC_MODEL": "auto",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen3.6-flash",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "qwen3.8-flash",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3.8-max",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "auto",
+    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "983616"
+  },
+  "model": "opus",
+  "modelSettings": {
+    "auto": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "permissions": {
+    "blockReadsOutsideWorkingDirectories": true
+  }
+}

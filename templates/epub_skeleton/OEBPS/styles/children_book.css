@@ -1,0 +1,172 @@
+/* children_book.css - Organic Captivating Design */
+@namespace epub "http://www.idpf.org/2007/ops";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', 'Quicksand', 'Outfit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+  background-color: #fcfcfc;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base page structure */
+.page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFFDF7;
+}
+
+/* LAYOUT: Full Bleed Image */
+.layout-full-bleed .illustration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.layout-full-bleed .text-container {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  z-index: 2;
+  text-align: center;
+  /* Organic blob shape with dark translucent glassmorphism */
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 24px 32px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: rotate(-1deg);
+}
+
+/* LAYOUT: Spot Illustration (White space around) */
+.layout-spot {
+  background-color: #FAFAFA;
+}
+.layout-spot .illustration {
+  max-width: 70%;
+  max-height: 50vh;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* organic image masking */
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  margin-bottom: 2em;
+  z-index: 1;
+}
+.layout-spot .text-container {
+  max-width: 80%;
+  text-align: center;
+  background: transparent;
+  padding: 0;
+  z-index: 2;
+}
+
+/* LAYOUT: Split Page (Image Top, Text Bottom) */
+.layout-split {
+  justify-content: flex-start;
+}
+.layout-split .illustration {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+.layout-split .text-container {
+  padding: 40px 20px;
+  max-width: 85%;
+  text-align: center;
+  background: transparent;
+  z-index: 2;
+}
+
+/* Typography Enhancements */
+.story-text {
+  font-size: 1.6em;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+  margin: 0;
+  transform: rotate(1deg); /* subtle counter-rotation for organic feel */
+}
+
+/* Dynamic Text Modifiers */
+.story-text b, .story-text strong {
+  font-weight: 900;
+  color: #e74c3c;
+  font-size: 1.2em; /* pop out words */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.story-text i, .story-text em {
+  font-family: 'Georgia', serif; /* contrasting serif for poetic/soft words */
+  color: #2980b9;
+  font-size: 1.1em;
+}
+
+.story-text u {
+  text-decoration-color: #f1c40f;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 4px;
+}
+
+/* Cover Styling */
+.cover-page {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  position: relative;
+}
+.cover-page img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.8;
+}
+.cover-title-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.8);
+  padding: 40px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+.cover-page h1 {
+  font-size: 4em;
+  font-weight: 900;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 4px 4px 0px #f1c40f;
+  text-transform: uppercase;
+}
+.cover-page .author {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #e74c3c;
+  margin-top: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,552 @@
+{
+  "version": "2.0",
+  "meta": {
+    "title": "Léo et le Voleur d'Ombres",
+    "subtitle": "Tome 1 : La Forêt Enchantée",
+    "author": "Jean Dupont",
+    "publisher": "Éditions Lumière",
+    "language": "fr",
+    "date": "2026-07-12",
+    "identifier": "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
+    "description": "Léo, un petit lion timide qui a peur de son propre rugissement, part à l'aventure dans la forêt enchantée pour retrouver son ombre disparue. Avec l'aide de ses amis Luna la renarde et Max le lapin, il apprendra que le vrai courage ne vient pas de l'absence de peur, mais de la capacité à la surmonter. Une histoire touchante sur l'amitié, le courage et l'acceptation de soi.",
+    "age_group": "3-5",
+    "keywords": [
+      "livre enfant 3 ans",
+      "histoire du soir",
+      "aventure lion",
+      "livre illustré",
+      "courage enfant",
+      "forêt magique",
+      "amitié animaux"
+    ],
+    "bisac_categories": [
+      "JUV000000",  // Jeunesse / Général
+      "JUV001000",  // Jeunesse / Action & Aventure
+      "JUV019000"   // Jeunesse / Animaux / Lions
+    ],
+    "series": {
+      "name": "Les Aventures de Léo",
+      "volume": 1,
+      "total_volumes": 3,
+      "next_volume_title": "Léo et le Mystère de la Cascade"
+    },
+    "viewport_width": 1024,
+    "viewport_height": 1366,
+    "cover_image": "illustrations/cover.png",
+    "style": {
+      "illustration_style": "watercolor",
+      "color_palette": ["#FF8C42", "#FFD700", "#4CAF50", "#87CEEB", "#FFFDF7"],
+      "font_family": "Comic Sans MS",
+      "background_color": "#FFFDF7",
+      "text_color": "#2E2E2E"
+    },
+    "kdp_settings": {
+      "format": "8.5x8.5",
+      "bleed": 0.125,
+      "paper_type": "standard",
+      "cover_finish": "matte",
+      "price": 14.99,
+      "isbn": "979-12-34567-89-0"
+    }
+  },
+  "characters": [
+    {
+      "name": "Léo",
+      "species": "lion",
+      "age": 4,
+      "gender": "male",
+      "description": "Petit lion orange avec de grands yeux verts curieux et une crinière naissante",
+      "appearance": {
+        "fur_color": "#FF8C42",
+        "mane_color": "#FFD700",
+        "eye_color": "#4CAF50",
+        "eye_shape": "round and big",
+        "body_type": "chubby cub",
+        "size": "small"
+      },
+      "clothing": {
+        "shirt": {
+          "color": "#1E88E5",
+          "type": "t-shirt",
+          "pattern": "solid"
+        },
+        "pants": {
+          "color": "#8D6E63",
+          "type": "shorts"
+        }
+      },
+      "accessories": [
+        {
+          "type": "hat",
+          "color": "#E8442E",
+          "description": "red adventurer hat with a yellow feather",
+          "position": "on head"
+        },
+        {
+          "type": "backpack",
+          "color": "#795548",
+          "description": "small brown leather backpack",
+          "position": "on back"
+        }
+      ],
+      "personality": {
+        "traits": ["timid", "curious", "kind", "determined"],
+        "likes": ["exploring", "helping friends", "sunny days"],
+        "dislikes": ["loud noises", "being alone", "dark places"],
+        "catchphrases": [
+          "Oh là là !",
+          "C'est parti pour l'aventure !",
+          "Je peux le faire !"
+        ]
+      },
+      "abilities": [
+        "can climb trees surprisingly well",
+        "has a very loud roar when he's not afraid",
+        "excellent at finding hidden things"
+      ],
+      "relationships": {
+        "Luna": "best friend",
+        "Max": "loyal companion",
+        "Shadow": "mysterious guide"
+      }
+    },
+    {
+      "name": "Luna",
+      "species": "fox",
+      "age": 5,
+      "gender": "female",
+      "description": "Renarde russe intelligente avec une fourrure argentée et des yeux violets malicieux",
+      "appearance": {
+        "fur_color": "#C0C0C0",
+        "secondary_color": "#9C27B0",
+        "eye_color": "#9C27B0",
+        "body_type": "slim and agile",
+        "tail": "bushy and fluffy"
+      },
+      "clothing": {
+        "scarf": {
+          "color": "#9C27B0",
+          "type": "silk scarf",
+          "pattern": "striped"
+        }
+      },
+      "accessories": [],
+      "personality": {
+        "traits": ["intelligent", "playful", "mischievous", "loyal"],
+        "likes": ["puzzles", "teasing Leo", "stargazing"],
+        "dislikes": ["getting wet", "losing games"],
+        "catchphrases": [
+          "Devine quoi ?",
+          "Je savais que tu allais dire ça !",
+          "Suis-moi !"
+        ]
+      },
+      "abilities": [
+        "excellent tracker",
+        "can solve any riddle",
+        "moves silently"
+      ],
+      "relationships": {
+        "Léo": "best friend",
+        "Max": "partner in crime"
+      }
+    },
+    {
+      "name": "Max",
+      "species": "rabbit",
+      "age": 4,
+      "gender": "male",
+      "description": "Lapin blanc énergique avec des oreilles extra-longues et un nez qui remue toujours",
+      "appearance": {
+        "fur_color": "#FFFFFF",
+        "eye_color": "#FF5722",
+        "ear_size": "very long",
+        "body_type": "small and fast"
+      },
+      "clothing": {
+        "vest": {
+          "color": "#4CAF50",
+          "type": "adventurer vest",
+          "pockets": 4
+        }
+      },
+      "accessories": [
+        {
+          "type": "watch",
+          "color": "#FFC107",
+          "description": "gold pocket watch on a chain",
+          "position": "around neck"
+        }
+      ],
+      "personality": {
+        "traits": ["energetic", "optimistic", "a bit clumsy", "always hungry"],
+        "likes": ["carrots", "running", "exploring new places"],
+        "dislikes": ["waiting", "being still", "loud noises"],
+        "catchphrases": [
+          "Vite, vite !",
+          "J'ai une idée !",
+          "Miam, des carottes !"
+        ]
+      },
+      "abilities": [
+        "can run incredibly fast",
+        "has excellent hearing",
+        "always finds the best snacks"
+      ],
+      "relationships": {
+        "Léo": "loyal friend",
+        "Luna": "adventure buddy"
+      }
+    },
+    {
+      "name": "Shadow",
+      "species": "shadow creature",
+      "age": "unknown",
+      "gender": "unknown",
+      "description": "Créature mystérieuse faite d'ombre pure, avec des yeux brillants comme des étoiles",
+      "appearance": {
+        "color": "#212121",
+        "eye_color": "#FFEB3B",
+        "form": "shapeshifting",
+        "texture": "smoky and fluid"
+      },
+      "clothing": {},
+      "accessories": [],
+      "personality": {
+        "traits": ["mysterious", "wise", "playful", "elusive"],
+        "likes": ["hiding", "playing tricks", "helping from the shadows"],
+        "dislikes": ["bright light", "being ignored"],
+        "catchphrases": [
+          "Je suis toujours là...",
+          "Regarde derrière toi...",
+          "Attrape-moi si tu peux !"
+        ]
+      },
+      "abilities": [
+        "can become invisible",
+        "can travel through shadows",
+        "knows all the forest secrets"
+      ],
+      "relationships": {
+        "Léo": "mysterious guide"
+      }
+    }
+  ],
+  "settings": {
+    "story_structure": "voyage_du_heros",
+    "narrative_style": "third_person",
+    "tense": "past",
+    "reading_time": "10-15 minutes",
+    "difficulty_level": "easy"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "title": "Couverture",
+      "text": "",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 A beautiful children's book cover illustration, watercolor style, soft pastel colors, warm lighting, magical forest background, Leo the cute orange lion cub with big green eyes and golden mane, wearing a blue t-shirt, red hat with yellow feather, and brown shorts, standing confidently with his friends Luna the silver fox with purple scarf and Max the white rabbit with green vest, all looking at the viewer, main title 'Léo et le Voleur d'Ombres' at top in elegant gold lettering, subtitle 'Tome 1 : La Forêt Enchantée' below title, author name 'Jean Dupont' at bottom, professional book cover design, enchanting atmosphere[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, text in image",
+      "illustration_file": "cover.png",
+      "image": "illustrations/cover.png",
+      "alt_text": "Couverture : Léo le lion avec ses amis Luna et Max dans une forêt magique, titre du livre en haut, nom de l'auteur en bas",
+      "layout": "full-bleed-image",
+      "is_cover": true
+    },
+    {
+      "page_number": 2,
+      "title": "Page de titre",
+      "text": "<b>Léo et le Voleur d'Ombres</b><br/><i>Tome 1 : La Forêt Enchantée</i><br/><br/>Une histoire de Jean Dupont",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 A simple title page illustration, watercolor style, soft colors, elegant design, the title 'Léo et le Voleur d'Ombres' in large decorative letters at center, subtitle 'Tome 1 : La Forêt Enchantée' below, author name 'Jean Dupont' at bottom, minimalist decorative elements like leaves and stars, clean background[/MASTER PROMPT] --no characters, people, animals, complex scenes, dark colors, ugly, blurry",
+      "illustration_file": "page_001.png",
+      "image": "illustrations/page_001.png",
+      "alt_text": "Page de titre avec le titre du livre en grandes lettres décoratives",
+      "layout": "spot-illustration"
+    },
+    {
+      "page_number": 3,
+      "title": "Dédicace",
+      "text": "À tous les enfants qui ont déjà eu peur...<br/>mais ont trouvé le courage d'avancer quand même.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 A beautiful dedication page illustration, watercolor style, soft pastel colors, a small heart-shaped lantern floating in a starry night sky, warm golden light, dreamy atmosphere, empty space at bottom for text[/MASTER PROMPT] --no characters, people, animals, text, dark, scary",
+      "illustration_file": "page_002.png",
+      "image": "illustrations/page_002.png",
+      "alt_text": "Dédicace : une lanterne en forme de cœur flottant dans un ciel étoilé",
+      "layout": "full-bleed-image"
+    },
+    {
+      "page_number": 4,
+      "title": "La Rencontre",
+      "text": "Dans la <b>forêt enchantée de Lumina</b>, où les arbres chuchotent des secrets anciens, vivait <b>Léo</b>, un petit lion pas comme les autres.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the cute orange lion cub with big curious green eyes, wearing a blue t-shirt, red hat with yellow feather, and brown shorts, walking in the magical forest of Lumina, tall trees with sparkling leaves, green grass, blue sky with fluffy white clouds, sunlight filtering through leaves, butterflies flying, peaceful and magical atmosphere, Leo looking around with curiosity[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, other characters, Luna, Max, Shadow",
+      "illustration_file": "page_003.png",
+      "image": "illustrations/page_003.png",
+      "alt_text": "Léo, petit lion orange avec un chapeau rouge, marche dans la forêt enchantée, des papillons volent autour de lui",
+      "layout": "full-bleed-image",
+      "character_focus": "Léo"
+    },
+    {
+      "page_number": 5,
+      "title": "Le Problème",
+      "text": "Léo <i>adorait</i> explorer la forêt... mais il y avait un problème. <b>Il avait peur de son propre rugissement.</b>",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Close-up of Leo the orange lion cub looking at his own shadow on the ground, surprised and worried expression, big green eyes, wearing blue t-shirt, red hat with feather, brown shorts, small backpack, shadow showing a big brave lion, magical forest background, soft lighting[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, other characters, Luna, Max, Shadow",
+      "illustration_file": "page_004.png",
+      "image": "illustrations/page_004.png",
+      "alt_text": "Léo regarde son ombre par terre avec une expression inquiète, son ombre montre un grand lion courageux",
+      "layout": "full-bleed-image",
+      "character_focus": "Léo",
+      "emotion": "worried"
+    },
+    {
+      "page_number": 6,
+      "title": "La Découverte",
+      "text": "Un matin, en se réveillant, Léo découvrit que <b>son ombre avait disparu</b> !",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the orange lion cub just waking up, sitting on the grass, rubbing his eyes, looking at the empty space where his shadow should be, surprised and confused expression, wearing blue t-shirt, red hat, brown shorts, morning light, dew on grass, magical forest clearing[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, other characters, shadow present",
+      "illustration_file": "page_005.png",
+      "image": "illustrations/page_005.png",
+      "alt_text": "Léo assis dans l'herbe du matin, se frotte les yeux et regarde l'endroit où son ombre devrait être, l'air surpris",
+      "layout": "full-bleed-image",
+      "character_focus": "Léo",
+      "emotion": "confused"
+    },
+    {
+      "page_number": 7,
+      "title": "La Recherche commence",
+      "text": "\"Je dois la retrouver !\" s'exclama Léo.<br/>Et il partit à l'aventure, <i>le cœur battant</i>.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the orange lion cub running through the forest, determined expression, big green eyes, wearing blue t-shirt, red hat with yellow feather, brown shorts, small backpack bouncing, magical forest path, trees on both sides, sunlight, action pose, dust particles in air[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, other characters, Luna, Max, Shadow",
+      "illustration_file": "page_006.png",
+      "image": "illustrations/page_006.png",
+      "alt_text": "Léo court sur un chemin dans la forêt, l'air déterminé, son chapeau rouge avec une plume jaune flotte au vent",
+      "layout": "full-bleed-image",
+      "character_focus": "Léo",
+      "emotion": "determined",
+      "action": "running"
+    },
+    {
+      "page_number": 8,
+      "title": "La Rencontre avec Luna",
+      "text": "Sur son chemin, Léo rencontra <b>Luna</b>, la renarde la plus intelligente de la forêt.<br/>\"Tu as perdu quelque chose ?\" demanda-t-elle avec un sourire malicieux.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the orange lion cub and Luna the silver fox with purple scarf standing on a forest path, facing each other, Leo looking worried, Luna looking curious and playful, trees in background, soft sunlight, warm colors[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, Max, Shadow, other characters",
+      "illustration_file": "page_007.png",
+      "image": "illustrations/page_007.png",
+      "alt_text": "Léo et Luna se font face sur un chemin de forêt, Léo a l'air inquiet, Luna sourit avec un air malicieux",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna"],
+      "emotion": "curious"
+    },
+    {
+      "page_number": 9,
+      "title": "Le Conseils de Luna",
+      "text": "\"Parfois, ce que nous cherchons est plus près que nous ne le pensons\" dit Luna.<br/>\"Et parfois, il faut <b>affronter ses peurs</b> pour le trouver.\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Luna the silver fox with purple scarf sitting on a tree stump, wise expression, pointing with her paw towards Leo, Leo the orange lion cub sitting on the ground listening intently, magical forest background, warm lighting, peaceful scene[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, Max, Shadow, other characters",
+      "illustration_file": "page_008.png",
+      "image": "illustrations/page_008.png",
+      "alt_text": "Luna est assise sur une souche et pointe du doigt vers Léo qui écoute attentivement assis par terre",
+      "layout": "spot-illustration",
+      "characters": ["Léo", "Luna"],
+      "emotion": "wise"
+    },
+    {
+      "page_number": 10,
+      "title": "L'Arrivée de Max",
+      "text": "Soudain, <b>Max</b> le lapin arriva en courant, <i>tout essoufflé</i> :<br/>\"J'ai vu une ombre bizarre près de la rivière ! Elle bougeait toute seule !\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Max the white rabbit with long ears, green vest, and gold pocket watch running towards Leo and Luna, excited expression, motion blur effect, forest path background, trees, Leo and Luna looking surprised, action scene[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, Shadow, other characters",
+      "illustration_file": "page_009.png",
+      "image": "illustrations/page_009.png",
+      "alt_text": "Max le lapin court vers Léo et Luna avec une expression excitée, son gilet vert et sa montre dorée sont visibles",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max"],
+      "emotion": "excited",
+      "action": "running"
+    },
+    {
+      "page_number": 11,
+      "title": "Le Plan",
+      "text": "\"Alors, c'est décidé !\" dit Léo.<br/>\"Nous allons suivre cette ombre mystérieuse jusqu'à la rivière !\"<br/>Les trois amis partirent ensemble, <b>le cœur plein d'espoir</b>.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo, Luna, and Max walking together on a forest path, Leo in front looking determined, Luna beside him with a playful smile, Max jumping excitedly, all looking ahead, trees on both sides, sunlight through leaves, adventurous atmosphere[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, Shadow, other characters",
+      "illustration_file": "page_010.png",
+      "image": "illustrations/page_010.png",
+      "alt_text": "Léo, Luna et Max marchent ensemble sur un chemin de forêt, Léo est devant l'air déterminé, Luna sourit à ses côtés, Max saute excité",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max"],
+      "emotion": "hopeful",
+      "action": "walking"
+    },
+    {
+      "page_number": 12,
+      "title": "La Rivière Magique",
+      "text": "La rivière <b>brillait</b> sous les rayons du soleil.<br/>Et là, sur l'eau, ils virent <i>une ombre dansante</i>...",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 A magical river with sparkling water, sunlight reflecting on the surface, a mysterious shadow dancing on the water, Leo, Luna, and Max standing on the riverbank looking at the shadow, surprised and curious expressions, magical forest background, warm colors[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, Shadow as character, other characters",
+      "illustration_file": "page_011.png",
+      "image": "illustrations/page_011.png",
+      "alt_text": "Une rivière magique avec de l'eau scintillante, une ombre mystérieuse danse sur l'eau, Léo, Luna et Max se tiennent sur la berge et la regardent",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max"],
+      "emotion": "amazed"
+    },
+    {
+      "page_number": 13,
+      "title": "La Rencontre avec Shadow",
+      "text": "L'ombre s'arrêta et <b>prena forme</b>...<br/>C'était Shadow, la créature des ombres !",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Shadow the shadow creature emerging from the river, dark smoky form with bright yellow star-like eyes, Leo, Luna, and Max looking at Shadow with a mix of surprise and curiosity, magical river background, soft lighting, mysterious but not scary[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters",
+      "illustration_file": "page_012.png",
+      "image": "illustrations/page_012.png",
+      "alt_text": "Shadow la créature des ombres émerge de la rivière, forme sombre avec des yeux brillants comme des étoiles, Léo, Luna et Max le regardent avec un mélange de surprise et de curiosité",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max", "Shadow"],
+      "emotion": "mysterious"
+    },
+    {
+      "page_number": 14,
+      "title": "La Vérité sur l'Ombre",
+      "text": "\"Je ne suis pas un voleur\" dit Shadow.<br/>\"Je suis <b>ton ombre</b>, Léo. Et je suis parti parce que tu avais trop peur pour me laisser t'accompagner.\"",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Shadow the shadow creature floating in front of Leo, gentle expression, star-like eyes, Leo the orange lion cub looking at Shadow with realization, Luna and Max in background looking on, magical forest clearing, soft warm lighting[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters",
+      "illustration_file": "page_013.png",
+      "image": "illustrations/page_013.png",
+      "alt_text": "Shadow flotte devant Léo avec une expression douce, ses yeux brillent comme des étoiles, Léo le regarde avec une expression de réalisation",
+      "layout": "spot-illustration",
+      "characters": ["Léo", "Luna", "Max", "Shadow"],
+      "emotion": "realization"
+    },
+    {
+      "page_number": 15,
+      "title": "La Leçon de Courage",
+      "text": "Léo <i>comprit</i> enfin.<br/>Ce n'était pas son ombre qui avait peur...<br/>C'était <b>lui</b> qui avait peur de son ombre !",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the orange lion cub looking at his own reflection in the river, Shadow the shadow creature standing beside him, Leo's reflection showing a brave lion, realization and determination on Leo's face, magical river, warm lighting, emotional scene[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters",
+      "illustration_file": "page_014.png",
+      "image": "illustrations/page_014.png",
+      "alt_text": "Léo regarde son reflet dans la rivière, Shadow se tient à côté de lui, le reflet de Léo montre un lion courageux",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Shadow"],
+      "emotion": "determined"
+    },
+    {
+      "page_number": 16,
+      "title": "Le Rugissement",
+      "text": "Léo <b>prena une grande inspiration</b>...<br/>Et il rugit ! <i>Un rugissement puissant et courageux</i> qui résonna dans toute la forêt.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the orange lion cub with mouth wide open roaring powerfully, big green eyes, wearing blue t-shirt, red hat, brown shorts, Shadow the shadow creature beside him also roaring, Luna and Max covering their ears with smiles, forest trees shaking from the roar, dramatic lighting, action scene[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters",
+      "illustration_file": "page_015.png",
+      "image": "illustrations/page_015.png",
+      "alt_text": "Léo rugit puissamment la bouche grande ouverte, Shadow rugit aussi à ses côtés, Luna et Max se couvrent les oreilles en souriant",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max", "Shadow"],
+      "emotion": "powerful",
+      "action": "roaring"
+    },
+    {
+      "page_number": 17,
+      "title": "Le Retour de l'Ombre",
+      "text": "Et <b>miracle</b> !<br/>L'ombre de Léo <i>réapparut</i> à ses pieds, plus grande et plus forte que jamais.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the orange lion cub standing proudly with his shadow now visible and strong beside him, both Leo and his shadow looking brave, Luna, Max, and Shadow the shadow creature celebrating around them, magical forest background, warm golden lighting, joyful atmosphere[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters",
+      "illustration_file": "page_016.png",
+      "image": "illustrations/page_016.png",
+      "alt_text": "Léo se tient fièrement avec son ombre maintenant visible et forte à ses côtés, Luna, Max et Shadow célèbrent autour d'eux",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max", "Shadow"],
+      "emotion": "joyful"
+    },
+    {
+      "page_number": 18,
+      "title": "La Célébration",
+      "text": "Les amis <b>fêtèrent</b> le retour de l'ombre avec une grande fête.<br/>Il y avait de la musique, des danses, et surtout... <i>beaucoup de gâteau</i> !",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 A joyful celebration scene in the magical forest, Leo, Luna, Max, and Shadow all dancing and celebrating together, colorful party decorations, a big cake with candles on a table, musical notes floating in the air, warm happy lighting, festive atmosphere[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters",
+      "illustration_file": "page_017.png",
+      "image": "illustrations/page_017.png",
+      "alt_text": "Une scène de célébration joyeuse dans la forêt magique, Léo, Luna, Max et Shadow dansent ensemble, des décorations de fête colorées, un grand gâteau avec des bougies",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max", "Shadow"],
+      "emotion": "celebration",
+      "action": "dancing"
+    },
+    {
+      "page_number": 19,
+      "title": "Le Retour à la Maison",
+      "text": "Le soleil <b>commencait à se coucher</b>.<br/>Léo et ses amis <i>rentrèrent chez eux</i>, fatigués mais heureux.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Sunset scene in the magical forest, golden and orange colors in the sky, Leo, Luna, Max, and Shadow walking together on a path towards home, warm lighting, peaceful atmosphere, long shadows, content expressions on all characters[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters",
+      "illustration_file": "page_018.png",
+      "image": "illustrations/page_018.png",
+      "alt_text": "Scène de coucher de soleil dans la forêt magique, des couleurs dorées et orange dans le ciel, Léo, Luna, Max et Shadow marchent ensemble sur un chemin vers la maison",
+      "layout": "full-bleed-image",
+      "characters": ["Léo", "Luna", "Max", "Shadow"],
+      "emotion": "content",
+      "time_of_day": "sunset"
+    },
+    {
+      "page_number": 20,
+      "title": "Le Nouveau Léo",
+      "text": "Ce soir-là, en se couchant, Léo <b>sourit</b>.<br/>Il savait que désormais, <i>peu importe ce qui arriverait</i>...<br/>son ombre serait toujours là pour l'accompagner.",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 Leo the orange lion cub in his bed, smiling peacefully, his shadow visible on the wall beside him also smiling, warm cozy bedroom with wooden furniture, soft night lighting through window, moon visible outside, calm and happy atmosphere[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, other characters, Luna, Max, Shadow as creature",
+      "illustration_file": "page_019.png",
+      "image": "illustrations/page_019.png",
+      "alt_text": "Léo est dans son lit et sourit paisiblement, son ombre est visible sur le mur à côté de lui et sourit aussi, une chambre chaleureuse avec des meubles en bois",
+      "layout": "full-bleed-image",
+      "characters": ["Léo"],
+      "emotion": "peaceful",
+      "time_of_day": "night"
+    },
+    {
+      "page_number": 21,
+      "title": "La Morale",
+      "text": "Et toi, petit lecteur ?<br/><b>As-tu déjà eu peur de quelque chose</b> qui, au fond, <i>n'était pas si effrayant</i> ?<br/><br/>Rappelle-toi :<br/>Le vrai courage, c'est d'<b>affronter ses peurs</b>...<br/>et de découvrir qu'elles peuvent devenir nos plus grands amis !",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 --chaos 20 A beautiful closing illustration, watercolor style, soft colors, Leo's shadow and Leo together as a team, symbolizing courage and friendship, magical elements like stars and hearts floating, warm lighting, inspiring atmosphere[/MASTER PROMPT] --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark colors, blurry, low quality, watermark, characters as full bodies",
+      "illustration_file": "page_020.png",
+      "image": "illustrations/page_020.png",
+      "alt_text": "Illustration de clôture : l'ombre de Léo et Léo ensemble comme une équipe, symbolisant le courage et l'amitié, des éléments magiques comme des étoiles et des cœurs flottent",
+      "layout": "spot-illustration"
+    },
+    {
+      "page_number": 22,
+      "title": "Fin",
+      "text": "FIN",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 Simple and elegant end page, watercolor style, soft colors, the word 'FIN' in decorative letters at center, small decorative elements like stars or leaves, clean background[/MASTER PROMPT] --no characters, people, animals, complex scenes, dark, ugly, blurry, low quality, watermark",
+      "illustration_file": "page_021.png",
+      "image": "illustrations/page_021.png",
+      "alt_text": "Page de fin avec le mot FIN en lettres décoratives au centre",
+      "layout": "spot-illustration"
+    },
+    {
+      "page_number": 23,
+      "title": "Page de l'Auteur",
+      "text": "À propos de l'auteur :<br/><br/>Jean Dupont adore écrire des histoires pour enfants. Quand il n'écrit pas, il explore les forêts, collectionne les livres anciens, ou boit du thé en regardant les étoiles.<br/><br/>C'est son premier livre de la série <b>Les Aventures de Léo</b>.<br/><br/>Vous pouvez le contacter à :<br/>jeandupont@email.com",
+      "illustration_prompt": "[MASTER PROMPT]--ar 3:4 --style raw --stylize 1000 A simple author page illustration, watercolor style, soft colors, a desk with an old typewriter, a cup of tea, a stack of books, a notebook and pen, warm cozy lighting, author's workspace atmosphere[/MASTER PROMPT] --no characters, people, animals, text, dark, ugly, blurry, low quality, watermark",
+      "illustration_file": "page_022.png",
+      "image": "illustrations/page_022.png",
+      "alt_text": "Page de l'auteur : un bureau avec une machine à écrire ancienne, une tasse de thé, une pile de livres, un carnet et un stylo",
+      "layout": "spot-illustration"
+    }
+  ],
+  "marketing": {
+    "elevator_pitch": "Un petit lion timide apprend que le vrai courage vient de l'intérieur dans cette histoire touchante sur l'acceptation de soi et l'amitié.",
+    "unique_selling_points": [
+      "Histoire universelle sur le courage et l'acceptation de soi",
+      "Personnages attachants et mémorables",
+      "Illustrations magnifiques en style aquarelle",
+      "Parfait pour les enfants de 3 à 5 ans",
+      "Idéal pour la lecture du soir",
+      "Premier tome d'une série captivante"
+    ],
+    "comparable_titles": [
+      "Le Gruffalo de Julia Donaldson",
+      "Où sont les choses sauvages de Maurice Sendak",
+      "Elmer de David McKee"
+    ],
+    "target_audience": {
+      "primary": "Enfants de 3 à 5 ans",
+      "secondary": "Parents et éducateurs",
+      "read_aloud": true,
+      "independent_reading": false
+    }
+  },
+  "production_notes": {
+    "illustration_guidelines": {
+      "style": "watercolor",
+      "color_palette": ["#FF8C42", "#FFD700", "#4CAF50", "#87CEEB", "#FFFDF7"],
+      "lighting": "warm and soft",
+      "mood": "magical and enchanting",
+      "character_consistency": "CRITICAL - All characters must maintain exact appearance throughout"
+    },
+    "text_guidelines": {
+      "font": "Comic Sans MS or similar child-friendly font",
+      "size": "16-18pt for body text",
+      "line_spacing": "1.5-1.6",
+      "text_placement": "In speech bubbles or on solid color backgrounds for readability"
+    }
+  }
+}

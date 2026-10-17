@@ -1,0 +1,76 @@
+{
+  "style_presets": [
+    {
+      "id": "animation_3d_pixar",
+      "name": "Animation 3D Pixar/Disney",
+      "description": "Un style 3D ultra-détaillé et très populaire, parfait pour créer des personnages hautement expressifs et des décors immersifs (très addictif pour les enfants).",
+      "base_prompt": "children's book illustration, stunning 3D animation style, Pixar Disney style, octane render, Unreal Engine 5, hyper-detailed, ray tracing, glowing cinematic lighting",
+      "color_palette": "Vibrant, highly saturated, rich global illumination",
+      "line_style": "No lines, smooth 3D rendering with soft depth of field",
+      "texture": "Realistic materials (soft fur, shiny eyes, detailed fabrics)",
+      "mood": "Enchanting, highly expressive, immersive, magical",
+      "example_artists": "Disney Animation Studios, Pixar"
+    },
+    {
+      "id": "studio_ghibli",
+      "name": "Anime Studio Ghibli",
+      "description": "Un style d'animation japonaise classique, poétique et détaillé avec des décors peints à la main époustouflants.",
+      "base_prompt": "children's book illustration, Studio Ghibli style anime art, beautifully painted backgrounds, Hayao Miyazaki style, cel shading, highly detailed nature",
+      "color_palette": "Lush greens, clear skies, nostalgic and warm tones",
+      "line_style": "Delicate hand-drawn outlines, cel-shaded characters",
+      "texture": "Gouache and watercolor painted backgrounds",
+      "mood": "Poetic, nostalgic, adventurous, deeply atmospheric",
+      "example_artists": "Hayao Miyazaki, Studio Ghibli"
+    },
+    {
+      "id": "aquarelle_premium",
+      "name": "Aquarelle Premium",
+      "description": "Une aquarelle classique mais rehaussée avec un éclairage de qualité chef-d'œuvre.",
+      "base_prompt": "masterpiece children's book illustration, rich watercolor painting, incredibly detailed, warm volumetric lighting, golden hour illumination, storybook style",
+      "color_palette": "Pastels and warm earth tones with luminous highlights",
+      "line_style": "Thin, delicate pencil-like outlines or no outlines",
+      "texture": "Watercolor paper texture, visible gentle brush strokes",
+      "mood": "Calm, comforting, nostalgic, premium quality",
+      "example_artists": "Beatrix Potter, Anita Jeram"
+    },
+    {
+      "id": "cartoon_moderne",
+      "name": "Cartoon Moderne",
+      "description": "Style vif, coloré et expressif, idéal pour l'humour et l'action.",
+      "base_prompt": "award-winning children's book illustration, modern vector cartoon style, flat vibrant colors, highly expressive characters, clean crisp digital art, dynamic lighting",
+      "color_palette": "Bright, saturated primary and secondary colors",
+      "line_style": "Bold, clean, smooth ink-like outlines",
+      "texture": "Flat, smooth digital finish",
+      "mood": "Energetic, funny, playful",
+      "example_artists": "Mo Willems, Jon Klassen"
+    },
+    {
+      "id": "pastel_reveur",
+      "name": "Pastel Rêveur",
+      "description": "Très doux, lumineux, parfait pour les histoires du soir et les thèmes magiques.",
+      "base_prompt": "masterpiece children's book illustration, soft pastel chalk style, glowing magical light, ethereal and magical atmosphere, soft edges, bioluminescence",
+      "color_palette": "Luminous pastels, glowing blues, purples, soft pinks",
+      "line_style": "Smudged, soft, undefined",
+      "texture": "Chalky, powdery, soft blends",
+      "mood": "Magical, peaceful, soothing, hypnotic",
+      "example_artists": "Oliver Jeffers, Antoine de Saint-Exupéry"
+    }
+  ],
+  "character_consistency_template": "[CHARACTER_NAME], a highly detailed [SPECIES/TYPE], [BODY_TYPE], [MAIN_COLORS], wearing [CLOTHING/ACCESSORIES], with [DISTINGUISHING_FEATURES]",
+  "scene_templates": {
+    "establishing_shot": "Breathtaking wide establishing shot of [LOCATION], showing the epic full environment, [TIME_OF_DAY] dramatic lighting, [WEATHER], [CHARACTER] small in the frame exploring",
+    "close_up_emotion": "Intimate close up shot of [CHARACTER]'s face, expressing [EMOTION], highly detailed eyes and expression, soft beautiful depth of field with blurred background [BACKGROUND_COLOR]",
+    "action": "Dynamic action shot of [CHARACTER] doing [ACTION], motion blur, dramatic angle, highly energetic feeling, perfect composition",
+    "interaction": "Heartwarming medium shot of [CHARACTER_1] and [CHARACTER_2] interacting, [ACTION_OR_EMOTION] together, clear engaging body language, in [SETTING]"
+  },
+  "composition_rules": [
+    "Laisser toujours un 'negative space' (espace vide) uni ou peu détaillé pour placer le texte de l'histoire.",
+    "Appliquer le 'Golden Ratio' et la règle des tiers pour une composition visuellement parfaite et addictive.",
+    "Utiliser des couleurs complémentaires pour faire ressortir le personnage principal.",
+    "Créer un éclairage directionnel fort (rim lighting, volumetric rays) pour guider l'œil (eye-tracking naturel).",
+    "Le regard du personnage principal doit engager le lecteur ou guider vers le centre de l'action."
+  ],
+  "prompt_structure": "[STYLE_BASE_PROMPT]. SCENE: [SCENE_DESCRIPTION]. CHARACTER: [CONSISTENCY_TEMPLATE] [CURRENT_POSE_AND_EXPRESSION]. SETTING: [ENVIRONMENT_DETAILS]. COMPOSITION: [CAMERA_ANGLE_AND_TEXT_SPACE]. MOOD: [OVERALL_FEELING]. QUALITY: [QUALITY_BOOSTERS].",
+  "negative_prompts": "scary, dark, violent, creepy, horror, blood, text, words, letters, watermark, signature, complex messy background, distorted faces, adult themes, low resolution, ugly, bad anatomy",
+  "quality_boosters": "masterpiece, award-winning children's book illustration, highly detailed, stunning lighting, 8k resolution, enchanting, captivating, best quality, trending on artstation"
+}

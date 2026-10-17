@@ -1,0 +1,90 @@
+{
+  "version": "2.0",
+  "meta": {
+    "title": "Léo et le Voleur d'Ombres",
+    "subtitle": "Tome 1 : La Forêt Enchantée",
+    "author": "Jean Dupont",
+    "publisher": "Éditions Lumière",
+    "language": "fr",
+    "date": "2026-07-12",
+    "identifier": "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
+    "description": "Léo, un petit lion timide, part à l'aventure pour retrouver son ombre disparue. Une histoire touchante sur le courage et l'amitié.",
+    "age_group": "3-5",
+    "series": {
+      "name": "Les Aventures de Léo",
+      "volume": 1,
+      "total_volumes": 3
+    },
+    "keywords": [
+      "livre enfant 3 ans",
+      "histoire du soir",
+      "aventure lion",
+      "livre illustré",
+      "courage enfant",
+      "forêt magique",
+      "premier livre"
+    ],
+    "bisac_categories": ["JUV000000", "JUV001000", "JUV019000"],
+    "viewport_width": 1024,
+    "viewport_height": 1366,
+    "cover_image": "illustrations/cover.png",
+    "style": {
+      "illustration_style": "watercolor",
+      "color_palette": ["#FF8C42", "#FFD700", "#4CAF50", "#87CEEB"],
+      "font_family": "Comic Sans MS",
+      "background_color": "#FFFDF7"
+    }
+  },
+  "characters": [
+    {
+      "name": "Léo",
+      "species": "lion",
+      "age": 4,
+      "description": "Petit lion orange avec de grands yeux curieux",
+      "clothing": "T-shirt bleu, short marron",
+      "accessories": "Chapeau rouge avec plume, sac à dos marron",
+      "personality": "Timide mais courageux, toujours prêt à aider ses amis"
+    },
+    {
+      "name": "Luna",
+      "species": "renard",
+      "age": 5,
+      "description": "Renarde russe avec fourrure argentée",
+      "clothing": "Écharpe violette",
+      "accessories": "Aucun",
+      "personality": "Intelligente et malicieuse, aime les énigmes"
+    }
+  ],
+  "pages": [
+    {
+      "page_number": 1,
+      "title": "Couverture",
+      "text": "",
+      "illustration_prompt": "[MASTER PROMPT] A beautiful children's book cover illustration, watercolor style, soft pastel colors, Leo the orange lion cub with big curious eyes, wearing blue t-shirt and red hat with feather, standing in a magical forest, green trees, blue sky, sunlight, main title 'Léo et le Voleur d'Ombres' at top, author name at bottom, professional book cover design [/MASTER PROMPT] --ar 3:4 --style raw --stylize 1000",
+      "illustration_file": "cover.png",
+      "image": "illustrations/cover.png",
+      "alt_text": "Couverture du livre : Léo le lion dans une forêt magique",
+      "layout": "full-bleed-image"
+    },
+    {
+      "page_number": 2,
+      "title": "La Rencontre",
+      "text": "<b>Léo</b> marchait tranquillement dans la forêt quand il remarqua quelque chose d'étrange...",
+      "illustration_prompt": "[MASTER PROMPT] Leo the orange lion cub walking in a magical forest, green trees, blue sky with fluffy clouds, sunlight filtering through leaves, butterflies flying, peaceful atmosphere, looking curious [/MASTER PROMPT] --ar 3:4 --style raw --stylize 1000 --chaos 20 --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark",
+      "illustration_file": "page_001.png",
+      "image": "illustrations/page_001.png",
+      "alt_text": "Léo, petit lion orange, marche dans une forêt verte avec des papillons",
+      "layout": "full-bleed-image"
+    },
+    {
+      "page_number": 3,
+      "title": "La Découverte",
+      "text": "Son ombre avait <i>disparu</i> ! <b>\"Mais où est-elle passée ?\"</b> se demanda-t-il, inquiét.",
+      "illustration_prompt": "[MASTER PROMPT] Close-up of Leo the orange lion cub looking at the ground, surprised expression, big eyes, shadow missing, magical forest background, worried but determined [/MASTER PROMPT] --ar 3:4 --style raw --stylize 1000 --chaos 20 --no deformed hands, extra fingers, asymmetrical face, ugly, scary, dark, blurry, low quality, watermark, shadow present",
+      "illustration_file": "page_002.png",
+      "image": "illustrations/page_002.png",
+      "alt_text": "Léo regarde par terre, surpris, son ombre a disparu",
+      "layout": "spot-illustration"
+    }
+  ]
+}

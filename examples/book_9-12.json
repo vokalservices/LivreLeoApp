@@ -1,0 +1,603 @@
+{
+  "version": "2.0",
+  "meta": {
+    "title": "Les Gardiens de Lumina",
+    "subtitle": "Tome 1 : L'Éveil des Pouvoirs",
+    "author": "Thomas Dubois",
+    "publisher": "Éditions Fantastique",
+    "language": "fr",
+    "date": "2026-07-12",
+    "identifier": "urn:uuid:880e8400-e29b-41d4-a716-446655440003",
+    "description": "Dans un monde parallele appele Lumina, quatre adolescents decouvrent qu'ils possedent des pouvoirs magiques lies aux elements. Alors qu'une ombre menacante grandit, ils devront apprendre a maitriser leurs capacites, surmonter leurs differences et unir leurs forces pour sauver leur monde. Une epopee fantastique sur l'amitie, le courage et la decouverte de soi.",
+    "age_group": "9-12",
+    "keywords": [
+      "livrefantastique enfant",
+      "pouvoirs magiques",
+      "aventure epique",
+      "amitie et courage",
+      "monde parallele",
+      "livre pour preadolescents"
+    ],
+    "bisac_categories": [
+      "JUV000000",
+      "JUV001000",
+      "JUV037000"
+    ],
+    "series": {
+      "name": "Les Gardiens de Lumina",
+      "volume": 1,
+      "total_volumes": 5,
+      "next_volume_title": "Tome 2 : Le Royaume des Ombres"
+    },
+    "viewport_width": 1440,
+    "viewport_height": 2160,
+    "cover_image": "illustrations/cover.png",
+    "style": {
+      "illustration_style": "digital_painting",
+      "color_palette": ["#8E44AD", "#2980B9", "#E74C3C", "#F39C12", "#27AE60", "#16A085", "#FFFFFF", "#000000"],
+      "font_family": "Georgia",
+      "background_color": "#FDFDFD",
+      "text_color": "#2C3E50"
+    },
+    "kdp_settings": {
+      "format": "5x8",
+      "bleed": 0.125,
+      "paper_type": "premium",
+      "cover_finish": "glossy",
+      "price": 12.99,
+      "isbn": "979-12-34567-91-3"
+    }
+  },
+  "characters": [
+    {
+      "name": "Liam",
+      "species": "human",
+      "age": 12,
+      "gender": "male",
+      "description": "Leader naturel du groupe, pouvoir lie au feu. Cheveux noirs legement ebouriffes, yeux verts perants.",
+      "appearance": {
+        "skin_color": "#D4B896",
+        "hair_color": "#1C2833",
+        "eye_color": "#2ECC71",
+        "height": "1.55m",
+        "build": "athletic"
+      },
+      "clothing": {
+        "jacket": {
+          "color": "#E74C3C",
+          "type": "leather jacket",
+          "details": "red flames embroidery on shoulders"
+        },
+        "shirt": {
+          "color": "#000000",
+          "type": "t-shirt"
+        },
+        "pants": {
+          "color": "#2C3E50",
+          "type": "jeans"
+        },
+        "shoes": {
+          "color": "#1C2833",
+          "type": "boots"
+        }
+      },
+      "accessories": [
+        {
+          "type": "gloves",
+          "color": "#1C2833",
+          "description": "fingerless leather gloves",
+          "position": "on hands"
+        },
+        {
+          "type": "necklace",
+          "color": "#E74C3C",
+          "description": "fire element pendant",
+          "position": "around neck"
+        }
+      ],
+      "personality": {
+        "traits": ["courageux", "charismatique", "protecteur", "impulsif", "loyal"],
+        "likes": ["entrainer l'equipe", "les defis", "proteger les plus faibles"],
+        "dislikes": ["l'injustice", "abandonner un ami", "etre trahi"],
+        "catchphrases": [
+          "Ensemble, nous sommes plus forts !",
+          "Feu, active-toi !",
+          "Personne ne touchera a mon equipe !"
+        ]
+      },
+      "abilities": [
+        "Manipulation du feu",
+        "Resistance a la chaleur extreme",
+        "Vision thermique",
+        "Leadership naturel"
+      ],
+      "element": "fire"
+    },
+    {
+      "name": "Ava",
+      "species": "human",
+      "age": 11,
+      "gender": "female",
+      "description": "Intelligente et strategique, pouvoir lie a l'eau. Cheveux blonds longs, yeux bleus profonds.",
+      "appearance": {
+        "skin_color": "#F5E9E4",
+        "hair_color": "#F7DC6F",
+        "eye_color": "#3498DB",
+        "height": "1.52m",
+        "build": "slim"
+      },
+      "clothing": {
+        "dress": {
+          "color": "#3498DB",
+          "type": "long dress",
+          "details": "blue water patterns"
+        },
+        "jacket": {
+          "color": "#FFFFFF",
+          "type": "light jacket"
+        },
+        "shoes": {
+          "color": "#ECF0F1",
+          "type": "sandals"
+        }
+      },
+      "accessories": [
+        {
+          "type": "hairpin",
+          "color": "#2980B9",
+          "description": "sapphire hairpin",
+          "position": "in hair"
+        },
+        {
+          "type": "bracelet",
+          "color": "#3498DB",
+          "description": "water element bracelet",
+          "position": "left wrist"
+        }
+      ],
+      "personality": {
+        "traits": ["intelligente", "calme", "strategique", "empathique", "sage"],
+        "likes": ["resoudre des problemes", "lire", "mediter", "aider les autres"],
+        "dislikes": ["la violence inutile", "les decisions precipitees", "les mensonges"],
+        "catchphrases": [
+          "L'eau trouve toujours son chemin.",
+          "Reflechissons avant d'agir.",
+          "La sagesse est notre meilleure arme."
+        ]
+      },
+      "abilities": [
+        "Manipulation de l'eau",
+        "Creation de boucliers d'eau",
+        "Guérison par l'eau",
+        "Communication telepathique avec l'eau"
+      ],
+      "element": "water"
+    },
+    {
+      "name": "Ethan",
+      "species": "human",
+      "age": 12,
+      "gender": "male",
+      "description": "Silencieux mais puissant, pouvoir lie a la terre. Cheveux bruns courts, yeux marron chauds.",
+      "appearance": {
+        "skin_color": "#C6A488",
+        "hair_color": "#5D4037",
+        "eye_color": "#8D6E63",
+        "height": "1.58m",
+        "build": "muscular"
+      },
+      "clothing": {
+        "shirt": {
+          "color": "#27AE60",
+          "type": "t-shirt",
+          "details": "green vine patterns"
+        },
+        "pants": {
+          "color": "#5D4037",
+          "type": "cargo pants"
+        },
+        "shoes": {
+          "color": "#1C2833",
+          "type": "hiking boots"
+        }
+      },
+      "accessories": [
+        {
+          "type": "belt",
+          "color": "#27AE60",
+          "description": "vine pattern belt",
+          "position": "on waist"
+        }
+      ],
+      "personality": {
+        "traits": ["calme", "fiable", "patient", "fort", "protecteur"],
+        "likes": ["travailler la terre", "construire", "proteger la nature"],
+        "dislikes": ["la pollution", "les gens irresponsables", "la destruction gratuite"],
+        "catchphrases": [
+          "La terre nous donne, nous devons la proteger.",
+          "Je suis la.",
+          "La force vient de la patience."
+        ]
+      },
+      "abilities": [
+        "Manipulation de la terre",
+        "Creation de murs de pierre",
+        "Communication avec les plantes",
+        "Sens des vibrations du sol"
+      ],
+      "element": "earth"
+    },
+    {
+      "name": "Maya",
+      "species": "human",
+      "age": 11,
+      "gender": "female",
+      "description": "Vive et espiegle, pouvoir lie a l'air. Cheveux roux en coup court, yeux verts et malicieux.",
+      "appearance": {
+        "skin_color": "#F5D7C8",
+        "hair_color": "#E74C3C",
+        "eye_color": "#2ECC71",
+        "height": "1.50m",
+        "build": "athletic"
+      },
+      "clothing": {
+        "shirt": {
+          "color": "#FFFFFF",
+          "type": "t-shirt"
+        },
+        "vest": {
+          "color": "#F39C12",
+          "type": "sleeveless vest"
+        },
+        "pants": {
+          "color": "#1C2833",
+          "type": "leggings"
+        },
+        "shoes": {
+          "color": "#E67E22",
+          "type": "sneakers"
+        }
+      },
+      "accessories": [
+        {
+          "type": "wristbands",
+          "color": "#F39C12",
+          "description": "wind element wristbands",
+          "position": "on wrists"
+        }
+      ],
+      "personality": {
+        "traits": ["joyeuse", "rapide", "espiegle", "creative", "optimiste"],
+        "likes": ["voler", "plaisanter", "explorer", "la liberte"],
+        "dislikes": ["etre enfermee", "les regles inutiles", "la tristesse"],
+        "catchphrases": [
+          "Attrape-moi si tu peux !",
+          "Le vent est avec nous !",
+          "La vie est trop serieuse pour etre prise au serieux !"
+        ]
+      },
+      "abilities": [
+        "Manipulation de l'air",
+        "Vol a courte distance",
+        "Creation de tornades miniatures",
+        "Resistance aux chutes"
+      ],
+      "element": "air"
+    },
+    {
+      "name": "Malakar",
+      "species": "shadow creature",
+      "age": "unknown",
+      "gender": "unknown",
+      "description": "Creature des ombres qui menace Lumina. Forme changeante, yeux rouges brillants.",
+      "appearance": {
+        "color": "#1C2833",
+        "eye_color": "#E74C3C",
+        "form": "shapeshifting",
+        "texture": "smoky and fluid"
+      },
+      "personality": {
+        "traits": ["malveillant", "rusé", "puissant", "manipulateur"],
+        "likes": ["le chaos", "la peur", "la destruction"],
+        "dislikes": ["la lumiere", "l'espoir", "l'unite"]
+      },
+      "abilities": [
+        "Manipulation des ombres",
+        "Teleportation",
+        "Creation de creatures d'ombres",
+        "Absorption de lumiere"
+      ]
+    }
+  ],
+  "settings": {
+    "story_structure": "voyage_du_heros",
+    "narrative_style": "third_person",
+    "tense": "past",
+    "reading_time": "30-45 minutes",
+    "difficulty_level": "advanced"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "title": "Couverture",
+      "text": "",
+      "illustration_prompt": "Epic fantasy book cover, digital painting, four teenagers standing together, Liam with fire effects, Ava with water effects, Ethan with earth effects, Maya with air effects, dark fantasy background, title 'Les Gardiens de Lumina' at top, subtitle 'Tome 1 : L'Eveil des Pouvoirs' below, author 'Thomas Dubois' at bottom, magical atmosphere",
+      "illustration_file": "cover.png",
+      "image": "illustrations/cover.png",
+      "alt_text": "Couverture : Les quatre gardiens ensemble avec leurs elements respectifs",
+      "layout": "full-bleed-image",
+      "is_cover": true
+    },
+    {
+      "page_number": 2,
+      "title": "Page de titre",
+      "text": "Les Gardiens de Lumina - Tome 1 : L'Eveil des Pouvoirs - Thomas Dubois",
+      "illustration_prompt": "Simple title page, fantasy style, elegant typography, elemental symbols around the text, dark background with subtle magic effects",
+      "illustration_file": "page_001.png",
+      "image": "illustrations/page_001.png",
+      "alt_text": "Page de titre avec symboles elementaires",
+      "layout": "spot-illustration"
+    },
+    {
+      "page_number": 3,
+      "title": "Le Reve de Liam",
+      "text": "Liam se reveilla en sursaut, le coeur battant. Encore ce reve etrange... Une voix lui avait murmure : 'Lumina a besoin de toi.' Il regarda par la fenetre et vit une etoile filante traversant le ciel d'une maniere impossiblement rapide.",
+      "illustration_prompt": "Liam waking up in his bedroom, night time, moonlight through window, shooting star in the sky, Liam with surprised expression, brown hair, green eyes, red leather jacket, digital painting, fantasy style",
+      "illustration_file": "page_002.png",
+      "image": "illustrations/page_002.png",
+      "alt_text": "Liam se reveille dans sa chambre, une etoile filante traverse le ciel",
+      "layout": "full-bleed-image",
+      "characters": ["Liam"],
+      "time_of_day": "night"
+    },
+    {
+      "page_number": 4,
+      "title": "La Rencontre",
+      "text": "Le lendemain a l'ecole, Liam remarqua une nouvelle eleve. Elle avait des cheveux blonds longs et des yeux bleus qui semblaient voir a travers lui. 'Je m'appelle Ava', dit-elle avec un sourire. 'Et toi, tu as fait un reve etrange hier soir, non ?'",
+      "illustration_prompt": "School courtyard, Liam and Ava talking, Liam with black hair, green eyes, red jacket, Ava with long blonde hair, blue eyes, blue dress, both looking at each other with curiosity, digital painting, fantasy style",
+      "illustration_file": "page_003.png",
+      "image": "illustrations/page_003.png",
+      "alt_text": "Liam et Ava se rencontrent dans la cour de l'ecole",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava"],
+      "emotion": "curious"
+    },
+    {
+      "page_number": 5,
+      "title": "Les Pouvoirs se Reveillent",
+      "text": "Alors qu'ils parlaient, un incident se produisit. Un ballon de basket tombe sur une ligne electrique. Liam tendit la main instinctivement et une flamme jaillit de sa paume, coupant le courant avant que le ballon ne prenne feu. Ava, sans reflechir, fit jaillir un jet d'eau pour eteindre les etincelles.",
+      "illustration_prompt": "School gym, basketball hoop, electrical spark, Liam with hand extended, fire coming from his palm, Ava with hand extended, water stream, Ethan and Maya watching in background, shocked expressions, digital painting, action scene",
+      "illustration_file": "page_004.png",
+      "image": "illustrations/page_004.png",
+      "alt_text": "Liam et Ava decouvrent leurs pouvoirs : Liam lance une flamme, Ava cree un jet d'eau",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya"],
+      "emotion": "shocked",
+      "action": "powers awakening"
+    },
+    {
+      "page_number": 6,
+      "title": "La Decouverte d'Ethan et Maya",
+      "text": "Ethan, toujours calme, posa sa main sur le sol. Une barriere de pierre se forma autour d'eux, les protegeant des regards. 'Ca, c'est nouveau', murmura-t-il. Maya, elle, éclata de rire et fit un saut perilleux depuis le toit du gymnase, atterrissant grace a un coussin d'air qu'elle avait cree.",
+      "illustration_prompt": "Ethan with hand on ground, stone barrier forming, Maya jumping from gym roof, air cushion below her, Liam and Ava watching, all four teenagers together, digital painting, fantasy action scene",
+      "illustration_file": "page_005.png",
+      "image": "illustrations/page_005.png",
+      "alt_text": "Ethan cree une barriere de pierre, Maya saute avec un coussin d'air",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya"],
+      "emotion": "excited",
+      "action": "powers demonstration"
+    },
+    {
+      "page_number": 7,
+      "title": "Le Message Mysterieux",
+      "text": "Ce soir-la, les quatre amis se retrouverent dans un parc desert. C'est la qu'ils virent une creature faite d'ombres qui leur parlait d'une voix cavernuse : 'Les quatre elements sont reunis. Lumina a besoin de vous. L'Obscurite arrive.' Puis elle disparut.",
+      "illustration_prompt": "Night time in empty park, four teenagers standing together, shadow creature made of dark smoke with red glowing eyes talking to them, mysterious atmosphere, digital painting, fantasy style",
+      "illustration_file": "page_006.png",
+      "image": "illustrations/page_006.png",
+      "alt_text": "Les quatre amis dans un parc, une creature d'ombres leur parle",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Shadow Creature"],
+      "emotion": "mysterious",
+      "time_of_day": "night"
+    },
+    {
+      "page_number": 8,
+      "title": "Le Passage vers Lumina",
+      "text": "Le lendemain, en suivant les instructions du message, ils trouverent un passage cache derriere une cascade dans une foret proche. En passant a travers, ils se retrouverent dans un monde etincelant de lumiere : Lumina.",
+      "illustration_prompt": "Hidden passage behind waterfall, four teenagers walking through, magical light effects, transition from forest to Lumina world, bright colors, digital painting, fantasy style",
+      "illustration_file": "page_007.png",
+      "image": "illustrations/page_007.png",
+      "alt_text": "Les quatre amis passent derriere une cascade pour entrer dans Lumina",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya"],
+      "emotion": "amazed"
+    },
+    {
+      "page_number": 9,
+      "title": "Lumina",
+      "text": "Lumina etait un monde ou la magie etait partout. Des arbres qui brillaient, des rivieres qui chantaient, des montagnes qui flottaient dans le ciel. Mais au centre, une ombre immense grandissait, menacant de tout engloutir.",
+      "illustration_prompt": "Fantasy world of Lumina, glowing trees, singing rivers, floating mountains, four teenagers looking in awe, dark shadow growing in the distance, bright magical colors, digital painting, epic fantasy landscape",
+      "illustration_file": "page_008.png",
+      "image": "illustrations/page_008.png",
+      "alt_text": "Lumina : un monde magique avec des arbres brillants, des rivieres chantantes, des montagnes flottantes, une ombre menacante au loin",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya"],
+      "emotion": "amazed"
+    },
+    {
+      "page_number": 10,
+      "title": "La Rencontre avec les Anciens",
+      "text": "Ils furent accueillis par les Anciens de Lumina, des etres de lumiere qui leur expliquerent leur mission : ils etaient les Gardiens, elus pour proteger Lumina contre l'Obscurite qui grandissait. Malakar, le seigneur des ombres, cherchait a plonger Lumina dans les tenebres eternelles.",
+      "illustration_prompt": "Ancient beings made of light, ethereal appearance, talking to the four teenagers, Lumina background with ancient ruins, wise and kind atmosphere, digital painting, fantasy style",
+      "illustration_file": "page_009.png",
+      "image": "illustrations/page_009.png",
+      "alt_text": "Les Anciens de Lumina, des etres de lumiere, parlent aux quatre gardiens",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Ancients"],
+      "emotion": "wise"
+    },
+    {
+      "page_number": 11,
+      "title": "L'Entrainement",
+      "text": "Pendant plusieurs jours, les Anciens leur enseignerent a maitriser leurs pouvoirs. Liam apprit a controler ses flammes, Ava a creer des vagues puissantes, Ethan a faire trembler la terre, et Maya a voler librement. Mais le temps pressait...",
+      "illustration_prompt": "Training scene, four teenagers practicing their powers, Liam with fire, Ava with water, Ethan with earth, Maya with air, Ancient beings watching, Lumina landscape, digital painting, fantasy action scene",
+      "illustration_file": "page_010.png",
+      "image": "illustrations/page_010.png",
+      "alt_text": "Entrainement : les quatre gardiens s'entrainent a maitriser leurs pouvoirs elementaires",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Ancients"],
+      "emotion": "focused",
+      "action": "training"
+    },
+    {
+      "page_number": 12,
+      "title": "L'Attaque de Malakar",
+      "text": "Malakar ne pouvait plus attendre. Il lancait son attaque. Des creatures d'ombres se deverserent sur Lumina, detruisant tout sur leur passage. Les Gardiens devraient se battre pour la premiere fois.",
+      "illustration_prompt": "Malakar the shadow lord, large dark figure with red glowing eyes, shadow creatures pouring out, attacking Lumina, four teenagers preparing to fight, dark and dramatic atmosphere, digital painting, fantasy battle scene",
+      "illustration_file": "page_011.png",
+      "image": "illustrations/page_011.png",
+      "alt_text": "Malakar lance son attaque avec des creatures d'ombres, les quatre gardiens se preparent a combattre",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Malakar"],
+      "emotion": "battle ready",
+      "action": "attack"
+    },
+    {
+      "page_number": 13,
+      "title": "La Bataille",
+      "text": "La bataille fut epique. Liam creea des murs de feu pour bloquer les creatures. Ava utilisa ses vagues pour les repousser. Ethan fit trembler la terre sous leurs pieds. Et Maya, volait au-dessus du champ de bataille, creant des tornades pour disperser les ombres.",
+      "illustration_prompt": "Epic battle scene, Liam with fire walls, Ava with water waves, Ethan with earth quakes, Maya flying with air tornados, shadow creatures everywhere, Malakar in background, dynamic action, digital painting, fantasy battle",
+      "illustration_file": "page_012.png",
+      "image": "illustrations/page_012.png",
+      "alt_text": "Bataille epique : chaque gardien utilise ses pouvoirs contre les creatures d'ombres",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Malakar", "Shadow Creatures"],
+      "emotion": "battle",
+      "action": "fighting"
+    },
+    {
+      "page_number": 14,
+      "title": "L'Unite des Elements",
+      "text": "Alors que Malakar s'appretait a lancer son attaque finale, les quatre Gardiens se prirent la main. Une lumiere blinde les enveloppa. Leurs pouvoirs se combinent : feu, eau, terre et air s'unirent pour creer une explosion de lumiere pure qui repoussa Malakar.",
+      "illustration_prompt": "Four teenagers holding hands, combined elemental powers creating bright light explosion, Malakar being pushed back by the light, dramatic magical effects, digital painting, fantasy style",
+      "illustration_file": "page_013.png",
+      "image": "illustrations/page_013.png",
+      "alt_text": "Les quatre gardiens se tiennent la main, leurs pouvoirs combines creent une explosion de lumiere qui repoussa Malakar",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Malakar"],
+      "emotion": "united",
+      "action": "combined attack",
+      "effects": "light explosion"
+    },
+    {
+      "page_number": 15,
+      "title": "La Victoire... Temporaire",
+      "text": "Malakar fut repousser, mais il n'etait pas vaincu. 'Ce n'est qu'un debut', gronda-t-il avant de disparaitre dans les ombres. Les Gardiens savaient que la vraie bataille ne faisait que commencer. Mais ce jour-la, ils avaient prouve qu'en s'unissant, ils etaient invincibles.",
+      "illustration_prompt": "Malakar disappearing into shadows, four teenagers standing together victorious but serious, Lumina background starting to heal, warm magical light, digital painting, fantasy style",
+      "illustration_file": "page_014.png",
+      "image": "illustrations/page_014.png",
+      "alt_text": "Malakar disparait dans les ombres, les quatre gardiens se tiennent ensemble, victorieux mais serieux, Lumina commence a guerir",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Malakar"],
+      "emotion": "victorious"
+    },
+    {
+      "page_number": 16,
+      "title": "Le Retour a la Realite",
+      "text": "Les Anciens leur expliquerent qu'ils devraient retourner dans leur monde pour le moment. Mais ils pourraient revenir a Lumina quand ils le souhaiteraient. 'Vos pouvoirs vous suivront', leur dit l'Ancien le plus sage. 'Et quand Malakar reviendra, vous serez prets.'",
+      "illustration_prompt": "Ancient beings saying goodbye to four teenagers, portal opening behind them, Lumina in background, warm farewell atmosphere, digital painting, fantasy style",
+      "illustration_file": "page_015.png",
+      "image": "illustrations/page_015.png",
+      "alt_text": "Les Anciens disent au revoir aux quatre gardiens, un portail s'ouvre derriere eux",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya", "Ancients"],
+      "emotion": "farewell"
+    },
+    {
+      "page_number": 17,
+      "title": "Le Serment",
+      "text": "Avant de partir, les quatre amis firent un serment. 'Nous serons toujours la pour proteger Lumina', dit Liam. 'Et pour nous proteger les uns les autres', ajouta Ava. Ethan et Maya hoccherent de la tete. Ils etaient les Gardiens de Lumina.",
+      "illustration_prompt": "Four teenagers standing in a circle, hands on each other's shoulders, making a vow, Lumina landscape in background, warm golden light, digital painting, fantasy style, emotional moment",
+      "illustration_file": "page_016.png",
+      "image": "illustrations/page_016.png",
+      "alt_text": "Les quatre gardiens se tiennent en cercle, mains sur les epaules les uns des autres, font un serment",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya"],
+      "emotion": "solemn"
+    },
+    {
+      "page_number": 18,
+      "title": "Le Retour",
+      "text": "Ils se reveillerent dans le parc ou tout avait commence. Comme si rien ne s'etait passe. Mais ils savaient que leur vie avait change pour toujours. Ils etaient des Gardiens maintenant.",
+      "illustration_prompt": "Four teenagers waking up in the park, looking at each other with knowing smiles, sunset lighting, digital painting, fantasy style",
+      "illustration_file": "page_017.png",
+      "image": "illustrations/page_017.png",
+      "alt_text": "Les quatre gardiens se reveillent dans le parc, se regardent avec des sourires complices",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya"],
+      "emotion": "knowing",
+      "time_of_day": "sunset"
+    },
+    {
+      "page_number": 19,
+      "title": "Epilogue",
+      "text": "De retour a l'ecole, personne ne crut a leur histoire. Mais parfois, quand ils etaient ensemble, une etrange lueur entourait leurs mains. Et ils savaient que Lumina les attendait. Et qu'un jour, ils devraient y retourner pour la bataille finale.",
+      "illustration_prompt": "School corridor, four teenagers walking together, subtle glow around their hands, other students in background not noticing, digital painting, fantasy style",
+      "illustration_file": "page_018.png",
+      "image": "illustrations/page_018.png",
+      "alt_text": "Les quatre gardiens marchent ensemble dans le couloir de l'ecole, une lueur subtile entoure leurs mains",
+      "layout": "full-bleed-image",
+      "characters": ["Liam", "Ava", "Ethan", "Maya"],
+      "emotion": "normal life",
+      "effects": "subtle glow"
+    },
+    {
+      "page_number": 20,
+      "title": "Fin",
+      "text": "FIN",
+      "illustration_prompt": "Simple end page, fantasy style, dark background with elemental symbols, word FIN in elegant letters, magical effects",
+      "illustration_file": "page_019.png",
+      "image": "illustrations/page_019.png",
+      "alt_text": "Fin",
+      "layout": "spot-illustration"
+    }
+  ],
+  "marketing": {
+    "elevator_pitch": "Quatre adolescents decouvrent qu'ils sont les Gardiens de Lumina, un monde magique menace par les ombres. Une epopee fantastique sur l'amitie, le courage et la decouverte de soi.",
+    "unique_selling_points": [
+      "Univers fantastique riche et original",
+      "Personnages attachants et developpes",
+      "Pouvoirs elementaires uniques",
+      "Histoire d'amitie et de courage",
+      "Premier tome d'une serie epique",
+      "Parfait pour les preadolescents"
+    ],
+    "comparable_titles": [
+      "Percy Jackson de Rick Riordan",
+      "Harry Potter de J.K. Rowling",
+      "Eragon de Christopher Paolini"
+    ],
+    "target_audience": {
+      "primary": "Enfants de 9 a 12 ans",
+      "secondary": "Pre-adolescents / Adolescents",
+      "read_aloud": false,
+      "independent_reading": true
+    }
+  },
+  "production_notes": {
+    "illustration_guidelines": {
+      "style": "digital_painting",
+      "color_palette": ["#8E44AD", "#2980B9", "#E74C3C", "#F39C12", "#27AE60", "#16A085"],
+      "lighting": "dramatic and magical",
+      "mood": "epic fantasy",
+      "character_consistency": "CRITICAL - Maintain exact character designs throughout"
+    },
+    "text_guidelines": {
+      "font": "Georgia or similar serif font",
+      "size": "12-14pt for body text",
+      "line_spacing": "1.4",
+      "text_placement": "Clear separation from illustrations"
+    }
+  }
+}

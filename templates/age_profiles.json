@@ -1,0 +1,102 @@
+[
+  {
+    "age_range": "0-2",
+    "label_fr": "Bébés et tout-petits",
+    "label_en": "Babies & Toddlers",
+    "cognitive_level": "Reconnaissance d'objets, couleurs, sons basiques. Compréhension des causes à effets simples.",
+    "vocabulary_level": 50,
+    "sentence_complexity": {
+      "max_words": 5,
+      "structure_types": ["Sujet-Verbe", "Sujet-Verbe-Complément"]
+    },
+    "page_count_range": [12, 16],
+    "words_per_page_range": [1, 12],
+    "total_word_count_range": [16, 120],
+    "themes": ["Animaux", "Couleurs", "Formes", "Routine du coucher", "Famille", "Bruits"],
+    "taboo_topics": ["Peur complexe", "Violence", "Concepts abstraits", "Mort"],
+    "illustration_ratio": 90,
+    "text_placement": "Séparé de l'image ou sur fond uni très contrasté",
+    "font_size_range": ["24pt", "36pt"],
+    "attention_span_minutes": 5,
+    "reading_level": "Lu par un adulte",
+    "engagement_techniques": ["Rimes très marquées", "Onomatopées", "Questions simples ('Où est le chien ?')", "Répétition"],
+    "bestseller_formats": ["Board books (cartonnés)", "Livres à toucher", "Livres sonores"],
+    "color_preferences": ["Couleurs primaires", "Hauts contrastes", "Noir et blanc pour les 0-6 mois"],
+    "humor_types": ["Surprises (Peek-a-boo)", "Bruits d'animaux exagérés"]
+  },
+  {
+    "age_range": "3-5",
+    "label_fr": "Maternelle",
+    "label_en": "Preschool",
+    "cognitive_level": "Imagination florissante, compréhension des émotions basiques, début d'empathie, pensée magique.",
+    "vocabulary_level": 500,
+    "sentence_complexity": {
+      "max_words": 10,
+      "structure_types": ["Phrases simples", "Coordinations simples (et, ou)"]
+    },
+    "page_count_range": [24, 32],
+    "words_per_page_range": [10, 50],
+    "total_word_count_range": [320, 1200],
+    "themes": ["Amitié", "Partage", "Peur du noir", "Découverte", "École maternelle", "Animaux anthropomorphes"],
+    "taboo_topics": ["Violence explicite", "Concepts moraux trop complexes", "Tragédies sans résolution heureuse"],
+    "illustration_ratio": 75,
+    "text_placement": "Intégré à l'image (nécessite des zones calmes dans l'illustration)",
+    "font_size_range": ["18pt", "24pt"],
+    "attention_span_minutes": 15,
+    "reading_level": "Lu par un adulte",
+    "engagement_techniques": ["Refrains répétés", "Rimes", "Actions à mimer", "Prédictions (Que va-t-il se passer ?)"],
+    "bestseller_formats": ["Picture books standard (8.5x8.5 pouces)", "Livres animés simples"],
+    "color_preferences": ["Couleurs vives", "Pastels", "Palettes thématiques (ex: chaud pour la maison, froid pour la nuit)"],
+    "humor_types": ["Absurde (un éléphant dans un frigo)", "Chutes légères", "Mots rigolos"]
+  },
+  {
+    "age_range": "6-8",
+    "label_fr": "Apprentis lecteurs",
+    "label_en": "Early Readers",
+    "cognitive_level": "Pensée logique en développement, compréhension des blagues simples, identification aux héros de leur âge.",
+    "vocabulary_level": 2000,
+    "sentence_complexity": {
+      "max_words": 15,
+      "structure_types": ["Phrases composées", "Dialogues fréquents"]
+    },
+    "page_count_range": [48, 80],
+    "words_per_page_range": [50, 200],
+    "total_word_count_range": [2400, 8000],
+    "themes": ["École", "Aventures autonomes", "Magie", "Humour", "Mystères simples", "Dinosaures/Espace"],
+    "taboo_topics": ["Romance complexe", "Enjeux de vie ou de mort réels"],
+    "illustration_ratio": 50,
+    "text_placement": "Au-dessus ou en dessous de l'image, bulles de dialogue",
+    "font_size_range": ["14pt", "18pt"],
+    "attention_span_minutes": 30,
+    "reading_level": "Lecture autonome ou accompagnée",
+    "engagement_techniques": ["Chapitres courts", "Cliffhangers à la fin des chapitres", "Humour de situation", "Personnages excentriques"],
+    "bestseller_formats": ["Early readers (6x9 pouces)", "Premiers romans illustrés"],
+    "color_preferences": ["Très varié, peut inclure des ambiances plus sombres ou mystérieuses"],
+    "humor_types": ["Jeux de mots", "Quiproquos", "Exagérations"]
+  },
+  {
+    "age_range": "9-12",
+    "label_fr": "Préados",
+    "label_en": "Middle Grade",
+    "cognitive_level": "Pensée abstraite, sens critique, compréhension des nuances sociales et morales.",
+    "vocabulary_level": 5000,
+    "sentence_complexity": {
+      "max_words": 25,
+      "structure_types": ["Phrases complexes", "Descriptions détaillées", "Monologues intérieurs"]
+    },
+    "page_count_range": [100, 300],
+    "words_per_page_range": [200, 400],
+    "total_word_count_range": [15000, 45000],
+    "themes": ["Quête d'identité", "Sauver le monde", "Premiers émois", "Dystopie douce", "Fantasy épique", "Problèmes familiaux"],
+    "taboo_topics": ["Gore extrême", "Sexualité explicite"],
+    "illustration_ratio": 10,
+    "text_placement": "Texte principal avec quelques illustrations encartées (souvent en N&B)",
+    "font_size_range": ["11pt", "14pt"],
+    "attention_span_minutes": 60,
+    "reading_level": "Lecture autonome",
+    "engagement_techniques": ["Intrigues secondaires", "Évolution psychologique profonde", "Univers complexes (worldbuilding)", "Dilemmes moraux"],
+    "bestseller_formats": ["Romans Middle Grade (5x8 ou 5.5x8.5 pouces)"],
+    "color_preferences": ["Souvent des couvertures très travaillées, intérieur majoritairement N&B"],
+    "humor_types": ["Sarcasme", "Ironie", "Humour référentiel"]
+  }
+]

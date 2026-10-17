@@ -1,0 +1,482 @@
+{
+  "version": "1.0",
+  "description": "Archétypes de personnages optimisés pour les livres illustrés pour enfants",
+  "last_updated": "2026-07-08",
+  "archetypes": [
+    {
+      "id": "reveur_timide",
+      "name_fr": "Le Rêveur Timide",
+      "name_en": "The Shy Dreamer",
+      "description": "Un personnage introverti avec un monde intérieur riche et une imagination débordante. Il observe beaucoup, parle peu, mais quand il s'exprime, c'est toujours profond ou surprenant. Sa timidité est son armure, son imagination est sa super-puissance.",
+      "personality_traits": [
+        "Timide en société mais courageux dans son imagination",
+        "Observateur et attentif aux détails que les autres manquent",
+        "Créatif et artistique, s'exprime mieux par le dessin ou l'écriture",
+        "Sensible aux émotions des autres, empathique",
+        "Rougit facilement, parle doucement",
+        "A un objet-doudou ou un carnet qui ne le quitte jamais"
+      ],
+      "visual_characteristics": "Petit par rapport aux autres personnages, yeux grands et expressifs, posture légèrement repliée. Porte souvent des vêtements trop grands (pull long, écharpe, bonnet). Couleurs douces : bleu ciel, lavande, vert d'eau. A toujours un objet entre les mains (livre, crayon, plume, doudou). Cheveux qui tombent un peu sur les yeux.",
+      "typical_flaw": "Sa timidité l'empêche de partager ses idées merveilleuses et de se faire des amis. Il rate des opportunités parce qu'il n'ose pas parler ou agir.",
+      "character_arc": "Apprend progressivement que sa voix compte, que partager ses rêves avec les autres ne les détruit pas mais les enrichit. Reste timide mais trouve le courage de s'exprimer quand ça compte vraiment.",
+      "catchphrase_template": "«Et si... non, rien.» → puis plus tard : «Et si {{IDEA}} ?»",
+      "best_paired_with": ["aventurier_intrepide", "eternel_optimiste", "creature_magique_espiegle"],
+      "example_characters": [
+        "Petit Prince (Saint-Exupéry)",
+        "Charlie (Charlie et la Chocolaterie)",
+        "Flap le lapin (littérature jeunesse française)",
+        "Amélie Poulain (version enfant)"
+      ],
+      "species_suggestions": [
+        "Lapin (oreilles baissées)", "Souris", "Petit hibou", "Hérisson",
+        "Escargot", "Faon", "Petit renard", "Luciole"
+      ],
+      "age_appeal": "4-9 ans. Les enfants timides s'identifient directement. Les enfants extravertis découvrent la richesse intérieure."
+    },
+    {
+      "id": "aventurier_intrepide",
+      "name_fr": "L'Aventurier Intrépide",
+      "name_en": "The Fearless Adventurer",
+      "description": "Toujours prêt à explorer, découvrir, grimper, creuser. Ce personnage ne connaît pas la peur (ou plutôt, la transforme en excitation). Il entraîne les autres dans ses aventures avec un enthousiasme contagieux. Son énergie est inépuisable mais parfois incontrôlable.",
+      "personality_traits": [
+        "Courageux jusqu'à la témérité",
+        "Curieux de tout, pose mille questions",
+        "Énergique, ne tient pas en place",
+        "Généreux et loyal envers ses amis",
+        "Impatient, agit avant de réfléchir",
+        "Rit fort, parle fort, vit fort"
+      ],
+      "visual_characteristics": "Posture dynamique, toujours en mouvement ou en déséquilibre. Chapeau d'explorateur, sac à dos rempli à craquer, lacets défaits. Couleurs chaudes et vives : rouge, orange, jaune soleil. Genoux écorchés, vêtements un peu salis. Sourire large et déterminé. Souvent dessiné en plein saut ou course.",
+      "typical_flaw": "Fonce tête baissée sans écouter les avertissements. Sa témérité met parfois les autres en danger. A du mal à rester calme et à écouter.",
+      "character_arc": "Apprend que le vrai courage inclut aussi la prudence, l'écoute et le fait de savoir quand s'arrêter. Découvre que les meilleures aventures sont celles partagées et que même les héros ont besoin d'aide.",
+      "catchphrase_template": "«En avant ! On y va ! {{EXPRESSION_D_ENTHOUSIASME}} !»",
+      "best_paired_with": ["reveur_timide", "grognon_grand_coeur", "petit_genie_maladroit"],
+      "example_characters": [
+        "Dora l'exploratrice",
+        "Tintin (version enfant)",
+        "Flora la petite aventurière",
+        "Peter Pan"
+      ],
+      "species_suggestions": [
+        "Renard", "Écureuil", "Petit chien (Jack Russell)", "Perroquet",
+        "Loutre", "Suricate", "Singe", "Chat aventurier"
+      ],
+      "age_appeal": "3-8 ans. Très populaire chez les enfants actifs. Moteur de l'action dans toute histoire."
+    },
+    {
+      "id": "grognon_grand_coeur",
+      "name_fr": "Le Grognon au Grand Cœur",
+      "name_en": "The Grumpy Sweetheart",
+      "description": "Toujours à ronchonner, soupirer et se plaindre, mais derrière sa façade bourrue se cache un cœur immense. Il prétend ne pas se soucier des autres mais est le premier à les aider quand ça compte. Sa grogne est devenue un mécanisme de protection après une déception passée.",
+      "personality_traits": [
+        "Grogne pour tout mais agit avec bonté",
+        "Protecteur envers les plus petits (même s'il le nie)",
+        "Solitaire par choix (ou c'est ce qu'il dit)",
+        "A un sens de l'humour pince-sans-rire excellent",
+        "Déteste les câlins (mais fond quand il en reçoit un)",
+        "Expert dans un domaine précis qu'il partage quand on sait le lui demander"
+      ],
+      "visual_characteristics": "Sourcils froncés permanents, posture bras croisés, mais yeux doux quand il pense que personne ne regarde. Couleurs terreuses et sombres : marron, gris, vert foncé. Plus gros ou plus vieux que les autres personnages. Porte un vêtement ou accessoire qu'il refuse de quitter (vieille écharpe, chapeau usé). Petites rougeurs quand il est touché émotionnellement.",
+      "typical_flaw": "Sa carapace de grognon repousse les gens et l'isole. Il a peur de montrer sa vulnérabilité et rate des amitiés potentielles.",
+      "character_arc": "Apprend progressivement que montrer sa gentillesse n'est pas une faiblesse. Reste grognon (c'est son charme) mais accepte de laisser les autres entrer dans sa vie.",
+      "catchphrase_template": "«Pfff, n'importe quoi !» (mais fait exactement ce qu'on lui demande)",
+      "best_paired_with": ["eternel_optimiste", "creature_magique_espiegle", "reveur_timide"],
+      "example_characters": [
+        "Grinch (version douce)",
+        "Shrek",
+        "Oscar (Sesame Street)",
+        "Cornebidouille (Pierre Bertrand)"
+      ],
+      "species_suggestions": [
+        "Ours (classique)", "Blaireau", "Crapaud", "Hérisson",
+        "Chat grincheux", "Tortue", "Vieux hibou", "Morse"
+      ],
+      "age_appeal": "3-10 ans. Les enfants adorent le contraste entre l'extérieur bougon et l'intérieur tendre. Source d'humour garantie."
+    },
+    {
+      "id": "petit_genie_maladroit",
+      "name_fr": "Le Petit Génie Maladroit",
+      "name_en": "The Clumsy Little Genius",
+      "description": "Brillant intellectuellement mais catastrophique dans le monde réel. Il invente des machines extraordinaires qui explosent, connaît des faits incroyables mais trébuche sur ses propres pieds. Son décalage entre intelligence et maladresse crée un humour irrésistible et une tendresse universelle.",
+      "personality_traits": [
+        "Extrêmement intelligent et curieux",
+        "Maladroit physiquement : trébuche, renverse, casse",
+        "Distrait et dans la lune, oublie les choses basiques",
+        "Passionné par un sujet spécifique (sciences, livres, étoiles)",
+        "S'exprime avec des mots parfois trop compliqués",
+        "Ses inventions marchent rarement du premier coup mais sont toujours géniales en théorie"
+      ],
+      "visual_characteristics": "Lunettes (souvent de travers), cheveux en désordre, taches d'encre ou de peinture sur les vêtements. Poches remplies de gadgets et bouts de papier. Couleurs vives mais dépareillées (chaussettes différentes). Plus petit que les autres mais posture dressée quand il explique quelque chose. Yeux brillants d'excitation quand il a une idée.",
+      "typical_flaw": "Trop dans sa tête, il oublie le monde réel et les sentiments des autres. Ses inventions créent souvent plus de problèmes qu'elles n'en résolvent. A du mal à s'intégrer socialement.",
+      "character_arc": "Apprend que l'intelligence du cœur est aussi importante que celle du cerveau. Ses inventions finissent par fonctionner quand il y met de l'amour et écoute les besoins des autres.",
+      "catchphrase_template": "«Eurêka ! J'ai une idée ! Il suffit de {{INVENTION_COMPLEXE}} !» *BOUM*",
+      "best_paired_with": ["aventurier_intrepide", "grand_protecteur", "rebelle_creatif"],
+      "example_characters": [
+        "Professeur Tournesol (version enfant)",
+        "Léonard de Vinci (version album)",
+        "Gyro Gearloose / Géo Trouvetou",
+        "Jimmy Neutron"
+      ],
+      "species_suggestions": [
+        "Hibou à lunettes", "Raton laveur", "Pieuvre (beaucoup de mains pour bricoler)",
+        "Castor (constructeur né)", "Araignée (tisseuse)", "Corbeau", "Hamster"
+      ],
+      "age_appeal": "5-10 ans. Les enfants intellectuels s'identifient. Les autres adorent ses catastrophes comiques."
+    },
+    {
+      "id": "creature_magique_espiegle",
+      "name_fr": "La Créature Magique Espiègle",
+      "name_en": "The Mischievous Magical Creature",
+      "description": "Un être surnaturel, fantastique ou simplement inexplicable qui débarque dans la vie du protagoniste et sème un joyeux chaos. Espiègle mais jamais méchant, il provoque des situations folles qui obligent le héros à sortir de sa zone de confort. Sa magie est imprévisible et souvent incontrôlable.",
+      "personality_traits": [
+        "Espiègle et joueur, adore les farces bienveillantes",
+        "Parle parfois dans un langage inventé ou avec des expressions bizarres",
+        "Loyal envers celui qui le nourrit / l'accueille",
+        "Pouvoirs magiques imprévisibles et souvent disproportionnés",
+        "Mange des choses bizarres (chaussettes, nuages, voyelles)",
+        "Ne comprend pas les règles du monde humain"
+      ],
+      "visual_characteristics": "Forme unique et mémorable, mélange d'animaux ou créature inventée. Couleurs vives et irréalistes (violet, turquoise, rose vif). Yeux immenses et pétillants. Change parfois de taille ou de couleur selon ses émotions. Texture particulière (fourrure bouclée, écailles irisées, plumes fluo). Toujours souriant avec un air coquin.",
+      "typical_flaw": "Sa magie et ses bêtises créent des catastrophes que les autres doivent gérer. Ne mesure pas les conséquences de ses actes. A du mal avec les limites et les règles.",
+      "character_arc": "Apprend que la liberté implique la responsabilité. Comprend que ses pouvoirs sont un don à utiliser pour aider les autres, pas juste pour s'amuser.",
+      "catchphrase_template": "«{{MOT_INVENTÉ}} !» *paillettes / explosion / transformation*",
+      "best_paired_with": ["reveur_timide", "grognon_grand_coeur", "sage_ancien"],
+      "example_characters": [
+        "Le Chat Chapeauté (Dr. Seuss)",
+        "Stitch (Lilo & Stitch)",
+        "Le Doudou Magique",
+        "Calcifer (Le Château Ambulant - version enfant)"
+      ],
+      "species_suggestions": [
+        "Créature inventée (mélange d'animaux)", "Dragon miniature", "Fée farceuse",
+        "Lutin des bois", "Blob coloré", "Petit monstre pelucheux", "Étoile filante vivante"
+      ],
+      "age_appeal": "2-7 ans. Les tout-petits adorent l'absurde et la magie. Personnage iconique pour le merchandising."
+    },
+    {
+      "id": "grand_protecteur",
+      "name_fr": "Le Grand Protecteur",
+      "name_en": "The Great Protector",
+      "description": "Un personnage grand, fort et rassurant qui veille sur les plus petits. Peut être un parent, un grand frère/sœur, un animal imposant ou un gardien bienveillant. Sa force est douce, sa présence est un refuge. Il incarne la sécurité dont les enfants ont besoin.",
+      "personality_traits": [
+        "Fort physiquement mais doux dans ses gestes",
+        "Patient et calme, rarement en colère",
+        "Protecteur sans être étouffant",
+        "Sage par l'expérience, partage des histoires",
+        "A une faiblesse secrète qui le rend attachant (peur des araignées, adore les bonbons)",
+        "Parle peu mais chaque mot compte"
+      ],
+      "visual_characteristics": "Beaucoup plus grand que les autres personnages. Silhouette massive mais douce (épaules rondes, pas anguleuses). Couleurs chaudes et terreuses : brun, doré, vert forêt. Mains grandes et accueillantes. Visage marqué par le temps mais sourire lumineux. Porte un vêtement signature (tablier, chapeau, gilet). Souvent vu de bas en haut (perspective de l'enfant).",
+      "typical_flaw": "Surprotège parfois les autres et les empêche de grandir. A du mal à laisser ceux qu'il aime prendre des risques. Cache sa propre vulnérabilité derrière sa force.",
+      "character_arc": "Apprend que protéger les autres signifie aussi les laisser voler de leurs propres ailes. Accepte de montrer sa propre fragilité et découvre que les petits peuvent aussi prendre soin de lui.",
+      "catchphrase_template": "«Ne t'inquiète pas, petit(e). Je suis là.» / «Tu es plus {{QUALITÉ}} que tu ne le crois.»",
+      "best_paired_with": ["reveur_timide", "petit_genie_maladroit", "aventurier_intrepide"],
+      "example_characters": [
+        "Le BFG / Le BGG (Roald Dahl)",
+        "Totoro (Mon Voisin Totoro)",
+        "Babar (Jean de Brunhoff)",
+        "Ernest (Ernest et Célestine)"
+      ],
+      "species_suggestions": [
+        "Ours", "Éléphant", "Gorille doux", "Grand chien (Saint-Bernard, Terre-Neuve)",
+        "Baleine", "Arbre vivant", "Géant bienveillant", "Dragon sage"
+      ],
+      "age_appeal": "2-6 ans. Figure rassurante pour les tout-petits. Idéal pour les histoires du soir."
+    },
+    {
+      "id": "eternel_optimiste",
+      "name_fr": "L'Éternel Optimiste",
+      "name_en": "The Eternal Optimist",
+      "description": "Rien ne peut entamer sa bonne humeur et sa foi en la vie. Il voit le bon côté de tout, transforme les catastrophes en opportunités et répand la joie autour de lui. Son optimisme est contagieux mais peut parfois agacer les autres personnages plus réalistes, ce qui crée un contraste délicieux.",
+      "personality_traits": [
+        "Toujours souriant, même dans l'adversité",
+        "Voit le positif dans chaque situation",
+        "Encourage les autres et croit en eux plus qu'eux-mêmes",
+        "Chante, danse, sautille spontanément",
+        "Généreusement naïf, fait confiance à tout le monde",
+        "Transforme les problèmes en jeux"
+      ],
+      "visual_characteristics": "Visage ouvert et lumineux, grand sourire permanent. Couleurs jaune soleil, orange, rose. Posture ouverte, bras souvent écartés. Vêtements colorés et joyeux, peut-être avec des motifs (étoiles, fleurs, arc-en-ciel). Mouvements amples et expressifs. Parfois entouré de petits éléments joyeux (papillons, notes de musique, étoiles).",
+      "typical_flaw": "Son optimisme peut sembler déconnecté de la réalité. Il minimise parfois les vrais problèmes des autres. Sa naïveté le rend vulnérable aux manipulations.",
+      "character_arc": "Apprend que reconnaître la tristesse et les difficultés est aussi une forme de courage. Son optimisme devient plus profond et authentique quand il inclut la compassion pour la souffrance.",
+      "catchphrase_template": "«C'est MERVEILLEUX ! Tu ne trouves pas que c'est {{ADJECTIF_POSITIF}} ?»",
+      "best_paired_with": ["grognon_grand_coeur", "reveur_timide", "sage_ancien"],
+      "example_characters": [
+        "Pollyanna",
+        "Winnie l'Ourson",
+        "Joy / Joie (Vice-Versa)",
+        "SpongeBob / Bob l'Éponge"
+      ],
+      "species_suggestions": [
+        "Soleil vivant", "Canard (toujours souriant)", "Papillon", "Coccinelle",
+        "Golden Retriever", "Dauphin", "Colibri", "Tournesol vivant"
+      ],
+      "age_appeal": "2-6 ans. Les tout-petits adorent l'énergie positive. Personnage-lumière dans les histoires sombres."
+    },
+    {
+      "id": "rebelle_creatif",
+      "name_fr": "Le Rebelle Créatif",
+      "name_en": "The Creative Rebel",
+      "description": "Il refuse de suivre les règles établies et trouve toujours une façon originale de faire les choses. Pas méchant, juste différent. Il colorie en dehors des lignes, construit des châteaux de sable asymétriques et questionne tout. Sa rébellion est créative, pas destructrice.",
+      "personality_traits": [
+        "Questionne les règles et les conventions",
+        "Trouve des solutions originales et inattendues",
+        "Artistique et expressif dans sa façon d'être",
+        "Indépendant, parfois solitaire par choix",
+        "Défend les causes qu'il trouve justes",
+        "A un style visuel unique qui le distingue"
+      ],
+      "visual_characteristics": "Look décalé et personnel : vêtements dépareillés, accessoires DIY (bijoux faits main, customisations). Couleurs vives et contrastées, parfois en opposition avec l'environnement. Cheveux originaux (couleur, coupe). Expression déterminée et un brin espiègle. Souvent entouré de ses créations (dessins, sculptures, inventions). Mains tachées de peinture ou d'encre.",
+      "typical_flaw": "Sa rébellion peut blesser les autres ou casser des choses qui avaient de la valeur. Il a du mal avec l'autorité et le travail d'équipe. Confond parfois être différent et être difficile.",
+      "character_arc": "Apprend que certaines règles existent pour de bonnes raisons et que la vraie créativité peut aussi s'exprimer à l'intérieur d'un cadre. Découvre que la collaboration enrichit sa créativité.",
+      "catchphrase_template": "«Pourquoi pas autrement ? Et si on faisait {{IDÉE_ORIGINALE}} à la place ?»",
+      "best_paired_with": ["petit_genie_maladroit", "grand_protecteur", "sage_ancien"],
+      "example_characters": [
+        "Fifi Brindacier / Pippi Longstocking",
+        "Matilda (Roald Dahl)",
+        "Clémentine (Sara Pennypacker)",
+        "Le Petit Nicolas (aspects rebelles)"
+      ],
+      "species_suggestions": [
+        "Chat (indépendant par nature)", "Pie (collectionneuse)", "Singe (joueur)",
+        "Caméléon (transformiste)", "Poulpe (multi-talents)", "Perroquet", "Fennec"
+      ],
+      "age_appeal": "5-12 ans. Très populaire chez les enfants qui se sentent 'différents'. Inspire la confiance créative."
+    },
+    {
+      "id": "sage_ancien",
+      "name_fr": "Le Sage Ancien",
+      "name_en": "The Wise Elder",
+      "description": "Personnage âgé et bienveillant qui possède une sagesse née de l'expérience. Il ne donne pas les réponses directement mais guide par des histoires, des métaphores et des questions. Sa lenteur apparente cache une compréhension profonde du monde. Figure de grand-parent idéalisée.",
+      "personality_traits": [
+        "Patient, ne se presse jamais",
+        "Raconte des histoires pleines de sagesse",
+        "Écoute vraiment avant de répondre",
+        "A un humour subtil et inattendu",
+        "Connaît la nature et ses secrets",
+        "Fait les meilleures pâtisseries / tisanes / soupes"
+      ],
+      "visual_characteristics": "Visage ridé et souriant, yeux pétillants de malice. Vêtements confortables et intemporels : châle, gilet tricoté, tablier. Couleurs chaudes et douces : crème, caramel, bordeaux, vert mousse. Environnement douillet (fauteuil à bascule, bibliothèque, jardin). Mains expressives quand il raconte. Lunettes au bout du nez. Peut avoir une canne sculptée ou un chapeau caractéristique.",
+      "typical_flaw": "Parfois trop cryptique dans ses conseils. A tendance à vivre dans le passé. Sa lenteur peut frustrer les personnages pressés.",
+      "character_arc": "Rarement le protagoniste, mais évolue quand il apprend quelque chose de nouveau des jeunes personnages. Découvre que la sagesse peut aussi venir de l'innocence.",
+      "catchphrase_template": "«Tu sais, ça me rappelle une histoire... Il était une fois, {{DÉBUT_D_UNE_PARABOLE}}»",
+      "best_paired_with": ["aventurier_intrepide", "rebelle_creatif", "creature_magique_espiegle"],
+      "example_characters": [
+        "Grand-mère de Moustache (littérature jeunesse)",
+        "Dumbledore (version simplifiée)",
+        "Papi dans Heidi",
+        "Grand Arbre Sage (archétype classique)"
+      ],
+      "species_suggestions": [
+        "Tortue (longévité)", "Vieux hibou", "Éléphant (mémoire)",
+        "Arbre centenaire", "Baleine (sagesse des profondeurs)", "Vieux chat",
+        "Corbeau blanc", "Grenouille sage"
+      ],
+      "age_appeal": "3-10 ans. Évoque la relation grand-parent/enfant, universellement chérie."
+    },
+    {
+      "id": "mini_vilain_attachant",
+      "name_fr": "Le Mini-Vilain Attachant",
+      "name_en": "The Adorable Mini-Villain",
+      "description": "Un personnage qui VEUT être méchant, effrayant ou intimidant, mais qui est tellement petit, mignon ou incompétent que ses tentatives de vilenie sont hilarantes. Il inspire la tendresse plutôt que la peur. C'est le méchant que les enfants adorent car il est aussi vulnérable qu'eux.",
+      "personality_traits": [
+        "Se croit terrifiant (ne l'est pas du tout)",
+        "Fait des plans 'diaboliques' adorablement ratés",
+        "S'énerve quand personne n'a peur de lui",
+        "Au fond, veut juste de l'attention et de l'amitié",
+        "A un rire 'maléfique' qui ressemble à un gloussement",
+        "Collectionne des objets qu'il croit impressionnants (cailloux, bouts de ficelle)"
+      ],
+      "visual_characteristics": "Petit et rond malgré ses efforts pour paraître imposant. Cape trop grande, couronne de travers, masque qui glisse. Sourcils froncés en V mais joues rondes. Couleurs sombres (noir, violet) mais avec des éléments mignons involontaires (motif à pois, nœud papillon). Posture de super-vilain qui craque en posture de bébé quand il échoue.",
+      "typical_flaw": "Incapable de faire le mal malgré ses efforts. Sa recherche d'attention par la négativité l'isole des autres.",
+      "character_arc": "Découvre que ce qu'il cherchait (respect, attention, admiration) s'obtient bien mieux par la gentillesse et que ses 'talents de vilain' sont en fait des talents déguisés (un rugissement qui est un beau chant, etc.).",
+      "catchphrase_template": "«Tremblez devant moi ! Je suis le TERRIBLE {{NOM_AUTO_ATTRIBUÉ}} ! Mouahaha... *hoquet*»",
+      "best_paired_with": ["grand_protecteur", "eternel_optimiste", "grognon_grand_coeur"],
+      "example_characters": [
+        "Le Loup qui voulait être un mouton",
+        "Gru (Moi, Moche et Méchant - version enfant)",
+        "Le Petit Méchant Loup (Jon Scieszka)",
+        "Cornebidouille"
+      ],
+      "species_suggestions": [
+        "Petit loup", "Minuscule dragon", "Chat noir (qui n'est pas effrayant)",
+        "Petit vampire", "Chauve-souris mignonne", "Petit monstre sous le lit",
+        "Corbeau maladroit", "Fantôme timide"
+      ],
+      "age_appeal": "3-8 ans. Les enfants adorent le décalage entre l'ambition méchante et le résultat mignon."
+    },
+    {
+      "id": "artiste_passionne",
+      "name_fr": "L'Artiste Passionné",
+      "name_en": "The Passionate Artist",
+      "description": "Un personnage dont la passion pour un art (musique, peinture, danse, cuisine, jardinage) est le moteur de toute sa vie. Il voit le monde à travers le prisme de son art et transforme tout ce qu'il touche. Sa passion est contagieuse et inspire les autres à trouver la leur.",
+      "personality_traits": [
+        "Passionné et dédié à son art",
+        "Voit de la beauté partout où les autres voient du banal",
+        "Généreux dans le partage de sa passion",
+        "Perfectionniste, parfois trop exigeant envers lui-même",
+        "Expressif dans ses émotions, vit tout intensément",
+        "Créatif dans la résolution de problèmes (utilise son art)"
+      ],
+      "visual_characteristics": "Toujours avec les outils de son art (pinceaux, instrument, tablier). Couleurs liées à sa passion (palette de peinture, notes de musique). Mains expressives et habiles. Taches, traces de son art sur ses vêtements. Air inspiré et yeux brillants. Souvent entouré de ses créations.",
+      "typical_flaw": "S'isole dans sa passion au détriment des relations. Se décourage facilement face aux critiques. Compare ses créations à celles des autres et doute de lui.",
+      "character_arc": "Apprend que l'art n'est pas une compétition mais un partage. Découvre que l'imperfection fait partie de la beauté et que son art a du sens quand il touche les autres.",
+      "catchphrase_template": "«Regarde ! Ça ne te fait pas penser à {{OBSERVATION_ARTISTIQUE}} ?»",
+      "best_paired_with": ["grognon_grand_coeur", "rebelle_creatif", "reveur_timide"],
+      "example_characters": [
+        "Petit Ours Brun qui dessine",
+        "Fantasia (les personnages musiciens)",
+        "Le Petit Prince (aspect artistique)",
+        "Lili la petite souris peintre"
+      ],
+      "species_suggestions": [
+        "Oiseau chanteur", "Araignée tisseuse", "Abeille (architecte)",
+        "Papillon (couleurs)", "Castor (sculpteur)", "Grenouille (musicienne)",
+        "Hérisson (collectionneur)", "Chat (gracieux)"
+      ],
+      "age_appeal": "4-9 ans. Inspire les enfants à explorer leur propre créativité."
+    },
+    {
+      "id": "petit_chef",
+      "name_fr": "Le Petit Chef de Bande",
+      "name_en": "The Little Leader",
+      "description": "Celui qui organise, qui décide, qui a toujours un plan. Il est naturellement charismatique et les autres le suivent, mais son besoin de contrôle peut créer des tensions. Il apprend que le leadership est un service, pas un pouvoir.",
+      "personality_traits": [
+        "Organisé et méthodique, aime les listes et les plans",
+        "Charismatique, les autres le suivent naturellement",
+        "Responsable, prend les choses en main",
+        "Autoritaire parfois, a du mal à déléguer",
+        "Courageux face au groupe mais doute en privé",
+        "Juste dans ses décisions, même quand c'est difficile"
+      ],
+      "visual_characteristics": "Posture droite et assurée, menton levé. Peut porter un accessoire de 'chef' (sifflet, badge, petit chapeau). Couleurs affirmées : bleu roi, rouge, doré. Souvent au centre du groupe ou légèrement en avant. Regard déterminé mais chaleureux. Porte un carnet ou un plan.",
+      "typical_flaw": "Veut tout contrôler et n'écoute pas assez les idées des autres. A peur de l'échec car il se sent responsable de tout le groupe.",
+      "character_arc": "Apprend que le meilleur leader est celui qui écoute, qui fait confiance et qui sait reconnaître les talents de chacun. Découvre que demander de l'aide est aussi une forme de force.",
+      "catchphrase_template": "«J'ai un plan ! Voilà ce qu'on va faire : premièrement, {{ÉTAPE_1}}...»",
+      "best_paired_with": ["reveur_timide", "grognon_grand_coeur", "petit_genie_maladroit"],
+      "example_characters": [
+        "Le Petit Nicolas (en tant que meneur)",
+        "Astérix (le stratège)",
+        "Lucy van Pelt (Peanuts, version adoucie)",
+        "Hermione Granger (version enfant)"
+      ],
+      "species_suggestions": [
+        "Fourmi (organisation)", "Lion (leadership)", "Abeille reine",
+        "Chien berger", "Manchot empereur", "Dauphin", "Coq"
+      ],
+      "age_appeal": "5-10 ans. Les enfants leaders s'identifient, les autres apprennent le travail d'équipe."
+    },
+    {
+      "id": "gourmand_joyeux",
+      "name_fr": "Le Gourmand Joyeux",
+      "name_en": "The Joyful Foodie",
+      "description": "Un personnage dont la vie tourne autour de la nourriture : il cuisine, goûte, partage et réunit les gens autour de bons plats. Sa gourmandise est une forme d'amour et de générosité. Il résout les conflits avec un bon gâteau et comprend les gens à travers ce qu'ils aiment manger.",
+      "personality_traits": [
+        "Gourmand et généreux avec la nourriture",
+        "Chaleureux, aime rassembler les gens",
+        "Créatif en cuisine, invente des recettes folles",
+        "Réconforte les autres avec de bons petits plats",
+        "Expressif dans ses réactions gustatives",
+        "Connaît une recette pour chaque émotion"
+      ],
+      "visual_characteristics": "Rond et sympathique, tablier toujours noué. Toujours avec un ustensile de cuisine ou un aliment. Couleurs gourmandes : rouge tomate, jaune citron, brun chocolat, vert pomme. Joues rondes et roses. Souvent entouré de vapeur, d'odeurs dessinées, de miettes. Sourire béat quand il goûte quelque chose de bon.",
+      "typical_flaw": "Peut être excessif dans sa gourmandise. Utilise la nourriture pour éviter les problèmes au lieu de les affronter. A parfois du mal à partager son plat préféré.",
+      "character_arc": "Apprend que nourrir les gens est une forme d'amour mais que les vrais problèmes ne se résolvent pas qu'avec un gâteau. Découvre que le meilleur ingrédient est l'attention portée aux autres.",
+      "catchphrase_template": "«Tu sais ce qu'il te faut ? Un bon {{PLAT}} ! Ça va tout arranger !»",
+      "best_paired_with": ["grognon_grand_coeur", "aventurier_intrepide", "grand_protecteur"],
+      "example_characters": [
+        "Le Petit Ours Brun gourmand",
+        "Rémy (Ratatouille - version enfant)",
+        "La Chenille qui fait des trous",
+        "Sam le pompier (version cuisine)"
+      ],
+      "species_suggestions": [
+        "Ours (miel)", "Souris (fromage)", "Hamster (joues pleines)",
+        "Cochon (gourmet)", "Chat (gourmet aussi)", "Raton laveur (goûte tout)",
+        "Écureuil (provisions)", "Abeille (miel)"
+      ],
+      "age_appeal": "2-7 ans. La nourriture est un sujet universel et sensoriel pour les petits."
+    },
+    {
+      "id": "jumeau_contraire",
+      "name_fr": "Les Jumeaux Contraires",
+      "name_en": "The Opposite Twins",
+      "description": "Deux personnages inséparables mais opposés en tout : l'un est calme, l'autre agité ; l'un est ordonné, l'autre chaotique. Leur complémentarité est leur force mais leurs différences sont source de conflit comique. Ils représentent les deux faces d'une même pièce.",
+      "personality_traits": [
+        "Inséparables malgré leurs différences",
+        "Finissent les phrases de l'autre (souvent à tort)",
+        "Compétitifs entre eux mais solidaires face au monde",
+        "Se disputent pour des broutilles mais se réconcilient instantanément",
+        "Chacun admire secrètement la qualité principale de l'autre",
+        "Fonctionnent mieux ensemble que séparément"
+      ],
+      "visual_characteristics": "Miroir inversé : mêmes proportions mais couleurs, expressions et postures opposées. L'un tout en rondeurs, l'autre tout en angles. L'un en couleurs chaudes, l'autre en couleurs froides. Même accessoire mais porté différemment. Souvent dessinés en symétrie ou en contraste sur la même page.",
+      "typical_flaw": "Leur rivalité peut devenir destructrice. Ils ont du mal à fonctionner indépendamment. Prennent leur complémentarité pour acquise.",
+      "character_arc": "Apprennent à apprécier explicitement ce que l'autre apporte. Séparés, ils découvrent qu'ils sont incomplets. Réunis, ils célèbrent leur différence au lieu de la subir.",
+      "catchphrase_template": "A: «C'est {{AVIS_A}} !» B: «Pas du tout, c'est {{AVIS_B}} !» Ensemble: «...bon, peut-être un peu des deux.»",
+      "best_paired_with": ["creature_magique_espiegle", "sage_ancien", "petit_chef"],
+      "example_characters": [
+        "Max et les Maximonstres (dualité)",
+        "Thing 1 et Thing 2 (Dr. Seuss)",
+        "Dupond et Dupont (Tintin)",
+        "Tic et Tac"
+      ],
+      "species_suggestions": [
+        "Chats (un noir, un blanc)", "Oiseaux (un qui vole, un qui nage)",
+        "Ours (un polaire, un brun)", "Souris (une grande, une petite)",
+        "Poissons (un rouge, un bleu)", "Lapins (un rapide, un lent)"
+      ],
+      "age_appeal": "3-8 ans. Les enfants avec des frères et sœurs s'identifient immédiatement. Double source d'humour."
+    },
+    {
+      "id": "gardien_nature",
+      "name_fr": "Le Gardien de la Nature",
+      "name_en": "The Nature Guardian",
+      "description": "Un personnage profondément connecté à la nature qui peut communiquer avec les animaux, sentir ce que les plantes ressentent et comprendre les rythmes de la terre. Il enseigne le respect de l'environnement non par la morale mais par l'émerveillement et l'amour.",
+      "personality_traits": [
+        "Empathique envers tous les êtres vivants",
+        "Calme et ancré, en harmonie avec la nature",
+        "Connaît les noms de toutes les plantes et animaux",
+        "S'émerveille devant les petites choses (une feuille, une goutte d'eau)",
+        "Courageux quand il faut défendre la nature",
+        "Pieds nus autant que possible"
+      ],
+      "visual_characteristics": "Vêtements naturels avec des éléments végétaux (feuilles dans les cheveux, ceinture de lierre). Couleurs de la forêt : vert profond, brun, ambre, touches de fleurs. Souvent entouré d'animaux amicaux. Pieds dans la terre ou l'eau. Expression sereine et ouverte. Peut avoir des éléments fantastiques (yeux couleur feuille, cheveux comme des branches).",
+      "typical_flaw": "Peut être trop rigide dans sa défense de la nature. A du mal à comprendre le monde urbain et les compromis nécessaires. Parfois juge les autres pour leur manque de connexion à la nature.",
+      "character_arc": "Apprend que chaque personne a son propre chemin vers la nature et que l'enseignement par l'amour est plus efficace que la culpabilisation.",
+      "catchphrase_template": "«Écoute... tu entends ? {{SON_DE_LA_NATURE}}. La nature nous parle, si on sait écouter.»",
+      "best_paired_with": ["aventurier_intrepide", "petit_genie_maladroit", "rebelle_creatif"],
+      "example_characters": [
+        "Princesse Mononoké (version enfant)",
+        "Le Lorax (Dr. Seuss)",
+        "Pocahontas (version jeunesse)",
+        "Wangari Maathai (albums biographiques)"
+      ],
+      "species_suggestions": [
+        "Enfant-arbre", "Faune/satyre enfant", "Grenouille sage",
+        "Cerf", "Abeille géante bienveillante", "Fée de la forêt",
+        "Renard des bois", "Esprit de la rivière"
+      ],
+      "age_appeal": "4-10 ans. Très actuel avec les préoccupations environnementales. Éducatif et poétique."
+    }
+  ],
+  "pairing_guide": {
+    "description": "Guide de combinaisons d'archétypes pour créer des dynamiques de personnages efficaces",
+    "classic_duos": [
+      {"pair": ["reveur_timide", "aventurier_intrepide"], "dynamic": "Le rêveur donne la direction, l'aventurier fournit le courage. Complémentarité parfaite."},
+      {"pair": ["grognon_grand_coeur", "eternel_optimiste"], "dynamic": "Contraste comique garanti. L'optimiste fait fondre le grognon malgré lui."},
+      {"pair": ["petit_genie_maladroit", "aventurier_intrepide"], "dynamic": "Le cerveau et les jambes. Les plans brillants rencontrent l'action impulsive."},
+      {"pair": ["creature_magique_espiegle", "reveur_timide"], "dynamic": "La créature sort le rêveur de sa coquille en créant des situations impossibles à ignorer."}
+    ],
+    "classic_trios": [
+      {"trio": ["aventurier_intrepide", "petit_genie_maladroit", "grognon_grand_coeur"], "dynamic": "Le leader, le cerveau et le cœur. Trio équilibré pour les quêtes et aventures."},
+      {"trio": ["reveur_timide", "eternel_optimiste", "rebelle_creatif"], "dynamic": "Trois façons différentes de voir le monde qui s'enrichissent mutuellement."},
+      {"trio": ["petit_chef", "creature_magique_espiegle", "grognon_grand_coeur"], "dynamic": "L'organisateur face au chaos et au refus. Dynamique conflictuelle et drôle."}
+    ],
+    "protagonist_antagonist_pairs": [
+      {"hero": "reveur_timide", "foil": "mini_vilain_attachant", "dynamic": "Deux solitaires qui pourraient être amis s'ils le réalisaient."},
+      {"hero": "aventurier_intrepide", "foil": "petit_chef", "dynamic": "Deux leaders avec des approches opposées : instinct vs méthode."},
+      {"hero": "eternel_optimiste", "foil": "grognon_grand_coeur", "dynamic": "Conflit de perspectives qui se résout en amitié improbable."}
+    ]
+  }
+}
