@@ -33,7 +33,31 @@ model Order {
   city        String?
   country     String?
   countryCode String?
+  // Référence SasPay (transaction_id) — unicité côté base pour garantir
+  // « livrer une seule fois » (webhook ET page /success convergent ici).
+  saspayRef   String?  @unique
   createdAt   DateTime @default(now())
+}
+
+// Session de checkout SasPay persistée dès la création (guideline SKILL.md :
+// « Persister le id/payment_id côté base dès la création »).
+model SasPayCheckout {
+  id          String   @id // id de session SasPay (UUID)
+  orderRef    String   @unique // référence interne générée à la création
+  slug        String?
+  productId   String // "pack" | "combo" | id de tome
+  basePrice   Float
+  finalPrice  Float
+  coupon      String?
+  email       String
+  phone       String?
+  country     String?
+  status      String   @default("PENDING") // PENDING | PAID | FAILED
+  transactionId String?
+  netAmount   Float?
+  chargedAmount Float?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Comment {

@@ -268,81 +268,44 @@ export default function Success() {
 
   useEffect(() => {
     if (!router.isReady) return;
-    let queryProductId = router.query.productId;
-    let queryAmount    = router.query.amount;
-    let queryEmail     = router.query.email;
-    const { provider, token } = router.query;
+    const { provider } = router.query;
 
-    // Récupérer depuis localStorage si les paramètres d'URL sont absents
-    if (!queryProductId || !queryAmount) {
-      if (typeof window !== 'undefined') {
-        try {
-          const stored = JSON.parse(localStorage.getItem('pending_purchase') || '{}');
-          if (stored.productId) queryProductId = stored.productId;
-          if (stored.amount) queryAmount = String(stored.amount);
-          if (stored.email) queryEmail = stored.email;
-        } catch {}
+    // orderRef : query → localStorage → cookie. C'est la clé qui relie cette
+    // page à la session SasPay persistée en base (multi-appareils, sans cookie).
+    let orderRef = router.query.orderRef || '';
+    let stored = {};
+    if (typeof window !== 'undefined') {
+      try { stored = JSON.parse(localStorage.getItem('pending_purchase') || '{}'); } catch {}
+      if (!orderRef) {
+        try { orderRef = localStorage.getItem('saspay_order_ref') || ''; } catch {}
+      }
+      if (!orderRef && typeof document !== 'undefined') {
+        const m = document.cookie.match(/saspay_order_ref=([^;]+)/);
+        if (m) orderRef = decodeURIComponent(m[1]);
       }
     }
 
-    const effectiveProductId = queryProductId || 'pack';
-    // Fallback en FCFA (jamais d'euros résiduels dans une base FCFA)
-    const fallbackFcfa = effectiveProductId === 'combo' ? '9900' : effectiveProductId === 'pack' ? '6500' : '1300';
-    const effectiveAmount = queryAmount || fallbackFcfa;
-    setActiveProductId(effectiveProductId);
-    if (queryEmail) setActiveEmail(queryEmail);
+    let queryProductId = router.query.productId || stored.productId || null;
+    let queryAmount    = router.query.amount || (stored.amount != null ? String(stored.amount) : null);
+    let queryEmail     = router.query.email || stored.email || null;
 
     async function init() {
+      let saspayRef = null; // transaction_id SasPay → idempotence Order.saspayRef
       try {
-        // ── Capture PayPal ─────────────────────────────────────────────
-        if (provider === 'paypal' && token) {
-          try {
-            const r = await fetch('/api/paypal/capture-order', {
-              method: 'POST', headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ token }),
-            });
-            const d = await r.json();
-            if (d.success && d.payerEmail) {
-              // Stocker l'email PayPal pour l'enregistrement de commande
-              router.query.email = d.payerEmail;
-              setActiveEmail(d.payerEmail);
-            }
-            if (!d.success) console.warn('Capture PayPal:', d.error);
-          } catch (e) { console.warn('Capture PayPal erreur:', e.message); }
-        }
-
-        // ── Vérification Moneroo ────────────────────────────────────────
-        if (provider === 'moneroo') {
-          const { paymentId } = router.query;
-          if (paymentId) {
-            try {
-              const r = await fetch(`/api/moneroo?paymentId=${paymentId}`);
-              const d = await r.json();
-              if (d.status !== 'success') { setLoading(false); return; }
-            } catch {}
-          }
-        }
-
-        // ── Vérification SasPay — RÈGLE ABSOLUE : on ne livre que sur SUCCESS confirmé. ──
-        // La redirection SasPay ne prouve rien (le client peut être renvoyé avant
-        // confirmation serveur). On polling vérifie-session jusqu'à statut final.
-        if (provider === 'saspay') {
-          let sessionId = router.query.sessionId || router.query.session_id || '';
-          if (!sessionId && typeof window !== 'undefined') {
-            try { sessionId = localStorage.getItem('saspay_session_id') || ''; } catch {}
-          }
-          const qs = sessionId ? `?sessionId=${encodeURIComponent(sessionId)}` : '';
-          const MAX_ATTEMPTS = 10; // 10 tentatives × 3 s ≈ 30 s de grâce
+        // ── Vérification SasPay — RÈGLE ABSOLUE (guidelines) : on ne livre que
+        // sur SUCCESS confirmé par GET /payments/{id}/verify/ (via notre API).
+        // La redirection return_url ne prouve rien.
+        if (provider === 'saspay' || (!provider && orderRef)) {
+          const MAX_ATTEMPTS = 20; // 20 × 3 s ≈ 60 s — la confirmation USSD peut être lente
           let outcome = null;
+          let info = null;
           for (let i = 0; i < MAX_ATTEMPTS && !outcome; i++) {
             try {
+              const qs = orderRef ? `?orderRef=${encodeURIComponent(orderRef)}` : '';
               const r = await fetch(`/api/saspay/verify-session${qs}`);
               const d = await r.json();
-              if (d.paid === true) {
-                outcome = 'ok';
-              } else if (/FAILED|CANCELLED|EXPIRED/.test(`${d.status || ''} ${d.transactionStatus || ''}`)) {
-                outcome = 'failed';
-              }
+              if (d.paid === true) { outcome = 'ok'; info = d; }
+              else if (/FAILED|CANCELLED|EXPIRED/.test(`${d.status || ''} ${d.transactionStatus || ''}`)) { outcome = 'failed'; info = d; }
             } catch (e) {
               console.warn('[SasPay] Erreur vérification (tentative ' + (i + 1) + '):', e.message);
             }
@@ -352,17 +315,28 @@ export default function Success() {
           }
           outcome = outcome || 'pending';
           setPayOutcome(outcome);
-          if (outcome === 'ok') {
-            try { localStorage.removeItem('saspay_session_id'); } catch {}
-            console.log('[SasPay] Paiement vérifié avec succès');
-          } else {
-            // Ni confirmé ni échoué : on N'enregistre PAS la commande, on ne déclenche
-            // ni l'e-mail de livraison ni le Pixel Purchase. Le webhook SasPay prendra
-            // le relais dès que le statut deviendra SUCCESS côté SasPay.
+          if (outcome !== 'ok') {
+            // Échoué ou en attente : AUCUNE commande, AUCUN e-mail, AUCUN pixel.
+            // Le webhook SasPay (une fois l'URL à jour) livrera si le paiement
+            // aboutit plus tard.
             setLoading(false);
             return;
           }
+          // Les données SERVEUR priment sur l'URL/localStorage.
+          if (info.productId) queryProductId = info.productId;
+          if (info.amount) queryAmount = info.amount;
+          if (info.email) queryEmail = info.email;
+          if (info.transactionId) saspayRef = info.transactionId;
+          try { localStorage.removeItem('saspay_order_ref'); } catch {}
+          console.log('[SasPay] Paiement vérifié avec succès (SUCCESS confirmé).');
         }
+
+        const effectiveProductId = queryProductId || 'pack';
+        // Fallback FCFA catalogue (jamais d'euros résiduels).
+        const fallbackFcfa = effectiveProductId === 'combo' ? '9900' : effectiveProductId === 'pack' ? '6500' : '1300';
+        const effectiveAmount = queryAmount || fallbackFcfa;
+        setActiveProductId(effectiveProductId);
+        if (queryEmail) setActiveEmail(queryEmail);
 
         // ── Chargement des produits ─────────────────────────────────────
         const productsRes = await fetch('/api/products');
@@ -400,7 +374,9 @@ export default function Success() {
         }
 
         // ── Enregistrement commande ─────────────────────────────────────
-        if (!registeredRef.current) {
+        // provider=free : la commande a déjà été créée (et l'e-mail envoyé) par
+        // /api/checkout_free côté serveur → on ne ré-enregistre rien ici.
+        if (!registeredRef.current && provider !== 'free') {
           registeredRef.current = true;
           const currentEmail = queryEmail || router.query.email;
           const orderEmail = currentEmail?.includes('@') ? currentEmail : `client_${provider || 'web'}@example.com`;
@@ -411,12 +387,15 @@ export default function Success() {
               body: JSON.stringify({
                 productId: isSpecialPack(effectiveProductId) ? effectiveProductId : dbProductId,
                 amount: Number(effectiveAmount),
-                email: orderEmail
+                email: orderEmail,
+                // saspayRef = transaction_id → Order.saspayRef @unique :
+                // le webhook et cette page convergent sans doublon ni double e-mail.
+                saspayRef: saspayRef || undefined,
               }),
             });
           } catch {}
 
-          // Déclencher l'événement standard Purchase pour le Pixel Meta
+          // Événement Purchase pour le Pixel Meta — uniquement si payé.
           if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
             window.fbq('track', 'Purchase', {
               value: Number(effectiveAmount) || 6500,

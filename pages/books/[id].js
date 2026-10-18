@@ -82,7 +82,8 @@ export default function BookDetail() {
     setPaymentLoading(true);
     setCouponError('');
     try {
-      const res = await fetch(`/api/coupons?validate=1&code=${encodeURIComponent(code)}&price=${bookPriceXof}`);
+      // Base résolue CÔTÉ SERVEUR via productId (le navigateur n'est plus autorité).
+      const res = await fetch(`/api/coupons?validate=1&code=${encodeURIComponent(code)}&productId=${encodeURIComponent(book.id)}`);
       const data = await res.json();
       if (data.valid) {
         setDiscountAmount(data.discount);
@@ -557,7 +558,9 @@ export default function BookDetail() {
                 </div>
               ) : (
                 <SasPayButton
-                  book={{ id: book.id, title: book.title, price: finalPrice }}
+                  book={{ id: book.id, title: book.title }}
+                  amount={finalPrice}
+                  coupon={discountAmount > 0 ? couponCode.trim().toUpperCase() : ''}
                   className="w-full py-3.5"
                 />
               )}

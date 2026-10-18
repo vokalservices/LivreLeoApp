@@ -9,13 +9,21 @@
     "CLAUDE_CODE_SUBAGENT_MODEL": "auto",
     "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "983616"
   },
+  "permissions": {
+    "allow": [
+      "Bash(grep -v '^$')",
+      "Bash(grep -oE \"sk_\\(live|test\\)_[A-Za-z0-9]{0,4}\" .env.local)",
+      "WebFetch(domain:docs.saspay.me)"
+    ],
+    "blockReadsOutsideWorkingDirectories": true,
+    "additionalDirectories": [
+      "C:\\Users\\Administrator\\AppData\\Local\\Temp\\saspay_diag"
+    ]
+  },
   "model": "opus",
   "modelSettings": {
     "auto": {
       "effortLevel": "xhigh"
     }
-  },
-  "permissions": {
-    "blockReadsOutsideWorkingDirectories": true
   }
 }

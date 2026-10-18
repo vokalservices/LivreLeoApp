@@ -182,9 +182,24 @@ export default async function handler(req, res) {
     }
 
   } else if (req.method === 'POST') {
-    const { productId, amount, email } = req.body;
+    const { productId, amount, email, saspayRef } = req.body;
     if (!productId || amount === undefined || amount === null) {
       return res.status(400).json({ error: 'Missing fields productId or amount' });
+    }
+
+    // ── Idempotence SasPay : une seule commande par transaction ────────────
+    // La page /success ET le webhook peuvent enregistrer la même vente ;
+    // Order.saspayRef (unique) garantit « livrer une seule fois » côté base.
+    if (saspayRef) {
+      try {
+        const prisma0 = await getPrismaClient();
+        if (prisma0) {
+          const dup = await prisma0.order.findUnique({ where: { saspayRef: String(saspayRef) } });
+          if (dup) return res.status(200).json({ ...dup, duplicate: true });
+        }
+      } catch (e) {
+        console.warn('[orders] dedupe saspayRef:', e.message);
+      }
     }
 
     let city = null, country = null, countryCode = null;
@@ -214,16 +229,27 @@ export default async function handler(req, res) {
       const prisma = await getPrismaClient();
       if (!prisma) return res.status(503).json({ error: 'Database unavailable' });
 
-      const order = await prisma.order.create({
-        data: {
-          productId:   Number(productId) || 1,
-          amount:      Number(amount),
-          email:       email || 'inconnu@example.com',
-          city,
-          country,
-          countryCode,
-        },
-      });
+      let order;
+      try {
+        order = await prisma.order.create({
+          data: {
+            productId:   Number(productId) || 1,
+            amount:      Number(amount),
+            email:       email || 'inconnu@example.com',
+            city,
+            country,
+            countryCode,
+            saspayRef:   saspayRef ? String(saspayRef) : null,
+          },
+        });
+      } catch (e) {
+        if (e.code === 'P2002' && saspayRef) {
+          // Course webhook//success : l'autre chemin a déjà livré.
+          const dup = await prisma.order.findUnique({ where: { saspayRef: String(saspayRef) } });
+          return res.status(200).json({ ...(dup || {}), duplicate: true });
+        }
+        throw e;
+      }
 
       const customerEmail = email || 'inconnu@example.com';
       if (customerEmail !== 'inconnu@example.com') {

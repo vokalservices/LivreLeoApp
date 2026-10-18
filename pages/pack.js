@@ -62,7 +62,8 @@ export default function Pack() {
     setCouponError('');
     setCouponSuccess('');
     try {
-      const res  = await fetch(`/api/coupons?validate=1&code=${encodeURIComponent(code)}&price=${basePrice}`);
+      // La base de calcul est résolue CÔTÉ SERVEUR via productId (jamais par le navigateur).
+      const res  = await fetch(`/api/coupons?validate=1&code=${encodeURIComponent(code)}&productId=${isCombo ? 'combo' : 'pack'}`);
       const data = await res.json();
       if (data.valid) {
         setDiscountAmount(data.discount);
@@ -243,9 +244,11 @@ export default function Pack() {
                 </div>
               ) : (
                 <SasPayButton
-                  book={{ id: isCombo ? 'combo' : 'pack', title: packTitle, price }}
+                  book={{ id: isCombo ? 'combo' : 'pack', title: packTitle }}
                   isPack={!isCombo}
                   isCombo={isCombo}
+                  amount={price}
+                  coupon={discountAmount > 0 ? couponCode.trim().toUpperCase() : ''}
                   className="w-full sm:w-auto px-10"
                 />
               )}
@@ -386,9 +389,11 @@ export default function Pack() {
                 </div>
               ) : (
                 <SasPayButton
-                  book={{ id: isCombo ? 'combo' : 'pack', title: packTitle, price }}
+                  book={{ id: isCombo ? 'combo' : 'pack', title: packTitle }}
                   isPack={!isCombo}
                   isCombo={isCombo}
+                  amount={price}
+                  coupon={discountAmount > 0 ? couponCode.trim().toUpperCase() : ''}
                   className="w-full sm:w-auto"
                 />
               )}

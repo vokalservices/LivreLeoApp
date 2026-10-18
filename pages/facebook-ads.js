@@ -472,15 +472,17 @@ function PricingCard({ featured, title, badge, originalPrice, salePrice, discoun
       {/* Direct Payment avec SasPay (Mobile Money & Cartes) */}
       {(isPack || isCombo) ? (
         <SasPayButton
-          book={{ id: isCombo ? 'combo' : 'pack', title: title, price: finalPrice }}
+          book={{ id: isCombo ? 'combo' : 'pack', title: title }}
           isPack={!!isPack}
           isCombo={!!isCombo}
+          amount={finalPrice}
           coupon={hasDiscount ? appliedCoupon.code : ''}
           className="w-full"
         />
       ) : (
         <SasPayButton
-          book={{ id: bookId || 1, title: title, price: finalPrice }}
+          book={{ id: bookId || 1, title: title }}
+          amount={finalPrice}
           coupon={hasDiscount ? appliedCoupon.code : ''}
           className="w-full"
         />
@@ -520,7 +522,10 @@ export default function FacebookAdsPage() {
     setCouponError('');
     setCouponSuccess('');
     try {
-      const res = await fetch(`/api/coupons?validate=1&code=${encodeURIComponent(code)}&price=9.99`);
+      // Base de validation serveur (le pack est l'offre canonique de cette page).
+      // Le montant réel de chaque offre est de toute façon REVALIDÉ serveur
+      // par /api/saspay/create-checkout au moment du paiement.
+      const res = await fetch(`/api/coupons?validate=1&code=${encodeURIComponent(code)}&productId=pack`);
       const data = await res.json();
       if (res.ok && data.valid) {
         setAppliedCoupon({

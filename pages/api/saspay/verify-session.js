@@ -1,94 +1,167 @@
 /**
  * pages/api/saspay/verify-session.js
- * Vérifie le statut réel d'une session de checkout SasPay côté serveur
- * Route : GET /api/saspay/verify-session?sessionId=...
- * Spécification OpenAPI : GET https://api.saspay.me/api/v1/checkout-sessions/{id}/status/
+ * GET /api/saspay/verify-session?orderRef=...  (ou ?sessionId=...)
+ *
+ * Vérifie le statut RÉEL d'un paiement SasPay côté serveur.
+ * Règle absolue des guidelines : « Le statut réel vient de
+ * GET /payments/{payment_id}/verify/ (ou d'un webhook vérifié), et seul
+ * SUCCESS autorise la livraison. » Un retour de redirection ne prouve rien.
+ *
+ * Résolution de la session, dans l'ordre :
+ *   1. orderRef (query)  → table SasPayCheckout (fiable multi-appareils)
+ *   2. sessionId (query) → table SasPayCheckout puis appel direct
+ *   3. cookie saspay_order_ref / saspay_last_session (secours)
+ *
+ * paid = true UNIQUEMENT si /payments/{transaction_id}/verify/ renvoie
+ * status === 'SUCCESS'. Le statut 'PAID' de la session sans transaction
+ * vérifiable reste PENDING (on continue d'attendre le webhook).
  */
 
+import prisma from '../../../lib/prisma';
+
 const SASPAY_BASE_URL = 'https://api.saspay.me/api/v1';
+
+function readCookie(req, name) {
+  const header = req.headers.cookie;
+  if (!header) return null;
+  const m = header.match(new RegExp(`(?:^|;\\s*)${name}=([^;]+)`));
+  return m ? decodeURIComponent(m[1]) : null;
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Méthode non autorisée.' });
   }
 
-  const apiKey = process.env.SASPAY_API_KEY;
+  const apiKey = (process.env.SASPAY_API_KEY || '').trim();
   if (!apiKey) {
-    return res.status(500).json({ error: 'SASPAY_API_KEY non configurée.' });
+    return res.status(500).json({ paid: false, error: 'SASPAY_API_KEY non configurée.' });
   }
 
-  // Récupérer le sessionId depuis query ou cookie
-  let sessionId = req.query.sessionId || req.query.session_id || req.query.id;
-  if (!sessionId && req.headers.cookie) {
-    const match = req.headers.cookie.match(/saspay_last_session=([^;]+)/);
-    if (match) sessionId = match[1];
+  // ── Résolution orderRef / sessionId ─────────────────────────────────────
+  const orderRef =
+    req.query.orderRef || readCookie(req, 'saspay_order_ref') || null;
+  const sessionId =
+    req.query.sessionId || req.query.session_id || readCookie(req, 'saspay_last_session') || null;
+
+  let row = null;
+  try {
+    if (orderRef) {
+      row = await prisma.sasPayCheckout.findUnique({ where: { orderRef: String(orderRef) } });
+    }
+    if (!row && sessionId) {
+      row = await prisma.sasPayCheckout.findUnique({ where: { id: String(sessionId) } });
+    }
+  } catch (err) {
+    console.warn('[SasPay] verify-session: lecture DB impossible:', err.message);
   }
 
-  if (!sessionId) {
-    return res.status(400).json({ error: 'Identifiant de session SasPay manquant.' });
+  const effectiveSessionId = row?.id || (sessionId ? String(sessionId) : null);
+  if (!effectiveSessionId) {
+    return res.status(400).json({
+      paid: false,
+      status: 'UNKNOWN',
+      error: 'Identifiant de session SasPay manquant (orderRef ou sessionId).',
+    });
   }
+
+  const headers = { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' };
 
   try {
-    const response = await fetch(`${SASPAY_BASE_URL}/checkout-sessions/${encodeURIComponent(sessionId)}/status/`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${apiKey.trim()}`,
-        'Content-Type': 'application/json',
-      },
-    });
+    // ── 1. Statut de la session de checkout ───────────────────────────────
+    const statusRes = await fetch(
+      `${SASPAY_BASE_URL}/checkout-sessions/${encodeURIComponent(effectiveSessionId)}/status/`,
+      { method: 'GET', headers }
+    );
 
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error('[SasPay] Erreur vérification session:', response.status, errText);
-      return res.status(response.status).json({
-        paid: false,
-        error: `Impossible de vérifier la session SasPay (${response.status})`,
-      });
+    if (statusRes.status === 401) {
+      console.error('[SasPay] verify-session: 401 — clé invalide, ne pas réessayer.');
+      return res.status(502).json({ paid: false, status: 'ERROR', error: 'Clé API SasPay invalide.' });
+    }
+    if (statusRes.status === 429) {
+      return res.status(429).json({ paid: false, status: 'PENDING', error: 'Rate-limit SasPay, réessayez dans quelques secondes.' });
+    }
+    if (!statusRes.ok) {
+      const body = await statusRes.text().catch(() => '');
+      console.error('[SasPay] verify-session HTTP', statusRes.status, body.slice(0, 200));
+      return res.status(502).json({ paid: false, status: 'UNKNOWN', error: `Statut session illisible (${statusRes.status}).` });
     }
 
-    const raw = await response.json();
-    const session = raw?.data || raw || {};
-    // Exemples de statut retournés : status: "PAID", transaction_status: "SUCCESS"
-    let isPaid = session.status === 'PAID' || session.transaction_status === 'SUCCESS';
-    let netAmount = null;
-    let paymentCurrency = null;
+    const statusRaw = await statusRes.json();
+    const session = statusRaw?.data || statusRaw || {};
+    let transactionId = session.transaction_id || null;
 
-    // Selon SKILL.md : si un transaction_id est associé, valider avec GET /payments/{payment_id}/verify/
-    if (session.transaction_id) {
+    let paid = false;
+    let transactionStatus = session.transaction_status || null;
+    let netAmount = null;
+    let chargedAmount = null;
+
+    // ── 2. SEULE source de vérité : GET /payments/{id}/verify/ → SUCCESS ──
+    if (transactionId) {
+      const verifyRes = await fetch(
+        `${SASPAY_BASE_URL}/payments/${encodeURIComponent(transactionId)}/verify/`,
+        { method: 'GET', headers }
+      );
+      if (verifyRes.ok) {
+        const verifyRaw = await verifyRes.json();
+        const payment = verifyRaw?.data || verifyRaw || {};
+        transactionStatus = payment.status || transactionStatus;
+        if (payment.status === 'SUCCESS') {
+          paid = true;
+          netAmount = payment.amounts?.net ?? payment.net_amount ?? null;
+          chargedAmount = payment.amounts?.charged ?? payment.debited_amount ?? null;
+        }
+      } else {
+        console.warn('[SasPay] verify paiement HTTP', verifyRes.status, '— on reste prudent (non payé).');
+      }
+    }
+
+    // ── 2b. Secours conforme : « Le statut réel vient de verify/ OU d'un
+    // webhook vérifié ». Si notre webhook SIGNÉ a déjà confirmé cette session
+    // (row.status === 'PAID'), il fait autorité même si l'API verify tarde.
+    if (!paid && row?.status === 'PAID' && row.transactionId) {
+      paid = true;
+      transactionId = transactionId || row.transactionId;
+      transactionStatus = transactionStatus || 'SUCCESS';
+      netAmount = netAmount ?? row.netAmount ?? null;
+      chargedAmount = chargedAmount ?? row.chargedAmount ?? null;
+    }
+
+    // ── 3. Mise à jour de la ligne SasPayCheckout (best effort) ───────────
+    if (row) {
+      const newStatus = paid ? 'PAID' : /FAILED|CANCELLED/.test(String(transactionStatus || session.status || '')) ? 'FAILED' : row.status;
       try {
-        const payVerifyRes = await fetch(`${SASPAY_BASE_URL}/payments/${encodeURIComponent(session.transaction_id)}/verify/`, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${apiKey.trim()}`,
-            'Content-Type': 'application/json',
+        await prisma.sasPayCheckout.update({
+          where: { orderRef: row.orderRef },
+          data: {
+            status: newStatus,
+            transactionId: transactionId || row.transactionId,
+            netAmount: netAmount != null ? Number(netAmount) : row.netAmount,
+            chargedAmount: chargedAmount != null ? Number(chargedAmount) : row.chargedAmount,
           },
         });
-        if (payVerifyRes.ok) {
-          const payVerifyData = await payVerifyRes.json();
-          const payment = payVerifyData?.data || payVerifyData || {};
-          if (payment.status === 'SUCCESS') {
-            isPaid = true;
-            netAmount = payment.net_amount;
-            paymentCurrency = payment.currency;
-          }
-        }
       } catch (err) {
-        console.warn('[SasPay] Erreur vérification paiement direct:', err.message);
+        console.warn('[SasPay] verify-session: maj DB échouée:', err.message);
       }
     }
 
     return res.status(200).json({
       success: true,
-      paid: isPaid,
-      status: session.status,
-      transactionId: session.transaction_id || null,
-      transactionStatus: session.transaction_status || null,
-      transactionReference: session.transaction_reference || null,
-      netAmount,
-      currency: paymentCurrency,
+      paid,
+      status: session.status || null,            // statut session (PENDING/PAID/...)
+      transactionStatus,                          // statut paiement (PENDING/SUCCESS/FAILED)
+      transactionId,
+      orderRef: row?.orderRef || null,
+      sessionId: effectiveSessionId,
+      productId: row?.productId || null,
+      amount: row ? Number(row.finalPrice).toFixed(2) : null, // montant SERVEUR attendu
+      email: row?.email || null,
+      netAmount: netAmount != null ? Number(netAmount) : null,
+      chargedAmount: chargedAmount != null ? Number(chargedAmount) : null,
+      currency: 'XOF',
     });
   } catch (error) {
-    console.error('[SasPay] Exception verify-session:', error);
-    return res.status(500).json({ paid: false, error: error.message || 'Erreur lors de la vérification' });
+    console.error('[SasPay] Exception verify-session:', error.message);
+    return res.status(502).json({ paid: false, status: 'ERROR', error: 'Erreur de vérification SasPay.' });
   }
 }

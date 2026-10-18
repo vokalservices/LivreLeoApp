@@ -1,165 +1,239 @@
 /**
  * pages/api/saspay/create-checkout.js
- * Crée une session de checkout hébergée SasPay pour le paiement Mobile Money & Carte en Afrique francophone.
- * Spécification OpenAPI SasPay : POST https://api.saspay.me/api/v1/checkout-sessions/
+ * POST /api/saspay/create-checkout
  *
- * IMPORTANT: On utilise exclusivement le checkout hébergé SasPay (et non softpay direct)
- * pour que le client puisse choisir n'importe quel mode de paiement disponible
- * (Wave, Orange Money, MTN MoMo, Moov, Carte bancaire, Djamo, etc.)
- * sans qu'un réseau indisponible bloque tout le flux.
+ * Crée une session de checkout hébergée SasPay (POST /checkout-sessions/).
+ * Réécriture 2026-10 — strictement conforme aux guidelines SasPay
+ * (SaasPay/SKILL.md + AGENTS.md + docs.saspay.me/api-reference/openapi.json) :
+ *
+ *  - Le montant est recalculé CÔTÉ SERVEUR (lib/pricing.js) : catalogue + base
+ *    de données + validateCoupon(). Le prix envoyé par le client est ignoré.
+ *  - Montant en CHAÎNE DÉCIMALE ("6500.00"), jamais de flottant.
+ *  - fee_charge_mode = DEDUCTED : le client paie EXACTEMENT le prix affiché
+ *    (les frais sont déduits du net reversé au marchand) — plus d'écart
+ *    « 6 500 affichés / 6 728 débités ».
+ *  - La session est PERSISTÉE en base (SasPayCheckout) dès la création, avec
+ *    un orderRef interne qui relie return_url, page /success et webhook.
+ *  - Pas d'Idempotency-Key sur /checkout-sessions/ (non requise par la spec ;
+ *    elle n'est obligatoire que sur softpay/payouts/wallet-transfers/retry).
+ *  - Erreurs classées par code HTTP (400/401/403/404/409/410/422/429).
+ *  - Clé API lue depuis l'environnement uniquement (jamais de log de clé).
  */
 
-const SASPAY_BASE_URL = 'https://api.saspay.me/api/v1';
 import crypto from 'crypto';
+import prisma from '../../../lib/prisma';
+import { validateCoupon } from '../../../lib/coupon-validator';
+import { resolveProduct, toAmountString } from '../../../lib/pricing';
+
+const SASPAY_BASE_URL = 'https://api.saspay.me/api/v1';
+
+/** Minimum encaissable par SasPay en XOF (erreur 400 « Le montant minimum est de 200 XOF »). */
+const SASPAY_MIN_AMOUNT_XOF = 200;
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** Libellés d'erreur par code HTTP (checklist guidelines #2). */
+const HTTP_ERROR_LABELS = {
+  400: 'Requête invalide',
+  401: 'Clé API SasPay absente/invalide/expirée — ne pas réessayer',
+  403: 'Compte SasPay suspendu ou ressource inaccessible',
+  404: 'Ressource introuvable',
+  409: 'Conflit — ne pas réexécuter sans vérifier',
+  410: 'Session ou lien expiré',
+  422: 'Paiement impossible en l’état',
+  429: 'Trop de requêtes vers SasPay — réessayez dans une minute',
+};
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Méthode non autorisée.' });
   }
 
-  const apiKey = process.env.SASPAY_API_KEY;
+  const apiKey = (process.env.SASPAY_API_KEY || '').trim();
   if (!apiKey) {
-    console.error('[SasPay] Clé API SASPAY_API_KEY manquante dans les variables d\'environnement.');
+    console.error('[SasPay] SASPAY_API_KEY manquante dans l’environnement.');
     return res.status(500).json({
-      error: 'Clé API SasPay non configurée. Veuillez renseigner SASPAY_API_KEY dans votre fichier .env.local ou les paramètres Vercel.',
+      error: 'Paiement indisponible : clé API SasPay non configurée (SASPAY_API_KEY).',
     });
   }
 
   const {
-    book,
+    productId,
     isPack,
     isCombo,
+    coupon,
     customerEmail,
     customerName,
     customerPhone,
     country,
   } = req.body || {};
 
-  // Stratégie 100% Afrique Francophone : Prix fixés en FCFA (XOF)
-  let amountStr = '1300.00';
-  let title = 'Livre — Les Aventures de Léo';
-  let productId = 'single';
+  // ── 1. E-mail client (requis par la spec SasPay) ────────────────────────
+  const email = String(customerEmail || '').trim().toLowerCase();
+  if (!EMAIL_RE.test(email)) {
+    return res.status(400).json({ error: 'Adresse e-mail cliente invalide ou manquante.' });
+  }
+  const name = String(customerName || '').trim() || 'Parent Lecteur';
 
-  if (isCombo) {
-    amountStr = '9900.00';
-    title = 'Pack Combo 12 Livres (FR + EN) — Les Aventures de Léo';
-    productId = 'combo';
-  } else if (isPack) {
-    amountStr = '6500.00';
-    title = 'Pack Intégral 6 Tomes — Les Aventures de Léo';
-    productId = 'pack';
-  } else if (book) {
-    productId = String(book.id || 'single');
-    title = book.title || 'Livre — Les Aventures de Léo';
-    const numPrice = Number(book.price);
-    if (numPrice && numPrice > 0) {
-      amountStr = Math.round(numPrice >= 500 ? numPrice : 1300).toFixed(2);
-    } else {
-      amountStr = '1300.00';
+  // ── 2. Prix de BASE recalculé côté serveur (jamais confiance au client) ──
+  let product;
+  try {
+    product = await resolveProduct({ productId, isPack, isCombo });
+  } catch (err) {
+    console.error('[SasPay] resolveProduct:', err.message);
+    return res.status(500).json({ error: 'Erreur interne de résolution du produit.' });
+  }
+
+  // ── 3. Coupon REVALIDÉ côté serveur sur la vraie base ────────────────────
+  const cleanCoupon = String(coupon || '').trim().toUpperCase();
+  let finalPrice = product.basePrice;
+  if (cleanCoupon) {
+    const validation = await validateCoupon(cleanCoupon, product.basePrice);
+    if (!validation.valid) {
+      return res.status(422).json({ error: validation.error || 'Code promo invalide.' });
+    }
+    finalPrice = Math.round(validation.finalPrice);
+    if (finalPrice <= 0) {
+      // Coupon 100 % : hors périmètre SasPay → basculer sur le flux gratuit.
+      return res.status(409).json({
+        error: 'COUPON_100',
+        message: 'Ce code rend la commande gratuite : utilisez l’obtention gratuite.',
+      });
+    }
+    if (finalPrice < SASPAY_MIN_AMOUNT_XOF) {
+      // Contrainte réelle de l'API (testée le 2026-10-18) :
+      // 400 {"amount":["Le montant minimum est de 200 XOF."]}
+      return res.status(422).json({
+        error: `Après réduction, le montant (${finalPrice} FCFA) passe sous le minimum encaissable par SasPay (${SASPAY_MIN_AMOUNT_XOF} FCFA). Utilisez ce code sur un produit moins cher ou sans réduction.`,
+      });
     }
   }
 
-  // Déterminer l'URL d'origine pour la redirection de succès
-  const origin = req.headers.origin
-    || (process.env.NEXT_PUBLIC_BASE_URL ? process.env.NEXT_PUBLIC_BASE_URL.replace(/\/$/, '') : null)
-    || `https://${req.headers.host}`;
-
-  const cleanEmail = (customerEmail && customerEmail.includes('@')) ? customerEmail.trim() : 'client@ngsafrique.com';
-  const cleanName = (customerName && customerName.trim().length > 0) ? customerName.trim() : 'Parent Lecteur';
-
-  // Formatage propre du téléphone si fourni : enlever espaces, tirets, etc.
-  let cleanPhone = (customerPhone || '').toString().trim().replace(/[\s\-\.\(\)]/g, '');
-  if (cleanPhone && !cleanPhone.startsWith('+')) {
-    cleanPhone = `+${cleanPhone}`;
+  let amountStr;
+  try {
+    amountStr = toAmountString(finalPrice); // chaîne décimale exigée par SasPay
+  } catch (err) {
+    return res.status(400).json({ error: err.message });
   }
 
-  const cleanCountry = (country || '').toString().trim().toUpperCase().slice(0, 2);
+  // ── 4. Téléphone / pays (optionnels, formatage propre) ──────────────────
+  let phone = String(customerPhone || '').trim().replace(/[\s\-.()]/g, '');
+  if (phone && !phone.startsWith('+')) phone = `+${phone}`;
+  if (phone && phone.length < 8) phone = '';
+  const cleanCountry = String(country || '').trim().toUpperCase().slice(0, 2);
 
-  const returnUrl = `${origin}/success?productId=${productId}&amount=${amountStr}&currency=XOF&provider=saspay`;
+  // ── 5. return_url : URL publique exacte, avec orderRef interne ──────────
+  //     (APP_URL en priorité ; sinon NEXT_PUBLIC_BASE_URL ; sinon l'origine de
+  //     la requête — jamais un domaine hérité.)
+  const origin = (
+    process.env.APP_URL
+    || process.env.NEXT_PUBLIC_BASE_URL
+    || `https://${req.headers.host}`
+  ).replace(/\/+$/, '');
+  const orderRef = crypto.randomUUID();
+  const returnUrl = `${origin}/success?provider=saspay&orderRef=${orderRef}`;
 
-  // Préparation du payload selon la spécification OpenAPI SasPay /checkout-sessions/
-  // On N'ENVOIE PAS le champ "country" pour laisser SasPay proposer TOUS les réseaux
-  // disponibles au client sur sa page de checkout. Si on fixe country à "NE" et qu'Airtel Niger
-  // est en panne, le client ne peut plus payer du tout.
+  // ── 6. Payload conforme OpenAPI /checkout-sessions/ ──────────────────────
+  //     country volontairement NON envoyé : le checkout hébergé propose alors
+  //     tous les réseaux disponibles (fix du 1ca0e7a).
   const payload = {
     amount: amountStr,
     currency: 'XOF',
-    description: title,
-    customer_email: cleanEmail,
-    customer_name: cleanName,
+    description: product.title,
+    customer_email: email,
+    customer_name: name,
     return_url: returnUrl,
+    fee_charge_mode: 'DEDUCTED', // frais déduits du net marchand : débité == affiché
     metadata: {
-      productId,
-      isPack: !!isPack,
-      isCombo: !!isCombo,
-      currency: 'XOF',
-      email: cleanEmail,
-      phone: cleanPhone || '',
-      country: cleanCountry || '',
-      source: 'saspay_afrique_francophone',
+      orderRef,
+      productId: product.resolvedId,
+      basePrice: product.basePrice,
+      finalPrice,
+      coupon: cleanCoupon,
+      email,
+      phone,
+      country: cleanCountry,
+      source: 'leo_ngsafrique_saspay_v2',
     },
   };
+  if (phone) payload.customer_phone = phone;
 
-  // Ajouter le téléphone s'il est valide (permet au checkout de pré-remplir)
-  if (cleanPhone && cleanPhone.length >= 8) {
-    payload.customer_phone = cleanPhone;
-  }
-
-  // NE PAS forcer le country dans le payload principal pour éviter de bloquer
-  // le paiement si un réseau de ce pays est indisponible.
-  // Le checkout hébergé SasPay détermine automatiquement les réseaux disponibles.
-
+  // ── 7. Appel SasPay + gestion d'erreurs par code HTTP ────────────────────
+  let raw = null;
+  let response;
   try {
-    const response = await fetch(`${SASPAY_BASE_URL}/checkout-sessions/`, {
+    response = await fetch(`${SASPAY_BASE_URL}/checkout-sessions/`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey.trim()}`,
+        Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
-        'Idempotency-Key': crypto.randomUUID(),
       },
       body: JSON.stringify(payload),
     });
-
-    const raw = await response.json().catch(() => null);
-
-    if (!response.ok) {
-      console.error('[SasPay] Erreur création checkout session:', response.status, raw);
-      const errorMessage = raw?.error?.message
-        || raw?.message
-        || (raw && typeof raw === 'object' ? JSON.stringify(raw) : 'Erreur de paiement SasPay');
-      return res.status(response.status).json({
-        error: `Erreur SasPay (${response.status}) : ${errorMessage}`,
-        details: raw,
-      });
-    }
-
-    // SasPay enveloppe ses réponses réussies dans { success: true, data: { ... } }
-    const session = raw?.data || raw || {};
-    const checkoutUrl = session?.checkout_url || raw?.checkout_url || session?.url || raw?.url;
-    const sessionId = session?.id || raw?.id;
-    const slug = session?.slug || raw?.slug;
-
-    if (!checkoutUrl) {
-      console.error('[SasPay] checkout_url manquant dans la réponse:', raw);
-      return res.status(502).json({
-        error: 'URL de paiement non reçue de SasPay.',
-        details: raw,
-      });
-    }
-
-    // Définir un cookie de session pour identifier la session lors du retour sur /success
-    if (sessionId) {
-      res.setHeader('Set-Cookie', `saspay_last_session=${sessionId}; Path=/; Max-Age=7200; SameSite=Lax`);
-    }
-
-    return res.status(200).json({
-      success: true,
-      sessionId,
-      checkoutUrl,
-      slug,
-    });
-  } catch (error) {
-    console.error('[SasPay] Exception create-checkout:', error);
-    return res.status(500).json({ error: error.message || 'Erreur interne de connexion à SasPay.' });
+    raw = await response.json().catch(() => null);
+  } catch (err) {
+    console.error('[SasPay] Exception réseau create-checkout:', err.message);
+    return res.status(502).json({ error: 'Connexion à SasPay impossible. Réessayez dans un instant.' });
   }
+
+  if (!response.ok) {
+    // Enveloppes d'erreur SasPay : métier {"success":false,"error":{...}}
+    // ou validation {"champ":["message"]}. On ne loggue JAMAIS la clé.
+    const detail =
+      raw?.error?.message
+      || (raw && typeof raw === 'object' ? JSON.stringify(raw).slice(0, 400) : '')
+      || 'Erreur SasPay';
+    console.error('[SasPay] create-checkout HTTP', response.status, detail);
+    const label = HTTP_ERROR_LABELS[response.status] || 'Erreur SasPay';
+    const status = response.status >= 500 ? 502 : response.status;
+    return res.status(status).json({ error: `${label} (${response.status}) : ${detail}` });
+  }
+
+  // Réponse réussie enveloppée : {"success":true,"data":{...},"code":200}
+  const session = raw?.data || raw || {};
+  const sessionId = session.id;
+  const checkoutUrl = session.checkout_url || session.url;
+  if (!sessionId || !checkoutUrl) {
+    console.error('[SasPay] Réponse sans id/checkout_url. Clés reçues :', Object.keys(session));
+    return res.status(502).json({ error: 'Réponse SasPay incomplète (checkout_url manquant).' });
+  }
+
+  // ── 8. Persistance de la session dès la création (guideline SKILL.md) ────
+  try {
+    await prisma.sasPayCheckout.create({
+      data: {
+        id: String(sessionId),
+        orderRef,
+        slug: session.slug ? String(session.slug) : null,
+        productId: product.resolvedId,
+        basePrice: product.basePrice,
+        finalPrice,
+        coupon: cleanCoupon || null,
+        email,
+        phone: phone || null,
+        country: cleanCountry || null,
+      },
+    });
+  } catch (err) {
+    // Non bloquant pour l'encaissement, mais la réconciliation webhook
+    // reposera alors uniquement sur metadata.orderRef.
+    console.error('[SasPay] Persistance SasPayCheckout échouée:', err.message);
+  }
+
+  // Cookie de secours (le return_url porte déjà orderRef).
+  res.setHeader(
+    'Set-Cookie',
+    `saspay_order_ref=${orderRef}; Path=/; Max-Age=7200; SameSite=Lax; Secure`
+  );
+
+  return res.status(200).json({
+    success: true,
+    sessionId,
+    orderRef,
+    slug: session.slug || null,
+    checkoutUrl,
+    amount: amountStr,          // montant SERVEUR — le front affiche celui-ci
+    productId: product.resolvedId,
+    feeChargeMode: 'DEDUCTED',
+  });
 }

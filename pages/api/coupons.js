@@ -38,11 +38,25 @@ function authenticate(req, res) {
 export default async function handler(req, res) {
 
   // ── GET public : valider un code coupon ──────────────────────────────────
+  // Le prix de BASE est résolu CÔTÉ SERVEUR via productId (catalogue/DB).
+  // Le paramètre legacy `price` (envoyé par le navigateur) n'est plus une
+  // autorité : il n'est accepté que comme repli si productId est absent.
   if (req.method === 'GET' && req.query.validate) {
-    const { code, price } = req.query;
+    const { code, productId } = req.query;
     if (!code) return res.status(400).json({ error: 'code requis' });
 
-    const result = await validateCoupon(code, parseFloat(price) || 0);
+    let basePrice = parseFloat(req.query.price) || 0;
+    if (productId !== undefined && productId !== '') {
+      try {
+        const { resolveProduct } = await import('../../lib/pricing');
+        const resolved = await resolveProduct({ productId });
+        basePrice = resolved.basePrice;
+      } catch (err) {
+        console.warn('[coupons] resolveProduct:', err.message);
+      }
+    }
+
+    const result = await validateCoupon(code, basePrice);
     if (!result.valid) {
       return res.status(result.error === 'Code promo invalide ou inactif.' ? 404 : 400).json({
         valid: false,
