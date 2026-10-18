@@ -16,20 +16,10 @@ import React, { useState, useEffect } from 'react';
 
 const CATALOG_XOF = { single: 1300, pack: 6500, combo: 9900 };
 
-// Pays d'Afrique francophone ciblés, avec indicatifs (UX téléphone).
-const AFRICAN_COUNTRIES = [
-  { code: 'NE', name: 'Niger', dial: '+227', placeholder: '89 00 00 00' },
-  { code: 'CI', name: "Côte d'Ivoire", dial: '+225', placeholder: '07 00 00 00 00' },
-  { code: 'SN', name: 'Sénégal', dial: '+221', placeholder: '77 000 00 00' },
-  { code: 'BJ', name: 'Bénin', dial: '+229', placeholder: '97 00 00 00' },
-  { code: 'CM', name: 'Cameroun', dial: '+237', placeholder: '6 00 00 00 00' },
-  { code: 'BF', name: 'Burkina Faso', dial: '+226', placeholder: '70 00 00 00' },
-  { code: 'TG', name: 'Togo', dial: '+228', placeholder: '90 00 00 00' },
-  { code: 'ML', name: 'Mali', dial: '+223', placeholder: '70 00 00 00' },
-  { code: 'GN', name: 'Guinée', dial: '+224', placeholder: '620 00 00 00' },
-  { code: 'GA', name: 'Gabon', dial: '+241', placeholder: '07 00 00 00' },
-  { code: 'CG', name: 'Congo', dial: '+242', placeholder: '06 000 00 00' },
-];
+// NB : plus de champ téléphone/pays ici — le checkout hébergé SasPay collecte
+// lui-même le numéro avec son propre drapeau. Envoyer customer_phone forçait
+// un push vers un réseau précis (hypothèse du conflit Airtel Niger : le site
+// scolaris.ngsafrique.com, qui n'envoie pas de téléphone, passe très bien).
 
 export default function SasPayButton({
   book,
@@ -43,8 +33,6 @@ export default function SasPayButton({
 }) {
   const [email, setEmail] = useState(initialEmail || '');
   const [emailError, setEmailError] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState('NE');
-  const [phone, setPhone] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStep, setLoadingStep] = useState('');
   const [error, setError] = useState('');
@@ -60,19 +48,14 @@ export default function SasPayButton({
   const formattedXof = displayAmountXof.toLocaleString('fr-FR') + ' FCFA';
 
   const productId = isCombo ? 'combo' : isPack ? 'pack' : String(book?.id || 'single');
-  const currentCountry = AFRICAN_COUNTRIES.find((c) => c.code === selectedCountry) || AFRICAN_COUNTRIES[0];
 
-  // E-mail / téléphone / pays en cache (confort, jamais autorité).
+  // E-mail en cache (confort, jamais autorité).
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
       const stored = JSON.parse(localStorage.getItem('pending_purchase') || '{}');
       const cachedEmail = stored.email || localStorage.getItem('customer_email');
       if (cachedEmail && !email) setEmail(cachedEmail);
-      const cachedPhone = stored.phone || localStorage.getItem('customer_phone');
-      if (cachedPhone && !phone) setPhone(cachedPhone);
-      const cachedCountry = localStorage.getItem('customer_country');
-      if (cachedCountry) setSelectedCountry(cachedCountry);
     } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -91,18 +74,6 @@ export default function SasPayButton({
     setEmailError('');
     try { localStorage.setItem('customer_email', cleanEmail); } catch {}
     return cleanEmail;
-  }
-
-  // Nettoyage du numéro pour éviter le double indicatif (ex. 227 227…).
-  function getSanitizedPhone() {
-    if (!phone) return '';
-    let digits = phone.replace(/[\s\-.()]/g, '');
-    const dialDigits = currentCountry.dial.replace('+', '');
-    if (digits.startsWith(`+${dialDigits}`)) digits = digits.slice(dialDigits.length + 1);
-    else if (digits.startsWith(dialDigits)) digits = digits.slice(dialDigits.length);
-    else if (digits.startsWith('00' + dialDigits)) digits = digits.slice(dialDigits.length + 2);
-    if (!digits) return '';
-    return `${currentCountry.dial}${digits}`;
   }
 
   function trackInitiateCheckout(valueXof) {
@@ -158,12 +129,6 @@ export default function SasPayButton({
     const cleanEmail = validateEmail();
     if (!cleanEmail) return;
 
-    const fullPhone = getSanitizedPhone();
-    try {
-      if (phone) localStorage.setItem('customer_phone', phone);
-      if (selectedCountry) localStorage.setItem('customer_country', selectedCountry);
-    } catch {}
-
     setIsLoading(true);
     setLoadingStep(isEn ? 'Connecting to SasPay…' : 'Connexion à SasPay (Mobile Money & Carte)…');
     setError('');
@@ -178,8 +143,6 @@ export default function SasPayButton({
           isCombo,
           coupon: (coupon || '').trim().toUpperCase(),
           customerEmail: cleanEmail,
-          customerPhone: fullPhone,
-          country: selectedCountry,
         }),
       });
       const data = await res.json();
@@ -202,8 +165,6 @@ export default function SasPayButton({
             currency: 'XOF',
             title: book?.title || (isCombo ? 'Pack Combo 12 Livres' : isPack ? 'Pack 6 Tomes' : 'Livre Léo'),
             email: cleanEmail,
-            phone: fullPhone,
-            country: selectedCountry,
             provider: 'saspay',
           }));
         } catch {}
@@ -242,40 +203,6 @@ export default function SasPayButton({
             <span>⚠️</span> {emailError}
           </p>
         )}
-      </div>
-
-      {/* ── CHAMP TÉLÉPHONE MOBILE MONEY (recommandé) ── */}
-      <div className="w-full text-left">
-        <label className="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1.5">
-          📱 {isEn ? 'Mobile Money phone number (optional)' : 'Numéro Mobile Money (Wave, Orange, MTN, Moov)'}
-        </label>
-        <div className="flex gap-2">
-          <select
-            value={selectedCountry}
-            onChange={(e) => setSelectedCountry(e.target.value)}
-            className="w-36 shrink-0 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-200 text-xs font-bold px-2 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1B7F56]"
-          >
-            {AFRICAN_COUNTRIES.map((c) => (
-              <option key={c.code} value={c.code}>{c.dial} ({c.name})</option>
-            ))}
-          </select>
-          <input
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder={currentCountry.placeholder}
-            className="flex-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white placeholder-slate-400 px-3.5 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#1B7F56] font-medium shadow-sm transition"
-          />
-        </div>
-        <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 rounded-xl p-2.5 mt-2 text-[11px] text-amber-800 dark:text-amber-200 leading-relaxed">
-          <p className="font-bold flex items-center gap-1 mb-0.5">
-            <span>ℹ️</span> Conseil Mobile Money :
-          </p>
-          <p>
-            Sur la page de paiement sécurisée, le drapeau du pays applique déjà l'indicatif.
-            Tapez uniquement votre numéro local sans réécrire l'indicatif (ex : {currentCountry.placeholder}).
-          </p>
-        </div>
       </div>
 
       {/* ── BOUTON PRINCIPAL SASPAY (montant serveur) ── */}
